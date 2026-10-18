@@ -1,0 +1,221 @@
+\chapter*{The Proof Programme}
+\addcontentsline{toc}{chapter}{The Proof Programme}
+
+The results below are theorem \emph{specifications} for the writing programme. Several elementary results already admit the short proofs sketched here. The broader economic interpretations depend on assumptions that the chapters must make explicit, and some entries are statements whose exact form is still to be fixed. Each entry carries a family tag and a status:
+
+\begin{description}[leftmargin=1.5em,style=nextline]
+\item[Elementary] The statement is fixed and a short proof is indicated.
+\item[Hypotheses to fix] The statement is fixed in outline but the hypotheses must be pinned down in the chapter that proves it.
+\item[Specification] The result is described but the precise statement is not yet settled.
+\end{description}
+
+The six families are \textsc{REP} (representation and economic knowledge), \textsc{VIA} (viability and comparative statics), \textsc{PRD} (production, deterioration, irreversible investment), \textsc{INS} (institutions, distribution, dependence), \textsc{CPT} (competence, automation, corrective control), and \textsc{CMP} (composition and mathematical interpretation). Identifiers \Pref{P01} to \Pref{P29} are stable and are cited by the chapters; the family tag organizes Part~IX.
+
+\section*{Dependency structure}
+
+\Pref{P01} to \Pref{P03} are the foundation. \Pref{P04} to \Pref{P10}, together with \Pref{P23} and \Pref{P25}, form the theory of sustainable commitments. \Pref{P11} to \Pref{P17}, together with \Pref{P24}, form the theory of economic representation and control. \Pref{P26} to \Pref{P29} add the economic substance for investment, institutions, and compensation. \Pref{P18} to \Pref{P22} are the mathematical reinterpretations, and \Pref{P27} organizes composition across all three. The housing-maintenance example recurs across every group.
+
+\section*{Representation and economic knowledge}
+
+\begin{pspec}{P01}{History sufficiency and continuation equivalence}{REP}
+\pfield{Hypotheses}{For an observed history $h$ let $L(h)$ be the set of future action-and-disturbance sequences that satisfy the specified obligations. A summary $q$ is \emph{exact for admissibility} if, for every history $h$ and every future sequence $u$, whether $u\in L(h)$ is determined by $q(h)$ and $u$.}
+\pfield{Statement}{Define $h\sim h'$ if and only if $L(h)=L(h')$. Any exact summary satisfies $q(h)=q(h')\Rightarrow h\sim h'$, so $\sim$ is the coarsest exact summary. If the continuation language has the residual property $L(he)=e^{-1}L(h)$ for each event $e$, then $\sim$ is a right congruence: $h\sim h'\Rightarrow he\sim h'e$, and the classes support well-defined updates.}
+\pfield{Consequence}{Debt, deferred maintenance, accumulated exposure, and contractual commitments cannot be dropped merely because current physical holdings match. The result concerns exact admissibility recognition. Predictive sufficiency for probabilities or welfare needs further conditions.}
+\pfield{Status}{Elementary. Congruence requires the residual property.}
+\end{pspec}
+
+\begin{pspec}{P11}{Accounting sufficiency requires factorization}{REP}
+\pfield{Statement}{Let $F:S\to Y$ be an accounting representation and $P:S\to\{0,1\}$ an economic property. The property is determined exactly by the accounts if and only if $F(s)=F(s')\Rightarrow P(s)=P(s')$, equivalently $P=\bar P\circ F$ on the image of $F$ for some $\bar P:F(S)\to\{0,1\}$.}
+\pfield{Relation to P01}{\Pref{P01} and \Pref{P11} are one factorization lemma. \Pref{P01} is its dynamic version, where the representation must in addition be a congruence for event updates. Minimal sufficient representation is the quotient by the kernel of the property.}
+\pfield{Consequence}{Equal reported profit can coexist with different answers about maintenance adequacy, restoration exposure, or viable operation, whenever $F$ identifies states that differ on those properties.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P13}{Scalar representation fails for genuine incomparability}{REP}
+\pfield{Statement}{(a) If a partial order $\preceq$ on continuation profiles contains incomparable $x,y$, no real-valued $v$ satisfies $x\preceq y\Leftrightarrow v(x)\le v(y)$ for all pairs, since $\R$ is totally ordered. (b) Positive companion: every partial order admits a multi-utility representation, a family $(v_i)$ of monotone real functions with $x\preceq y\Leftrightarrow v_i(x)\le v_i(y)$ for all $i$. For a finite order the minimal number of functions equals the order dimension (Dushnik and Miller~\cite{dushnik1941}).}
+\pfield{Consequence}{Useful prices, utilities, and monotone indicators are not ruled out. What is ruled out is an exact, order-reflecting scalar representation of all distinctions.}
+\pfield{Status}{(a) elementary; (b) hypotheses to fix, in particular the infinite case.}
+\end{pspec}
+
+\begin{pspec}{P15}{Proxy rewards underdetermine substantive contribution}{REP}
+\pfield{Statement}{Let $m(a)$ measure rewarded activity and $V(a)$ the substantive contribution sought. If $m(a)=m(b)$ and $V(a)\ne V(b)$, a reward depending only on $m$ cannot distinguish $a$ from $b$. If $m(a)>m(b)$ and $V(a)<V(b)$, a strictly increasing function of $m$ ranks them opposite to $V$.}
+\pfield{Consequence}{This is a limit on information, not a theory of behaviour. Behaviour requires the participants' costs, available actions, and preferences to be specified separately.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P17}{Verification transfers only through an adequate interpretation}{REP}
+\pfield{Hypotheses}{Let $M$ be a formal model, $E$ the empirical system, and $R$ a relation connecting their states. Assume soundness of overapproximation: every relevant empirical execution is $R$-related to a model execution, and $R$-related states satisfy that model safety implies empirical safety.}
+\pfield{Statement}{A verified universal safety property of $M$ transfers to $E$ under these hypotheses.}
+\pfield{Consequence}{Passing a check establishes what its specification and interpretation support. The connection to the economic situation is an additional proof obligation. Liveness and probabilistic claims need stronger relations.}
+\pfield{Status}{Hypotheses to fix.}
+\end{pspec}
+
+\begin{pspec}{P24}{Scarcity prices as dual variables}{REP}
+\pfield{Hypotheses}{A convex allocation problem with a capacity constraint $\sum_j d_j\le c$, Slater's condition, and attainment, so that strong duality holds and a multiplier exists.}
+\pfield{Statement}{There is a multiplier $\lambda^\ast\ge 0$ supporting the optimal allocation, with complementary slackness $\lambda^\ast(c-\sum_j d_j)=0$. If in addition the objective and constraints decompose across participants (separability) and each participant's choice rule is the individual Lagrangian problem at $\lambda^\ast$, then the multiplier is a decentralized price. A multiplier alone does not establish a market implementation.}
+\pfield{Consequence}{Supporting prices, equilibrium prices, sensitivity derivatives, and sufficient statistics are distinct notions, and uniqueness, decentralizability, and informational sufficiency are separate claims. By \Pref{P11} a price is a sufficient statistic for a given decision only if that decision factors through it.}
+\pfield{Status}{Hypotheses to fix.}
+\end{pspec}
+
+\section*{Viability and comparative statics}
+
+\begin{pspec}{P03}{Robust viability as a greatest fixed point}{VIA}
+\pfield{Statement}{Define $\Phi(X)=\{s\in G:\exists a\in A(s)\ \forall w\in W(s,a),\ T(s,a,w)\in X\}$. The operator $\Phi$ is monotone on subsets of $S$, so by Knaster and Tarski~\cite{tarski1955} it has a greatest fixed point $K=\bigcup\{X\subseteq G: X\subseteq\Phi(X)\}$. With $A(s)$ and $W(s,a)$ nonempty and complete observation, $K$ is exactly the set of states from which a policy keeps the system in $G$ forever against all allowed disturbances, and a state-feedback policy suffices.}
+\pfield{Convergence}{The iteration $K_0=G$, $K_{n+1}=\Phi(K_n)$ is decreasing. It stabilizes at $K$ in at most $|S|$ steps when $S$ is finite. In general the iteration may need transfinite stages, and the companion code exhibits an infinite chain where each $K_n$ is nonempty but $K=\varnothing$. Termination claims are therefore stated only under separately stated hypotheses. See Aubin~\cite{aubin1991} for continuous-time viability theory.}
+\pfield{Consequence}{Present acceptability and sustainable acceptability are different properties.}
+\pfield{Status}{Elementary for the fixed point and the witnessing action. Convergence needs finiteness.}
+\end{pspec}
+
+\begin{pspec}{P23}{Comparative statics of viability}{VIA}
+\pfield{Hypotheses}{Systems compared on a common state space.}
+\pfield{Statement}{The kernel $K$ is monotone increasing in the acceptable set $G$, increasing in each action set $A(s)$, and decreasing in each disturbance set $W(s,a)$, all else equal. The proof is monotonicity of $\Phi$ in each parameter, hence of its greatest fixed point.}
+\pfield{Consequence}{Added duty, added capacity, and added exposure are treated in one statement. \Pref{P04} and \Pref{P14} are corollaries.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P04}{Obligation tightening cannot enlarge viability}{VIA}
+\pfield{Statement}{On a common state space with identical dynamics, actions, and disturbances, $G_2\subseteq G_1$ implies $K(G_2)\subseteq K(G_1)$. If a new obligation enlarges the state, compare through an explicit simulation relation $\rho\subseteq S_2\times S_1$ under which $\rho$-related states respect acceptability and every action and disturbance of the tighter system is matched in the weaker one.}
+\pfield{Consequence}{Tightening can leave the kernel unchanged, so an added duty does not by itself require extra resources or changed technology. The requirement arises only when the new constraint removes previously viable states or policies, that is, when $K(G_2)\subsetneq K(G_1)$. Preserving the old kernel then requires altering resources, permissions, technology, or disturbance exposure.}
+\pfield{Status}{Elementary on a common state space. Hypotheses to fix for the simulation version.}
+\end{pspec}
+
+\begin{pspec}{P05}{Local acceptability does not imply viable continuation}{VIA}
+\pfield{Statement}{There exist systems with $s_0\in K$, $s_1\in G$, $s_1\notin K$, and an available action from $s_0$ to $s_1$. Three states suffice: from $s_0$ one action stays at $s_0$ and another enters $s_1$, and from $s_1$ every action enters an unacceptable state $b\notin G$.}
+\pfield{Consequence}{A current-state check can pass while continued feasibility is destroyed. This supports the trajectory-level analysis of maintenance cuts, cumulative dependence, and repeated interventions.}
+\pfield{Status}{Elementary. Reported check in the companion (Appendix~\ref{app:companion}).}
+\end{pspec}
+
+\begin{pspec}{P06}{Safe degradation requires successor viability}{VIA}
+\pfield{Statement}{Let $A_K(s)=\{a\in A(s):T(s,a,w)\in K\ \text{for every allowed } w\}$. For $s\in K$, a degradation action preserves the possibility of satisfying the ongoing regime exactly when it lies in $A_K(s)$, and $K=\{s\in G: A_K(s)\neq\varnothing\}$. If degradation creates a restoration duty, that duty must be included in the successor state before $A_K$ is evaluated.}
+\pfield{Consequence}{Temporary suspension cannot be evaluated apart from the obligation it leaves behind.}
+\pfield{Status}{Elementary, from \Pref{P03}.}
+\end{pspec}
+
+\begin{pspec}{P07}{A constructive certificate for compensating continuation}{VIA}
+\pfield{Hypotheses}{Let $R\subseteq G$ be the states in which a restoration obligation is discharged. Let $D\subseteq G$ carry a rank $r:D\to\N$ with $r(s)=0$ exactly on $R$, and let a policy be such that every allowed successor remains in $D$ and strictly decreases $r$ whenever $r>0$.}
+\pfield{Statement}{From $s_0\in D$ restoration occurs within $r(s_0)$ steps while remaining acceptable. Induction on $r$.}
+\pfield{Consequence}{Reserved resources and permissions must support a policy whose progress survives the modelled disturbances.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P14}{Corrective control has weak option value}{VIA}
+\pfield{Statement}{If $\Pi_0\subseteq\Pi_1$ are policy sets for identical environments and criteria, $\sup_{\Pi_1}J\ge\sup_{\Pi_0}J$. Strict improvement requires a circumstance in which the added action helps. For viability the same statement is the action-set case of \Pref{P23}.}
+\pfield{Consequence}{Corrective capacity has potential value, but its acquisition is a substantive investment problem. Training, monitoring, reserves, and intervention infrastructure must be priced explicitly.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P25}{Almost-sure and risk-constrained viability}{VIA}
+\pfield{Settled statement (countable case)}{Robust viability over disturbance supports is not in general equivalent to almost-sure viability. In a finite or countable model, requiring every positive-probability successor to stay in $X$ gives the almost-sure predecessor condition. For general kernels, the operator to be studied is $\Phi_{\mathrm{as}}(X)=G\cap\{s:\exists a\in A(s),\ \Prob(X\mid s,a)=1\}$.}
+\pfield{Hypotheses to fix}{Identifying the greatest fixed point of $\Phi_{\mathrm{as}}$ with an implementable policy needs measurability and selection assumptions. Moving to universally measurable or analytic sets does not by itself solve the problem, since those classes are not closed under all the operations and transfinite iterations involved (Bertsekas and Shreve~\cite{bertsekas1978}). The measurable domain and the policy-selection theorem must be fixed first. A support formulation holds for closed $X$, where full measure implies containment of the support. Risk-constrained viability needs an augmented state carrying a remaining risk budget and a justified rule for allocating conditional risk across successors.}
+\pfield{Status}{Countable case: elementary. General-state version: research specification until the measurable domain and selection theorem are fixed.}
+\end{pspec}
+
+\section*{Production, deterioration, and irreversible investment}
+
+\begin{pspec}{P12}{Financial improvement can accompany capability depletion}{PRD}
+\pfield{Statement}{Let surplus be $\pi=R-C-M$ with maintenance expenditure $M$, and capacity evolve by $k_{t+1}=k_t-d(k_t)+g(M_t)$. (a) If a reduction $\delta>0$ in maintenance leaves revenue and other costs unchanged, current surplus rises by $\delta$, and if $g$ is strictly increasing over the relevant interval, successor capacity falls relative to the maintained baseline. (b) Threshold: derive the viability boundary $k^\ast(\bar M)$ for a maintenance budget $\bar M$, and state conditions under which it jumps or has a kink.}
+\pfield{Consequence}{Nonlinear deterioration alone does not guarantee a discontinuity or a kink. The threshold result must say what does.}
+\pfield{Status}{(a) elementary. (b) specification.}
+\end{pspec}
+
+\begin{pspec}{P26}{When waiting improves attainable value}{PRD}
+\pfield{Elementary two-period form}{Investment of cost $I$ yields a payoff $X$ with mean $\mu$, revealed after one period. Acting now yields $V_{\mathrm{act}}=(\mu-I)+r$, where $r$ is the first-period flow return forgone by waiting. Waiting yields $V_{\mathrm{wait}}=\beta\,\mathbb E[\mathbf 1_{\mathrm{surv}}(X-I)^+]$ with discount $\beta$, where $\mathbf 1_{\mathrm{surv}}$ indicates that the opportunity survives. If survival is independent of the revealed payoff with probability $q$, this equals $\beta q\,\mathbb E[(X-I)^+]$. Otherwise it does not, and the dependence must be modelled. Waiting is better exactly when $V_{\mathrm{wait}}>V_{\mathrm{act}}$. By Jensen, $\mathbb E[(X-I)^+]\ge(\mu-I)^+$, so the option value of information is nonnegative before discounting, deterioration, and expiry. See Dixit and Pindyck~\cite{dixit1994}.}
+\pfield{General statement}{Compare the value of information acquired through delay with deterioration, forgone returns, and expiring opportunities, treating action and inaction symmetrically as potentially irreversible.}
+\pfield{Status}{Two-period form elementary. General form specification.}
+\end{pspec}
+
+\section*{Institutions, distribution, and dependence}
+
+\begin{pspec}{P02}{Establishment precedes selection}{INS}
+\pfield{Statement}{Let $D$ be an opportunity domain, $E(e,D)$ the domain established by an acquisition action $e$, and $C(D)$ the outcomes obtainable by selection inside $D$. If $x\notin C(D)$ and $x\in C(E(e,D))$, selection within $D$ cannot implement $x$ whereas establishment followed by selection can. Budgeted version: assume a zero-cost identity establishment action (or an explicit permission to skip establishment). Then with budget $b$, outcomes under establish-then-select policies contain those under selection only, and the inclusion is strict only if an affordable establishment action makes an otherwise inaccessible outcome reachable.}
+\pfield{Consequence}{Expenditure on access, infrastructure, learning, or recognition can change the choice problem itself.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P08}{Nominal exit and executable exit are distinct}{INS}
+\pfield{Statement}{Let $X$ be an exit target and $B$ the states satisfying the safety and obligation constraints during departure. Define $\Reach_0=X$ and $\Reach_{k+1}=\Reach_k\cup\{s\in B:\exists a\ \forall w,\ T(s,a,w)\in\Reach_k\}$. An exit is executable within horizon $H$ exactly when $s\in\Reach_H$. A legal permission to exit does not imply membership. A permitted departure requiring a fee beyond the person's accessible resources is a counterexample.}
+\pfield{Consequence}{Exit capacity is an operational variable and its distribution can be studied independently of whether contracts contain an exit clause.}
+\pfield{Status}{Elementary.}
+\end{pspec}
+
+\begin{pspec}{P28}{Surplus gain with a shrunken safe exit set}{INS}
+\pfield{Statement}{Characterize when an intervention raises aggregate surplus while reducing a specified participant's executable exit set, building on \Pref{P08}, and relate this to bargaining, cumulative contractual dependence, and portability.}
+\pfield{Status}{Proved in the hand-calculable housing model (Theorem~H1 in the housing case). General statement: specification.}
+\end{pspec}
+
+\begin{pspec}{P29}{When compensation restores capability}{INS}
+\pfield{Statement}{Identify conditions under which a transfer restores the lost capability rather than merely increasing monetary holdings: the compensating bundle must lie in the reachability preimage of the lost capability under prices and access actually available, using \Pref{P08} and \Pref{P07}.}
+\pfield{Status}{Proved in the housing model (Theorem~H2 in the housing case): restoration requires availability, timing, and sufficiency. General statement: specification.}
+\end{pspec}
+
+\section*{Competence, automation, and corrective control}
+
+\begin{pspec}{P16}{Safe aspect relegation requires a detection-and-return margin}{CPT}
+\pfield{Statement}{Let an automated operating region lie at distance $d$ from a failure boundary, with adverse motion at rate at most $v$, detection and return to explicit control within time $\tau$, and intervention able to arrest deterioration before the boundary. Then $d>v\tau$ is sufficient, plus allowances for observation error and stopping distance. Endogenous version: response time depends on retained competence, $\tau_t=\tau(c_t)$, and $c_{t+1}=f(c_t,u_t,\ell_t)$ with practice $u_t$ and reliance on relegated operation $\ell_t$. Under monotonicity assumptions ($\tau$ decreasing in $c$, $f$ increasing in $u$ and decreasing in $\ell$), the condition is $d_t>v_t\,\tau(c_t)+\text{allowances}$.}
+\pfield{Economic result}{The minimal practice expenditure $u_t^\ast$ that preserves the margin, and the circumstances in which apparent automation savings are consumed by it.}
+\pfield{Status}{Fixed-$\tau$ form elementary. Endogenous form hypotheses to fix.}
+\end{pspec}
+
+\section*{Composition and mathematical interpretation}
+
+\begin{pspec}{P09}{Local feasibility is insufficient under shared scarcity}{CMP}
+\pfield{Statement}{Two commitments each needing one unit of a resource at the same time, with one unit available, are each feasible alone and jointly infeasible. For divisible simultaneous demands $d_j$ on capacity $c$, $d_j\le c$ for every $j$ does not imply $\sum_j d_j\le c$, and $\sum_j d_j\le c$ is necessary and sufficient for joint feasibility in the static divisible case.}
+\pfield{Consequence}{This is the obstruction every later compositional guarantee must address. Departments, firms, and agencies can each hold feasible plans that cannot be executed together.}
+\pfield{Status}{Elementary. Reported check in the companion (Appendix~\ref{app:companion}).}
+\end{pspec}
+
+\begin{pspec}{P10}{Independent viability composes under explicit independence}{CMP}
+\pfield{Hypotheses}{Two systems with product state space, independent actions, product disturbance sets, factorized dynamics, nonempty action and disturbance sets, and acceptable set $G_1\times G_2$.}
+\pfield{Statement}{The robust kernel is $K_{12}=K_1\times K_2$. For $\supseteq$, combine the witnessing policies. For $\subseteq$, a joint action may depend on both components, so the projection is not immediate. Fix an allowed disturbance selection for system~2 and simulate system~2 inside a policy for system~1. The induced policy depends only on system~1's history and keeps it in $G_1$ against all of its disturbances. This is where nonemptiness and the policy class matter.}
+\pfield{Consequence}{Shared budgets, coupled timing, or cross-system effects violate the premises. The theorem states exactly what must be established before local guarantees assemble without further analysis.}
+\pfield{Status}{Hypotheses to fix. Reported check in the companion, with and without coupling.}
+\end{pspec}
+
+\begin{pspec}{P27}{Circular assume-guarantee composition}{CMP}
+\pfield{Statement}{Components carry assumption-guarantee pairs $(A_i,G_i)$ on safety properties, with shared capacity appearing in the interface as a time-indexed assumption on the combined draw. If each guarantee at step $n+1$ depends only on assumptions through step $n$, the circular argument is well founded by induction on $n$, and the conjunction of guarantees holds for the composition (Abadi and Lamport~\cite{abadi1995}).}
+\pfield{Consequence}{The temporal discipline is what prevents circular assumptions from justifying themselves. It restricts the argument to safety properties.}
+\pfield{Status}{Specification. The inductive form is the target statement.}
+\end{pspec}
+
+\begin{pspec}{P18}{Economic processes form a category when interfaces compose}{CMP}
+\pfield{Hypotheses}{Let $\mathcal P$ be the full path category: objects are interfaces, morphisms are all histories between them (admissible or not), composition is concatenation. Let $\mathrm{Adm}$ be a set of morphisms of $\mathcal P$, the admissible histories.}
+\pfield{Statement}{For parallel morphisms $f,g:A\to B$ define $f\approx g$ if for every pair of composable contexts $u:C\to A$ and $v:B\to D$, $v\circ f\circ u\in\mathrm{Adm}$ if and only if $v\circ g\circ u\in\mathrm{Adm}$. Only parallel morphisms are compared, so composition preserves sources and targets. Then $\approx$ is a congruence for composition, $\mathcal P/{\approx}$ is a category (the syntactic category of $\mathrm{Adm}$) with identities the classes of empty histories, and $\mathrm{Adm}$ is a union of $\approx$-classes, so it is recognized within the quotient. The admissible histories themselves need not form a subcategory: they need not be closed under composition, as \Pref{P05} and \Pref{P09} show, and constructing the quotient of the full path category avoids reintroducing that closure problem. A monoidal structure needs a parallel composition satisfying the interchange law, which fails under shared resources unless the interface records them (\Pref{P09}, \Pref{P10}). See Mac~Lane~\cite{maclane1998}.}
+\pfield{Consequence}{One-sided continuation equivalence from \Pref{P01} gives only a right congruence. Quotienting morphisms needs stability under both preceding and following composition, so the categorical chapter begins with this syntactic congruence, or with the transition category of the minimized continuation system.}
+\pfield{Status}{Hypotheses to fix.}
+\end{pspec}
+
+\begin{pspec}{P19}{Categorical accounting preserves specified composition laws}{CMP}
+\pfield{Statement}{An accounting interpretation is a functor when $F(g\circ f)=F(g)\circ F(f)$ and $F(\mathrm{id}_s)=\mathrm{id}_{F(s)}$. For a chosen accounting system these equations follow from its posting rules. Its limitations are then analyzed through \Pref{P11}: a composition-preserving representation can still forget distinctions needed to assess continuation.}
+\pfield{Consequence}{Coherent bookkeeping and sufficient economic description are different properties.}
+\pfield{Status}{Elementary for a given posting system.}
+\end{pspec}
+
+\begin{pspec}{P20}{Typed execution: preservation and progress}{CMP}
+\pfield{Statement}{Let $\Gamma\vdash a:s\Rightarrow s'$ require the stated permissions, account for resource use, and update obligations. If every primitive rule is sound for the transition semantics, sequential composition yields sound judgments by induction on derivations, and well-typed execution maintains a specified invariant (\emph{preservation}). \emph{Progress}: a well-typed commitment is executable, conditional on available resources, enabled counterparties, and any environmental assumptions needed for execution. Linear or affine disciplines prevent duplication of exclusive resources when the semantics and trusted boundary enforce them.}
+\pfield{Consequence}{The gap between formal inhabitation and executability is exactly where progress can fail. The theorem does not establish the truth of sensor readings, the legitimacy of obligations, or the completeness of the model.}
+\pfield{Status}{Preservation elementary. Progress hypotheses to fix.}
+\end{pspec}
+
+\begin{pspec}{P21}{Compatible local records glue exactly under the sheaf condition}{CMP}
+\pfield{Statement}{Let economic contexts form a site and let $\mathcal F$ assign records with coherent restriction maps. If $\mathcal F$ is a sheaf, every matching family on a cover has a unique global section.}
+\pfield{Consequence}{The substantive work is proving that a particular record system satisfies the condition. Feasible allocations can fail to form a sheaf when local contexts omit globally shared capacity, as in \Pref{P09}. Gluing records and establishing executable coordination are separate tasks unless the construction links them.}
+\pfield{Status}{Hypotheses to fix, per record system.}
+\end{pspec}
+
+\begin{pspec}{P22}{A cohomological obstruction in an affine coordination model}{CMP}
+\pfield{Statement}{If compatible configurations form a torsor under an abelian sheaf $\mathcal A$, local choices give transition differences on overlaps, forming a degree-one cocycle. A global configuration exists exactly when the torsor class vanishes in $H^1(X,\mathcal A)$, under the standard classification hypotheses (Mac~Lane and Moerdijk~\cite{maclane1992}).}
+\pfield{Worked case, frictionless}{On a graph give each oriented edge a log exchange rate $c_{ij}$ with $c_{ji}=-c_{ij}$. A global log-price potential $p$ with $c_{ij}=p_j-p_i$ exists exactly when the sum around every cycle is zero, that is, when the class $[c]\in H^1(\Gamma;\R)$ vanishes. A nonzero cycle sum gives an arbitrage direction.}
+\pfield{Worked case, frictions}{With bid--ask spreads, let $u_{ij}$ be an upper bound on the log rate from $i$ to $j$. A potential with $p_j-p_i\le u_{ij}$ exists if and only if there is no negative cycle (shortest-path duality, Bellman--Ford), and the vanishing of $[c]$ is no longer required. The frictionless case is the limit $u_{ji}=-u_{ij}$, where the two inequalities force equality.}
+\pfield{Consequence}{The example gives a genuine obstruction theory for the model. Broader institutional conflicts need separate constructions and must not be described as cohomological without one.}
+\pfield{Status}{Graph case elementary, with a reported check in the companion. General sheaf case specification.}
+\end{pspec}
+
+\section*{Where each result appears}
+
+Chapter assignments are provisional. For each result, the chapters are grouped by where it is stated early (Parts~I to VIII), where it is stated rigorously (Part~IX), and where it is reinterpreted (Parts~X to XII). A dash means the band has no assigned chapter.
+
+\input{frontmatter/spine_table}
+
+\section*{Running example}
+
+A housing-maintenance system carries all six families. Deterioration establishes the dynamics. Tenancy and repair duties establish obligations. Contractor availability determines progress. Budgets introduce scarcity prices. Records test representation sufficiency. Shared crews expose the failure of local composition. The finite-state companion reports checks of the viability and independence results and deliberately reproduces counterexamples when their hypotheses are removed, so that the proof programme is a working specification and not a parallel collection of formal propositions.

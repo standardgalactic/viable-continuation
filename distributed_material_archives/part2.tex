@@ -1,0 +1,221 @@
+\section{The Combinatorial Capacity Theorem}\label{sec:capacity}
+
+The first proposition establishes precisely the exponential growth that motivates the program, together with the less celebrated fact that payload grows only linearly in the number of properties.
+
+\begin{proposition}[Distinguishable product states]\label{prop:product}
+Suppose a storage element supports $d$ independently selectable and jointly distinguishable properties, and that property $i$ has $L_i\ge 2$ usable levels. The complete product alphabet then contains
+\[
+M=\prod_{i=1}^{d}L_i
+\]
+states, and the maximum fixed-length binary payload of one element is
+\[
+b=\bigl\lfloor\log_2 M\bigr\rfloor=\Bigl\lfloor\sum_{i=1}^{d}\log_2 L_i\Bigr\rfloor .
+\]
+\end{proposition}
+
+\begin{proof}
+The set of joint states is the Cartesian product of the sets of levels, whose cardinality is the product of the cardinalities, which gives $M$. An injective encoding of all $b$-bit messages into the $M$ states exists if and only if $2^b\le M$, so the largest admissible $b$ is $\lfloor\log_2 M\rfloor$. The second form follows because the logarithm of a product is the sum of the logarithms.
+\end{proof}
+
+\begin{corollary}[Linear growth of payload]\label{cor:linear}
+If every property has the same number of levels $L$, then $M=L^{d}$ and $b=\lfloor d\log_2 L\rfloor$. Adding one independent property multiplies the number of states by $L$ and adds exactly $\log_2 L$ bits to the payload.
+\end{corollary}
+
+The corollary is the most important sentence in the quantitative argument. The number of possible inscriptions, which is the number of joint states, grows exponentially in $d$ and quickly exceeds any physical count, while the information that an element carries, which is the logarithm of that number, grows only linearly. An immense repertoire of patterns is therefore compatible with a modest payload, and the repertoire by itself does not demonstrate storage. The joint distinguishability assumption in Proposition~\ref{prop:product} is also an assumption to be demonstrated for each candidate set of properties, and the later sections of the essay explain how it fails.
+
+With sixteen distinguishable levels per property, so that each property contributes four bits, the illustrative cases are those of Table~\ref{tab:states}. The state counts in the table were computed directly from $2^{4d}$.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Independent properties $d$ & Joint states $16^{d}$ & Information per element & Bytes per element \\
+\midrule
+12 & $2^{48}\approx 2.81\times10^{14}$ & 48 bits & 6 \\
+144 & $2^{576}\approx 2.47\times10^{173}$ & 576 bits & 72 \\
+13{,}000 & $2^{52{,}000}\approx 3.63\times10^{15{,}653}$ & 52{,}000 bits & 6{,}500 \\
+\bottomrule
+\end{tabular}
+\caption{Product-alphabet capacity with sixteen reliably distinguishable levels per property. State counts are exact exponents converted to scientific notation.}
+\label{tab:states}
+\end{table}
+
+The last row supplies an astronomical repertoire of possible inscriptions, a number with more than fifteen thousand decimal digits, which exceeds by an enormous margin the commonly cited order of $10^{80}$ for the number of atoms in the observable universe, and the same row states honestly that the corresponding payload is 6.5 kilobytes per element, under exceptionally strong physical assumptions. The two halves of that sentence belong together in any statement of the result. The case for a research program does not require the first half alone, since 6.5 kilobytes at every site of a surface at modest pitch is already a very large capacity, as the next section computes, and the astronomical repertoire becomes relevant for a different purpose, namely that it makes exhaustive search over fabrication settings infeasible, which is a property of the address space and not of the stored information.
+
+The proposition counts a single alphabet. Two refinements are needed for real designs. First, the levels need not be equal across properties, and a property that supports only two reliably distinguishable levels contributes one bit while one that supports sixty-four contributes six. Second, the floor in the formula applies once to the total and not to each term, so that a collection of properties with non-power-of-two level counts can still use mixed-radix coding to avoid wasting fractional bits. A property with three levels contributes $\log_2 3\approx 1.585$ bits to the total, and twenty such properties contribute 31.7 bits, so thirty-one bits can be stored across twenty ternary properties by representing the payload in a mixed-radix numeral system.
+
+\section{Geometric Scaling from Elements to Objects}\label{sec:geometry}
+
+The next step translates capacity per element into capacity per area and per volume. For a square surface array with element pitch $p$, usable area $A$, and payload $b$ bits per element,
+\begin{equation}\label{eq:braw}
+B_{\mathrm{raw}}=\Bigl\lfloor\frac{A}{p^{2}}\Bigr\rfloor\,b .
+\end{equation}
+For a layered volume with $n_\ell$ independently readable layers, the same expression is multiplied by $n_\ell$, and for a volume of side-by-side voxels with pitch $p$ in all three directions the number of sites is $\lfloor V/p^{3}\rfloor$.
+
+A purely illustrative square metre with a pitch of $100\,\mu\mathrm{m}$ contains $10^{8}$ sites. Applying the assumptions of Table~\ref{tab:states}, the ideal raw capacities are given in Table~\ref{tab:area}, where decimal gigabytes are used and calibration, indexing, error correction, unusable sites, and other overhead are excluded.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rrr@{}}
+\toprule
+Properties per site & Bits per site & Ideal raw capacity per square metre \\
+\midrule
+12 & 48 & 0.6\,GB \\
+144 & 576 & 7.2\,GB \\
+13{,}000 & 52{,}000 & 650\,GB \\
+\bottomrule
+\end{tabular}
+\caption{Ideal raw capacity of a surface at $100\,\mu\mathrm{m}$ pitch ($10^{8}$ sites per square metre), sixteen levels per property.}
+\label{tab:area}
+\end{table}
+
+The crucial qualification is that the parameter count $d$, the pitch $p$, and the reader resolution cannot in general be chosen independently. Supporting thirteen thousand observable properties at a site may require a much larger site, because each independent observable requires its own physical degree of freedom with enough response amplitude above the noise floor; it may require extensive sequential measurements, because the reader may have to illuminate and detect many times per site; or it may require a substantial optical volume per site, since the number of resolvable modes of a beam is bounded by the number of independent spatial and spectral degrees of freedom in its aperture. The experimental question is therefore whether the increase in information per site survives the increase in site size, measurement time, and cost. Writing $b(p)$ for the payload that can be supported at pitch $p$, the density is $b(p)/p^{2}$ per unit area, and a larger payload at a larger pitch beats a smaller payload at a smaller pitch only if $b$ grows faster than $p^{2}$. The program treats the function $b(p)$ as the central empirical object for each substrate.
+
+\section{Observational Equivalence}\label{sec:equiv}
+
+\begin{proposition}[Observational equivalence limits capacity]\label{prop:equiv}
+In a deterministic readout model, call two writable configurations \emph{equivalent} if they produce identical observations under every permitted reader configuration. This is an equivalence relation on the set of configurations. A zero-error codebook contains at most one representative from each equivalence class, so the zero-error capacity is at most $\log_2 K$ bits, where $K$ is the number of equivalence classes.
+\end{proposition}
+
+\begin{proof}
+Reflexivity, symmetry, and transitivity follow from the corresponding properties of equality of observations. Suppose a codebook contained two distinct equivalent configurations that were assigned to different messages. The decoder receives the same evidence for both and is a function of that evidence, so it returns the same output for both, and it is therefore wrong for at least one of the two messages. A zero-error codebook therefore has at most one configuration per class. The number of messages that can be assigned to distinct classes is at most $K$, which gives the stated bound.
+\end{proof}
+
+The proposition explains why increasing the number of fabrication controls does not necessarily increase storage capacity. It supplies a practical screening rule as well: a candidate parameter earns its place only if changing it changes recoverable observations under some permitted reader configuration, and a parameter that changes only the fabrication recipe is a distinction without a difference. The count of equivalence classes is also the object that Section~\ref{sec:experiments} proposes to estimate experimentally. In practice the equivalence is not exact, since noisy readout makes observations of nominally different configurations overlap with some probability, and the paper would replace exact equivalence by measured confusion probabilities and by distinguishability criteria.
+
+For the noisy case the governing inequality is Fano's. If a message $X$ uniform over $M$ values is encoded, passed through any channel, and decoded from the observation $Y$, then
+\[
+\Pro(\widehat X\ne X)\;\ge\;1-\frac{I(X;Y)+1}{\log_2 M},
+\]
+where $I(X;Y)$ is the mutual information in bits \cite{cover2006}. The bound shows that reliable recovery of a message of $\log_2 M$ bits requires the channel to convey at least nearly that much mutual information, and it supplies the quantitative link between a measured confusion matrix and the payload that a site can be trusted with.
+
+\section{Robust Capacity as a Packing Problem}\label{sec:packing}
+
+\begin{proposition}[Bounded-noise decoding]\label{prop:bounded}
+Suppose codeword $i$ produces a nominal observation $y_i\in\R^m$, and the readout error has norm at most $\delta$. If
+\[
+\min_{i\ne j}\|y_i-y_j\|>2\delta ,
+\]
+then nearest-neighbour decoding recovers every codeword correctly.
+\end{proposition}
+
+\begin{proof}
+Let the true codeword be $i$ and the observation $y=y_i+e$ with $\|e\|\le\delta$. Then $\|y-y_i\|\le\delta$. For any $j\ne i$ the triangle inequality gives $\|y-y_j\|\ge\|y_i-y_j\|-\|y-y_i\|>2\delta-\delta=\delta$. The observation is therefore strictly closer to $y_i$ than to any competing nominal observation, and the nearest-neighbour rule returns $i$.
+\end{proof}
+
+The resulting research problem is a packing problem in observation space: how many sufficiently separated responses can the material and reader jointly support? The next result bounds the answer in the simplest nontrivial setting and shows that apparently continuous freedoms become a finite, experimentally meaningful codebook.
+
+\begin{proposition}[Packing bounds under sup-norm noise]\label{prop:packing}
+Let the nominal observations lie in the cube $[-R,R]^m$ and let the readout error satisfy $\|e\|_\infty\le\delta$ with $0<\delta\le R$. Any codebook that is decodable without error under this noise has at most $\bigl(1+R/\delta\bigr)^m$ codewords, and a codebook of $\lfloor R/\delta\rfloor^{m}$ codewords exists. Consequently the payload per site lies between $m\log_2\lfloor R/\delta\rfloor$ and $m\log_2(1+R/\delta)$ bits.
+\end{proposition}
+
+\begin{proof}
+For the upper bound, decodability under every error of sup-norm at most $\delta$ requires that the cubes $y_i+[-\delta,\delta]^m$ be pairwise disjoint, since an observation in the intersection of two such cubes could have come from either codeword. Each such cube lies in $[-R-\delta,R+\delta]^m$, which has volume $(2(R+\delta))^m$, while each has volume $(2\delta)^m$. Disjointness gives $M(2\delta)^m\le(2(R+\delta))^m$, hence $M\le(1+R/\delta)^m$. For the lower bound, choose in each coordinate the points $-R+j(2\delta+\epsilon)$ for $j=0,1,\dots$ that lie in $[-R,R]$, with $\epsilon>0$ small. The number of such points is $\lfloor 2R/(2\delta+\epsilon)\rfloor+1$, which for sufficiently small $\epsilon$ is at least $\lfloor R/\delta\rfloor$. The product grid has pairwise sup-distance at least $2\delta+\epsilon>2\delta$ and is therefore decodable by Proposition~\ref{prop:bounded} in the sup norm, which is proved identically. Taking logarithms gives the payload range.
+\end{proof}
+
+The proposition is the sense in which a continuous parameter becomes a finite alphabet. A property measured over a range $R$ with noise $\delta$ supports between $\log_2\lfloor R/\delta\rfloor$ and $\log_2(1+R/\delta)$ bits, so the number of usable levels is the dynamic range divided by the noise width, and halving the noise buys one additional bit per property. The same calculation explains the dependence on the reader: improving measurement precision increases capacity only logarithmically, which is why capacity claims that depend on extremely fine resolution of a continuous variable should be treated with suspicion.
+
+The program investigates three refinements. The first is anisotropic noise: the angle, depth, and intensity measurements of a site will have different ranges and different uncertainties, and the payload of a site with independent coordinates is $\sum_i\log_2\lfloor R_i/\delta_i\rfloor$ in the notation of the proposition applied coordinatewise. The second concerns systematic drift, which cannot be treated as independent random noise merely for convenience, since it is correlated across sites. One remedy is differential reading.
+
+\begin{proposition}[Differential reading removes common offsets]\label{prop:diff}
+Suppose every observation on a specimen is shifted by a common unknown offset $c\in\R^m$, so that $y=y_i+c+e$ with $\|e\|\le\delta$, and suppose a reference symbol with known nominal observation $y_0$ is observed as $y_{\mathrm{ref}}=y_0+c+e_0$ with $\|e_0\|\le\delta$. Then the difference $y-y_{\mathrm{ref}}=(y_i-y_0)+(e-e_0)$ is independent of $c$ and carries noise of norm at most $2\delta$. Nearest-neighbour decoding of the difference is correct whenever $\min_{i\ne j}\|y_i-y_j\|>4\delta$.
+\end{proposition}
+
+\begin{proof}
+The algebraic identity eliminates $c$. Applying Proposition~\ref{prop:bounded} to the shifted nominal observations $y_i-y_0$ with noise bound $2\delta$ gives the separation condition $2(2\delta)=4\delta$.
+\end{proof}
+
+Differential reading therefore trades a doubling of the effective noise bound for immunity to any offset that is common to the symbol and its reference, at a cost of one bit per property if the codebook was previously separated by exactly $2\delta$ and the range is fixed. The third refinement is that offsets that vary across a specimen require references distributed densely enough that the offset is approximately constant between a symbol and its nearest reference, which is a requirement on the layout of calibration structures taken up in Section~\ref{sec:calibration}.
+
+\section{Overlapping Storage and Independently Recoverable Channels}\label{sec:overlap}
+
+This section formalizes the idea that several archives may occupy the same physical region and be read through different illumination conditions or decoding operations.
+
+\begin{proposition}[Joint distinguishability requirement]\label{prop:overlap}
+Let archive $j\in\{1,\dots,k\}$ have $M_j$ possible contents. If every combination of archive contents can be written into one region and every archive can be recovered without error from the available measurements, then the region supports at least $\prod_{j=1}^{k}M_j$ jointly distinguishable states, and the combined payload is
+\[
+B_{\mathrm{total}}=\sum_{j=1}^{k}\log_2 M_j .
+\]
+\end{proposition}
+
+\begin{proof}
+Consider the tuple of decoder outputs $(\widehat X_1,\dots,\widehat X_k)$. If two distinct tuples of archive contents produced identical complete observational evidence, the decoder would return the same tuple for both and would be wrong about at least one archive. Hence the map from the $\prod_j M_j$ tuples to total observational evidence is injective, so the number of distinguishable states of the region is at least the product, and its logarithm is the sum.
+\end{proof}
+
+Overlapping inscription can increase the utilization of a material region, but it does not remove the requirement that the reader obtain enough information to distinguish the joint contents. The proposition has a useful corollary for decoder side information. Suppose the decoder uses a dictionary, a trained model, or an external key $K$ that contains information about the archive contents. Then the recovered payload should be counted as $B_{\mathrm{total}}-H(K)$ in the worst case, since a decoder that already knows $H(K)$ bits of the answer has been given those bits outside the object. This closes a loophole by which a very large decoder could claim an arbitrarily large payload from a small physical inscription, and all experiments in Section~\ref{sec:experiments} disclose and account for decoder-resident information.
+
+A convenient count for planning is the number of overlapping archives of a given size that a region can hold. A region of net capacity $B_{\mathrm{net}}$ bits holds at most $\lfloor B_{\mathrm{net}}/S\rfloor$ distinct archives of $S$ bits if all of them must be simultaneously recoverable and none is compressible against another. A square metre at the 144-property ideal of Table~\ref{tab:area} holds 7.2 gigabytes, which is seven hundred and twenty independent ten-megabyte archives, but it does not hold more, regardless of how many illumination conditions are available, unless those conditions yield additional jointly distinguishable observations.
+
+\section{Linear Multiplexing, Rank, and Crosstalk}\label{sec:linear}
+
+A tractable first model expresses the measured response as
+\begin{equation}\label{eq:linear}
+y=Ha+n,
+\end{equation}
+where $a\in\R^{d}$ contains the encoded mode amplitudes, $H\in\R^{m\times d}$ describes their mixing through the material and optics, and $n$ is measurement noise.
+
+\begin{proposition}[Continuous identifiability]\label{prop:rank}
+In the noiseless model $y=Ha$, arbitrary coefficient vectors $a\in\R^d$ are uniquely recoverable from $y$ if and only if $H$ has full column rank, that is, $\rank H=d$.
+\end{proposition}
+
+\begin{proof}
+Suppose $\rank H<d$. Then the nullspace of $H$ contains a nonzero vector $v$, and $a$ and $a+v$ produce the same observation, so recovery fails for both. Conversely, if $\rank H=d$ then $H^{\top}H$ is invertible and $a=(H^{\top}H)^{-1}H^{\top}y$ is a left inverse.
+\end{proof}
+
+The result must be delimited carefully. A restricted finite codebook can remain distinguishable even when arbitrary continuous vectors are not identifiable. If $a_1\in\{0,1\}$ and $a_2\in\{0,2\}$, and the observation is the single number $y=a_1+a_2$, then $H=\begin{pmatrix}1&1\end{pmatrix}$ has rank one, yet the four codewords produce the four distinct observations $0,1,2,3$, and the payload of two bits is fully recoverable. Mixed-radix coding of this kind exploits the discreteness of the codebook to recover more than the rank of $H$ would suggest.
+
+Full rank alone does not guarantee robust recovery, since very small singular values amplify noise. The next result quantifies the effect.
+
+\begin{proposition}[Noise amplification]\label{prop:amp}
+Let $H$ have full column rank with smallest singular value $\sigma_{\min}>0$, let the noise satisfy $\|n\|_2\le\delta$, and let a codebook $\mathcal A\subset\R^{d}$ satisfy $\|a-a'\|_2>2\delta/\sigma_{\min}$ for all distinct $a,a'\in\mathcal A$. Then nearest-neighbour decoding in observation space recovers every codeword correctly.
+\end{proposition}
+
+\begin{proof}
+For distinct $a,a'\in\mathcal A$, the definition of the smallest singular value gives $\|H(a-a')\|_2\ge\sigma_{\min}\|a-a'\|_2>2\delta$. The nominal observations $Ha$ are therefore separated by more than $2\delta$, and Proposition~\ref{prop:bounded} applies in the Euclidean norm.
+\end{proof}
+
+A two-mode example shows the cost of crosstalk. Let $H=\begin{pmatrix}1&\kappa\\ \kappa&1\end{pmatrix}$ with $0\le\kappa<1$, whose singular values are $1+\kappa$ and $1-\kappa$. The sufficient condition of Proposition~\ref{prop:amp} requires coefficient spacing larger than $2\delta/(1-\kappa)$, which is $1/(1-\kappa)$ times the spacing needed without crosstalk, so over a fixed coefficient range the number of levels per mode shrinks by that factor and the payload per mode decreases by $\log_2\bigl(1/(1-\kappa)\bigr)$ bits. A crosstalk coefficient of $0.5$ costs one bit per mode, and one of $0.9$ costs more than three. The calculation is a sufficient-condition estimate and not a tight bound, but it shows how rapidly nominal parameter counts erode when modes mix.
+
+The one hundred forty-four and thirteen thousand parameter studies therefore report singular-value spectra, confusion matrices, and decoding errors rather than nominal parameter counts. Holographic storage research has long identified material dynamic range and interference between multiplexed pages as the substantive constraints on multiplexing \cite{coufal2000,cheriere2025}, and the spectrum of $H$ is the compact way to express them: a spectrum that decays rapidly means that many of the nominal modes are effectively unobservable at the available signal-to-noise ratio.
+
+\section{Fixed-Resource Scaling and the Cost of More Modes}\label{sec:fixed}
+
+The article now asks what happens when total optical power, measurement time, detector area, and material volume are held fixed while the number of modes increases. An illustrative model uses $d$ parallel real Gaussian channels with equal noise variance $N$ and a total signal power $P$ divided equally among them, so that each carries $P/d$. The capacity of the combination, in bits per joint channel use, is
+\begin{equation}\label{eq:gauss}
+C(d)=\sum_{i=1}^{d}\tfrac12\log_2\Bigl(1+\frac{P_i}{N}\Bigr)=\frac d2\log_2\Bigl(1+\frac{P}{dN}\Bigr),
+\end{equation}
+under the normalization of real channels \cite{shannon1948,cover2006}.
+
+\begin{proposition}[Saturation under a fixed power budget]\label{prop:gauss}
+Let $x=P/N>0$. The function $C(d)$ of equation~\eqref{eq:gauss} is increasing in $d$ and bounded above by $x/(2\ln 2)$, and $C(d)\to x/(2\ln 2)$ as $d\to\infty$. Moreover, among all allocations $(P_1,\dots,P_d)$ with $\sum_iP_i=P$, the equal allocation maximizes the capacity.
+\end{proposition}
+
+\begin{proof}
+Write $f(d)=d\ln(1+x/d)$, so that $C(d)=f(d)/(2\ln 2)$. Differentiating, $f'(d)=\ln(1+x/d)-\dfrac{x/d}{1+x/d}$, and since $\ln(1+u)\ge u/(1+u)$ for $u>0$, the derivative is nonnegative, so $f$ is increasing. The inequality $\ln(1+u)\le u$ gives $f(d)\le d\cdot x/d=x$. The limit $\lim_{d\to\infty}d\ln(1+x/d)=x$ is the standard limit of $\ln(1+u)/u$ as $u\to0$ with $u=x/d$. For the allocation claim, the function $P_i\mapsto\tfrac12\log_2(1+P_i/N)$ is concave, so by Jensen's inequality the sum is maximized, subject to the sum constraint, when all $P_i$ are equal.
+\end{proof}
+
+With $P/N=100$, corresponding to a signal-to-noise ratio of $20$\,dB, the computed values of $C(d)$ are shown in Table~\ref{tab:gauss}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rr@{}}
+\toprule
+Modes $d$ & Capacity $C(d)$ (bits per joint use) \\
+\midrule
+1 & 3.33 \\
+4 & 9.40 \\
+16 & 22.86 \\
+64 & 43.44 \\
+256 & 60.89 \\
+1024 & 68.83 \\
+$\infty$ (limit) & 72.13 \\
+\bottomrule
+\end{tabular}
+\caption{Capacity of $d$ parallel real Gaussian channels sharing a fixed power budget at $P/N=100$. Increasing the number of modes yields rapidly diminishing returns.}
+\label{tab:gauss}
+\end{table}
+
+The example demonstrates why unlimited parameter multiplication does not establish unlimited physical capacity: within these assumptions the capacity saturates near $72$ bits per joint use however many modes are added, because splitting a fixed power among more channels lowers the signal-to-noise ratio of each. The engineering question becomes especially interesting here, namely which added modes provide new resources and which merely divide the resources already available. A mode that has its own source and its own detector, so that its power budget and noise are independent of the others, adds capacity linearly, since in that case each channel contributes $\tfrac12\log_2(1+P_i/N)$ with a power $P_i$ that does not shrink as modes are added. A mode obtained by multiplexing a single beam among many functions divides one budget. The design principle that follows is that parallel physical resources, such as separate wavelengths with separate detection chains or detector arrays with independent pixels, scale capacity, whereas additional encodings squeezed into one measurement chain saturate. Which regime an architecture is in is a measurable property, and the program requires that every added parameter be classified accordingly.

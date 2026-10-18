@@ -1,0 +1,64 @@
+\chapter*{The Housing Case}
+\addcontentsline{toc}{chapter}{The Housing Case}
+
+A single small housing economy runs through the book. It is introduced here in a deterministic version that can be calculated by hand, and later chapters add disturbances, shared resources, information problems, and institutional change to the same case with the same units, timing, and signs. Amounts are in currency units, time is in months, and nothing is discounted until a chapter says otherwise.
+
+\section*{Participants and what is observed}
+
+A \emph{tenant} holds liquid resources $x\ge 0$ and pays rent $r$ per month. After rent and living costs the tenant's net monthly surplus on a monthly contract is $e\ge 0$. A \emph{landlord} owns the dwelling and may offer contracts. A \emph{contractor} and a \emph{public authority} enter in later chapters, as do financial accounts and outside housing opportunities. Here the tenant's $x$, $e$, and the exit cost below are observed by the tenant. The landlord observes the contract terms and whether rent is paid.
+
+\section*{The decision}
+
+Suppose a landlord offers a prepaid lease. The tenant pays $P=(1-\delta)\,rT$ at the start for a lease of $T$ months at a discount $\delta\in[0,1)$. The prepayment is non-refundable, and the tenant pays no further rent during the lease. The landlord saves a collection and arrears cost $\kappa>0$ per prepaid contract. The tenant must hold $x\ge P$ to be eligible.
+
+The offer looks attractive on its financial face. The discount $\delta rT$ is a transfer from landlord to tenant, so aggregate surplus rises by $\kappa$, and if $\delta rT\le\kappa$ the landlord's profit does not fall. The difficulty is that a tenant who prepays has less cash on hand for the next $H$ months, which is the window in which a job loss, a repair failure, or a safety problem might force a move. A move at month $t\le H$ needs resources of at least $c$ at that date, where $c$ covers moving costs, a new deposit, and a first month's rent.
+
+\begin{definition}[Executable exit]
+An exit within horizon $H$ is \emph{executable} for a tenant if there is a date $t\in\{0,\dots,H\}$ at which the tenant's resources, with every earlier balance nonnegative, are at least $c$. This is the constrained reachability of \Pref{P08} in the present model.
+\end{definition}
+
+On a monthly contract with $e\ge 0$, resources at month $t$ are $x+te$, nondecreasing, so the exit is executable exactly when $x+He\ge c$. On the prepaid lease, resources at month $t$ are $x-P+t(e+r)$ because rent is no longer paid, and the exit is executable exactly when $x-P+H(e+r)\ge c$.
+
+\begin{hthm}[P28 in the housing model]\label{thm:H1}
+Fix $r,T,\delta,e,c,H$ with $e\ge 0$ and $T>H$. Among tenants eligible for the prepaid lease:
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item Aggregate surplus, counted as the sum of landlord profit and tenant flow payoff with the tenant's stay decision held fixed, rises by $\kappa$. Landlord profit changes by $\kappa-\delta rT$ and the tenant's by $\delta rT$.
+\item The tenants who had an executable exit on the monthly contract and lose it on the prepaid lease are exactly those with
+\[
+\max\{P,\ c-He\}\ \le\ x\ <\ c-He+P-rH.
+\]
+\item This set is nonempty if and only if $H<(1-\delta)T$ and $c>H(e+r)$.
+\end{enumerate}
+\end{hthm}
+
+\begin{proof}
+(a) The discount is paid by the landlord and received by the tenant, so it cancels in the sum, leaving the cost saving $\kappa$. (b) A tenant is eligible if $x\ge P$. The exit was executable before if $x\ge c-He$. It is not executable after if $x-P+H(e+r)<c$, that is $x<c-He+P-rH$. Intersecting the three conditions gives the interval. (c) The interval is nonempty if and only if its upper end exceeds both lower ends. Exceeding $c-He$ requires $P-rH>0$, that is $H<(1-\delta)T$. Exceeding $P$ requires $c-He-rH>0$, that is $c>H(e+r)$.
+\end{proof}
+
+\paragraph{Hypotheses.} The conclusion is carried by two assumptions: the prepayment is non-refundable, and the exit cost $c$ must be met from liquid resources within the window. Nonnegativity of $e$ only simplifies the safety check, since otherwise the balance path must be tracked. The assumption most likely to fail in applications is that the surplus measure ignores the value of the exit option. If it were priced, the sign of the aggregate change would depend on the probability of needing to exit.
+
+\paragraph{Worked numbers.} Take $r=1000$, $T=12$, $\delta=0.05$, $e=200$, $c=4000$, $H=3$, $\kappa=800$. Then $P=11{,}400$ and $\delta rT=600$. Aggregate surplus rises by $800$, the landlord gains $200$, and a tenant who never needs to move gains $600$. On the monthly contract the exit is executable for $x\ge 4000-600=3400$. On the prepaid lease it is executable for $x\ge 4000-11{,}400+3\cdot 1200=11{,}800$ among eligible tenants. Tenants with $11{,}400\le x<11{,}800$ are eligible, would have been able to exit, and can no longer do so. Both conditions of (c) hold, since $3<11.4$ and $4000>3\cdot 1200=3600$.
+
+\paragraph{Interpretation.} The financial improvement and the loss of exit capacity are properties of different structures, as the book's separation of welfare, admissibility, and financial value requires. The result does not say prepaid leases harm tenants in general. It gives the exact condition under which a gain in surplus coexists with a smaller safe exit set, and the exact set of tenants affected.
+
+\section*{When compensation restores the lost capability}
+
+Suppose the landlord compensates an affected tenant with a transfer $m$ delivered at month $\tau$. An outside unit can be taken only within a window of months $[a,E]$, so the exit date $t$ must satisfy $a\le t\le\min\{H,E\}=:\bar t$. The transfer counts only at dates $t\ge\tau$.
+
+\begin{hthm}[P29 in the housing model]\label{thm:H2}
+Let a tenant be eligible with a positive shortfall,
+\[
+m^\ast(x)\;=\;c-(x-P)-\bar t\,(e+r)\;>\;0 .
+\]
+The transfer $m$ delivered at $\tau$ restores an executable exit if and only if all three hold: (i) availability, $a\le\bar t$; (ii) timing, $\tau\le\bar t$; (iii) sufficiency, $m\ge m^\ast(x)$. If (i) or (ii) fails, no amount of money restores the capability.
+\end{hthm}
+
+\begin{proof}
+Resources at date $t$ are $x-P+t(e+r)+m\,\mathbf 1[\tau\le t]$, which is nondecreasing in $t$ when $e+r>0$. If $\tau\le\bar t$ the best date is $\bar t$ and the condition is $m\ge m^\ast(x)$. If $\tau>\bar t$ the transfer never counts and the shortfall stays positive. If $a>\bar t$ there is no admissible date.
+\end{proof}
+
+\paragraph{Hypotheses and interpretation.} The three conditions correspond to the three ways money can fail: the thing to be bought may not exist in the window, the money may arrive too late, or it may be too small. A transfer that increases holdings without satisfying (i) to (iii) has not restored the capability. In the worked numbers, a tenant with $x=11{,}500$ has $m^\ast=4000-100-3\cdot1200=300$. A transfer of $300$ delivered by month $3$ restores the exit. A transfer of $10^6$ delivered at month $4$ does not. The largest shortfall among affected tenants is $m^\ast(P)=c-\bar t(e+r)=400$, which exceeds the landlord's net gain $\kappa-\delta rT=200$, so in this example the surplus gain does not by itself finance full restoration. That comparison is a property of these numbers, not a theorem.
+
+\paragraph{Scope.} Both results are proved only in this deterministic model. The general statements remain specifications (\Pref{P28}, \Pref{P29}). The companion reproduces the closed forms by brute-force enumeration over integer parameter sets, as a reported check.
+
+\paragraph{Next.} Part~I introduces the states and histories that let this case be stated without the special structure used here. The chapter on exit (Chapter~\chref{29}) generalizes Theorem~H1, and the chapter on restoration obligations (Chapter~\chref{19}) generalizes Theorem~H2.

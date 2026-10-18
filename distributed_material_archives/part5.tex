@@ -1,0 +1,144 @@
+\section{The Library in the Environment}\label{sec:popular}
+
+The preceding sections were deliberately austere, and this one returns to the central images of the program in a less formal register while keeping the arithmetic honest. The images are walls carrying reference collections, furniture carrying repair libraries, garments transporting small archives, and inexpensive objects dispersing public knowledge through ordinary circulation. The question that makes them more than whimsy is quantitative: how much surface does a useful archive need?
+
+Using the net factor of $0.784$ from equation~\eqref{eq:net} and the ideal raw densities of Table~\ref{tab:area}, Table~\ref{tab:area-needed} gives the area required to carry an archive of illustrative size $S$. The sizes of one and one hundred gigabytes are chosen to span the scale of a substantial text collection and of a much larger multimedia collection, and they are not claims about the size of any particular collection.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rrr@{}}
+\toprule
+Properties per site & Area for $S=1$\,GB & Area for $S=100$\,GB \\
+\midrule
+12 & $2.13\ \mathrm{m^2}$ & $213\ \mathrm{m^2}$ \\
+144 & $0.177\ \mathrm{m^2}$ & $17.7\ \mathrm{m^2}$ \\
+13{,}000 & $19.6\ \mathrm{cm^2}$ & $0.196\ \mathrm{m^2}$ \\
+\bottomrule
+\end{tabular}
+\caption{Surface area needed to carry an archive of size $S$ at $100\,\mu\mathrm m$ pitch, sixteen levels per property, and net factor $0.784$. All figures are conditional on the idealizations of the preceding sections.}
+\label{tab:area-needed}
+\end{table}
+
+The difference between the rows is the difference between an archive spread across a building and an archive that fits on a small tile. A standard brick has a stretcher face of about $215\times65$\,mm, which is roughly $0.014\ \mathrm{m^2}$, and at the same assumptions its face carries a net payload of about $6.6$\,MB in the twelve-property case, $79$\,MB in the one-hundred-forty-four-property case, and $7.1$\,GB in the thirteen-thousand-property case. The first of these is a library of reference text, the second a substantial technical corpus, and the third a large collection. None is measured, and each is a target that the experimental sequence of Section~\ref{sec:experiments} is designed to confirm or refute.
+
+Two deliberately absurd scenarios illustrate the proposition behind the program in an exaggerated form, and their value is that they make a structural point vivid. The first is the crumpled paper ball, a sheet carrying an archive that is folded into a compact object so that a negligible-looking thing contains an unexpectedly consequential collection. Crumpling does not itself compress the information, because folding changes the geometry and accessibility of the carrier and leaves the encoded representation unchanged, and any reduction in the length of the encoded representation requires a separate compression method acting on the source. The distinction is productive: it separates the physical smallness of an object, which depends on how the carrier occupies space, from the informational smallness of its content, which depends on redundancy in the source, and the program's mathematics concerns only the second and the density of the carrier. A culture's knowledge becomes materially small without becoming informationally trivial.
+
+The second is an edible or biodegradable carrier, given the deliberately provocative label ``weaponized manna'' for a speculative distribution scenario in which a perishable object carries a durable collection. The tension is that ordinary use of each individual carrier destroys its inscription, and the question becomes whether the archive as a whole persists when its carriers are consumed. A simple model captures the answer. Let each copy independently be lost at rate $\mu$ and independently produce a new copy at rate $\beta$, so that the number of copies is a linear birth--death process.
+
+\begin{proposition}[Persistence of perishable copies]\label{prop:birthdeath}
+Starting from one copy, the probability that the archive eventually becomes extinct is $\min(1,\mu/\beta)$, and starting from $N_0$ independent copies it is $\min(1,\mu/\beta)^{N_0}$. In particular, the archive persists with positive probability if and only if the copying rate exceeds the loss rate.
+\end{proposition}
+
+\begin{proof}
+Condition on the first event experienced by a single copy. With probability $\mu/(\beta+\mu)$ it is a loss, and the lineage is extinct. With probability $\beta/(\beta+\mu)$ it is a birth, after which there are two independent copies, each of whose lineages goes extinct with the same probability $q$. Hence $q=\dfrac{\mu}{\beta+\mu}+\dfrac{\beta}{\beta+\mu}\,q^{2}$, which rearranges to $\beta q^{2}-(\beta+\mu)q+\mu=0$, and factoring gives $(q-1)(\beta q-\mu)=0$. The extinction probability is the smallest nonnegative root, which is $\mu/\beta$ if $\mu<\beta$ and $1$ otherwise. Independent lineages multiply, which gives the second statement.
+\end{proof}
+
+The proposition formalizes the earlier remark that an edible carrier introduces a tension between individual perishability and collective persistence: each individual copy is expendable, and the archive survives if reproduction of copies, which is a social and manufacturing process, outpaces their consumption. Whether such a carrier is feasible is a separate materials question, including whether the inscription survives handling and whether the carrier remains suitable for its intended use, and nothing in the argument depends on its answer.
+
+The decisive requirement across all of these scenarios is recoverability without the institution that produced the object. A wall containing a magnificent archive would offer limited independence if reading it required a proprietary scanner, a cloud account, or an undocumented decoding model. A stronger design, as Section~\ref{sec:calibration} specified, carries a readily recognizable introductory inscription that explains the format, the calibration marks, the error correction, and the reader requirements, with progressively denser layers holding the larger collection, so that the object preserves enough instructions to help reconstruct its own means of access. The larger possibility is that archival replication becomes an ordinary consequence of making things. A brick could carry a library alongside its maker's mark, and a table could arrive with reference works embedded beneath its finish. Even modest capacity, repeated across enough ordinary objects with an open reading method, could produce substantial independence from centralized storage, and its value depends on whether people can recognize, read, verify, and maintain those archives across generations.
+
+\section{Publication Program and Open Problems}\label{sec:program}
+
+The program yields a coherent sequence of papers. A theoretical article would treat distinguishable material states and capacity bounds, comprising the results of Sections~\ref{sec:capacity} through~\ref{sec:fixed}. An experimental article would address a specific substrate, with the staged measurements of Section~\ref{sec:experiments}. A circuits article would address the reader, comprising Section~\ref{sec:reader} and the calibration and error-correction material, and it is the natural contribution for a circuits and design venue. A systems article would address distributed archival manufacture, comprising Sections~\ref{sec:distribution} and~\ref{sec:popular}. The long foundational essay explains how these contributions fit together without presenting projected experiments as completed achievements.
+
+Several problems are explicitly open. The first is empirical and central: for each substrate, the function $b(p)$ of Section~\ref{sec:geometry} that relates payload per site to site pitch has not been measured, and the viability of the program depends on its shape. The second is the effective rank of the mixing matrix of Section~\ref{sec:linear} for large numbers of nominally independent optical properties, where the proof techniques here give only sufficient conditions. The third is concealment against an observer who uses the same instrument as the reader on a substrate with little natural entropy, where Proposition~\ref{prop:entropy} says that very little can be hidden and no construction here improves on that. The fourth is the offline distribution of trust, that is, how a reader with no network connection obtains a verification key it can believe, for which the replication of key fingerprints across many objects is proposed here and has not been analyzed. The fifth is standardization: the introductory layer, the container format of Appendix~\ref{app:format}, and the calibration conventions must be stable enough for independent teams to build compatible readers, and the experience of other archival formats suggests that this is as much a social as a technical problem.
+
+The central thesis can now be stated in the form that the analysis supports. Multidimensional optical encoding may make ordinary manufactured objects useful carriers of substantial public archives, but its capacity must be established through independently recoverable information, and its archival value through independently sustainable access. The astronomical combinatorics of the address space, the overlapping inscriptions, and the radical distribution of copies are all part of the picture, and each enters the argument in its proper place: the first as an address space, the second as a constraint on joint distinguishability, and the third as a sociotechnical multiplier whose effect is limited by common-mode failures.
+
+\appendix
+
+\section{Notation}\label{app:notation}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$d$ & Number of independent properties or modes per site \\
+$L_i$ & Number of reliably distinguishable levels of property $i$ \\
+$M$, $b$ & Number of joint states; payload bits per site, $b=\lfloor\log_2M\rfloor$ \\
+$p$, $A$, $V$ & Site pitch; usable area; usable volume \\
+$B_{\mathrm{raw}}$, $B_{\mathrm{net}}$ & Raw and net payload of an object \\
+$\rho$, $k/n$ & Calibration fraction; code rate \\
+$H$, $\sigma_{\min}$ & Mixing matrix; its smallest singular value \\
+$\delta$, $\varepsilon$ & Readout noise bound; target error probability \\
+$R_f$, $B$ & Feedback resistance; detection bandwidth \\
+$s$, $\sigma$ & Level spacing; noise standard deviation \\
+$p$, $q$, $r$ & Copy failure probability; common-mode probability; number of copies (context decides) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Worked Budget for a One-Square-Centimetre Coupon}\label{app:budget}
+
+A coupon of area $1\ \mathrm{cm^2}$ at $100\,\mu\mathrm m$ pitch has $10^{4}$ sites. The raw payload and the net payload, using the factor $0.784$ from equation~\eqref{eq:net}, are given in Table~\ref{tab:coupon} for the three parameter counts of the essay with sixteen levels per property.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Properties per site & Bits per site & Raw payload & Net payload \\
+\midrule
+12 & 48 & 60\,kB & 47.0\,kB \\
+144 & 576 & 720\,kB & 564\,kB \\
+13{,}000 & 52{,}000 & 65\,MB & 51.0\,MB \\
+\bottomrule
+\end{tabular}
+\caption{Coupon budget: $10^{4}$ sites, decimal units, $\rho=0.02$ and $k/n=0.8$.}
+\label{tab:coupon}
+\end{table}
+
+The coupon is the natural unit of the first experiments. A coupon of the first row is large enough to hold a complete specification document together with a test file of tens of kilobytes, and it can be written and read in minutes with the reader of Section~\ref{sec:reader}, which makes the twelve-parameter study feasible at small scale.
+
+\section{A Container Format for the Introductory and Archive Layers}\label{app:format}
+
+The following grammar is a sketch of the container that Section~\ref{sec:calibration} requires, intended to be implementable by an independent party from the text of the specification alone.
+\begin{verbatim}
+Archive   := Sentinel Intro Calib LayerTable Manifest Block*
+Sentinel  := fixed pattern, rotation-invariant, repeated at corners
+Intro     := plain-language statement, version, pointer to LayerTable
+Calib     := reference symbols for every observable, on a grid
+             of spacing g (Prop. refs), known nominal values
+LayerTable:= (layer id, depth, pitch, observables, levels) per layer
+Manifest  := (block id, digest, size, role) per block, signed
+Block     := Header Payload Digest
+Header    := block id, layer id, code (n, k), stripe index
+Payload   := coded symbols, spatially interleaved (Prop. burst)
+Digest    := cryptographic hash of Payload before coding
+\end{verbatim}
+The manifest lists every block with its digest so that a reader can verify each recovered block independently and stop as soon as the \emph{enough} condition of Table~\ref{tab:fsm} holds.
+
+\section{Estimating Information from Confusion Matrices}\label{app:estimate}
+
+The screening of Section~\ref{sec:experiments} requires estimates of mutual information from finite measurements. Given $N$ labelled trials of a control with $|X|$ settings and an observation quantized into $|Y|$ bins, the plug-in estimate of $I(X;Y)$ from the empirical joint frequencies is biased upward by approximately
+\[
+\frac{(|X|-1)(|Y|-1)}{2N\ln2}\ \text{bits}
+\]
+for large $N$ \cite{miller1955}, and the bias must be subtracted or the experiments made large enough that it is negligible. Intervals for the block error rate follow from the rule of Section~\ref{sec:experiments}, and the program reports the estimates with their uncertainties, never as point values alone.
+
+\begin{thebibliography}{99}
+\bibitem{anderson2023} P. Anderson et al. Project Silica: Towards sustainable cloud archival storage in glass. \emph{Proceedings of the 29th ACM Symposium on Operating Systems Principles (SOSP)}, 166--181, 2023.
+\bibitem{boylestad} R. L. Boylestad, D. Edgar, J. Jenness, J. Tompkin. \emph{Boylestad's Circuit Analysis}, second Canadian edition.
+\bibitem{cachin1998} C. Cachin. An information-theoretic model for steganography. \emph{Information Hiding}, 1998.
+\bibitem{cheriere2025} N. Cheriere et al. Holographic storage for the cloud: advances and challenges. \emph{ACM Transactions on Storage} 21(1), article 3, 2025.
+\bibitem{coufal2000} H. J. Coufal, D. Psaltis, G. T. Sincerbox, editors. \emph{Holographic Data Storage}. Springer Series in Optical Sciences 76. Springer, 2000.
+\bibitem{cover2006} T. M. Cover, J. A. Thomas. \emph{Elements of Information Theory}, second edition. Wiley, 2006.
+\bibitem{epp} S. S. Epp. \emph{Discrete Mathematics with Applications}, fourth edition.
+\bibitem{fan2024} Z. Fan et al. Holographic multiplexing metasurface with twisted diffractive neural network. \emph{Nature Communications} 15, 9416, 2024.
+\bibitem{hopper2002} N. Hopper, J. Langford, L. von Ahn. Provably secure steganography. \emph{CRYPTO}, 2002.
+\bibitem{kolman} B. Kolman, R. C. Busby, S. C. Ross. \emph{Discrete Mathematical Structures}, fifth edition.
+\bibitem{mano} M. M. Mano, C. R. Kime. \emph{Logic and Computer Design Fundamentals}, third edition.
+\bibitem{miller1955} G. A. Miller. Note on the bias of information estimates. In H. Quastler, editor, \emph{Information Theory in Psychology}, 1955.
+\bibitem{reed1960} I. S. Reed, G. Solomon. Polynomial codes over certain finite fields. \emph{Journal of the Society for Industrial and Applied Mathematics} 8(2), 300--304, 1960.
+\bibitem{ren2020} H. Ren, X. Fang, J. Jang, J. B\"urger, J. Rho, S. A. Maier. Complex-amplitude metasurface-based orbital angular momentum holography in momentum space. \emph{Nature Nanotechnology} 15, 948--955, 2020.
+\bibitem{shannon1948} C. E. Shannon. A mathematical theory of communication. \emph{Bell System Technical Journal} 27, 379--423 and 623--656, 1948.
+\bibitem{shannon1949} C. E. Shannon. Communication theory of secrecy systems. \emph{Bell System Technical Journal} 28, 656--715, 1949.
+\bibitem{silica2026} Microsoft Research Project Silica Team. Laser writing in glass for dense, fast and efficient archival data storage. \emph{Nature} 650, 606--612, 2026.
+\bibitem{simmons1984} G. J. Simmons. The prisoners' problem and the subliminal channel. \emph{CRYPTO}, 1983 (published 1984).
+\bibitem{wang2022} H. Wang et al. 100-layer error-free 5D optical data storage by ultrafast laser nanostructuring in glass. \emph{Laser \& Photonics Reviews} 16(4), 2100563, 2022.
+\bibitem{zhang2013} J. Zhang, M. Gecevi\v{c}ius, M. Beresna, P. G. Kazansky. 5D data storage by ultrafast laser nanostructuring in glass. \emph{CLEO: 2013 Postdeadline Paper Digest}, paper CTh5D.9. Optical Society of America, 2013.
+\end{thebibliography}

@@ -1,0 +1,31 @@
+\chapter*{Common Model and Notation}
+\addcontentsline{toc}{chapter}{Common Model and Notation}
+
+A single model is used throughout, and each chapter states any departure from it. Let $s\in S$ be an augmented economic state containing material resources, relevant institutional permissions, and outstanding obligations. In a state $s$ the available actions are $a\in A(s)$, and the allowed disturbances are $w\in W(s,a)$. Successor states are given by
+\[
+s' = T(s,a,w).
+\]
+Both $A(s)$ and $W(s,a)$ are assumed nonempty unless a result says otherwise. Let $G\subseteq S$ be the set of acceptable states.
+
+A \emph{policy} is nonanticipating: it may use the observed history but cannot depend on disturbances that have not yet been observed. Unless stated, observation is complete, so the state and the past disturbances are observed. A policy keeps the system \emph{in $G$ forever} against a class of disturbances if every trajectory it generates under an allowed disturbance sequence stays in $G$.
+
+Three structures are kept separate throughout: \emph{admissibility} (which trajectories satisfy the stated obligations), \emph{welfare} (which trajectories are better for whom), and \emph{financial value} (how trajectories are priced or accounted). A result about one is never silently a result about another.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning\\
+\midrule
+$S,\ A(s),\ W(s,a),\ T$ & states, actions, disturbances, transition map\\
+$G$ & acceptable states\\
+$\Phi$ & robust predecessor operator, $\Phi(X)=\{s\in G:\exists a\ \forall w,\ T(s,a,w)\in X\}$\\
+$K=K(G)$ & viability kernel: greatest fixed point of $\Phi$\\
+$L(h)$ & set of obligation-satisfying future sequences after history $h$\\
+$h\sim h'$ & continuation equivalence, $L(h)=L(h')$\\
+$F:S\to Y$ & an accounting or other representation\\
+$\preceq$ & partial order on continuation profiles\\
+\bottomrule
+\end{tabular}
+\end{center}

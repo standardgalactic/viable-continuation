@@ -1,0 +1,53 @@
+# LaTeX build artifacts (main.pdf is kept on purpose as the timestamped draft)
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+*.xdv
+*-blx.bib
+_minted-*/
+latex.out/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Local and scratch files
+scratch/
+tmp/
+*.tmp
+*.bak
+
+# Large media that does not belong in this repository
+*.wav
+*.mp4

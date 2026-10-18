@@ -1,0 +1,82 @@
+% Preamble for "The Economics of Viable Continuation"
+\usepackage[T1]{fontenc}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[expansion=false]{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs,longtable,array,colortbl}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{fancyhdr}
+\usepackage[letterpaper,margin=1.3in]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{1.4em}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+
+% ---------------------------------------------------------------
+% Draft switches
+% ---------------------------------------------------------------
+\newif\ifscaffold \scaffoldtrue      % print one-line chapter scaffold
+\newif\ifdraftnotes \draftnotestrue  % print open-decision notes
+
+\newcommand{\draftnote}[1]{%
+  \ifdraftnotes\par\medskip\noindent\fcolorbox{red!60!black}{red!5}{%
+  \parbox{0.92\linewidth}{\small\textbf{Draft note.} #1}}\par\medskip\fi}
+
+\newcommand{\scaffold}{%
+  \ifscaffold\par\medskip\noindent{\small\itshape Chapter scaffold:
+  motivating situation; definitions and model; developed argument; worked
+  example; results with proofs where warranted; empirical questions;
+  exercises.}\par\fi}
+
+% ---------------------------------------------------------------
+% Theorem environments
+% ---------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------------------------------------------------------------
+% Proof programme: specification environment, cross references
+% ---------------------------------------------------------------
+% \begin{pspec}{P03}{Title}{FAMILY} ... \end{pspec}
+\newenvironment{pspec}[3]{%
+  \par\bigskip\noindent\hypertarget{spec:#1}{}\textbf{#1.\ #2.}\
+  \textsc{[#3]}\par\nopagebreak\smallskip}{\par\medskip}
+\newcommand{\pfield}[2]{\par\noindent\textit{#1.}\ #2\par}
+\newcommand{\Pref}[1]{\hyperlink{spec:#1}{#1}}
+\newcommand{\chref}[1]{\ref{ch:#1}}
+\newcommand{\chspec}[1]{\par\medskip\noindent\textbf{Proof programme.}\ #1\par}
+
+\newenvironment{housing}{%
+  \par\smallskip\begingroup\small\noindent\textsc{Housing thread.}\ }{%
+  \par\endgroup\smallskip}
+
+% ---------------------------------------------------------------
+% Notation shared across the book
+% ---------------------------------------------------------------
+\newcommand{\Kern}{K}                        % viability kernel
+\newcommand{\Good}{G}                        % acceptable states
+\newcommand{\Succ}{T}                        % transition map
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\Act}{Act}
+\DeclareMathOperator{\State}{State}
+\DeclareMathOperator{\Reach}{Reach}
+\newcommand{\Prob}{\mathbb{P}}
+
+% Theorems of the housing case are numbered H1, H2, ...
+\theoremstyle{plain}
+\newtheorem{hthm}{Theorem}
+\renewcommand{\thehthm}{H\arabic{hthm}}

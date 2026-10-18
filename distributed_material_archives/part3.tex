@@ -1,0 +1,218 @@
+\section{Candidate Substrates and Manufacturing Pathways}\label{sec:substrates}
+
+The materials program begins with controlled coupons and expands toward ordinary objects, because the first question is whether a mechanism works at all and the second is whether it survives realistic manufacturing. Engineered glass supplies a demanding optical benchmark, since the precedents of Section~\ref{sec:foundations} were obtained there and give a calibration of what the best-understood medium can do. Coated ceramics and polymers explore more accessible fabrication, in which a thin archival layer is added to a body that supplies the structural function. Textiles and rough stone introduce deformation, scattering, and strongly heterogeneous surfaces, and they are the cases in which the claim of the program, that ordinary objects can carry archives, is most stringently tested.
+
+Each substrate receives its own model of writable features, readable observables, damage thresholds, and environmental sensitivity, and the assumptions of Table~\ref{tab:substrates} are working hypotheses for the experimental design rather than established properties.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{2.3cm}p{3.6cm}p{3.5cm}p{3.6cm}@{}}
+\toprule
+Substrate & Candidate writable features & Candidate observables & Principal risks \\
+\midrule
+Engineered glass & Nanostructure orientation, strength, depth, layer & Retardance, slow-axis angle, transmission & Cost of writing; reader precision \\
+Coated ceramic & Ablation depth, spot geometry, coating thickness & Reflectance, diffraction pattern & Firing shrinkage, glaze variation \\
+Printed polymer & Layer geometry, infill texture, embedded inserts & Surface relief, scattering, subsurface contrast & Anisotropy, shrinkage, yield \\
+Textile & Weave pattern, dye density, fibre orientation & Reflectance texture, diffraction from weave & Deformation, washing, wear \\
+Rough stone and brick & Engraved micro-relief, mineral contrast & Scattered intensity, speckle statistics & Heterogeneity, weathering \\
+\bottomrule
+\end{tabular}
+\caption{Candidate substrates, with hypothesized writable features, observables, and risks. Entries are design hypotheses to be tested.}
+\label{tab:substrates}
+\end{table}
+
+The proposal investigates four modes of introduction: direct inscription of a finished object, archival coatings applied to a structural body, embedded inserts that carry the archive and are installed during assembly, and patterns introduced during additive manufacturing. These approaches should be compared experimentally rather than assumed equivalent, since they differ in the access that the writer has to the material, in the thermal and mechanical history that the inscription must survive, and in how closely the written structure is coupled to the structural function of the body.
+
+For three-dimensional printing the specification examines layer geometry, orientation, local texture, accessible internal structures, shrinkage, and reproducibility from print to print. It also measures whether embedding data changes the mechanical performance or the manufacturing yield of the object, because an archive that weakens the part it rides on will be removed by the manufacturer, whatever its theoretical merit. The criterion for each pathway is net recovered payload per unit area or volume at a specified error rate, together with the fractional change in the primary function of the object.
+
+\section{Reader Circuits and Instrumentation}\label{sec:reader}
+
+This section is the central one for a circuits-oriented readership. It specifies the reader as a chain whose analogue front end, digital controller, and error-correcting back end are each given quantitative requirements derived from the capacity model.
+
+\subsection{Signal chain}\label{sec:chain}
+
+The reader performs acquisition, registration, calibration, channel estimation, symbol detection, error correction, and file verification, and the hardware that supports these operations consists of illumination drivers, exposure or pulse control, polarization switching where applicable, positioning or beam steering, photodetector interfaces, analogue amplification, digitization, synchronization, and digital processing. Figure~\ref{fig:chain} shows the intended structure.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  blk/.style={draw,rounded corners=2pt,minimum width=2.1cm,minimum height=0.95cm,align=center,font=\small},
+  ar/.style={-{Latex[length=2mm]}}
+]
+\node[blk] (drv) {Illumination\\driver};
+\node[blk,right=0.7cm of drv] (obj) {Inscribed\\specimen};
+\node[blk,right=0.7cm of obj] (pd) {Photodetector\\array};
+\node[blk,right=0.7cm of pd] (tia) {Transimpedance\\stage};
+\node[blk,below=0.9cm of tia] (adc) {ADC and\\sample clock};
+\node[blk,left=0.7cm of adc] (ctl) {Digital\\controller};
+\node[blk,left=0.7cm of ctl] (dec) {Detector and\\decoder};
+\node[blk,left=0.7cm of dec] (ver) {Verification\\and output};
+\draw[ar] (drv)--(obj);
+\draw[ar] (obj)--(pd);
+\draw[ar] (pd)--(tia);
+\draw[ar] (tia)--(adc);
+\draw[ar] (adc)--(ctl);
+\draw[ar] (ctl)--(dec);
+\draw[ar] (dec)--(ver);
+\draw[ar] (ctl.north) -- ++(0,0.5) -| (drv.south);
+\end{tikzpicture}
+\caption{Reader signal chain. The controller sequences illumination, positioning, and acquisition and passes samples to the detector and decoder; the arrow from the controller to the illumination driver represents exposure and polarization control.}
+\label{fig:chain}
+\end{figure}
+
+The specification of the reader includes dynamic range, noise, sampling requirements, timing accuracy, processing throughput, power consumption, component cost, and sensitivity to misalignment. The remainder of the section derives the first two of these from the capacity model and gives a controller design for the sequencing.
+
+\subsection{Detection noise}\label{sec:noise}
+
+A photodiode of responsivity $\mathcal R$ illuminated by optical power $P_o$ produces a photocurrent $I=\mathcal R P_o$, which a transimpedance stage of feedback resistance $R_f$ converts to a voltage $V=-IR_f$. The current noise of such a stage at detection bandwidth $B$ has a thermal component, which is the Johnson noise of the feedback resistor,
+\[
+i_{\mathrm{th}}=\sqrt{\frac{4k_BTB}{R_f}},
+\]
+and a shot-noise component,
+\[
+i_{\mathrm{sh}}=\sqrt{2qIB},
+\]
+where $k_B$ is Boltzmann's constant, $T$ the absolute temperature, and $q$ the elementary charge. The two are independent, so their powers add. Under a standard compensated design, the closed-loop bandwidth of the stage is approximately $\sqrt{\mathrm{GBW}/(2\pi R_fC_{\mathrm{in}})}$ for an operational amplifier of gain-bandwidth product $\mathrm{GBW}$ and total input capacitance $C_{\mathrm{in}}$.
+
+\begin{example}[Noise budget of one detection channel]\label{ex:tia}
+Take $R_f=1\,\mathrm{M\Omega}$, $T=300\,\mathrm K$, $B=100\,\mathrm{kHz}$, $\mathcal R=0.5\,\mathrm{A/W}$, and $P_o=1\,\mu\mathrm W$, so that $I=0.5\,\mu\mathrm A$. The thermal noise current is $4.07\times10^{-11}\,\mathrm A$, which is $40.7$\,pA, and the shot noise current is $1.27\times10^{-10}\,\mathrm A$, which is $126.6$\,pA, so the total is $\sqrt{40.7^2+126.6^2}\approx133$\,pA. The electrical signal-to-noise ratio is $20\log_{10}\bigl(500{,}000/133\bigr)\approx71.5$\,dB. For an operational amplifier with $\mathrm{GBW}=100\,\mathrm{MHz}$ and $C_{\mathrm{in}}=10\,\mathrm{pF}$, the stage bandwidth is approximately $1.26$\,MHz, comfortably above the $100$\,kHz detection bandwidth.
+\end{example}
+
+The example shows that electronic noise in a competently designed front end is a small contribution compared with the noise sources that arise in the optics and the material, such as speckle, scattering, and specimen variation, and the program therefore characterizes the full chain empirically rather than relying on the front-end budget. Its value lies in establishing that the dynamic range needed for multilevel detection, derived next, is not limited by the electronics.
+
+\subsection{Level resolution and the required signal-to-noise ratio}\label{sec:snr}
+
+Suppose a single observable is used to carry one of $L$ equally spaced levels, with spacing $s$, and is read through additive Gaussian noise of standard deviation $\sigma$. A nearest-level detector places its decision thresholds at the midpoints between levels.
+
+\begin{proposition}[Multilevel detection error and required signal-to-noise ratio]\label{prop:pam}
+The symbol error probability of the nearest-level detector for $L$ equiprobable levels is
+\[
+P_e=2\Bigl(1-\frac1L\Bigr)Q\Bigl(\frac{s}{2\sigma}\Bigr),
+\qquad Q(x)=\frac1{\sqrt{2\pi}}\int_x^\infty e^{-t^2/2}\,dt,
+\]
+and the average signal power of the zero-mean constellation is $s^2(L^2-1)/12$, so the signal-to-noise ratio required to achieve a given $P_e$ is
+\[
+\mathrm{SNR}=\frac{L^{2}-1}{12}\Bigl(\frac{s}{\sigma}\Bigr)^{2}.
+\]
+\end{proposition}
+
+\begin{proof}
+An interior level has two neighbours at distance $s$, and an error occurs if the noise exceeds $s/2$ in magnitude in either direction, which has probability $2Q(s/2\sigma)$. An edge level has one neighbour and error probability $Q(s/2\sigma)$. Averaging over the $L-2$ interior and $2$ edge levels gives $\bigl(2(L-2)+2\bigr)/L\cdot Q(s/2\sigma)=2(1-1/L)Q(s/2\sigma)$. For the average power, the levels are $\pm s/2,\pm 3s/2,\dots,\pm(L-1)s/2$, and the mean of their squares is $s^2(L^2-1)/12$, a standard sum. Dividing by $\sigma^2$ gives the signal-to-noise ratio.
+\end{proof}
+
+Solving for a target of $P_e=10^{-6}$ per symbol gives the requirements in Table~\ref{tab:snr}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rrr@{}}
+\toprule
+Levels $L$ & Bits per observable & Required SNR (dB) at $P_e=10^{-6}$ \\
+\midrule
+2 & 1 & 13.5 \\
+4 & 2 & 20.7 \\
+8 & 3 & 27.0 \\
+16 & 4 & 33.1 \\
+32 & 5 & 39.1 \\
+64 & 6 & 45.1 \\
+\bottomrule
+\end{tabular}
+\caption{Signal-to-noise ratio needed for equally spaced $L$-level detection through Gaussian noise at a symbol error probability of $10^{-6}$ before error correction.}
+\label{tab:snr}
+\end{table}
+
+Each doubling of the number of levels requires about $6$\,dB of additional signal-to-noise ratio, which is the quantitative statement that bits per observable cost power linearly in decibels, and the earlier observation that halving the noise width buys one bit is the same fact in different units. For the sixteen-level case of the capacity tables the required signal-to-noise ratio is $33.1$\,dB, and the standard approximation relating the signal-to-noise ratio of an ideal converter to its resolution, $\mathrm{SNR}\approx6.02N+1.76$\,dB for an $N$-bit converter driven by a full-scale sinusoid, gives an effective resolution of about $5.2$ bits. A converter for such a channel must therefore deliver at least six effective bits after accounting for the headroom that the constellation requires, and an eight-bit converter is a conservative choice. For the twelve-property studies the converter must sustain this resolution on each of twelve observables, which can be satisfied by multiplexing one converter among the channels if the sampling rate is adequate.
+
+\subsection{Controller design}\label{sec:controller}
+
+The digital controller sequences the reader through alignment, calibration, scanning, decoding, and verification, and it can be specified as a finite-state machine in the standard formalism of synchronous sequential logic \cite{mano}. Let the states be IDLE, ALIGN, CALIBRATE, SCAN, DECODE, VERIFY, DONE, and FAIL, which number eight and therefore fit in three flip-flops under binary encoding or in eight under one-hot encoding. The inputs are \emph{start}, \emph{aligned}, \emph{retry}, \emph{calibrated}, \emph{scan\_done}, \emph{decoded}, \emph{more}, and \emph{enough}, where \emph{more} indicates unread blocks remain and \emph{enough} indicates that at least $k$ verified blocks have been recovered, so that the erasure code of Section~\ref{sec:ecc} can reconstruct the source. The transitions are given in Table~\ref{tab:fsm}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Present state & Condition & Next state \\
+\midrule
+IDLE & $\mathit{start}$ & ALIGN \\
+ALIGN & $\mathit{aligned}$ & CALIBRATE \\
+ALIGN & $\overline{\mathit{aligned}}\cdot\mathit{retry}$ & ALIGN \\
+ALIGN & $\overline{\mathit{aligned}}\cdot\overline{\mathit{retry}}$ & FAIL \\
+CALIBRATE & $\mathit{calibrated}$ & SCAN \\
+CALIBRATE & $\overline{\mathit{calibrated}}$ & FAIL \\
+SCAN & $\mathit{scan\_done}$ & DECODE \\
+DECODE & $\mathit{decoded}$ & VERIFY \\
+VERIFY & $\mathit{enough}$ & DONE \\
+VERIFY & $\overline{\mathit{enough}}\cdot\mathit{more}$ & SCAN \\
+VERIFY & $\overline{\mathit{enough}}\cdot\overline{\mathit{more}}$ & FAIL \\
+\bottomrule
+\end{tabular}
+\caption{Controller transition table. A state not listed with a satisfied condition holds its present value, and DONE and FAIL return to IDLE on reset.}
+\label{tab:fsm}
+\end{table}
+
+With one-hot encoding the next-state equations are read directly from the table. Writing each state name for the corresponding flip-flop output, the equations for three of the flip-flops are
+\begin{align*}
+\mathrm{ALIGN}^{+}&=\mathrm{IDLE}\cdot\mathit{start}+\mathrm{ALIGN}\cdot\overline{\mathit{aligned}}\cdot\mathit{retry},\\
+\mathrm{SCAN}^{+}&=\mathrm{CALIBRATE}\cdot\mathit{calibrated}+\mathrm{SCAN}\cdot\overline{\mathit{scan\_done}}+\mathrm{VERIFY}\cdot\overline{\mathit{enough}}\cdot\mathit{more},\\
+\mathrm{DONE}^{+}&=\mathrm{VERIFY}\cdot\mathit{enough}+\mathrm{DONE}\cdot\overline{\mathit{reset}},
+\end{align*}
+and the remaining equations follow similarly. The design is deliberately small. The controller does not decode symbols, which is the task of a separate processing block, and its function is to guarantee that a damaged specimen leads to a bounded sequence of retries rather than a hang. The \emph{enough} input embodies the central design choice that a read terminates when sufficient verified blocks have been collected and not when all blocks have been read, which lets the reader skip damaged regions at no cost.
+
+Boylestad's analysis of linear circuits \cite{boylestad} supplies the techniques for the electrical behaviour of the front end, namely the gain, bandwidth, and noise of the amplifier stages and the response of the driver circuits, while the logic-design treatment \cite{mano} supplies the addressing, sequencing, register, and data-handling structure of the controller and its interfaces.
+
+\subsection{Reading time and system cost}\label{sec:time}
+
+The reading time is $T=N_{\mathrm{sites}}/(r\,n_{\mathrm{ch}})$, where $r$ is the site rate of one detection channel and $n_{\mathrm{ch}}$ the number of parallel channels. A $100$\,kHz detection bandwidth supports a site rate of order $10^{5}$ sites per second per channel, so a square metre of $10^{8}$ sites requires $10^{3}$ seconds with one channel and $100$ seconds with ten. A major design comparison concerns where complexity belongs. A carrier requiring expensive fabrication might permit a simple reader, and a cheaper inscription might demand elaborate optics and reconstruction. The research should therefore measure the complete system cost, writing and reading together, rather than optimizing inscription density alone. Writing $C_w$ for the cost of fabricating an archive of payload $S$ on a given object and $C_r$ for the cost of a reader amortized over the number $n_{\mathrm{read}}$ of times it is used, the quantity of interest is $C_w+C_r/n_{\mathrm{read}}$ at fixed $S$ and $\varepsilon$, and the optimum depends strongly on how many readings the archive is expected to receive over its life.
+
+\section{Calibration, Discovery, and Reconstruction of the Reader}\label{sec:calibration}
+
+Every archive includes an accessible introductory layer identifying its purpose, version, orientation, and decoding conventions, and calibration structures provide known symbols and geometric references without requiring access to the archived files. The design distinguishes aids needed for routine reading from documentation needed to reconstruct a reader from scratch. The latter must be sufficient for a competent independent party to build a functioning reader from the specimen and the specification alone, and the essential specifications are themselves redundantly distributed across the layers so that the failure of one region does not remove them.
+
+A tiered layout serves these purposes. The outermost layer carries large features readable by eye or by an inexpensive magnifier or camera, and it states in a natural-language and pictorial form what the object is, where the denser layers are, and which standard governs them. A second layer carries medium-density structures whose decoding requires only a modest reader, and it contains the calibration symbols, the layer table, and the complete format specification in compressed text. The bulk layers carry the archive proper. This arrangement lets each tier bootstrap the next, so that an inexpensive reader can recover the specification that describes how to build a better one.
+
+The density of calibration references is determined by how quickly the systematic offsets vary across the specimen.
+
+\begin{proposition}[Reference density for slowly varying offsets]\label{prop:refs}
+Suppose the offset field $c(x)$ is Lipschitz with constant $\lambda$ in position, so that $\|c(x)-c(x')\|\le\lambda|x-x'|$, and suppose references are placed on a square grid of spacing $g$ and each symbol is corrected by the nearest reference. The residual offset error is at most $\lambda g/\sqrt2$, and keeping it below $\eta$ requires $g\le\sqrt2\,\eta/\lambda$. With site pitch $p$, the fraction of sites devoted to references is
+\[
+\rho\;\ge\;\frac{p^{2}}{g^{2}}=\frac{\lambda^{2}p^{2}}{2\eta^{2}} .
+\]
+\end{proposition}
+
+\begin{proof}
+Every point of the plane lies within Euclidean distance $g/\sqrt2$ of some grid point, since the farthest points from a lattice node are the cell centres at distance $g/\sqrt2$. The Lipschitz condition then bounds the difference between the offset at the symbol and at its reference by $\lambda g/\sqrt2$. Requiring this to be at most $\eta$ gives the spacing condition. There is one reference per cell of area $g^2$, and the number of sites per cell is $g^2/p^2$, so the fraction of reference sites is $p^2/g^2$.
+\end{proof}
+
+The result expresses the calibration overhead in terms of measurable quantities: the rate at which the offset field varies, the tolerable residual, and the pitch. It also shows that overhead grows quadratically with the roughness of the substrate, which is one reason that rough stone and woven cloth are more demanding substrates than polished glass.
+
+An independent-recovery experiment provides the strongest evidence of archival independence. An independent team is given a specimen and the published specification but no private calibration files or writer-side data. Successful recovery by that team gives stronger evidence of independence than repeated decoding by the team that fabricated the sample, since the latter cannot detect undocumented dependencies that its own members carry in their heads.
+
+\section{Error Correction, Localized Damage, and Verified Recovery}\label{sec:ecc}
+
+The archive format organizes data into independently verifiable blocks, with interleaving chosen to spread localized damage across correctable units. The relevant erasure model is natural for physical media, because scratches, missing fragments, damaged patches, and unreadable layers remove whole regions and the reader knows which regions failed when it runs a per-block integrity check.
+
+\begin{proposition}[Block-erasure tolerance]\label{prop:mds}
+An $(n,k)$ maximum-distance-separable code over a field with at least $n$ elements can reconstruct its $k$ source blocks from any $k$ surviving encoded blocks.
+\end{proposition}
+
+\begin{proof}
+Take the field $\mathbb F_q$ with $q\ge n$, treat the $k$ source symbols as the coefficients of a polynomial $f$ of degree less than $k$, and define encoded symbol $j$ as $f(\alpha_j)$ for distinct field elements $\alpha_1,\dots,\alpha_n$, which is the Reed--Solomon construction \cite{reed1960}. Given any $k$ surviving encoded symbols with indices $j_1,\dots,j_k$, the linear system for the coefficients has the Vandermonde matrix $\bigl(\alpha_{j_s}^{\,t}\bigr)_{s,t}$, whose determinant is $\prod_{s<s'}(\alpha_{j_{s'}}-\alpha_{j_s})$ and is nonzero because the $\alpha$'s are distinct. The matrix is invertible, so the coefficients are uniquely determined. Applying the construction independently to each symbol position of the blocks yields the statement for blocks.
+\end{proof}
+
+\begin{proposition}[Burst tolerance by interleaving]\label{prop:burst}
+Interleave the symbols of $D$ codewords, each able to correct up to $t$ symbol errors, so that consecutive transmitted symbols belong to the codewords in cyclic order. Any contiguous burst of length at most $tD$ damages at most $t$ symbols of each codeword and is therefore fully corrected.
+\end{proposition}
+
+\begin{proof}
+A burst of length $\ell$ contains $\ell$ consecutive symbols, and because consecutive symbols belong to cyclically distinct codewords, each codeword receives at most $\lceil\ell/D\rceil$ of them. For $\ell\le tD$ this is at most $t$.
+\end{proof}
+
+The applications connect these familiar results to the physical failures of interest. A scratch across a surface is a burst in the scan order, and a spatial interleaver that distributes the symbols of each codeword over widely separated regions converts a scratch, a damaged corner, or a lost layer into a bounded number of erasures per codeword. The net payload of an object after calibration and coding is
+\begin{equation}\label{eq:net}
+B_{\mathrm{net}}=(1-\rho)\,\frac{k}{n}\,B_{\mathrm{raw}},
+\end{equation}
+where $\rho$ is the fraction of sites devoted to calibration and indexing and $k/n$ is the code rate. With $\rho=0.02$ and $k/n=0.8$ the net payload is $78.4\%$ of the raw payload, and this factor, a number the experiments must measure and not assume, multiplies every raw capacity quoted elsewhere in the essay.
+
+The manuscript separates accidental-error detection from authenticity. A checksum can detect many corruptions and is inexpensive to compute. A cryptographic digest supports stronger integrity checking when the expected digest is itself trustworthy, since an attacker who can alter the object can also alter an adjacent digest. A digital signature additionally requires a trusted verification key, and the question of how that key is distributed to a reader that may have no network connection is one of the open design problems of Section~\ref{sec:stego}.

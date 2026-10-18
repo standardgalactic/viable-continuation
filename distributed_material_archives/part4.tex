@@ -1,0 +1,201 @@
+\section{Concealment, Encryption, and Public Discoverability}\label{sec:stego}
+
+An archive meant to be publicly recoverable and an inscription meant to be unobtrusive pull in opposite directions, and the design must say, layer by layer, which property it is purchasing and at what cost. The section separates three goals that are often run together. \emph{Capacity} is the amount of information the object carries. \emph{Concealment}, in the sense of steganography, is the property that an observer who inspects the object does not learn that an inscription of a particular kind is present. \emph{Confidentiality}, in the sense of encryption, is the property that an observer who knows an inscription is present and can read it learns nothing about its content without a key. An archive of public knowledge wants capacity and discoverability, and has no use for either of the other two, while an optional protected layer might want all three. The formal separation between concealment and confidentiality rests on the observation that they are measured against different distributions, a point developed in general terms in the cryptographic literature \cite{cachin1998,hopper2002,simmons1984} and specialized here to physical inscriptions.
+
+\subsection{Threat models}
+
+The meaning of any security claim depends on what the observer can do. Four observers are distinguished in Table~\ref{tab:threat}. The statements of the later propositions are made relative to one of these observers, and a claim that does not name its observer is not meaningful.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{2.6cm}p{4.1cm}p{5.0cm}@{}}
+\toprule
+Observer & Capability & Relevant question \\
+\midrule
+Casual user & Sees and touches the object & Does the object look ordinary? \\
+Inspector & Optical or electron microscopy, standard instruments & Do surface statistics differ from the substrate class? \\
+Reference holder & A pristine specimen or the mold and process data & Does the object differ from the known manufacturing output? \\
+Reader holder & The reader and the public specification & Can the archive be recovered, and can the protected layer be read? \\
+\bottomrule
+\end{tabular}
+\caption{Observers against whom concealment and confidentiality claims are made.}
+\label{tab:threat}
+\end{table}
+
+\subsection{Pattern repertoires are not ciphers}
+
+An enormous pattern repertoire does not by itself establish cryptographic security, and the point can be made precisely. Suppose the mapping from patterns to symbols is public, as it must be for an open archive. Then anyone holding the object and the specification reads it, whatever the size $N$ of the repertoire, and the confidentiality is exactly zero. Suppose instead the mapping is a fixed secret bijection between a symbol alphabet of size $q$ and patterns. This is a monoalphabetic substitution, which is among the oldest ciphers and the easiest to break. Shannon's measure of how much ciphertext determines the key is the unicity distance
+\begin{equation}\label{eq:unicity}
+U=\frac{H(K)}{D},
+\end{equation}
+where $H(K)$ is the entropy of the key and $D$ is the redundancy of the plaintext in bits per symbol \cite{shannon1949}. For a secret bijection on $q=16$ symbols, $H(K)=\log_2 16!\approx 44.25$ bits, and a plaintext with redundancy $D$ bits per symbol is determined after about $44.25/D$ symbols of ciphertext, which for an uncompressed source is a few tens of symbols. Compressing the source before encoding lowers $D$ toward zero and raises $U$ correspondingly, but this only illustrates that the security would come from the key and the compression and none from the repertoire. The correct design uses a standard authenticated encryption scheme with a secret key for any protected content, and treats the pattern repertoire solely as the modulation alphabet, whose job is capacity.
+
+\subsection{Uniform-looking inscriptions are conspicuous}
+
+The first concealment result is the physical analogue of a basic separation between encryption and steganography. Let the natural surface texture of a substrate class, as seen by an observer, be a distribution $\mathcal T$ over $n$-site patterns, and let patterns be described by $n$ bits.
+
+\begin{proposition}[Pseudorandom inscriptions are detectable]\label{prop:conspicuous}
+Suppose there is an efficiently decidable set $S\subseteq\{0,1\}^n$ with $|S|\le2^{n/2}$ and $\Pro_{\mathcal T}[x\in S]\ge\tfrac12$, as is the case when natural textures have a correlation structure that random patterns lack. An inscription whose observed pattern is computationally indistinguishable from a uniformly random $n$-bit string is distinguished from natural texture by the observer that outputs $1$ exactly when the pattern lies in $S$, with advantage at least $\tfrac12-2^{-n/2}-\negl(n)$.
+\end{proposition}
+
+\begin{proof}
+Under natural texture the observer outputs $1$ with probability at least $\tfrac12$. A uniform string lies in $S$ with probability at most $|S|/2^n\le2^{-n/2}$, and by computational indistinguishability the inscription lies in $S$ with probability at most $2^{-n/2}+\negl(n)$, since membership in $S$ is efficiently decidable and is therefore itself a distinguisher. The advantage is the difference.
+\end{proof}
+
+The consequence is that encrypting data, or compressing it to near-uniformity, before writing it makes it \emph{less} concealed on any substrate whose natural texture has structure, because ciphertext and compressed data look random and natural textures do not. A strongly secret inscription is not a hidden one, and the two goals must be pursued by different mechanisms.
+
+\subsection{How much can be hidden}
+
+Two bounds characterize concealed capacity, according to whether the observer uses the same instrument as the reader or a coarser one. Write $R$ for the reader's observation of a site, $W$ for the observer's observation, and suppose the observer's observation is a function $W=\phi(R)$ of the reader's, so that the observer sees no more than the reader.
+
+\begin{proposition}[Concealed capacity with a coarser observer]\label{prop:fiber}
+Consider a keyed inscription of $n$ sites carrying a uniformly random payload $M$ of $B$ bits, recovered exactly from the reader's observations $R^{n}$ and the key $K$, and perfectly concealed in the sense that the observer's pattern $W^{n}$ has its natural distribution whatever $M$ is. Let $N_w=|\phi^{-1}(w)|$ be the number of reader-distinguishable states compatible with the observation $w$. Then
+\[
+B\le\max_{w^{n}}\sum_{i=1}^{n}\log_2 N_{w_i}.
+\]
+If in addition the natural distribution of $R$ is uniform on each fibre $\phi^{-1}(w)$, the bound is achieved with equality when each $N_w$ is a power of two.
+\end{proposition}
+
+\begin{proof}
+Because the payload is recovered exactly, $H(M\mid R^{n},K)=0$, and since $M$ is independent of $K$ we have $B=H(M)=H(M\mid K)=I(M;R^{n}\mid K)$. As $W^{n}$ is a function of $R^{n}$, the chain rule gives $I(M;R^{n}\mid K)=I(M;W^{n}\mid K)+I(M;R^{n}\mid W^{n},K)$. The first term is zero because $W^{n}$ has the same distribution for every value of $M$ and $K$, so it is independent of both. The second is at most $H(R^{n}\mid W^{n})$, which is at most the logarithm of the number of $R^{n}$ compatible with $W^{n}$, namely $\sum_i\log_2N_{w_i}$, maximized over $w^n$. For achievability, if the natural distribution is uniform on each fibre, choose the reader state within the fibre of the natural observation $w_i$ according to $\log_2N_{w_i}$ bits of the (uniform) payload; the resulting joint distribution of $(R,W)$ is exactly the natural one, and the reader, who can compute $W=\phi(R)$ and hence the fibre, recovers the bits from the index within the fibre.
+\end{proof}
+
+The bound has a clean reading. Concealed capacity is the logarithm of the number of reader-distinguishable states that hide behind each observation the warden can make, and it is the quantity that multidimensional encodings enlarge. A site observed by an inspector only through its optical transmission intensity, but by the reader through retardance and slow-axis orientation as well, has a large fibre, and an inscription written entirely in the hidden dimensions leaves the inspector's observation unchanged. This is the formal content of the intuition that laser-written structures in glass can be nearly invisible to the eye and still carry data.
+
+When the observer uses the same instrument as the reader, the fibre has one element and the proposition gives zero, which is the case where the information-theoretic entropy bound applies.
+
+\begin{proposition}[Concealed capacity with an identical observer]\label{prop:entropy}
+Let the natural pattern of $n$ sites be i.i.d.\ with per-site distribution $P$ of entropy $H(P)$. If a keyed inscription carrying a uniformly random payload of $B$ bits is perfectly concealed, meaning that the observed pattern is distributed exactly as $P^{n}$, and the payload is recovered exactly from the pattern and the key, then $B\le nH(P)$.
+\end{proposition}
+
+\begin{proof}
+Let $Y^{n}$ be the observed pattern. Exact recovery gives $H(M\mid Y^{n},K)=0$, so $B=H(M)=H(M\mid K)=I(M;Y^{n}\mid K)\le H(Y^{n}\mid K)\le H(Y^{n})=nH(P)$, where the last equality uses the perfect concealment assumption.
+\end{proof}
+
+The bound is achieved asymptotically by distribution matching, in which the payload bits, followed by fresh random bits, drive an arithmetic decoder for the natural distribution, so that the output has the natural law while the payload is recoverable by an arithmetic encoder \cite{cover2006}. The proposition says that if the instrument can see everything the reader sees, concealed capacity is limited by the natural entropy of the substrate, and is zero for a perfectly deterministic process. Table~\ref{tab:hidden} shows the scale for a surface of $10^{8}$ sites per square metre.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}rr@{}}
+\toprule
+Natural entropy $h$ per site (bits) & Concealed capacity per square metre \\
+\midrule
+0.5 & 6.25\,MB \\
+2 & 25\,MB \\
+8 & 100\,MB \\
+\bottomrule
+\end{tabular}
+\caption{Concealed capacity per square metre under Proposition~\ref{prop:entropy} for an identical observer, at $10^{8}$ sites per square metre, as a function of the natural entropy of the substrate per site.}
+\label{tab:hidden}
+\end{table}
+
+For comparison, the ideal overt capacity of the twelve-property case is $0.6$\,GB per square metre, so identical-observer concealment costs one to two orders of magnitude of capacity unless the substrate is highly variable. A consequence that bears on manufacturing is that mass-produced identical units are a poor cover against an observer who holds a reference specimen, since the natural entropy is only the process variability, whereas handmade or naturally heterogeneous substrates such as fired clay and quarried stone have much more.
+
+\subsection{Composition and the dual-layer design}
+
+The two goals compose in one order, as in the general setting.
+
+\begin{proposition}[Encrypt, then embed]\label{prop:compose}
+Let $\mathsf{Enc}_{k_1}$ produce pseudorandom ciphertexts under chosen-plaintext attack and let the embedding be concealed for uniformly random payloads under key $k_2$. The embedding of $\mathsf{Enc}_{k_1}(m)$ under $k_2$ is concealed, and an observer who learns $k_2$ still faces the chosen-plaintext security of $\mathsf{Enc}_{k_1}$.
+\end{proposition}
+
+\begin{proof}
+Replace $\mathsf{Enc}_{k_1}(m)$ by a uniform string of the same length; the change is undetectable by the pseudorandomness of ciphertexts. The embedding of a uniform payload is, by assumption, indistinguishable from natural texture. An observer who learns $k_2$ and extracts the embedded string obtains $\mathsf{Enc}_{k_1}(m)$ only.
+\end{proof}
+
+By Proposition~\ref{prop:conspicuous} the reverse order, embedding and then encrypting, yields a pseudorandom pattern that is conspicuous. The proposition therefore says that encryption serves concealment as a preprocessing step that supplies uniform payload bits and does not provide concealment itself.
+
+The architectural consequence is a dual-layer design in which an accessible public reference archive coexists with optional protected data. The public layer is overt, carries the introductory inscription, and uses an open decoding method, so its capacity is limited by the engineering of Sections~\ref{sec:capacity} through~\ref{sec:ecc} and not by concealment. The protected layer is written in dimensions the casual and inspector observers do not see, as in Proposition~\ref{prop:fiber}, encrypted under a key held outside the object, and accounted for separately, so that the total payload is $B_{\mathrm{pub}}+B_{\mathrm{prot}}$ and the loss of the key destroys only $B_{\mathrm{prot}}$. The design contains an honest tension. The presence of an obvious public archive raises the prior that the object carries more than it shows, and an object that proclaims itself an archive is a worse cover than one that does not, so a deployment must decide whether the protected layer is to be concealed or merely confidential. An authentic archive also needs a verification key distributed to readers who may be offline, and the principle of replication proposed for the archives applies to the key fingerprint as well: publishing the fingerprint in many places, including the introductory layers of many objects, lets a reader cross-check a signature against several independent sources.
+
+\section{The Experimental Sequence: Twelve, One Hundred Forty-Four, and Thirteen Thousand Parameters}\label{sec:experiments}
+
+The twelve-parameter study establishes a fully inspectable baseline. Candidate controls are varied individually and jointly to measure coupling, repeatability, and incremental information gain, and the study does not require all twelve to survive screening. A screening statistic is needed that attributes recoverable information to each control without requiring the full joint codebook to be written.
+
+\begin{proposition}[Marginal information lower-bounds joint information]\label{prop:marg}
+Let the fabrication controls $U_1,\dots,U_d$ be independent random variables, and let $Y$ be the observation. Then
+\[
+I(U_1,\dots,U_d;Y)\;\ge\;\sum_{i=1}^{d}I(U_i;Y).
+\]
+\end{proposition}
+
+\begin{proof}
+By the chain rule, $I(U_1,\dots,U_d;Y)=\sum_iI(U_i;Y\mid U_1,\dots,U_{i-1})$. For each $i$, independence of the controls gives $I(U_i;U_1,\dots,U_{i-1})=0$, so $I(U_i;Y\mid U_{<i})=I(U_i;Y,U_{<i})-I(U_i;U_{<i})=I(U_i;Y,U_{<i})\ge I(U_i;Y)$, using that adding variables to the second argument cannot decrease mutual information. Summing over $i$ gives the claim.
+\end{proof}
+
+The proposition makes one-at-a-time screening informative: if each control is varied independently and its marginal mutual information with the observation is estimated from a measured confusion matrix, the sum of the estimates is a lower bound on the information carried by the full joint codebook when the controls are written independently. The bound can be loose, since interactions can add information, but it never overstates the achievable payload, which is the safe direction for a research program that wishes to avoid inflated claims. The effective alphabet size of a control can then be reported as $2^{\hat I_i}$ with $\hat I_i$ the estimate.
+
+The one-hundred-forty-four-parameter study investigates structured arrays, repeated mode families, and hierarchical readout. It compares physically adding independent observables with merely adding more adjustable coefficients to a model, in the sense of Section~\ref{sec:fixed}. The thirteen-thousand-parameter study begins computationally, using a declared forward model and realistic resource constraints. A fabricated specimen follows only if simulation and the smaller experiments support identifiable, robust modes, and throughout the study ``13,000 parameters'' remains a description of the model or control space until recoverable information has been measured. Table~\ref{tab:stages} summarizes the sequence.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{2.1cm}p{3.8cm}p{3.9cm}p{2.3cm}@{}}
+\toprule
+Stage & Activity & Decision statistic & Proceed if \\
+\midrule
+$d=12$ & Fabricate coupons; vary controls singly and jointly; read with the baseline reader & Marginal $\hat I_i$ per control; confusion matrices; $\sigma_{\min}$ of the mixing matrix & Total $\sum_i\hat I_i$ exceeds binary baseline net of overhead \\
+$d=144$ & Structured arrays and hierarchical readout on the best substrate & Net payload per area at stated $\varepsilon$; singular-value spectra & Net density exceeds $d=12$ at equal cost \\
+$d=13{,}000$ & Simulation with declared forward model; specimen only if supported & Identifiable rank; capacity under fixed power (Prop.~\ref{prop:gauss}) & Rank and SNR survive resource constraints \\
+\bottomrule
+\end{tabular}
+\caption{Staged experimental sequence and the decision statistic that governs progression.}
+\label{tab:stages}
+\end{table}
+
+For every scale, the decisive output is the net recovered payload per area or volume, at a specified error rate, reading time, writing time, and cost.
+
+A statistical rule governs the reporting of error rates. To claim that a block error probability does not exceed $\varepsilon$ with confidence $1-\alpha$ from trials that produced no failures, the number of independent trials must satisfy $(1-\varepsilon)^{N}\le\alpha$, which is the probability of observing no failures if the true error rate were $\varepsilon$, and therefore
+\[
+N\ge\frac{\ln(1/\alpha)}{-\ln(1-\varepsilon)}\approx\frac{\ln(1/\alpha)}{\varepsilon}.
+\]
+For $\alpha=0.05$ this is approximately $3/\varepsilon$, so establishing a block error rate below $10^{-3}$ at ninety-five percent confidence requires about three thousand failure-free trials, and the experimental design must budget for that scale of repetition.
+
+\section{Baselines, Controls, and Falsification}\label{sec:controls}
+
+The proposal compares its candidates with simpler patterns fabricated using the same equipment, substrate, area, and time budget. The principal baseline is a binary encoding, one bit per site, which is the format of most existing optical media, together with a multilevel encoding of a single observable. A complicated optical encoding should earn its complexity by improving a declared metric, namely net recovered payload per unit area at fixed error rate and cost, and the comparison must be run on specimens fabricated in the same batch to remove the confounding effect of process drift.
+
+Experiments use previously unseen payloads and report unsuccessful reads. Recovering random payloads establishes storage without relying on source redundancy, and recovering compressed documents demonstrates an archival workflow. Decoder training data and dictionaries are disclosed and included in the accounting, in accordance with the side-information correction of Section~\ref{sec:overlap}, whenever they contain source-specific information. Reports include the full distribution of block outcomes, including failures, rather than only the best specimens.
+
+The program explicitly permits negative results. Added controls might provide no independent information, which Proposition~\ref{prop:equiv} identifies as the expected outcome for controls that merely change the fabrication recipe. Fabrication variation might overwhelm multilevel encoding, so that the usable number of levels is small and the payload falls toward the binary baseline. Calibration overhead might eliminate a raw-density advantage, as in Proposition~\ref{prop:refs}. Reader cost might exceed the benefit of density. Each such outcome would still identify useful limits and guide better designs, and the program is organized so that these are measured and reported and not discovered after the fact.
+
+\section{Distributed Archives and Correlated Survival}\label{sec:distribution}
+
+At the architectural level the paper distinguishes unique stored content from replicated content, and replication is the second source of value identified in Section~\ref{sec:intro}.
+
+\begin{proposition}[Conditional replication benefit]\label{prop:repl}
+If $r$ complete copies fail independently with probability $p$ each, the probability that all copies fail is $p^{r}$.
+\end{proposition}
+
+\begin{proof}
+The event that all fail is the intersection of the independent failure events, whose probability is the product $p^{r}$.
+\end{proof}
+
+The next paragraph examines the assumption. Copies can share a vulnerable reader, a material, a decoder, a manufacturing defect, or an institution, and these are common-mode failures.
+
+\begin{proposition}[Common-mode floor]\label{prop:common}
+Suppose a common-mode event destroys access to all copies with probability $q$, independently of the copies' individual failures, and each of $r$ copies otherwise fails independently with probability $p$. The probability that the archive is lost is
+\[
+q+(1-q)\,p^{r}\;\ge\;q ,
+\]
+which cannot be reduced below $q$ by adding copies.
+\end{proposition}
+
+\begin{proof}
+The archive is lost if the common-mode event occurs, which has probability $q$, or if it does not occur, with probability $1-q$, and all $r$ copies fail independently, with probability $p^r$. The two cases are disjoint and the sum gives the formula. Since $(1-q)p^{r}\ge0$, the loss probability is at least $q$.
+\end{proof}
+
+With $p=0.1$ and $q=10^{-3}$, the loss probability is $0.1009$ for one copy, $0.0110$ for two, $0.0020$ for three, $0.0011$ for four, and $0.001001$ for six, so beyond about four copies further replication buys almost nothing, because the common-mode term dominates. The research program therefore studies diversity of substrate, geography, reader implementation, and documentation as the means of reducing $q$, which is the variable that replication itself cannot address. A million inscriptions that depend on a single unavailable decoding service have extensive physical replication but limited operational independence.
+
+A collection must also be defined as a bounded object. A dated encyclopedic release, a technical reference library, and a collection of scientific articles can be measured and verified, whereas ``the internet'' is a popular shorthand for many selected collections that change and cannot be preserved as a single readable snapshot. Immutable releases carry manifests, content identifiers, provenance, and explicit dates. Updates can be distributed as complete new copies or as deltas, and the latter create dependencies on earlier versions.
+
+\begin{proposition}[Cost of delta chains]\label{prop:delta}
+Suppose each version is held by $m$ independent copies, each surviving with probability $s$, so that version availability is $a=1-(1-s)^{m}$. If recovering version $v$ requires all of the $v$ versions in its chain, and versions are independent, the availability of version $v$ is $a^{v}$, whereas a complete snapshot of version $v$ has availability $a$.
+\end{proposition}
+
+\begin{proof}
+The chain is available only if every one of its $v$ links is, and the links are independent, so the probability is the product $a^{v}$. A snapshot depends on a single link.
+\end{proof}
+
+For $a=0.99$, a chain of twenty versions has availability $0.99^{20}\approx0.82$ and a chain of one hundred versions has $0.99^{100}\approx0.37$. The design problem therefore concerns how much historical independence to preserve: a slightly larger complete snapshot might be more useful after institutional disruption than a smaller update that requires several missing predecessors, and periodic complete snapshots bound the length of every chain.

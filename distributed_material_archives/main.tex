@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\setstretch{1.08}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{example}[proposition]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+
+\newcommand{\negl}{\mathsf{negl}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Hmin}{H_{\infty}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Pro}{Pr}
+
+\title{Distributed Material Archives:\\
+Multidimensional Optical Encoding, Embedded Manufacture,\\
+and the Physical Replication of Public Knowledge}
+\author{Flyxion\\Independent Researcher}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This essay specifies a research program in which digital archives are written into optically distinguishable structures during the fabrication of ordinary manufactured objects, so that bricks, tiles, tabletops, printed components, and textiles could carry replicated public knowledge as a routine by-product of manufacture. The central difficulty is a confusion between three quantities that popular accounts of multidimensional storage tend to merge: the number of possible inscriptions, the amount of information that one inscription can reliably carry, and the number of independently recoverable archives that can share one physical region. The first grows exponentially with the number of adjustable fabrication parameters, the second grows only linearly in the same parameters, and the third is bounded by the second. The essay develops these distinctions as theorems with complete proofs, derives capacity bounds under bounded and Gaussian noise, specifies a reader architecture at the level of its analogue front end, digital controller, and error-correcting back end, and treats the steganographic and cryptographic aspects of an archive that is meant to be both unobtrusive and publicly recoverable. Numerical studies are carried out for twelve, one hundred forty-four, and thirteen thousand adjustable parameters, and the resulting tables are conditional calculations that depend on explicit physical assumptions. Material capacities, endurance, and manufacturing yield remain experimental questions, and the final sections lay out the experimental sequence, the controls, and the conditions under which the program would fail.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\input{part1}
+\input{part2}
+\input{part3}
+\input{part4}
+\input{part5}
+
+\end{document}

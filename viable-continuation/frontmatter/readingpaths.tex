@@ -1,0 +1,71 @@
+\chapter*{Reading Paths and Dependencies}
+\addcontentsline{toc}{chapter}{Reading Paths and Dependencies}
+
+The twelve parts are not meant to be read in a single sitting. Three routes through the book are offered. The economics route covers Parts~I through VIII and needs no category theory, type theory, or sheaf theory. The formal-core route takes Parts~I to III for the economic foundation, then Part~IX for the principal results, and then one of the interpretation parts, X, XI, or XII. The full route reads the parts in order. Table~\ref{tab:paths} marks the parts each route includes, and Figure~\ref{fig:deps} shows which parts each part presupposes.
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{3.2pt}
+\small
+\begin{tabular}{@{}l*{12}{c}@{}}
+\toprule
+Route & I & II & III & IV & V & VI & VII & VIII & IX & X & XI & XII\\
+\midrule
+Economics &
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}&
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}&
+ & & & \\
+Formal core &
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& & & & & &
+ \cellcolor{black!25}& \multicolumn{3}{c}{\cellcolor{black!10}one of X, XI, XII}\\
+Full &
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}&
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}&
+ \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}& \cellcolor{black!25}\\
+\bottomrule
+\end{tabular}
+\caption{Reading routes. Shaded cells are read.}
+\label{tab:paths}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=9mm and 7mm,
+  part/.style={draw,rounded corners=2pt,minimum width=9mm,minimum height=6.5mm,font=\small},
+  >={Stealth[length=2mm]}]
+\node[part] (I) {I};
+\node[part,right=of I] (II) {II};
+\node[part,right=of II] (III) {III};
+\node[part,right=of III] (IV) {IV};
+\node[part,below=of II] (V) {V};
+\node[part,below=of III] (VI) {VI};
+\node[part,right=of VI] (VII) {VII};
+\node[part,right=of VII] (VIII) {VIII};
+\node[part,below=14mm of VI,fill=black!10] (IX) {IX};
+\node[part,below left=10mm and 12mm of IX] (X) {X};
+\node[part,below=10mm of IX] (XI) {XI};
+\node[part,below right=10mm and 12mm of IX] (XII) {XII};
+\draw[->] (I)--(II);
+\draw[->] (II)--(III);
+\draw[->] (III)--(IV);
+\draw[->] (III)--(V);
+\draw[->] (I)--(VI);
+\draw[->] (III)--(VI);
+\draw[->] (IV)--(VII);
+\draw[->] (VI)--(VII);
+\draw[->] (VII)--(VIII);
+\draw[->] (III)--(IX);
+\draw[->] (VIII)--(IX);
+\draw[->] (IX)--(X);
+\draw[->] (IX)--(XI);
+\draw[->] (IX)--(XII);
+\end{tikzpicture}
+\caption{Dependencies among parts. An arrow from A to B means B presupposes A. Part~IX is formally self-contained given Parts~I to III, and the arrow from Part~VIII records that its results are motivated by the whole economic text.}
+\label{fig:deps}
+\end{figure}
+
+\section*{Housing as the running case}
+
+A housing-maintenance system recurs throughout. It begins with physical deterioration and tenant obligations, and then carries the argument through accounting, exit capacity, contractor composition, typed repair commitments, and the compatibility of local records. Each part opens with a short paragraph marked \emph{Housing thread} stating what the case contributes there. Reading these paragraphs in order shows what each additional mathematical language adds to the same example.
