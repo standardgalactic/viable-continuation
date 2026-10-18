@@ -1,0 +1,105 @@
+\part{Sheaf Theoretic Interpretations}
+\label{part:XII}
+
+Part XII interprets local knowledge and plans over overlapping contexts. Its stated payoff is the distinction between a presheaf of plans and a sheaf of feasible allocations, together with one genuine cohomological obstruction.
+
+\begin{housing}Landlord, city, and contractor each hold local records, and gluing succeeds or fails depending on whether the shared crew is represented.\end{housing}
+
+
+Part~XII reads the book's local-to-global questions through presheaves and sheaves, with one cohomological obstruction. As in Part~X the discipline is that a structure appears only when it states something the unstructured version does not. The examples are the records of the four-unit building held by a landlord, a city, and a contractor, and a small exchange graph.
+
+\chapter{Local Economic Knowledge and Overlapping Contexts}\label{ch:56}
+
+\section{A base of contexts}
+
+Let $X=\{1,2,3,4\}$ be the units of the building. A context is a subset $U\subseteq X$ of units a party can see. The landlord sees $\{1,2,3\}$, the city inspector $\{2,3,4\}$, and the contractor $\{3,4\}$. The base is chosen for the economic reason that each party's records cover the units it is responsible for, and the overlaps are the units on which two parties' records can be compared. A different base, such as jurisdictions or fiscal years, gives a different structure and is a modelling choice, not a derived fact.
+
+A \emph{presheaf} $F$ assigns to each context $U$ a set $F(U)$ of descriptions over $U$ and to each inclusion $V\subseteq U$ a restriction map $F(U)\to F(V)$, respecting identities and composition. A presheaf is a \emph{sheaf} for a cover $\{U_i\}$ of $U$ if locality holds (two descriptions over $U$ that agree on every $U_i$ are equal) and gluing holds (every family of descriptions on the $U_i$ that agree on the overlaps comes from one description over $U$).
+
+\begin{proposition}[Unconstrained assignments form a sheaf, \Pref{P21}]\label{prop:sheaf}
+For a set $V$ of values, let $F(U)$ be the set of functions $U\to V$ and let restriction be restriction of functions. Then $F$ satisfies locality and gluing for every cover of every $U$.
+\end{proposition}
+
+\begin{proof}
+If two functions on $U$ agree on every member of a cover they agree at every point, since each point lies in some member. If a family of functions $f_i$ on $U_i$ agree on overlaps, define $f(x)=f_i(x)$ for any $i$ with $x\in U_i$; this is well defined because two such $i$ give the same value on $U_i\cap U_j$, and it restricts to each $f_i$.
+\end{proof}
+
+For the landlord's and inspector's cover of the units $\{1,2,3,4\}$ by $\{1,2,3\}$ and $\{2,3,4\}$ with spends in $\{0,200\}$, the companion enumerates all matching families and confirms that each has exactly one glued section (check BOOK, Chapter~56). The result is nearly trivial, and its use is as a baseline: the failures in the next chapters arise when the descriptions carry a constraint that is not local.
+
+\begin{exercise}Give a cover of the building for which the sheaf condition for assignments is trivial and say why that cover is uninformative.\end{exercise}
+\begin{exercise}Show that locality can fail for a presheaf of reported profits that forgets the unit labels.\end{exercise}
+\begin{exercise}Choose a base of jurisdictions for a river with three riparian owners and state the restriction maps.\end{exercise}
+
+\chapter{Presheaves of Plans, Accounts, and Commitments}\label{ch:57}
+
+\section{Restriction and what it forgets}
+
+The records of the building restrict naturally. A record of spends by unit restricts to any subset of units by discarding the other entries. A record of the total spend does not: the total over $\{1,2\}$ cannot be recovered from the total over $\{1,2,3\}$. Two histories with spends $(100,300)$ and $(200,200)$ on units $1$ and $2$ have the same total $400$ and different restrictions to unit $1$ (check BOOK, Chapter~57). An account that aggregates is a function of the record and not a presheaf on the same base unless restriction is defined for it, and the departmental consistency question, whether the accounts agree on overlaps, has no content for aggregates that cannot be restricted.
+
+Obligations raise the same question. If the landlord's record of repair duties and the inspector's record of the same defect are compared on the overlap, the duty period of Chapter~\chref{20} is the shared datum and a discrepancy in it is a failure of agreement on an overlap. Whether the discrepancy is the inspector's error, the landlord's, or a difference of definition is not decided by the presheaf structure; it records that some party's description is not a restriction of a single global description.
+
+A third failure is the omission of a shared dependency. If the landlord's plan and the contractor's plan each fund their own units and neither mentions the crew they both draw on, each local plan is internally consistent and the missing object is outside the base. The remedy in Chapter~\chref{58} is to add the crew to the model, not to strengthen the gluing.
+
+\begin{exercise}Define a restriction map for monthly profit that makes profit a presheaf and say what is lost.\end{exercise}
+\begin{exercise}Give a presheaf of obligations in which two parties' descriptions agree on the overlap but cannot be glued.\end{exercise}
+\begin{exercise}Show that the family of total spends over contexts does not form a presheaf on the subsets of the building under any restriction maps that are compatible with the sums.\end{exercise}
+
+\chapter{Gluing and Global Feasibility}\label{ch:58}
+
+\section{Matching plans that cannot be carried out}
+
+Let $F(U)$ be the set of spend assignments $U\to\{0,200\}$ whose total is at most the crew ceiling $400$. Restriction preserves feasibility, since a smaller domain has a smaller total, so $F$ is a presheaf. It is not a sheaf. On the disjoint cover $\{1,2\},\{3,4\}$ there are $16$ pairs of local assignments (all four assignments on each half are locally feasible), and each matches trivially because there is no overlap; of these, $11$ have total at most $400$ over the four units and $5$ do not, so five matching families have no glued section in $F(X)$. On the overlapping cover $\{1,2,3\},\{3,4\}$ there are $14$ matching families, $11$ of which glue and $3$ of which do not (check BOOK, Chapter~58). The five and three are the proposed assignments that every local party can accept and that no one can carry out.
+
+\begin{proposition}[Gluing needs the scarce resource in the model]\label{prop:glue}
+Let $F(U)$ be the assignments over $U$ whose total draw is at most $c$. Then $F$ is a presheaf. It satisfies the gluing condition for a cover $\{U_i\}$ of $U$ if and only if every matching family has total draw at most $c$ over $U$; this holds if some $U_i$ contains $U$, and fails in general when the cover is proper and $c$ is binding.
+\end{proposition}
+
+\begin{proof}
+Restriction of an assignment with nonnegative draws does not increase the total, so $F$ is a presheaf. A matching family has a unique glued assignment on $U$ by Proposition~\ref{prop:sheaf}, and the family glues in $F$ exactly when this assignment is feasible. If some $U_i$ equals $U$ the glued assignment is the member $f_i$, which is feasible. The example above is a proper cover on which a matching family has a total of $600$.
+\end{proof}
+
+The honest repair is to add to the model an object representing the crew, for example a context that contains the total draw, so that the cover includes a member on which the constraint is checked. Two phenomena are worth separating from gluing. A local repair condition, such as every pair of neighbouring plans being adjusted until it is feasible, need not produce a global section, since local fixes can pass the violation around. And when exact matching is replaced by penalized reconstruction, minimizing a data-fit term plus a penalty per mismatch on an overlap, a candidate with one mismatch can have lower energy than an exact one: with a data term of $10$ for the exact candidate, and $3$ plus a penalty of $2$ for one mismatch for the imperfect candidate, the imperfect candidate has energy $5$ and is selected. The numbers are stipulated to show the logic, not estimated from data, and the comparison in the companion confirms the arithmetic. The conclusion is that a reconstruction method that tolerates mismatches does not return a section of the sheaf, and its output is a recommendation.
+
+\begin{exercise}Compute the unglued families for the cover $\{1,2\},\{2,3\},\{3,4\}$ and the ceiling $400$.\end{exercise}
+\begin{exercise}Add a crew context to the base and restate gluing so that infeasible families are excluded by the cover.\end{exercise}
+\begin{exercise}Construct an instance of local repairs that cycles without reaching a global section.\end{exercise}
+
+\chapter{Obstructions, Inconsistency, and Institutional Boundaries}\label{ch:59}
+
+\section{An exchange graph}
+
+Take three currencies or goods $A,B,C$ with multiplicative exchange rates, so that one unit of $A$ buys $r_{AB}$ of $B$, and so on around the cycle $A\to B\to C\to A$. If the rates are $1/40$, $5/2$, and $20$, the product around the cycle is $\tfrac1{40}\cdot\tfrac52\cdot 20=\tfrac54$, which is not $1$. A trader who goes round the cycle ends with $5/4$ of the initial amount. The rates are consistent with a single price system $p$, in the sense $r_{XY}=p_Y/p_X$, if and only if every cycle product is $1$.
+
+\begin{proposition}[Potential versus cycle product, \Pref{P22}]\label{prop:P22}
+On a connected graph with positive exchange rates $r_{xy}$ satisfying $r_{yx}=1/r_{xy}$, there is a price system $p>0$ with $r_{xy}=p_y/p_x$ for every edge if and only if the product of the rates around every cycle is $1$. The map from cycles to cycle products is a homomorphism from the cycle space to the positive reals, and the rates are consistent if and only if its class in $H^1(\text{graph};\mathbb R_{>0})$ vanishes. With a proportional fee $f$ on each exchange, no arbitrage around a cycle of length $n$ holds if the product times $(1-f)^n$ is at most $1$.
+\end{proposition}
+
+\begin{proof}
+Necessity is the telescoping product $\prod p_{x_{i+1}}/p_{x_i}=1$. For sufficiency fix a spanning tree and a root, and define $p_x$ as the product of rates along the tree path from the root to $x$; each non-tree edge closes a cycle with the tree, and the cycle product being $1$ gives $r_{xy}=p_y/p_x$ for it. The class statement is the definition of the first cohomology of the graph with these coefficients: a one-cochain is a choice of rates, a coboundary is a choice of the form $p_y/p_x$, and the cocycle condition is automatic for a graph. The fee statement is the multiplication of the cycle product by $(1-f)^n$.
+\end{proof}
+
+In the example a fee of $8\%$ gives $\tfrac54\cdot0.92^3\approx0.97<1$, so the cycle is no longer profitable, and a fee of $5\%$ gives $\tfrac54\cdot0.95^3\approx1.07>1$, which still allows it (check BOOK, Chapter~59). Friction therefore moves the obstruction from an equality to an inequality.
+
+\section{A twisted cover}
+
+A second obstruction is of a different kind. Cover a circle by three arcs, each with a local section of a sign-valued variable, say the orientation in which a claim is read, and let the transition between neighbouring arcs be $+1$ or $-1$ for same or opposite orientation. If the transitions are $(+1,+1,-1)$ no choice of signs $a_1,a_2,a_3$ on the arcs gives $g_{ij}=a_ia_j$ on all three overlaps, because the product of the right sides around the circle is $a_1^2a_2^2a_3^2=1$ while the product of the transitions is $-1$. The class in $H^1(S^1;\mathbb Z/2)$ is nontrivial, there is no global orientation, and the nonexistence is a mathematical fact that does not depend on any of the parties' errors (check BOOK, Chapter~59). Cohomology is used here because the coefficient structure and the interpretation of the obstruction were both stated first. A claim that organizational disagreement is ``cohomological'' without such a structure is a metaphor and is not used in this book.
+
+\begin{exercise}Find the minimal proportional fee that eliminates the arbitrage in the example for a cycle of length $3$ and verify the claim at the boundary.\end{exercise}
+\begin{exercise}Show that the cycle product is multiplicative under concatenation of cycles through a common vertex.\end{exercise}
+\begin{exercise}Give a twisted cover with four arcs and signs having a trivial class, and exhibit the trivialization.\end{exercise}
+
+\chapter{Descent, Federation, and the Organization of Collective Futures}\label{ch:60}
+
+\section{Federated records}
+
+Independently governed bodies coordinate by comparing records on overlaps, not by absorbing one into another. The landlord holds $\{1:90,\,2:70,\,3:55\}$, the city holds $\{2:70,\,3:55,\,4:50\}$, and the contractor holds $\{3:55,\,4:50\}$. The records agree on every overlap and glue to the building record $(90,70,55,50)$, the same result in whatever order the contexts are merged. Suppose the city instead records $53$ for unit $3$. The merge now stops with a conflict at unit $3$ and the federation reports it without choosing a winner (check BOOK, Chapter~60). The merge cannot say which record is right; descent supplies the compatibility condition and the construction of the global record when it holds, and an institutional procedure, such as inspection, supplies the resolution when it does not.
+
+\section{The three interpretations together}
+
+The categorical interpretation of Part~X organizes processes and their composition, the type-theoretic interpretation of Part~XI says which actions are admissible in a context and where admissibility departs from executability, and the sheaf-theoretic interpretation of this part says when local descriptions can be assembled. They answer three different questions about the same building. Whether the repair of unit $4$ can follow the restoration of unit $3$ is a question about composition and uses the syntactic category. Whether the repair is permitted and funded is a question for the typing judgment. Whether the landlord's, the city's, and the contractor's records of the repair agree is a question of gluing. None of the three answers whether the building is viable, which is the question of the kernel of Part~IX under the actual resource constraints. The interpretations organize obligations of proof and records of evidence, and the economic content comes from the models and the data.
+
+\paragraph{What has been established in Part~XII.} The sheaf property is proved for unconstrained assignments and the failure of gluing is exhibited for feasible allocations; the graph theorem is proved for connected exchange graphs, and the twisted cover is a worked example of a nontrivial class. The reconstruction results are stipulated examples; no empirical claim about institutions is made.
+
+\begin{exercise}Define a federation protocol for three bodies with a conflict-resolution rule and state which of the properties of the merge above it preserves.\end{exercise}
+\begin{exercise}Show that the merge of agreeing records is independent of the order of contexts and give the general statement.\end{exercise}
+\begin{exercise}Take a decision in the book and say which of the three questions, composition, admissibility, or compatibility, each of its premises belongs to.\end{exercise}

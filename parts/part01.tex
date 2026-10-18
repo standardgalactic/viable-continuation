@@ -1,0 +1,213 @@
+\part{Economic Activity and the Establishment of Futures}
+\label{part:I}
+
+Part I fixes what an economy maintains and introduces the objects the rest of the book relies on: states, histories, continuations, and the distinction between what is possible, accessible, permitted, and acceptable.
+
+\begin{housing}Define the building, its tenants, and the repair crew, and list the states and histories that matter: rent arrears, deferred work, and notices served.\end{housing}
+
+
+The housing thread of this part is carried by a four-unit building. Each unit is let at a monthly rent of $1000$ and costs $300$ per month to run before repairs. Its physical condition $k$ is measured on a scale of $0$ to $10$ in steps of one tenth, a unit with condition below $4$ cannot lawfully be let, and a single repair crew serves the whole building up to a monthly spending ceiling of $400$. The tenants are described by their liquid resources, their monthly surplus, and the costs of moving. The states that matter are the condition of each unit, the cash of the owner and of each tenant, the number of consecutive missed rents, the notices that have been served, and the repair work that has been promised but not yet done. The remaining chapters of the part show why each of these is needed and what is lost when it is omitted.
+
+\chapter{What an Economy Maintains}\label{ch:1}
+
+An owner of the four-unit building must fix next year's maintenance budget before the roof, the plumbing, and the tenants' circumstances are known. The owner's accountant reports the building's result as rent less running cost less maintenance spending, so that a unit let at $1000$ with running cost $300$ and maintenance $100$ yields a monthly surplus of $600$. If the maintenance line is cut to zero the report shows $700$ and the next year's statement looks better by $1200$ per unit. Nothing in that statement says whether the building will still be lettable in three years. The decision is hard because the object the owner cares about, a building that can go on producing lettings, is not an entry in any ledger the owner keeps, and because the cost of the cut arrives later than the gain from it, in a form that is not proportional to the cut. The participants are the owner, who knows the budget and the rent roll, the tenants, who know how they use the unit but cannot see the roof, and a repair crew whose capacity is limited. The owner's objective is a long stream of surplus and the constraint is that each unit remain lettable.
+
+This chapter argues that the useful description of an economic activity records two things, the output obtained now and the conditions that the activity leaves behind, and that the second is a state in its own right and not a footnote to the first. Four activities show the range. A household cooks, cleans, and raises children, and what it maintains is health, skills, a dwelling, and the household's own capacity to continue the same routines tomorrow. A construction firm completes a building, and what it maintains is its equipment, its crews, its bonding capacity, and a reputation that allows it to win the next contract. A hospital treats patients, and what it maintains is trained staff, sterile theatres, supplies, and a referral network that fails slowly and recovers slowly. A watershed supplies water, fish, and timber, and what it maintains is soil, forest cover, and groundwater, which a harvest can draw down without any entry on any account. In every case the quantity sold or consumed in a period, which the national accounts call output, is the visible part of a larger process, and the larger process includes the reproduction of the conditions under which output can be repeated.
+
+\section{A transaction that produces income and uses up capacity}
+
+The housing case gives the simplest form of the point. Let the condition of a unit be $k_t$ at the start of month $t$, measured in tenths of a condition point so that the starting value is $90$ and the lettable threshold is $40$. Deterioration per month is $1$ tenth while $k>80$, $2$ tenths while $50<k\le 80$, and $4$ tenths while $k\le 50$. Spending $M$ on maintenance restores $M/100$ tenths per month, so $M=100$ exactly offsets deterioration at the top tier. These numbers are chosen so that every statement below can be computed by hand and are reproduced by the companion (check H3). With $M=100$ each month the condition never moves from $90$ and the monthly surplus is $\pi=1000-300-100=600$. With $M=0$ the monthly surplus is $700$ and the condition follows the sequence $90,89,\dots,81,80$ over the first ten months, then falls by two each month to $50$ at month $25$, then by four to $46$, $42$, and $38$ at months $26$, $27$, and $28$. The unit is lettable in months $0$ through $27$, which is $28$ rent months, and the cumulative surplus over those months is $28\times 700=19{,}600$. At month $28$ the condition $38$ is below the threshold and the unit earns nothing until it is repaired.
+
+Restoring the unit to $90$ costs $100$ per tenth, which is $5200$ from a condition of $38$. The owner saved $100$ per month for $28$ months, which is $2800$, and so the cut is paid for twice over by the restoration bill, and the loss is $2400$ before counting the rent forgone while the unit is unlettable. The pattern is not an accident of the numbers. In the first tier, deterioration equals the maintenance saved tenth for tenth, so deferral for up to ten months costs nothing in net terms; the net value of deferring $n$ months is $0$ at $n=10$, $-1000$ at $n=20$, $-1500$ at $n=25$, and $-2400$ at $n=28$. A manager who observes only the first ten months of the experiment will see a free gain, and a manager who observes the first twenty-eight will see that the free gain was a loan whose terms worsened with every month the loan was held.
+
+\begin{definition}[Income and capacity]\label{def:income-capacity}
+An \emph{activity} in period $t$ consists of a flow vector of receipts and costs, whose sum is the period surplus $\pi_t$, and a change in a vector $k_t$ of \emph{capacity variables}, the stocks of condition, skill, access, and entitlement on which later flows depend. Two activities are \emph{financially equivalent} if they have the same $\pi_t$ and \emph{capacity equivalent} if they leave the same $k_{t+1}$.
+\end{definition}
+
+The definition is followed by an example and a boundary case. The example is the pair of maintenance policies $M=100$ and $M=0$ above: they differ in $\pi_t$ by $100$ and in $k_{t+1}$ by $1$ tenth at the top tier, and they are therefore neither financially nor capacity equivalent. The boundary case is a pure financial claim, such as a government bond held for a period, whose purchase and sale change $\pi_t$ and cash but leave the conditions of production untouched. Here the capacity variable is trivial and the two notions of equivalence coincide. The point of the definition is that the two coincide rarely, and that when they diverge the divergence is the economic content.
+
+\begin{proposition}[Wedge between surplus and sustainable surplus]\label{prop:wedge}
+Consider an activity with revenue $R(k)$ that is nondecreasing in capacity, maintenance cost $M$, and capacity dynamics $k_{t+1}=k_t-d(k_t)+g(M_t)$ with $g$ strictly increasing. For any baseline $M^{b}$ and any reduction $\delta>0$ with $g(M^b-\delta)<g(M^b)$, surplus rises by $\delta$ in the period of the reduction and capacity next period is strictly lower than under the baseline. If in addition $R$ is strictly increasing at the baseline capacity, revenue in the following period is also lower or equal, and strictly lower whenever the reduced capacity falls in an interval where $R$ is strictly increasing.
+\end{proposition}
+
+\begin{proof}
+Surplus is $R-C-M$ with $R$ and $C$ unchanged in the period of the reduction, so it rises by $\delta$. Next period capacity is $k-d(k)+g(M^b-\delta)$, which is strictly lower than $k-d(k)+g(M^b)$ because $g$ is strictly increasing. Revenue is a nondecreasing function of capacity, so it is not higher, and it is strictly lower if $R$ is strictly increasing between the two values.
+\end{proof}
+
+The proposition is elementary and it is stated in the proof programme as \Pref{P12}(a). It is recorded here because it licenses a specific criticism of income accounting and not a general suspicion of it: a period surplus is a correct measure of what was received less what was spent, and it is a wrong guide to action whenever the action changes the capacity that produces the next period's receipts. What the proposition leaves open, and what Chapter~\chref{8} takes up, is how large the later loss is, because that depends on how deterioration behaves, and in the housing numbers the loss is zero for ten months and then grows. An assumption doing real work is that $g$ is strictly increasing over the relevant interval; if some of the maintenance budget bought nothing, a cut of that part would be a pure saving, and a good deal of ordinary budget-trimming is exactly that.
+
+\section{Relation to established accounting and capital theory}
+
+The distinction between income and the preservation of capital is old. Hicks defined income as the amount a person can consume in a period while leaving themselves as well off at the end as at the start~\cite{hicks1939}, and a long line of work on capital maintenance, environmental accounting, and the measurement of net product follows from asking what the phrase ``as well off'' should mean. The present book reproduces the Hicksian point in the proposition above, in a notation that keeps the capacity variable explicit. It does not follow Hicks in condensing capacity into a single wealth number, because Chapter~\chref{16} shows that capacities of different kinds are not always comparable on a common scale. The capability approach of Sen~\cite{sen1985} shares with the present account the refusal to read a person's situation off their holdings of commodities, and Chapter~\chref{5} draws on it. The book differs from that approach in asking what it takes to keep a capability available through time against specified disturbances, a question about trajectories and not only about a snapshot of opportunity.
+
+\section{What the owner now decides}
+
+Return to the owner. The owner who reads only the accountant's statement sees a surplus of $700$ against $600$ and cuts maintenance. The owner who adds the capacity variable sees that the cut is free for ten months and costly afterward, that the building will be unlettable in month $28$ unless the work is restored, and that restoring costs $5200$ against savings of $2800$. The decision is now a comparison of trajectories, and the question is how long the owner can defer without crossing a point at which the restoration is no longer possible. That question needs a model of the crew's capacity, of the owner's cash, and of the tenants' obligations, and the next four chapters construct the pieces from which it is answered.
+
+\paragraph{What has been established.} Income and capacity are distinct, an activity can raise one while lowering the other, and the housing numbers show a case where the apparent gain is a loan on increasingly unfavourable terms. The decision now enabled is a trajectory comparison for the maintenance budget. The assumptions still required are the form of the deterioration function and the effect of spending on condition, both of which are empirical. The question passed on to Chapter~\chref{2} is what must be recorded about the past for the future questions to be answerable, since the accountant's statement plainly does not suffice.
+
+\begin{exercise}
+For a unit starting at condition $90$ with the tiers above, compute the net value of deferring maintenance for $n=15$ months and then restoring. (The answer is the saved spending $1500$ less the restoration cost to condition $90$.)
+\end{exercise}
+\begin{exercise}
+Prove that the net value of deferral $V(n)=100n-100(90-k_n)$ is nonincreasing in $n$ for the stated tiers, and identify the first month at which it becomes strictly decreasing.
+\end{exercise}
+\begin{exercise}
+Choose one of a clinic, a school, or a small farm. List the capacity variables its annual accounts omit, state for each how it deteriorates and what restores it, and say which of the three omitted variables you would measure first and why.
+\end{exercise}
+
+\chapter{States, Histories, and Continuations}\label{ch:2}
+
+A tenant has missed one rent. The landlord's lease says that a notice to end the tenancy is served after two consecutive missed rents, and that paying the arrears within a month of notice cancels it. A second tenant in the building also holds $500$ in cash and has never missed a rent. At a glance the two are alike, and a lender or a statistical model that sees only current holdings would treat them alike. The decision for the landlord is whether to extend a credit, to schedule a repair visit that will cause the tenant inconvenience, or to start planning for vacancy. The difference between the two tenants is invisible in their holdings and decisive for what can happen next, and the chapter makes that difference into a definition.
+
+\section{States and histories}
+
+An economic \emph{state} is a description of the situation sufficient for the questions at issue. An \emph{event} is something that happens, an action taken or a disturbance realized, and a \emph{history} is a finite sequence of events. A model specifies which histories are possible, which futures are open after each, and which of those futures meet the stated obligations. The basic object in the book is the set of possible trajectories, in contrast to a single forecast. In the common model of the notation chapter, $x_{t+1}\in T(x_t,h_t,a_t)$ and $h_{t+1}=U(h_t,x_t,a_t,x_{t+1})$ so that a history summary $h$ travels with the physical state and is updated by an explicit rule.
+
+Take the missed-rent rule. Let the events be $p$ (rent paid) and $m$ (rent missed), and let the \emph{continuation language} $L(h)$ be the set of future event sequences that do not lead to notice. For a tenant with no recent misses, $L$ contains every sequence with no two consecutive $m$'s. For a tenant whose last event was $m$, $L$ contains every sequence that begins with $p$ and then continues as for the first tenant. The two languages differ, so the two tenants differ in a precise sense even when their cash is the same, and the difference is a count of consecutive misses that is $0$ for one and $1$ for the other. A third class, with count $2$, is the set of histories after which notice has been served, and its continuation language is empty for the purpose of avoiding notice.
+
+\begin{definition}[Exact summary and continuation equivalence]\label{def:exact}
+Let $H$ be the set of histories and $L(h)$ the set of future sequences $u$ such that $hu$ meets the specified obligations. A function $q:H\to Q$ is \emph{exact for admissibility} if, for all $h$ and $u$, whether $u\in L(h)$ is determined by $q(h)$ and $u$. Write $h\sim h'$ if $L(h)=L(h')$.
+\end{definition}
+
+An example is $q(h)=$ the number of consecutive misses at the end of $h$, capped at $2$. It is exact for the notice rule and it has three values. A boundary case is $q(h)=$ the tenant's cash balance, which is not exact because two histories with equal cash and different counts have different languages. A second boundary case is the full history itself, which is trivially exact and useless as a summary because it grows without bound. The question the next theorem answers is how much can be thrown away.
+
+\begin{theorem}[P01: coarsest exact summary]\label{thm:P01}
+(i) If $q$ is exact for admissibility then $q(h)=q(h')$ implies $h\sim h'$. Consequently $\sim$ is the coarsest exact summary, and $q_\sim(h)=[h]_\sim$ is itself exact. (ii) If the language has the residual property $L(he)=e^{-1}L(h)$ for every event $e$, where $e^{-1}L=\{u:eu\in L\}$, then $\sim$ is a right congruence: $h\sim h'$ implies $he\sim h'e$ for every $e$, so updates are well defined on classes.
+\end{theorem}
+
+\begin{proof}
+(i) If $q(h)=q(h')$ then for every $u$ the statement $u\in L(h)$ is determined by $q(h)$ and $u$, which is also $q(h')$ and $u$, so $L(h)=L(h')$. The class map $[\cdot]_\sim$ is exact by definition of $\sim$. Any exact $q$ therefore refines $\sim$, so $\sim$ is the coarsest. (ii) If $h\sim h'$ then $L(he)=e^{-1}L(h)=e^{-1}L(h')=L(h'e)$, hence $he\sim h'e$.
+\end{proof}
+
+The theorem is the dynamic form of a factorization property that Chapter~\chref{18} states for accounts in general as \Pref{P11}. Its hypotheses are light. The residual property is what makes a history summary behave like a state; it holds whenever $L(h)=\{u: hu\in\Lambda\}$ for a fixed language $\Lambda$ of acceptable full histories, which is the natural case when the obligations are fixed in advance. It fails when the rules themselves change in a way not recorded as an event, for example when a legislature raises the number of misses that triggers notice without that change being part of any history, and in that case the classes are not closed under updates and the state has to be enlarged to include the rule in force. When the number of classes is finite the minimal summary is a finite automaton, and this is the content of the Myhill--Nerode construction~\cite{nerode1958}; when it is infinite, as with an obligation that depends on an unbounded running total, an exact finite summary does not exist and the model has to carry a numerical state.
+
+The economic reading is separate from the theorem. Debt, deferred maintenance, accumulated exposure, and contractual commitments can be dropped from a state description only if they do not change which futures are acceptable. Two households with the same cash and different arrears are different states for any question about whether they can continue, and two buildings with the same present condition and different promised-but-undone repairs are different in the same way. The theorem concerns exact recognition of acceptable continuations. Predictive sufficiency for probabilities or for welfare needs further conditions, and no claim is made here that the coarsest exact summary for admissibility is also sufficient for forecasting.
+
+\section{Cash and arrears together}
+
+Now add cash. Let the rent be $1000$, let the tenant's net monthly income after living costs but before rent be $1200$, and let the tenant start with a balance $x$. Paying is possible when the balance after receiving income is at least $1000$. A tenant at $x=500$ can pay this month, ending with $x+1200-1000=700$. A tenant at $x=-300$ cannot pay without borrowing: the balance after income is $900$. The relevant summary is the pair $(c,x)$ of consecutive misses and balance, and Theorem~\ref{thm:P01} says the pair can be collapsed further if two pairs have identical languages. For instance, every pair with $x\ge 0$ and $c=0$ is equivalent in the first month, since the tenant can pay and does not need to miss, but they are not equivalent over longer horizons if the income is shocked, a point developed in Part~III. The state is therefore a function of the question as well as of the system.
+
+\paragraph{What has been established.} A state description for economic continuation must include the features of the past that change what can happen next, and the minimal such description is the quotient by continuation equivalence. The decision now enabled is the choice of which variables to carry: arrears count, cash, outstanding repairs, and notices, but not features that leave every continuation language unchanged. Assumptions still required are the residual property and a finite number of classes. The question passed on to Chapter~\chref{3} is that a continuation language only says which futures meet the obligations; it does not say which actions the person can actually take, and the two are often confused.
+
+\begin{exercise}
+Write the continuation language and the minimal summary for a rule under which notice follows three missed rents in any window of six months. Is the summary finite?
+\end{exercise}
+\begin{exercise}
+Show by an explicit pair of histories that the cash balance alone is not exact for the two-consecutive-misses rule, and give a rule change under which the residual property fails.
+\end{exercise}
+\begin{exercise}
+Identify a regulated service, such as a credit file or a medical record, in which the past is summarized by a score. State what continuation questions the score is exact for and a pair of histories with equal scores and different continuations.
+\end{exercise}
+
+\chapter{Feasibility, Accessibility, and Admissibility}\label{ch:3}
+
+A tenant in the building wishes to leave. The lease permits departure on one month's notice, the tenant knows of a cheaper unit across town, and nothing in the law forbids moving. The tenant has $3000$ in savings and a monthly surplus of $200$. Moving costs, a new deposit, and the first month's rent come to $4000$. The tenant is permitted to move, physically able to move, and aware of a place to go, and still cannot do it for another five months. Four things have been run together in ordinary speech under the word ``can'': what is physically possible, what is practically accessible, what is institutionally permitted, and what is consistent with the obligations one has taken on. The chapter separates them because each fails independently and the failures have different remedies.
+
+\section{Four sets of actions}
+
+At state $s$, let $A_{\mathrm{phys}}(s)$ be the actions not excluded by physical or technical laws. Let $A_{\mathrm{acc}}(s)\subseteq A_{\mathrm{phys}}(s)$ be the actions the person can in fact take given resources, knowledge, time, and standing, so that a fee that cannot be paid removes the action. Let $A_{\mathrm{perm}}(s)$ be the actions permitted by law, contract, and custom. Let $A_{\mathrm{eff}}(s)=A_{\mathrm{acc}}(s)\cap A_{\mathrm{perm}}(s)$ be the effective set, the actions that are both takeable and allowed. Finally let $A_{\mathrm{acc}}^{G}(s)$ be those effective actions whose successors remain in the acceptable set $G$, the actions consistent with stated obligations. Acceptability is itself a judgement about continuation, and Chapter~\chref{13} shows that the set of actions with acceptable successors is still too large, because an action can lead to a state that is acceptable but not viable.
+
+In the housing example the monthly lease gives a permitted exit with fee zero, so $A_{\mathrm{perm}}$ contains moving, and $A_{\mathrm{phys}}$ contains it too. The accessibility condition is the resource threshold $x+te\ge c$ at the exit date $t$. For $x=3000$, $e=200$, and $c=4000$ the smallest $t$ with $3000+200t\ge 4000$ is $t=5$, so exit is effective only from month $5$. A tenant whose resources are $3400$ can exit by month $3$. This is the same calculation as the front chapter, and it is the first appearance of what the proof programme calls \Pref{P08}.
+
+\begin{definition}[Executable exit]\label{def:exec-exit}
+Let $X$ be an exit target, $B$ the states satisfying the safety and obligation constraints during departure, and define $\mathrm{Reach}_0=X$ and $\mathrm{Reach}_{k+1}=\mathrm{Reach}_k\cup\{s\in B:\exists a\in A_{\mathrm{eff}}(s)\ \forall w,\ T(s,a,w)\in\mathrm{Reach}_k\}$. An exit is \emph{executable within horizon $H$} from $s$ if $s\in\mathrm{Reach}_H$.
+\end{definition}
+
+\begin{theorem}[P08: nominal and executable exit differ]\label{thm:P08}
+(i) A state belongs to $\mathrm{Reach}_H$ if and only if there is a policy using only effective actions that reaches $X$ within $H$ steps while remaining in $B$ against every allowed disturbance. (ii) Legal permission to exit does not imply membership: there is a model in which the exit action is in $A_{\mathrm{perm}}(s)$ at every $s$ and $\mathrm{Reach}_H=X$, so that no state outside $X$ can exit.
+\end{theorem}
+
+\begin{proof}
+(i) By induction on $k$: $s\in\mathrm{Reach}_{k+1}$ means that $s\in X$, or that $s\in B$ and some effective action sends every allowed successor into $\mathrm{Reach}_k$, which by hypothesis admits a policy reaching $X$ within $k$ further steps. (ii) Let the exit fee be $c$, let resources never exceed $c-1$, and let $X$ be the set of states in which the fee has been paid. The exit action is permitted everywhere and accessible nowhere outside $X$.
+\end{proof}
+
+The hypothesis carrying the conclusion is that accessibility is determined by resources. The simplification is a deterministic income stream; the assumption most likely to fail in applications is that the fee $c$ is known, because exit costs frequently include search time, references, and deposit rules that the tenant discovers at the point of exit. The economic interpretation is that exit capacity is an operational variable, whose distribution across people can be studied separately from whether contracts contain an exit clause. A lease that says exit is free and a lease that says exit costs $4000$ differ in the second case by a charge, but a lease that says exit is free for a tenant who cannot cover the next deposit has only a nominal exit clause.
+
+\section{Examples across domains and a boundary case}
+
+The same four sets separate in employment, in medical treatment, and in credit. A worker is permitted to take a job in another city, physically able, and not able to pay the first month's housing there before the first pay arrives. A patient is entitled to a treatment, which exists, and cannot reach the clinic. A borrower is eligible for a loan product and has no collateral to meet its terms. In each of these the formal list of options is the same as for a wealthier person and the effective set is smaller. A boundary case is the opposite error, treating whatever is accessible as acceptable: a tenant may be able to pay rent by drawing the moving fund, which is accessible and permitted, and which satisfies this month's obligation while leaving the tenant's exit unexecutable. This is the sense in which an available choice need not be an acceptable continuation, and it is the first sign of the gap formalized in \Pref{P05} in Chapter~\chref{13}.
+
+\paragraph{What has been established.} Effective actions are the intersection of the accessible and the permitted, nominal exit and executable exit differ, and the difference can be calculated from resources. The decision now enabled is to ask, for any institution that advertises a right, what must be held to use it. Assumptions still required are the resource model of access and a known fee. The question passed on to Chapter~\chref{4} is who bears the cost of making an alternative accessible in the first place.
+
+\begin{exercise}
+For $e=200$, $c=4000$ and $H=3$, find the minimum initial resources for an executable exit on the monthly contract, then recompute when a once-only cost of $500$ is due at the end of month $1$.
+\end{exercise}
+\begin{exercise}
+Prove that if $A_{\mathrm{eff}}(s)\subseteq A'_{\mathrm{eff}}(s)$ for all $s$ then $\mathrm{Reach}_H\subseteq\mathrm{Reach}'_H$, and state the economic meaning.
+\end{exercise}
+\begin{exercise}
+For a public service you know, such as a housing voucher or a vaccine appointment, list the four sets and estimate which of them excludes the largest share of eligible people.
+\end{exercise}
+
+\chapter{Establishing the Domain of Choice}\label{ch:4}
+
+A tenant in the four-unit building pays $1000$ and has a budget of $500$ set aside. A rental listing service charges $150$ for an introduction that reveals three alternatives, with monthly rents of $800$, $950$, and $1200$. Without the introduction the tenant knows of no alternative to the present unit. Moving to any alternative costs $400$. The decision is whether to buy the introduction, and what makes it hard is that the benefit of selecting among the alternatives is available only after the cost of establishing them has been paid, and that selecting is itself expensive. A standard model of choice begins with a set of options and asks which is best. This chapter asks where the set came from.
+
+\section{A two-stage model}
+
+Let $D$ be an opportunity domain, the set of alternatives available to choose among. An \emph{acquisition action} $e$ has a cost $\kappa(e)$ and produces a larger domain $E(e,D)\supseteq D$. Selection inside a domain $D'$ has a cost $\sigma(x)$ for each chosen outcome $x$, and $C(D')$ denotes the outcomes obtainable by selection, with their costs. The tenant's problem is to pick $e$ and then $x\in C(E(e,D))$, with total cost not exceeding the budget $b$.
+
+For the tenant, $D=\{\text{stay}\}$ with selection cost $0$. The introduction is an acquisition action with $\kappa=150$ and $E(e,D)=\{\text{stay},800,950,1200\}$. Choosing the unit at $800$ costs $\sigma=400$ and saves $200$ per month. The total up-front outlay is $550$, so the smallest budget at which the outcome ``live at $800$'' is reachable is $b^*=550$, and the payback period is $550/200=2.75$ months, so the move is worthwhile if the tenant expects to stay at least three months in the new unit. For a tenant with the stated budget of $500$ the introduction is affordable and the move is not: after paying $150$ the tenant has $350<400$. Buying the introduction in that case wastes $150$, and a good adviser would say that the first stage must be evaluated with the second in view.
+
+\begin{theorem}[P02: establishment precedes selection]\label{thm:P02}
+(i) If $x\notin C(D)$ and $x\in C(E(e,D))$, selection within $D$ cannot implement $x$ whereas establishment followed by selection can. (ii) Suppose the action set includes a zero-cost identity establishment action $e_0$ with $E(e_0,D)=D$. Then for any budget $b$ the outcomes implementable by establish-then-select policies contain those implementable by selection only, and the inclusion is strict if and only if some establishment action with $\kappa(e)\le b$ makes an outcome reachable with total cost within $b$ that was not reachable within $D$.
+\end{theorem}
+
+\begin{proof}
+(i) is the definition. (ii) A selection-only policy is the establish-then-select policy that uses $e_0$, so the containment holds. If the inclusion is strict, some outcome $x$ is implemented by a policy with some $e\ne e_0$, whose total cost is within $b$ and which makes $x$ available, and which is not reachable within $D$. Conversely any such $e$ and $x$ give a strictly larger set.
+\end{proof}
+
+The hypothesis carrying the conclusion is the zero-cost identity action. If establishment is compulsory, as when a licence or registration must be bought before any selection is allowed, the containment can fail, and the counterexample is a market in which a mandatory fee exceeds the budget of a participant who could otherwise have chosen among the free alternatives. For the tenant of the example the budget analysis is as follows. At $b=400$ the tenant cannot move to $800$ at all and the identity action is the only sensible policy. At $b=500$ the introduction can be bought and the move cannot be made. At $b=550$ the move is reachable, and the strictness of the inclusion begins exactly there.
+
+The interpretation is economic and not logical. Expenditure on search, on education, on infrastructure, on legal recognition, and on interface design can change the choice problem itself. These are costs of making alternatives available, and they are paid by someone. When a city builds a transit line it establishes a domain of commuting options for many households at once, at a cost that no household would pay alone. When a platform lists apartments it establishes a domain, and the fee structure determines who can afford to see it. A familiar analysis would treat the cost of search as a transaction cost within a given model of choice. The point here is slightly different: the domain is itself a variable of the model, and some populations differ from others in the domains that have been established for them, which is a form of inequality that a model beginning with a fixed choice set cannot represent.
+
+\paragraph{What has been established.} Establishment and selection are distinct expenditures, the break-even budget for the example is $550$, and the budgeted inclusion has a precise condition for strictness. The decision now enabled is to evaluate any proposed access intervention by what it adds to the established domain of the people it targets and not only by what it costs per head. Assumptions still required are that establishment is optional, that its cost is observed, and that selection costs can be computed. The question passed on to Chapter~\chref{5} is how to judge whether a larger established domain makes a life better.
+
+\begin{exercise}
+Recompute the break-even budget and payback period if the introduction fee is $250$ and the unit at $800$ is replaced by one at $850$.
+\end{exercise}
+\begin{exercise}
+Give an example in which a mandatory establishment fee makes the set of implementable outcomes smaller than under selection only, and state which hypothesis of Theorem~\ref{thm:P02}(ii) fails.
+\end{exercise}
+\begin{exercise}
+Choose a public programme such as a library, a language class, or a bus line. State what domain it establishes, who pays, and which population's domain it enlarges most.
+\end{exercise}
+
+\chapter{Welfare Without Counting Options}\label{ch:5}
+
+A city council is deciding whether to permit landlords to offer prepaid leases of the kind in the front chapter. The proposal adds an option for tenants who can afford it and, according to supporters, adds choices for everyone. Opponents say that more options are not a gain for a person whose exit is lost. The council needs a way to compare outcomes that does not reduce to counting choices, does not hide conflict among the people affected, and does not pretend that a single number measures a life. This chapter sets out the normative foundations that the rest of the book assumes and says where they stop.
+
+\section{Why counting options fails}
+
+Suppose welfare is measured by the number of trajectories open to a person. The count is not invariant to how options are individuated: listing five hundred near-identical apartments multiplies the count without adding any real alternative. The count also ignores that some options are worth less to a person who bears a burden in using them, and it ignores that some constraints protect. A tenant protected against eviction for the first year has fewer open trajectories than one without that protection, and many people would say the protected tenant is better placed. Equally, a worker bound by a non-compete clause has fewer options and is not thereby better off. Therefore neither the count of options nor its absence tells us what is good.
+
+The alternative developed here is a \emph{plural assessment}. A continuation profile for a person has coordinates for substantive achievement (what the person is able to do and be, including housing of adequate condition), security (the likelihood that this persists against specified disturbances), burden (the effort and cost of maintaining it), access (what the person can reach when circumstances change, which is the measure of Chapters~\chref{3} and~\chref{4}), and corrective freedom (the capacity to change course without catastrophic loss, taken up in Chapter~\chref{15}). The coordinates are not claimed to be exhaustive and the choice of them is a normative commitment that the reader may reject; the book asks only that any rival list be stated as explicitly.
+
+\begin{theorem}[P13: scalar representation fails under incomparability]\label{thm:P13}
+(a) If a partial order $\preceq$ on profiles contains incomparable elements $x,y$, there is no real-valued $v$ such that $x\preceq y\Leftrightarrow v(x)\le v(y)$ for all pairs. (b) Every partial order on a finite set admits a multi-utility representation: a finite family $(v_i)$ of real functions such that $x\preceq y$ if and only if $v_i(x)\le v_i(y)$ for every $i$. The minimal size of such a family is the order dimension of Dushnik and Miller~\cite{dushnik1941}.
+\end{theorem}
+
+\begin{proof}
+(a) Since $x$ and $y$ are incomparable, neither $x\preceq y$ nor $y\preceq x$, but for reals either $v(x)\le v(y)$ or $v(y)\le v(x)$, so the equivalence fails for one of the pairs. (b) For a finite partial order the intersection of its linear extensions is the order itself, because for any incomparable pair there is an extension that places each above the other. Each linear extension $\ell_i$ gives a real function $v_i$ by position, and the family has the stated property. The minimal number of extensions is the dimension.
+\end{proof}
+
+The consequence is moderate. Prices, utilities, and monotone indicators remain useful and are not ruled out. What is ruled out is an exact scalar representation of all the distinctions the assessment records. In the infinite case, the existence and size of a multi-utility representation need further hypotheses, which Chapter~\chref{16} states. For the council, the consequence is that a recommendation must say which coordinates it favours and must show the profiles of the groups affected rather than a single total.
+
+\section{Conflict between continuations}
+
+Suppose the building's owner holds $1500$ in cash and pays a mortgage of $700$ per month. A tenant stops paying. The tenant's protection requires two consecutive missed rents before notice, and notice takes a further month to run, so that the owner's exposure is three months. Three months of the mortgage is $2100$, which exceeds the owner's $1500$. The tenant's security and the owner's solvency are both coherent obligations, and for this owner they cannot hold together: the set of trajectories that satisfy both is empty from the state of the example. In the language of Chapter~\chref{13} the owner is outside the viability kernel for the joint regime. Protecting the tenant restricts the owner, and relaxing the protection restricts the tenant. The conflict is not a mistake in the model.
+
+Three responses are available and each distributes burdens differently: the owner may be required to hold reserves of $2100$, which burdens small owners disproportionately; a public arrears fund may cover the gap, which moves the burden to taxpayers; or the tenant protection may be shortened, which moves the burden to tenants. The plural assessment lets each of these be reported as a change in the profiles of identified people, and it makes explicit that the choice among them depends on how the coordinates are weighed. The disagreement is thereby displayed as a disagreement about weighing, instead of being concealed in the choice of a single metric.
+
+\paragraph{What has been established.} Counting options does not measure welfare, a plural profile does not reduce to a scalar when its coordinates are incomparable, and protections for one party can make the position of another unviable. The decision now enabled is to evaluate policies by the profiles of the people they change and to name the weights used when a ranking is made. Assumptions still required are the choice of coordinates and their measurement. The question passed on to Part~II is how production, the activity that supplies the housing, itself changes the conditions on which every profile depends.
+
+\begin{exercise}
+For the owner with $1500$ in cash and a $700$ mortgage, find the smallest reserve under which three months of exposure can be met and the longest protection period a reserve of $1500$ can support.
+\end{exercise}
+\begin{exercise}
+Give a four-element partial order with order dimension two and exhibit the two linear extensions that represent it.
+\end{exercise}
+\begin{exercise}
+Select a policy that creates an additional option for some households. State which coordinates of the profile it raises, which it lowers, and for whom.
+\end{exercise}

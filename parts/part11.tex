@@ -1,0 +1,111 @@
+\part{Type Theoretic Interpretations}
+\label{part:XI}
+
+Part XI interprets states, permissions, and commitments as types. Its stated payoff is the precise gap between formal inhabitation and real-world executability, and the separate roles of preservation and progress.
+
+\begin{housing}Repair commitments are typed with deadlines and explicit failure branches, and degraded operating modes carry evidence.\end{housing}
+
+
+Part~XI reads the same objects as types. The aim is modest and specific: to show, with small systems whose rules are fully stated, where a type discipline prevents a class of error, where it cannot, and where well-typedness and executability come apart. The examples use the repair of the housing unit of Chapter~\chref{6}.
+
+\chapter{Economic States and Admissible Actions as Types}\label{ch:51}
+
+\section{Actions indexed by state}
+
+Let $\mathrm{State}$ be the type of contexts $\Gamma=(m,c,\pi)$ of money $m$, crew capacity $c$, and a set $\pi$ of permissions. The action family $\operatorname{Act}:\operatorname{State}\to\mathrm{Type}$ assigns to each context the actions whose preconditions it satisfies. For the unit, $\operatorname{Act}(\Gamma)$ contains the repair with spend $M$ at condition $k$ exactly when $\mathrm{repair}\in\pi$, $M\le m$, and $M\le c$. A repair with spend $M$ is then a term of $\operatorname{Act}(\Gamma)$, and its typing judgment produces the successor context $(m-M,\,c-M,\,\pi)$ and the successor condition $\max(0,\min(100,k-d(k)+M/100))$. The companion implements the judgment: at $k=51$, spend $300$ from the context $(400,400,\{\mathrm{repair}\})$ is accepted, returns condition $52$, and leaves the context $(100,100,\{\mathrm{repair}\})$; the same repair without the permission is rejected by the check, which raises the error before any effect (check BOOK, Chapter~51).
+
+\begin{proposition}[Preservation for the repair calculus, \Pref{P20}]\label{prop:pres}
+If $\Gamma\vdash \mathrm{repair}(M):\mathrm{ok}$ and the repair executes in a context that satisfies $\Gamma$, the resulting context satisfies the successor context given by the judgment, and no resource is negative.
+\end{proposition}
+
+\begin{proof}
+The judgment requires $M\le m$ and $M\le c$, so the successor amounts $m-M$ and $c-M$ are nonnegative; the permission set is unchanged. Execution applies the same subtraction, so the actual and the judged successor coincide.
+\end{proof}
+
+\section{Inhabitation is not executability}
+
+Preservation says that typed steps stay typed. It does not say that a typed step can be taken. The type of the repair above assumes that the crew capacity recorded in the context is available when the work is to start. If the environment withdraws the crew, so that the available capacity is $0$ while the context still records $400$, the term still inhabits $\operatorname{Act}(\Gamma)$ and the execution fails; the companion exhibits the stuck state (check BOOK, Chapter~51). The type system is correct about the model and silent about whether the model's context matches the world. Closing the gap is an empirical task of keeping the context synchronized with observations, and the next chapters show which parts of the gap can be shrunk by protocol design.
+
+\begin{exercise}Add a deadline to the context and state the typing rule for a repair that must complete by month $t$.\end{exercise}
+\begin{exercise}Prove progress for the calculus under the assumption that the available resources are never below the recorded ones, and show by example why the assumption is needed.\end{exercise}
+\begin{exercise}Give a dependent type for the action ``evict'' that makes the notice rule of Chapter~\chref{20} a typing requirement.\end{exercise}
+
+\chapter{Linear and Affine Resources}\label{ch:52}
+
+\section{Which resources may be copied}
+
+A \emph{linear} resource must be used exactly once, an \emph{affine} resource at most once, and an unrestricted one any number of times. Money and crew-hours are consumed by use and are modelled as linear quantities that are split and not duplicated: the context $(400,400)$ is split into the part $(300,300)$ passed to a repair and the remainder $(100,100)$ left behind, and the part consumed cannot be spent again. A permission, such as the right to repair, is affine: it can be exercised repeatedly in the model if it is not consumed, and it can be dropped, but a dropped permission cannot afterwards be used. Information is unrestricted, since copying a record does not deplete it, though its value to a competitor may fall, an effect the type system does not capture.
+
+The companion implements a context with these three disciplines. Splitting $400$ into $300$ and $100$ leaves $100$ to the original owner; an attempt to pay $200$ from the original after the split fails because the funds are held by the sub-context; and using a permission after dropping it raises an error (check BOOK, Chapter~52).
+
+\begin{proposition}[No duplication, no use after drop]\label{prop:linear}
+In the split-and-pay calculus, the sum of the amounts held by all contexts derived from a root context never exceeds the root amount, and an affine permission is used at most once in the sense that no use occurs after a drop in any well-typed derivation.
+\end{proposition}
+
+\begin{proof}
+Splitting transfers amounts between contexts without creating any, and paying removes them, so the total is nonincreasing by induction on derivations. The affine rule marks a dropped permission as unavailable, and the typing of a use requires availability.
+\end{proof}
+
+No single discipline fits all economic objects. Obligations are neither linear nor affine in the strict sense: a debt cannot be silently dropped, which is the opposite of affine, and it can be discharged by one of several payments, which is neither. Treating obligations as linear resources that must be consumed by a discharge event captures the first property and needs an explicit default branch for the second, which is the subject of the next chapter.
+
+\begin{exercise}Show that a debt as a linear resource does not model transfer to a third party without an additional rule, and supply the rule.\end{exercise}
+\begin{exercise}Classify as linear, affine, or unrestricted: a lease, a licence to a patent, a recipe, a warranty, and a maintenance crew-hour.\end{exercise}
+\begin{exercise}Prove that the total held across derived contexts is conserved when no payment occurs.\end{exercise}
+
+\chapter{Obligations, Deadlines, and Protocols}\label{ch:53}
+
+\section{Escrow as a protocol with failure branches}
+
+A protocol is a finite labelled graph whose states are stages of an exchange and whose edges are the messages or events that advance it. The escrow protocol of the companion has the states \emph{init}, \emph{funded}, \emph{delivered}, \emph{disputed}, \emph{settled}, and \emph{refunded}. A deposit moves \emph{init} to \emph{funded}. From \emph{funded} either delivery moves it to \emph{delivered} or a timeout moves it to \emph{refunded}. From \emph{delivered}, acceptance settles and a dispute moves to \emph{disputed}, from which the arbiter's resolution either pays, reaching \emph{settled}, or refunds. The terminal states are \emph{settled} and \emph{refunded}.
+
+\begin{proposition}[Protocol progress, \Pref{P20}]\label{prop:progress}
+A protocol has progress when every nonterminal state has an outgoing edge and every state can reach a terminal state. The escrow protocol has progress, and it loses progress when the outgoing edges of \emph{delivered} are removed.
+\end{proposition}
+
+\begin{proof}
+For the escrow graph, reachability of a terminal state is read off: \emph{funded} reaches \emph{refunded} by timeout, \emph{disputed} reaches \emph{settled} or \emph{refunded}, \emph{delivered} reaches \emph{settled}, and \emph{init} reaches \emph{funded}. If both outgoing edges of \emph{delivered} are removed, the state is nonterminal and has no edge, so progress fails there and for every state whose only route passes through it. The companion computes both cases (check BOOK, Chapter~53).
+\end{proof}
+
+Progress is a property of the protocol graph. Whether the parties take the edges is a property of their incentives and behaviour: the buyer who never accepts or disputes keeps the protocol in \emph{delivered} forever unless the protocol adds a deadline edge, which is why every state with a pending obligation needs a timeout branch. The deadline fixes a rule and is not a theorem about people. The relation to \Pref{P28} is that the interval within which an exit remains available is itself a deadline edge, and the closed-form interval of Chapter~\chref{29} is the length of the edge.
+
+\begin{exercise}Add a timeout edge to \emph{delivered} and state what is traded away.\end{exercise}
+\begin{exercise}Show that a protocol with progress can still allow an infinite run, and give a condition that rules it out.\end{exercise}
+\begin{exercise}Write the repair protocol of a tenant's notice of defect with the statutory periods of Chapter~\chref{20} as deadline edges.\end{exercise}
+
+\chapter{Proof-Carrying Commitments and Verified Degradation}\label{ch:54}
+
+\section{A certificate that can be checked}
+
+A proof-carrying commitment ships with evidence that a third party can check without redoing the search. For restoration, the evidence is a map from conditions to a pair of a spend and a rank. The checker accepts when, for every certified condition, the spend is within the ceiling, the successor is certified and lettable, and the rank decreases by one at each step until rank zero, which must lie at or above the target. A certificate for restoring a unit to condition $60$ under the ceiling $400$, starting from $51$, has fifty entries, with rank $5$ at $51$, and the checker accepts it. Changing the entry at $51$ to rank $3$ is rejected, and no certificate exists for the unit at $50$ (check BOOK, Chapter~54).
+
+\begin{proposition}[Soundness of the rank checker, \Pref{P07}]\label{prop:rank}
+If the checker accepts a certificate then from every certified condition the policy that follows the certified spends reaches a condition at or above the target in at most the certified rank steps, remaining lettable throughout.
+\end{proposition}
+
+\begin{proof}
+By induction on the rank. At rank zero the condition is at or above the target. At rank $r>0$ the certified spend is feasible, and the successor is certified with rank $r-1$ and lettable, so by the induction hypothesis the target is reached in at most $r-1$ further steps.
+\end{proof}
+
+The checker is sound with respect to the model, which is a hypothesis: the certificate does not show that the repair price, the crew ceiling, or the deterioration schedule are those of the world. The proposition is the finite fragment of the safe-restoration result; completeness, that every restorable condition has a certificate, holds by construction in the finite model, since the rank function of Chapter~\chref{14} supplies one.
+
+\section{Replay integrity and historical authority}
+
+A record system can be reconstructed by replaying its log of operations under a canonical encoding, checking at each operation that its parent is the preceding one and its tick is valid, ignoring duplicates, and recording refusals. Success of the replay shows \emph{integrity}: the log is internally consistent and reproduces the state. It does not show \emph{authority}: that the operations were issued by parties entitled to issue them, or that the log is the log which the community accepts. A replayed state can be internally perfect and historically unauthorized, for example a complete forged log. The two properties are verified by different evidence, the first by recomputation and the second by signatures or institutional acceptance, and a claim of ``verified history'' must state which is meant. The distinction is used again in Chapter~\chref{55} and in the audit of Chapter~\chref{25}. This is a candidate import from the author's repository review and the claim here is the conceptual one only; the implementation was not tested.
+
+\begin{exercise}Construct a certificate for restoring to $60$ at the ceiling $600$ from condition $45$ and compare the ranks with those at the ceiling $400$.\end{exercise}
+\begin{exercise}Give a forged certificate that passes the structural checks but violates the ceiling, and say which check catches it.\end{exercise}
+\begin{exercise}List the evidence needed to move a replayed record from integrity to authority.\end{exercise}
+
+\chapter{Refinement, Interpretation, and the Limits of Formal Assurance}\label{ch:55}
+
+\section{A verified scheduler that fails its purpose}
+
+A scheduler allocates the crew ceiling of $400$ among the four units. The refinement type of its output is $\{a\in\mathbb{Z}^4_{\ge0}:\sum a_i\le 400\}$. The greedy scheduler that funds units in increasing order of holding cost until the ceiling is spent has this type, and the companion tests it on $500$ random buildings (check BOOK, Chapter~55), in addition to the one-line argument that it never allocates beyond the remaining capacity. On the building $(90,70,55,50)$ it returns $(100,200,0,0)$: it meets its specification and leaves the two worst units unfunded, with holding costs $200$ and $400$. The implementation is verified relative to the specification and the specification is the wrong one for the purpose, which was to keep the building viable. The holding costs total $900$ against the ceiling $400$, so no allocation holds all four units at their current conditions in that month, and the right specification would also say what to do when this is so: triage by the loss function of Chapter~\chref{17}, or an explicit declaration that the target is unattainable.
+
+The general point is the one the proof programme reserves under \Pref{P15} and \Pref{P17}: a formal assurance has a premise that the specification expresses the purpose, and that premise is outside the formalism. Consistency of a model is not fairness of its allocation, a verified computation does not make its inputs true, and a check that a stock is positive does not show that the ecological stock it represents is adequate. A formal assurance statement should name its specification, its trusted inputs, and the purpose it does not address.
+
+\paragraph{What has been established in Part~XI.} Preservation is proved for the repair calculus and soundness for the rank checker, both relative to the stated models; progress is a property of the protocol graph and is not a behavioural prediction; the gap between inhabitation and executability is exhibited, not closed.
+
+\begin{exercise}Write a specification of the scheduler under which the greedy rule is not correct, and give a correct rule for it.\end{exercise}
+\begin{exercise}Identify the trusted inputs in the rank certificate of Chapter~\chref{54}.\end{exercise}
+\begin{exercise}Describe a case in which a formally verified allocation is unfair by a stated criterion.\end{exercise}

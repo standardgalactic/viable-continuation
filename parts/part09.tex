@@ -1,0 +1,175 @@
+\part{Mathematical Foundations and Economic Results}
+\label{part:IX}
+
+Part IX consolidates the formal machinery and states the principal results with hypotheses, organized by theorem family. It is the formal centre of the book.
+
+\begin{housing}The housing model is stated formally, its viability kernel is computed, and the finite-state companion reproduces the results and their counterexamples.\end{housing}
+
+
+Part~IX fixes the statements. Each result is given with its hypotheses, separated into finite, countable, and general-state cases where they differ, and each worked number from the earlier parts that depends on it is listed. The formal setting is the one of the notation chapter: a state space $S$, actions $A(s)$, disturbances $W(s,a)$, a transition $T$, and an acceptable set $G\subseteq S$. The housing unit of Chapter~\chref{6} is the running instance, with the companion reproducing every example, and the stable labels \Pref{P01} to \Pref{P29} of the proof programme are used throughout.
+
+\chapter{Transition Systems and History Compression}\label{ch:41}
+
+\section{Setting and the factorization lemma}
+
+A \emph{transition system} is a tuple $(S,A,W,T,G)$ with $T:S\times A\times W\to S$ defined where $a\in A(s)$ and $w\in W(s,a)$. A \emph{history} is a finite alternating sequence of states, actions, and disturbances consistent with $T$. Given an obligation language $\Lambda$ of acceptable full histories, the continuation set of a history is $L(h)=\{u:hu\in\Lambda\}$, and a \emph{summary} is a function $q$ on histories.
+
+\begin{theorem}[Factorization lemma, \Pref{P11} and \Pref{P01}]\label{thm:factor}
+Let $F:S\to Y$ be a representation and $P:S\to\{0,1\}$ a property. Then $P=\bar P\circ F$ on $F(S)$ for some $\bar P$ if and only if $F(s)=F(s')$ implies $P(s)=P(s')$, and the coarsest representation through which $P$ factors is the quotient of $S$ by $\ker P=\{(s,s'):P(s)=P(s')\}$. For histories with the continuation property $L(h)$, a summary $q$ is exact if and only if it refines the equivalence $h\sim h'\Leftrightarrow L(h)=L(h')$; if $L(he)=e^{-1}L(h)$ for every event $e$ then $\sim$ is a right congruence and defines an update map on classes.
+\end{theorem}
+
+\begin{proof}
+If $P=\bar P\circ F$ and $F(s)=F(s')$ then $P(s)=\bar P(F(s))=\bar P(F(s'))=P(s')$. Conversely if $F(s)=F(s')$ implies $P(s)=P(s')$, define $\bar P(y)=P(s)$ for any $s$ with $F(s)=y$, which is well defined. Any representation through which $P$ factors identifies only states that $P$ does not separate, hence refines nothing finer than $\ker P$, and $\ker P$ itself factors it. The history statement is the case $P(h)=L(h)$ valued in sets of futures, and the congruence is the computation $L(he)=e^{-1}L(h)=e^{-1}L(h')=L(h'e)$.
+\end{proof}
+
+The hypotheses are minimal. The dynamic version needs the residual property, which fails if the rules change without being recorded as events. When the number of classes of $\sim$ is finite the minimal summary is a deterministic automaton, which is the Myhill--Nerode construction~\cite{nerode1958}; when it is infinite no finite exact summary exists. For the housing unit of Chapter~\chref{6}, started at condition $60$ with the spends $\{0,200\}$ and the obligation that the unit stay lettable, the automaton has the eleven conditions reachable from $60$ and one dead state, a total of twelve states, and the twelve states are pairwise inequivalent, so nothing can be forgotten: every distinct condition is a distinct state. The syntactic monoid of the same language has $108$ elements. The count is reproduced in the companion (check BOOK, Chapter~41).
+
+\section{What a representation forgets}
+
+A representation's loss is exactly its kernel. The tier grade of Chapter~\chref{21} identifies conditions with equal holding cost, and it forgets the number of months of lettability remaining; the two quantities are different properties and the grade factors through one and not the other. The accounting map of Chapter~\chref{20} identifies states with equal reported profit and forgets the backlog. A history-dependent constraint, such as the cumulative-excess condition for bounded backlog (Chapter~\chref{8}), is a property of the whole history that no function of the present state captures, and its summary is the running supremum $\sup_{s\le t}\int_s^t(\rho_M-\rho_R)$, which is again a state once adjoined. The general principle is that a history-dependent constraint can always be made Markov by enlarging the state to the minimal exact summary, and that the enlargement is finite exactly when the summary is.
+
+\begin{theorem}[\Pref{P02}, establishment precedes selection, formal statement]\label{thm:P02f}
+Let $D$ be an opportunity domain, $E(e,D)\supseteq D$ the domain established by an acquisition action $e$ with cost $\kappa(e)$, and $C(D')$ the outcomes obtainable by selection inside $D'$ with selection costs $\sigma$. If there is a zero-cost identity establishment $e_0$ with $E(e_0,D)=D$, then for every budget $b$ the outcomes obtainable by establish-then-select policies within $b$ contain those obtainable by selection only, and the inclusion is strict if and only if some $e$ with $\kappa(e)\le b$ and some $x$ with $\kappa(e)+\sigma(x)\le b$ satisfy $x\in C(E(e,D))\setminus C(D)$.
+\end{theorem}
+
+The proof is the one in Chapter~\chref{4}. For the numbers there the threshold budget is $550$.
+
+\paragraph{Accounting as a functor.} By \Pref{P19}, an accounting interpretation $F$ from the path category to a monoid is a functor if $F(g\circ f)=F(g)+F(f)$ and $F(\mathrm{id})=0$. For the ledger of Chapter~\chref{20} this holds by the posting rules, and the companion checks it on random concatenations (check BOOK, Chapter~49). Functoriality is not sufficiency, by Theorem~\ref{thm:factor}.
+
+\begin{exercise}
+Compute the Nerode classes of the unit automaton started at $60$ with the single spend $200$ and explain the result.
+\end{exercise}
+\begin{exercise}
+Prove that a right congruence of finite index on the histories defines a deterministic automaton recognizing the continuation language.
+\end{exercise}
+\begin{exercise}
+Give a history-dependent obligation whose minimal exact summary is infinite.
+\end{exercise}
+
+\chapter{Orders, Dominance, and Incomparability}\label{ch:42}
+
+\section{Dominance orders}
+
+Let $X$ be a set of continuation profiles, each a vector in $\mathbb R^m$ with coordinates oriented so that larger is better. Define $y\preceq x$ when $y_i\le x_i$ for every $i$. This is the product order, a partial order, and it is the dominance relation of Chapter~\chref{16}. Three different comparisons are often run together. \emph{Inclusion} compares sets of options by containment, $A\subseteq B$. \emph{Cardinality} compares them by size. \emph{Scalar utility} compares by a real number. The sets $A=\{51,\dots,100\}$ and $B=\{40,\dots,90\}$ of conditions, with $|A|=50$ and $|B|=51$, are not comparable under inclusion and are ranked by cardinality in favour of $B$, a ranking that depends on how conditions are individuated and that no inclusion argument supports.
+
+\begin{theorem}[\Pref{P13}, scalarization and multi-utility]\label{thm:P13f}
+(a) Let $\preceq$ be a partial order on $X$ with incomparable $x,y$. There is no $v:X\to\mathbb R$ such that $x'\preceq y'\Leftrightarrow v(x')\le v(y')$ for all $x',y'\in X$. (b) If the biconditional is weakened to monotonicity, $x'\preceq y'\Rightarrow v(x')\le v(y')$, scalar functions exist (for example $v=\sum_ix_i$). (c) For a finite partial order there is a family of $d$ real functions $v_1,\dots,v_d$, with $d$ the order dimension of Dushnik and Miller~\cite{dushnik1941}, such that $x'\preceq y'$ if and only if $v_i(x')\le v_i(y')$ for all $i$, and no family of fewer functions has this property.
+\end{theorem}
+
+\begin{proof}
+(a) For reals $v(x)\le v(y)$ or $v(y)\le v(x)$, so the biconditional would make $x,y$ comparable. (b) The sum is strictly monotone for the product order. (c) A family of linear extensions whose intersection is the order, called a realizer, yields the functions by position, and conversely a family of functions with the property gives linear extensions by breaking ties arbitrarily, whose intersection is the order. The minimal size of a realizer is the dimension by definition.
+\end{proof}
+
+The preservation requirement that generates the impossibility in (a) is order reflection, the converse direction. A scalar can order-preserve without reflecting; what it cannot do is declare incomparable profiles incomparable. In the finite case the dimension can be computed. The three plans of Chapter~\chref{16} form an antichain of three elements, whose dimension is two, with the realizer ``$A,B,C$'' and ``$C,B,A$''. The standard example $S_3$ of six elements $a_1,a_2,a_3,b_1,b_2,b_3$ with $a_i<b_j$ if and only if $i\ne j$ has dimension three, which the companion confirms by exhaustive search over linear extensions (check BOOK, Chapter~42). The infinite case, where multi-utility representations can require infinitely many functions or fail without additional topological hypotheses, is not settled here and is stated as a hypothesis to be fixed for each application.
+
+\paragraph{Economic reading.} Prices and utilities are not ruled out, and (b) says that useful monotone indicators exist. What is ruled out is exactness: no real-valued function can represent all the distinctions a partial order records.
+
+\begin{exercise}
+Find the order dimension of the poset of three plans in Chapter~\chref{16} with the added profile of the zero-spend plan.
+\end{exercise}
+\begin{exercise}
+Prove that a finite order has dimension at most its width (Dilworth's theorem may be used) and compute both for $S_3$.
+\end{exercise}
+\begin{exercise}
+Give an infinite poset with no finite multi-utility representation.
+\end{exercise}
+
+\chapter{Reachability, Robustness, and Recovery}\label{ch:43}
+
+\section{The kernel and its algorithms}
+
+For a finite system, the iteration $K_0=G$, $K_{n+1}=\Phi(K_n)$ with $\Phi(X)=\{s\in G:\exists a\ \forall w,\ T(s,a,w)\in X\}$ terminates at $K$ in at most $|S|$ steps, with each step costing $O(|S|\,|A|\,|W|)$ operations. Correctness: the sequence is decreasing since $\Phi$ is monotone and $K_1\subseteq G=K_0$, a decreasing sequence of subsets of a finite set is eventually constant, and a constant value $X=\Phi(X)$ is a fixed point containing every post-fixed point by induction, so it equals the greatest fixed point of \Pref{P03}. The witnessing action at $s\in K$ gives a state-feedback policy. In infinite systems the iteration need not terminate; the infinite chain of the companion is a system in which every $K_n$ is nonempty and the greatest fixed point is empty, so termination claims carry the finiteness hypothesis.
+
+The comparative statics of \Pref{P23} and its corollaries \Pref{P04} and \Pref{P14} are as in Chapter~\chref{13}. Corrective reachability \Pref{P08} is the dual least fixed point $\mathrm{Reach}$, and the safe-degradation and restoration results \Pref{P06} and \Pref{P07} are as stated. The depth theorem of Chapter~\chref{15} shows that a review of depth $n$ certifies $K_n$, with $K_n\supsetneq K$ for $n$ below the stabilization step; for the unit under the ceiling $100$ the stabilization step is $34$.
+
+\section{Worst-case, almost-sure, and risk-budget guarantees}
+
+The robust kernel treats every allowed disturbance. It is monotone decreasing in the disturbance set, which has a practical consequence for model uncertainty: a modeller who assumes a smaller disturbance set than the true one overstates the kernel. In the unit under the ceiling $400$, ignoring the one-tenth shock gives a kernel of every lettable condition and including it gives conditions from $51$ upward. The almost-sure kernel in the countable case, \Pref{P25}, coincides with the robust kernel over the support, and in the example the unit at $50$ is not almost-surely viable. Its failure probability within $T$ months, for a shock of probability $1/10$ per month, is $P(\mathrm{Bin}(T,1/10)\ge 11)$, which is $1.09\times 10^{-10}$ at $T=12$, about $7.2\times 10^{-6}$ at $24$, about $0.034$ at $60$, about $0.66$ at $120$, and $0.9993$ at $240$ (check BOOK, Chapter~43). A risk-constrained notion therefore needs a stated horizon and a budget that is spent as the horizon runs, which is the augmented-state formulation of \Pref{P25}; a fixed per-period risk budget does not suffice because failure probability accumulates. The general-state case, with measurability and selection hypotheses, remains a research specification.
+
+\section{The waiting theorem}
+
+\begin{theorem}[Finite-horizon waiting, general form of \Pref{P26}]\label{thm:wait}
+Let a finite Markov chain with states $s$, stopping payoffs $g(s)$, transition probabilities $p(s,t)$, and discount factor $\beta\in(0,1]$ be given, with absorbing states of payoff zero representing expiry or a declined opportunity. The value of the optimal stopping problem with horizon $N$ is the function $V_N$ defined by $V_0=g$ and $V_{n+1}(s)=\max\{g(s),\ \beta\sum_tp(s,t)V_n(t)\}$, and acting at the first date at which $g(s)\ge\beta\sum_tp(s,t)V_n(t)$ is optimal. For $N=1$ with an undecided state $u$ that moves to a high or low state, the formula reduces to the two-period comparison of Chapter~\chref{9}.
+\end{theorem}
+
+The proof is backward induction. With $g(u)=600$, high and low states paying $2300$ and $0$, a survival probability of $4/5$, and $\beta=0.9$, the value is $\max\{600,0.9\cdot\tfrac45\cdot\tfrac12\cdot 2300\}=828$, and with survival probability one it is $1035$, which the companion reproduces (check BOOK, Chapter~43). The continuous-time and infinite-horizon versions need the usual regularity conditions and are not proved here.
+
+\begin{exercise}
+Compute $K_n$ for $n=1,2,3$ for the unit under the ceiling $100$ and the smallest $n$ at which $K_n$ excludes condition $70$.
+\end{exercise}
+\begin{exercise}
+Prove that the robust kernel is nonincreasing in the disturbance set.
+\end{exercise}
+\begin{exercise}
+Extend Theorem~\ref{thm:wait} to two information stages and compute the value for the investment of Chapter~\chref{9}.
+\end{exercise}
+
+\chapter{Composition and Systemic Failure}\label{ch:44}
+
+\section{The obstruction and the positive results}
+
+The static obstruction is \Pref{P09}: for divisible simultaneous demands $d_j$ on capacity $c$, $\sum_jd_j\le c$ is necessary and sufficient for joint feasibility, and $d_j\le c$ for each $j$ does not imply it. The dynamic obstruction is the pair of units at $(50,50)$ under the shared ceiling, each in its own kernel and the pair outside the joint kernel. The positive results are the product theorem of Chapter~\chref{31}, the scarcity-price decentralization of Chapter~\chref{17} under separability, and the circular assume-guarantee composition of Chapter~\chref{32} under a lag.
+
+\begin{proposition}[Share partitions give a sufficient condition]\label{prop:shares}
+Let two systems share a resource of capacity $c$ with ceilings $c_1$ and $c_2$ satisfying $c_1+c_2\le c$, and let $K_i(c_i)$ be the kernel of system $i$ when its action set is restricted to draws at most $c_i$. Then $K_1(c_1)\times K_2(c_2)\subseteq K_{12}(c)$.
+\end{proposition}
+
+\begin{proof}
+A pair of policies, each respecting its own ceiling, respects the shared one, and each keeps its component in $G_i$ against all disturbances; the pair therefore keeps the product in $G_1\times G_2$.
+\end{proof}
+
+In the housing pair, the union over all splits of the ceiling of $400$ into multiples of $100$ of the products $K_1(c_1)\times K_2(c_2)$ equals the joint kernel exactly, all $2500$ states, which the companion verifies (check BOOK, Chapter~44). The equality is a fact about this model, in which a unit's viability depends on a constant holding spend, and is not a general theorem: when dynamic reallocation across time can help, the union of static splits can be strictly smaller.
+
+\section{Accounting consistency and operational progress}
+
+A transactional outbox records the obligation to send an event in the same transaction as the order, which prevents the omission of an obligation for a committed order. It does not by itself guarantee eventual delivery or prevent duplicate effects at the recipient. Enumerating the delivery schedules of one order with a lossy channel and at most two attempts shows the possibilities: without retry the order can be committed with the obligation recorded and the effect never delivered; with retry and no idempotence at the recipient the effect can occur twice; with retry and idempotence the effect occurs at most once, but all attempts can still be lost. Eventual delivery requires a fairness assumption on the channel. The separation is the same as that between \Pref{P20}'s preservation and progress: the invariant that every committed order has a recorded obligation is preserved, and progress needs environmental assumptions.
+
+\begin{exercise}
+For three units at $(60,60,60)$ and a ceiling of $400$, list the splits of the ceiling that give a viable triple.
+\end{exercise}
+\begin{exercise}
+Find a system in which the union of static splits is strictly smaller than the joint kernel.
+\end{exercise}
+\begin{exercise}
+State the fairness assumption under which the outbox with retry delivers eventually and prove delivery under it.
+\end{exercise}
+
+\chapter{Measurement and Empirical Identification}\label{ch:45}
+
+\section{From quantities to indicators}
+
+Each theoretical quantity in the book needs an observable counterpart. The maintenance backlog needs an inspection standard and a restoration price. The hold-cost ratio needs condition records. The switching cost $S$ of Chapter~\chref{28} can be read from quotes through $S=Nu(q^*-q_0)$ at the point where a customer is indifferent. Recovery time is the rank of Chapter~\chref{14}, observed from completed repairs. Exit capacity is the comparison of liquid resources with the exit cost. Obligation fulfillment is the record of discharge events of Chapter~\chref{20}. Service interruptions are observed directly, and the retained competence of Chapter~\chref{23} is the hardest to observe and is inferred from response times in drills.
+
+\section{Which causal claims need which designs}
+
+The housing model supplies the point in a form that can be computed. Suppose the owner follows the rule of spending exactly the holding cost on each unit. Across units from $40$ to $100$, spend is negatively related to condition, since worse units cost more to hold, and the condition change from one month to the next is zero for every unit, so spend and change have no variation to correlate. A regression of the change in condition on spend would find nothing, though the causal effect of an extra $100$ of spend on next month's condition is exactly one tenth. The observational association is produced by the rule, not by the technology. Three designs identify the effect. A randomized comparison, adding $100$ to a random subset, gives a difference of exactly one tenth. A natural experiment, such as an exogenous change in the crew ceiling, identifies the effect on units whose spend it constrains. Longitudinal data identify it only with a structural assumption about the decision rule. The companion reproduces the calculation (check BOOK, Chapter~45).
+
+The general lesson is that a claim about what a maintenance policy does cannot be read from the correlation between spending and condition in data generated by managers who respond to condition. Claims about switching costs and exit capacity have the same structure and need either a source of variation not chosen by the unit studied or an explicit structural model.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{0.26\linewidth}p{0.3\linewidth}p{0.3\linewidth}@{}}
+\toprule
+Quantity & Observable & Identification\\
+\midrule
+Backlog & inspection against a standard & census, no causal claim\\
+Switching cost $S$ & quotes at indifference & randomized offers or exogenous supplier exit\\
+Recovery time (rank) & completed repair durations & longitudinal, with policy rule\\
+Exit capacity & resources against exit cost & survey plus exogenous cost shocks\\
+Competence & drill response times & randomized practice\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{What has been established in Part~IX.} The representation, order, viability, composition, and waiting results have been stated with hypotheses and the finite cases proved; the infinite order dimension, the general-state almost-sure kernel, and the continuous-time waiting theorem remain specifications. The next three parts reinterpret the same objects.
+
+\begin{exercise}
+Design a randomized comparison to identify the effect of maintenance spending on condition when owners choose spending.
+\end{exercise}
+\begin{exercise}
+Show that under the hold-cost rule the covariance of spend and condition change is zero for any population of units.
+\end{exercise}
+\begin{exercise}
+Select a claim in the book that rests on an assumed rate (erosion, deterioration, growth of switching cost) and describe the study that would estimate it.
+\end{exercise}

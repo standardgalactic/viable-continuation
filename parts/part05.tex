@@ -1,0 +1,173 @@
+\part{Knowledge, Attention, and Productive Competence}
+\label{part:V}
+
+Part V studies representations, memory, skill, automation, and verification as supports for, or threats to, competent continued action.
+
+\begin{housing}Inspection records, contractor knowledge, and automated scheduling are examined, along with what a passed inspection establishes.\end{housing}
+
+
+In Part~V the building is managed by people who must know its condition, remember what has been promised, keep the skill to act, and decide how far to rely on automatic scheduling. The shared parameters for automation are in the specification: automation saves $300$ per month of supervision, practice costs $200$ per unit of effort per month, competence erodes by $3/50$ per month under full reliance and gains $3/20$ per unit of practice, and the time to return to explicit control is $\lceil 1+7(1-c)\rceil$ months at competence $c\in[0,1]$.
+
+\chapter{Economic Representations and Semantic Compression}\label{ch:21}
+
+An inspector grades each unit on a scale of $0$ to $10$ by dividing its condition by ten and rounding. A manager reads the grades and decides which units to hold with the crew's limited spending. The grades are compact, they can be passed between agencies, and they are easy to audit. The decision is whether the grades are good enough, and the difficulty is that the answer depends on what the manager is going to do with them. Two units can have the same grade and require different spending.
+
+\section{Task-relative adequacy}
+
+A representation $\rho:S\to Y$ compresses a state to a description, and it preserves some distinctions and discards others. It is not good or bad in itself. It is adequate for a task if the task's answer depends only on the description. Let $\tau:S\to Z$ be the task, for example the monthly holding cost of a unit, $z=100\,d(k)$. By \Pref{P11} the representation is \emph{adequate for $\tau$} if $\rho(s)=\rho(s')$ implies $\tau(s)=\tau(s')$, equivalently if $\tau=\bar\tau\circ\rho$ for some $\bar\tau$.
+
+The score $\rho(k)=\mathrm{round}(k/10)$ is not adequate for holding cost. Units at conditions $80$ and $81$ both score $8$, yet their holding costs are $200$ and $100$. Units at $50$ and $51$ both score $5$, with holding costs $400$ and $200$. The tier boundaries lie inside score classes, and a manager who uses the score to allocate a ceiling of $400$ over four units will misjudge the units at the boundaries by factors of two. A grade defined directly by the tiers, A for conditions above $80$, B for $51$ to $80$, C for $40$ to $50$, and D below $40$, is adequate for holding cost, since each lettable grade has a single cost ($100$, $200$, $400$). It is not adequate for the task of predicting how many months the unit stays lettable if left alone, because within grade B a unit at $80$ lasts $18$ months and one at $52$ lasts $4$. The same compression is adequate for one task and inadequate for another, and the check is a calculation, reproduced in the companion (check BOOK, Chapter~21).
+
+\begin{definition}[Task-relative adequacy]\label{def:adequacy}
+A representation $\rho:S\to Y$ is \emph{adequate for the task} $\tau:S\to Z$ if $\tau$ is constant on each fibre of $\rho$. It is \emph{minimally adequate} if no strictly coarser representation is adequate. The minimal adequate representation for $\tau$ is the quotient of $S$ by the kernel of $\tau$.
+\end{definition}
+
+An example is the tier grade for the holding-cost task. A boundary case is the identity representation, adequate for every task and costing the most to keep and transmit. A useful representation is one that is minimally adequate for the tasks it serves and whose omissions are known.
+
+\section{Compression in forecasting and classification}
+
+Forecasts and classifications compress in the same way. A forecast of the monthly rent roll summarizes the number of let units and discards their conditions, and is adequate for the task of next month's revenue but not for the revenue in two years. A classification of tenants as low or high risk discards the information that separates tenants whose risk comes from irregular income from those whose risk comes from large expenses, and is adequate for a single decision on the credit limit but not for the decision whether to offer a payment plan. The general lesson is that the question to ask of any category system is which decisions it was built for, and whether its use has drifted to others. Chapter~\chref{26} treats classification as an allocator of futures and takes this up.
+
+\paragraph{What has been established.} A representation is adequate relative to a task, the score used in the example is inadequate for the holding-cost task because tier boundaries fall inside score classes, and the tier grade is adequate for holding cost and inadequate for time to failure. The decision now enabled is to state, for each record, the tasks for which it is adequate. Assumptions still required are an explicit list of tasks. The question passed on to Chapter~\chref{22} is how adequate representations are retained, retrieved, and kept usable over time.
+
+\begin{exercise}
+Find the smallest number of grade classes that is adequate for the task ``months of lettability remaining with no maintenance'' on conditions $40$ to $100$.
+\end{exercise}
+\begin{exercise}
+Prove that the minimal adequate representation for $\tau$ is unique up to relabelling.
+\end{exercise}
+\begin{exercise}
+Take a credit score, a hospital triage category, or a school grade, and name one task for which it is adequate and one for which it is not.
+\end{exercise}
+
+\chapter{Memory as Organizational Capital}\label{ch:22}
+
+The manager of the building keeps a log of the condition of each unit. A flood in the office destroys it. The leases and the rent roll are intact, but the conditions are lost. The decision is whether the log was worth keeping, and the difficulty is that the cost of keeping it was small and visible and the cost of losing it appears only when the manager next tries to allocate a crew.
+
+\section{Retained, retrievable, and usable}
+
+Information held somewhere is not thereby available for action. It is \emph{retained} if it exists on some medium, \emph{retrievable} if it can be found at the moment needed at acceptable cost, and \emph{usable} if the person finding it can interpret it for the decision. A log in a format that no one can read is retained and not usable. The institutional memory of a firm is the part of its records, routines, and understanding that is usable, and it is a form of capital in the sense of Chapter~\chref{7}: it provides a capability on the condition that complements, such as readers, indexes, and formats, continue to be provided.
+
+The value of the log can be calculated. With the log the manager knows the conditions $(90,70,55,50)$ and the holding costs $(100,200,200,400)$, a total of $900$. Without it the manager knows only that every unit is lettable, that is, that each is at condition $40$ or above. A prudent allocation assumes the worst tier for every unit, $400$ each, a total of $1600$. The difference of $700$ per month is the value of the records to the holding decision. If keeping the log costs $20$ per unit per month, or $80$ per month, the log is worth keeping at any horizon. Reinspecting after the loss costs $150$ per unit, a total of $600$, once, against an excess holding cost of $700$ per month until the conditions are known again. The calculation is reproduced in the companion (check BOOK, Chapter~22).
+
+\begin{proposition}[Value of a record]\label{prop:record-value}
+Let $\rho$ be a record of the state and $\tau$ a decision cost function. The value of the record to a decision is the difference between the worst-case cost over states consistent with the information without the record and the cost with the record. It is nonnegative and zero exactly when the decision is the same at every state consistent with the information.
+\end{proposition}
+
+The proof is the definition: removing information enlarges the set of states over which the worst case is taken. The hypothesis doing work is that the manager guards against the worst case; a manager who assumed the average would compare differently, and the average needs a probability model that this book does not supply.
+
+\section{Forgetting without erasing obligations}
+
+Forgetting can reduce costs. Purging old tenant records, closing a database, or retiring a form reduces storage and handling. It does not erase obligations: a repair duty that a tenant reported and that the log recorded is still outstanding after the log is lost, and the owner is in breach when the deadline passes whether or not any record remains. The danger is that forgetting is treated as discharge. A record system should distinguish between archiving, which removes a record from active use while keeping it retrievable, and deleting, which does not, and should not allow deletion of records of outstanding obligations.
+
+A distinction from the literature on verifiable records separates replay integrity from historical authority. A log that can be replayed to produce the same state, or that carries a hash chain, has integrity in the sense that it is self-consistent. It does not follow that the inputs it recorded were truthful, or that the commitments it records were legitimate, or that the branch an institution has selected is the correct one. An institution can keep reproducible accounts without establishing that the rent was in fact paid. Chapter~\chref{25} develops this, and the sheaf-theoretic treatment of when local records glue into a global one is deferred to Part~XII (\Pref{P21}).
+
+\paragraph{What has been established.} Records are capital whose value is the reduction in worst-case cost of decisions, in the example $700$ per month against $80$ in upkeep, forgetting reduces cost but does not discharge obligations, and integrity is distinct from authority. The decision now enabled is to keep records of states and obligations that feed decisions with large worst-case costs. Assumptions still required are the decision cost function and a rule for dealing with worst cases. The question passed on to Chapter~\chref{23} is how routine skill, which also saves attention, is kept ready.
+
+\begin{exercise}
+Recompute the value of the log if the units are $(90,90,60,60)$.
+\end{exercise}
+\begin{exercise}
+Show that a record has zero value to a decision that is the same at every state consistent with the remaining information, and give an example of a nonzero record that nonetheless has zero value to a stated decision.
+\end{exercise}
+\begin{exercise}
+Select an organization's archive and write the retention rule that would keep records of outstanding obligations and release the rest.
+\end{exercise}
+
+\chapter{Aspect Relegation and the Economics of Skill}\label{ch:23}
+
+The manager has set up an automatic scheduler that decides each month how to allocate the crew's spending. The scheduler works well for as long as the conditions stay within the range it was built for, and the manager has stopped checking it. The scheduler saves $300$ per month in supervision time. The decision is how much to keep practising the manual allocation, and what makes it hard is that the skill erodes under reliance, the erosion is invisible until the scheduler fails, and by then the time needed to take back control is longer.
+
+\section{A margin for detection and return}
+
+Practice and routine change the attention a task requires. A relegated aspect of a task is performed without attention, which frees resources, and the freeing creates dependence on conditions remaining stable. The economic issue is recognizing when a task must return to explicit supervision.
+
+Fix an operating region at condition $60$ with the scheduler holding units at that level. The failure boundary is condition $40$, so the distance is $d=20$ tenths. If the scheduler silently stops, the worst rate of decline is $v=4$ tenths per month, which is the rate in the lowest tier. If detection and return to explicit control takes $\tau$ months, the safe condition is $d>v\tau$, that is, $\tau<5$. The exact tolerance is larger: a unit at $60$ left alone is lettable for $8$ months, with $k=42$ after seven and $38$ after eight, so any return within seven months is safe, and the bound $\tau<5$ is conservative because it uses the worst rate for the whole period. The planner who needs a margin that does not depend on a particular path uses the bound.
+
+\begin{theorem}[P16: safe relegation requires a detection-and-return margin]\label{thm:P16}
+Let an automated operating region lie at distance $d$ from a failure boundary, adverse motion at rate at most $v$, detection and return to explicit control within time $\tau$, and intervention able to arrest deterioration before the boundary. Then $d>v\tau$ is sufficient, together with allowances for observation error and stopping distance. If response time depends on retained competence, $\tau_t=\tau(c_t)$, with $\tau$ decreasing in $c$, the condition at date $t$ is $d_t>v_t\,\tau(c_t)+\text{allowances}$.
+\end{theorem}
+
+\begin{proof}
+In time $\tau$ the state moves at most $v\tau<d$ toward the boundary, so it has not reached it when explicit control returns, and the intervention then arrests deterioration. The endogenous statement replaces $\tau$ by $\tau(c_t)$ at each date.
+\end{proof}
+
+With $\tau(c)=\lceil 1+7(1-c)\rceil$ months, the margin $\tau\le 4$ requires $1+7(1-c)\le 4$, that is $c\ge 4/7$. Competence therefore has to stay at or above $4/7$.
+
+\section{The practice that preserves the margin}
+
+Let competence evolve by $c_{t+1}=\min\{1,\ c_t-\tfrac{3}{50}\ell_t+\tfrac{3}{20}u_t\}$ with reliance $\ell_t=1$ under full automation and practice $u_t\in[0,1]$. With $u=0$ competence falls by $3/50$ each month, so from $c=1$ it is below $4/7$ at month $8$, where $c=0.52$. Constant practice holds competence if $\tfrac{3}{20}u=\tfrac{3}{50}$, that is $u^*=2/5$. Practice costs $200$ per unit, so holding competence costs $80$ per month, leaving a net saving of $300-80=220$ per month. The apparent saving of $300$ is consumed entirely if practice costs $750$ per unit, since $u^*\times 750=300$. The numbers are reproduced in the companion (check BOOK, Chapter~23).
+
+The result is conditional. If the failure is rare and costly, practice pays, and Chapter~\chref{24} computes how rare. If practice is cheap relative to the saving, the answer is to practise. If the scheduler's savings are small and practice is expensive, the margin may not be affordable, and the correct inference is that the automation should not be adopted at that operating point, not that the margin may be neglected. The distinction between expenditure and damage to regenerative capacity is the same one: the scheduler's saving is an expenditure avoided, and the erosion of skill is a damage to the capacity that regenerates readiness.
+
+\paragraph{What has been established.} A margin $d>v\tau(c)$ turns the question of how much skill to keep into a calculation, in the example $c\ge 4/7$ requiring practice $u^*=2/5$ at a cost of $80$ per month, and the saving from automation is consumed if practice costs $750$ per unit. The decision now enabled is to budget for practice as part of the cost of automation. Assumptions still required are the erosion and gain rates, which are empirical. The question passed on to Chapter~\chref{24} is how to compare policies over a horizon long enough for erosion to matter.
+
+\begin{exercise}
+Recompute $u^*$ and the break-even practice price if erosion is $1/20$ per month and the gain is $1/10$ per unit of practice.
+\end{exercise}
+\begin{exercise}
+Prove that if $\tau$ is decreasing in $c$ and the dynamics are monotone, then a policy that maintains $c_t\ge c^\dagger$ at all $t$ satisfies the margin whenever $c^\dagger$ does.
+\end{exercise}
+\begin{exercise}
+Choose an occupation in which routine skill is automated, such as pilots or radiologists, and identify the failure boundary, the adverse rate, and the return time.
+\end{exercise}
+
+\chapter{Automation and the Preservation of Intervention}\label{ch:24}
+
+The scheduler of Chapter~\chref{23} has run for thirty months with no practice. It fails silently. The manager notices after a delay that depends on how much skill remains, and the decision, taken thirty months earlier, was whether to spend $80$ per month on practice. The question is how large the expected cost of failure must be before the practice was worth buying.
+
+\section{The cost of a delayed return}
+
+Suppose the scheduler has been holding a unit at $60$ and stops. If control returns after $\tau$ months, the unit has fallen to the condition reached after $\tau$ months of no maintenance, and the loss is the cost of restoring it to $60$ at $100$ per tenth, plus $700$ for the month lost if the condition is below $40$. With the return times of Chapter~\chref{23} the losses are $200$ for $\tau=1$, $800$ for $\tau=4$ (condition $52$), $1400$ for $\tau=6$ (condition $46$), and $2900$ for $\tau=8$ (condition $38$, below the lettable minimum). Under full reliance competence falls to zero at about the seventeenth month, where the return time is eight months. A failure at month $30$ therefore costs $2900$ without practice, and $200$ with practice at $u^*=2/5$ that has kept competence at $1$.
+
+\section{Comparing policies over the horizon}
+
+Over $36$ months, full reliance saves $300\times 36=10{,}800$ and reliance with practice saves $(300-80)\times 36=7920$, a difference of $2880$. If failures occur $n$ times over the horizon and each occurs late, the practice policy saves $n(2900-200)=2700n$. Practice is the better policy exactly when $2700n>2880$, that is $n>16/15\approx 1.07$. If the expected number of failures over three years is greater than about one, buy the practice; if less, the reliance policy dominates. The threshold is not a probability estimate. It is the break-even that the manager can compare with an estimate of the scheduler's failure rate made from the manager's own records, and it exposes how sensitive the conclusion is to the return-time function, which here is an assumption. The calculation is reproduced in the companion (check BOOK, Chapter~24).
+
+The qualitative point is that full automation lowers the immediate cost and raises the cost of the rare failure, because the failure arrives when the people who could respond have lost the ability to do so. An automation policy should therefore be assessed on output, error, oversight burden, retained competence, and recovery time together. A tool that offers isolated working copies, a command filter, or a stop control has limited effect here if the effects of an action cannot be recovered after the fact. The economic question about any such tool is how much review, intervention time, and recoverability it actually preserves, and no claim of zero risk is admissible.
+
+\paragraph{What has been established.} The cost of a delayed return rises with eroded competence, full reliance and reliance with practice are compared by a break-even number of failures, here $16/15$ per three years, and the conclusion depends on the return-time function. The decision now enabled is to count expected failures before choosing a policy. Assumptions still required are the return-time function and the failure process. The question passed on to Chapter~\chref{25} is how to know that a check of the automation checks what matters.
+
+\begin{exercise}
+Recompute the break-even number of failures if practice costs $400$ per unit.
+\end{exercise}
+\begin{exercise}
+Show that the break-even $n^*$ is increasing in the practice price and decreasing in the differential loss, and interpret.
+\end{exercise}
+\begin{exercise}
+Select a system with automated operation, such as an elevator maintenance contract or an airline autopilot, and list the quantities needed to apply the break-even calculation.
+\end{exercise}
+
+\chapter{Verification, Proxies, and Institutional Confidence}\label{ch:25}
+
+An inspector checks each unit in the building against the rule that its holding cost must not exceed the crew ceiling of $400$. Every unit passes: the holding costs are $100$, $200$, $200$, and $400$. The inspection report says the building meets the maintenance standard, and a lender takes comfort from it. The decision is how much confidence the report warrants. The units together require $900$ against a ceiling of $400$, and the check never added them.
+
+\section{What a passed check establishes}
+
+\begin{theorem}[P17: verification transfers only through an adequate interpretation]\label{thm:P17}
+Let $M$ be a formal model, $E$ the empirical system, and $R$ a relation connecting their states. Assume soundness of overapproximation: every relevant empirical execution is $R$-related to a model execution, and $R$-related states satisfy that model safety implies empirical safety. Then a verified universal safety property of $M$ transfers to $E$.
+\end{theorem}
+
+\begin{proof}
+Take an empirical execution $e$. By assumption there is a model execution $m$ related to it. The property holds at every state of $m$, and the states of $e$ are related to those of $m$, so by the safety-transfer assumption each state of $e$ is safe.
+\end{proof}
+
+The hypotheses are the content. The inspection check is a verified property of a model in which the building is a collection of independent units, and the empirical system is a building with a shared crew. The relation $R$ fails to preserve the safety property because the shared ceiling is not in the model, and by \Pref{P09} each unit is feasible alone and the whole is not. Passing a check establishes what its specification and interpretation support, and the connection to the economic situation is an additional proof obligation. Liveness and probabilistic claims need stronger relations than the safety relation used here.
+
+An executable version makes the mismatch explicit. In the companion the function that tests each unit's holding cost against the ceiling returns true for the building $(90,70,55,50)$, and the function that sums the holding costs and compares with the ceiling returns false (check BOOK, Chapter~25). The repair is not to add more checks but to restate the specification: the property of interest is the joint one, and the check must be written for it. A second example from the literature on ledgers has the same shape. A verifier checks seals against stored roots without recomputing them from the contents, and checks debits one at a time without aggregating repeated postings. Two debits of $600$ against a stated restriction of $1000$ each pass, and together they exceed it. A tampered ledger whose contents have changed and whose stored root has not passes the seal check. In both cases the check succeeds while omitting the relation a reader assumes it verifies.
+
+\section{Proxies and institutional confidence}
+
+Institutions rely on proxies: a certification stands in for competence, a benchmark for performance, an audit for honesty. Each carries the risk that the passed check is read more broadly than its specification warrants, and that behaviour is then organized around passing the check. By \Pref{P15} a proxy that depends only on the rewarded measure cannot distinguish two activities with the same measure and different substantive contribution. The effect on confidence is that the institution may hold a belief about the building that its evidence does not support, and any financing decision that rests on the belief inherits the gap. The response proposed here is to record, alongside every certificate, the specification and the interpretation relation it relies on, so that a user can see which of the hypotheses of Theorem~\ref{thm:P17} are being assumed.
+
+\paragraph{What has been established.} A verified property transfers only through an interpretation that preserves safety, the unit-by-unit inspection passes while the joint requirement of $900$ against $400$ fails, and a check can succeed while omitting the relation a reader assumes. The decision now enabled is to attach the specification and interpretation to every certificate. Assumptions still required are an explicit interpretation relation and a joint property. The question passed on to Part~VI is how the authority to act and to refuse, the rights that structure these dependencies, is itself organized.
+
+\begin{exercise}
+For the building $(90,90,60,60)$ write the unit-by-unit check and the joint check and say which one the inspector should report.
+\end{exercise}
+\begin{exercise}
+Give a model in which every safety property transfers under the relation of Theorem~\ref{thm:P17} and a liveness property does not.
+\end{exercise}
+\begin{exercise}
+Take a certification such as a food-safety or financial-audit certificate, and state the model it verifies, the empirical system, and one way the relation between them could fail.
+\end{exercise}

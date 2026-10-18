@@ -1,0 +1,207 @@
+\part{Production, Maintenance, and Irreversibility}
+\label{part:II}
+
+Part II treats production as the transformation of conditions, capital as maintained capability, and irreversibility as a symmetric property of action and inaction.
+
+\begin{housing}Roof and plumbing deteriorate; producing a habitable unit transforms the building's conditions; the cost of deferred maintenance is traced forward.\end{housing}
+
+
+The roof and plumbing of the four-unit building deteriorate on the schedule fixed in Part~I, a renovation changes a unit's condition by an amount that can be bought at a known price, and the question of this part is what it means to produce something when production itself changes the conditions of later production.
+
+\chapter{Production as Transformation of Conditions}\label{ch:6}
+
+An owner has a unit at condition $50$ and two bids to renovate it to condition $80$. The first contractor charges $3000$, which is $100$ per tenth for $30$ tenths, and offers a six-month warranty. The second charges $2400$ and offers none. Both promise a renovated unit, and a record of the work would show the same output, one unit raised to $80$. The decision is which bid to accept, and it is hard because the difference between them cannot be seen in the output and appears only in how the unit behaves afterward. A production function that maps inputs to an output quantity records that two renovations were produced; the question the owner faces is about what each leaves behind.
+
+\section{The housing transition}
+
+Every later calculation in the book uses one transition rule for a unit, fixed in the shared specification \texttt{spec/housing\_v2.json} and implemented unchanged in the companion and in the simulator. The state is the condition $k_t$ in tenths of a condition point, with $k_{\max}=100$ and a lettable minimum of $40$. Within month $t$ the order of events is fixed. The manager observes $k_t$ and chooses a maintenance spend $M_t$, a multiple of $100$ no larger than the crew ceiling, which is $400$ for the building as a whole. If $k_t\ge 40$ the unit is let, so that rent $1000$ is collected and running cost $300$ is paid, and if $k_t<40$ neither occurs. The spend $M_t$ is paid. Finally $k_{t+1}=\min\{100,\;k_t-d(k_t)+M_t/100\}$, where $d(k)=1$ for $k>80$, $d(k)=2$ for $50<k\le 80$, and $d(k)=4$ for $k\le 50$. The monthly surplus is $\pi_t=700\cdot\mathbf 1[k_t\ge 40]-M_t$. Deterioration and repair are simultaneous within the month and condition is observed before the choice, so a repair bought in month $t$ affects the condition seen in month $t+1$ and the rent of month $t$ depends on the condition at its start.
+
+\begin{definition}[Housing transition]\label{def:housing-transition}
+A \emph{housing unit} is the system with state $k\in\{0,\dots,100\}$, action $M\in\{0,100,\dots,400\}$, acceptable set $G=\{k\ge 40\}$, deterministic successor $T(k,M)=\min\{100,k-d(k)+M/100\}$, and surplus $\pi(k,M)=700\cdot\mathbf 1[k\ge 40]-M$. A building of several units shares the ceiling: the sum of the spends on all units in a month is at most $400$.
+\end{definition}
+
+An example is the unit at $90$ under $M=100$: it earns $\pi=600$ in month $0$ and stays at $90$ because $d(90)=1$ is exactly offset by the repair. Under $M=0$ the same unit earns $700$ and moves $90,89,88,87,\dots$. A boundary case is a unit at $38$: it earns nothing whatever the spend, so $\pi=-M$, and a spend is a pure restoration outlay. Because the production of a month of housing is exactly this transition, the owner's output (a let unit-month) and the change in capacity (the next condition) are produced by the same act, and the two sides of the accountant's statement come from one rule.
+
+\section{Outputs, inputs, residuals, obligations, and capacity}
+
+Represent production in a period by five parts. There are the \emph{inputs} consumed, labour, materials, energy, and the use of existing capacity. There are the \emph{outputs} delivered, goods and services that others receive. There are \emph{residuals}, material and informational leftovers whose disposition is a further task (Chapter~\chref{10}). There are \emph{new obligations}, such as warranties, safety duties, and regulatory filings that outlast the transaction. And there is the \emph{change in productive capacity}, the difference between the stock of conditions that supports production after the period and before it. The conventional production function $Q=f(K,L)$ records inputs and the output quantity and leaves the other three parts implicit or absent. It answers questions such as how much can be produced from a given endowment in one period, and it is silent on whether the same endowment will be there next period.
+
+Suppose the second contractor leaves a hidden defect, a poorly sealed pipe joint, that raises the deterioration in the middle tier ($50<k\le 80$) from $2$ to $3$ tenths per month. Under no further maintenance, the unit from condition $80$ with sound work lasts $18$ rent months before falling below $40$, since the path reaches $50$ after $15$ months and then loses $4$ per month for three more, and the unit with the defect lasts $13$ months, since it reaches $50$ after ten months and then follows the same last three steps. The defect costs five rent months. At the no-maintenance surplus of $700$ per month this is a loss of $3500$ against a saving on the bid of $600$. The production record shows two identical outputs and a saving; the transition description shows a loss nearly six times the saving. The calculation is reproduced in the companion (check BOOK, Chapter~6).
+
+\begin{definition}[Transition description of production]\label{def:transition-prod}
+A production activity from state $s$ is a tuple $(u,y,\rho,\omega,s')$ of inputs $u$, outputs $y$, residuals $\rho$, new obligations $\omega$, and successor state $s'$, subject to a transition relation $s'\in T(s,u)$. A \emph{production function} is the restriction to the map $u\mapsto y$ when the other components are constant or ignored.
+\end{definition}
+
+An example is the renovation above, in which $\omega$ is the warranty (present in the first bid, absent in the second) and the successor state includes the defect. A boundary case is the production of a standardized good, such as a bolt of cloth in a factory whose machines are in steady state, where the residual, obligation, and capacity components are constant across alternatives and the production function loses nothing. The boundary shows that the richer description is a generalization, and that it matters when the omitted components vary across the alternatives being compared.
+
+\section{What each representation can answer}
+
+The comparison with the production function can be made precise. A production function answers questions that depend on $(u,y)$ only: the efficient mix of inputs for a given output, the returns to scale, the marginal product of labour. It cannot answer a question whose answer depends on $\rho$, $\omega$, or $s'$, such as which of two equal-output methods leaves the unit lettable for longer, or which leaves the lower exposure to a repair claim. By the factorization of Chapter~\chref{2} the production function is a sufficient description for exactly those questions that factor through $(u,y)$; for the owner's decision it is not sufficient because the bids agree on $y$ and differ on $\omega$ and $s'$.
+
+The transition description is not free. It needs a model of how conditions evolve, and a poor model of deterioration is worse than none for decisions that hinge on it. The standard literature on production correctly supplies, for questions about prices and allocation, an economy of tractable models; this book does not displace those models and supplies the extension needed when the questions concern continuation. Where the two give the same answer the production function is preferable for its simplicity, and where they differ the difference is exactly the object of study.
+
+\paragraph{What has been established.} Production is better described by inputs, outputs, residuals, obligations, and capacity change than by the output quantity alone, and the housing example shows a hidden defect costing nearly six times the saving that hid it. The decision now enabled is to compare bids by their effect on the successor state. Assumptions still required are a deterioration model and a way to observe defects. The question passed on to Chapter~\chref{7} is how to value the capability that production maintains or consumes.
+
+\begin{exercise}
+For a unit at condition $80$ and a defect that raises middle-tier deterioration from $2$ to $4$, compute the number of rent months with no maintenance and the loss relative to the sound renovation.
+\end{exercise}
+\begin{exercise}
+Show that the production function is sufficient for the question ``which bid maximizes output'' and not for ``which bid leaves the larger lettable horizon'', by giving two states with the same $(u,y)$ and different horizons.
+\end{exercise}
+\begin{exercise}
+Choose an industry, such as software or food service, and list its residual and obligation components. State which are most often omitted from its published productivity statistics.
+\end{exercise}
+
+\chapter{Capital as Maintained Capability}\label{ch:7}
+
+Two units in the building have the same condition, $60$, the same walls and fittings, and the same lease. One is served by a crew with the full ceiling of $400$ per month. The other can call on a repairer who will spend at most $100$ per month on it, because the rest of the crew's time is committed. A buyer who inspects both finds the same asset. The decision for an owner choosing which to acquire or which to fund is what each is worth, and the difficulty is that the physical asset is identical while the capability it provides over the next three years is not.
+
+\section{Identical assets, different complements}
+
+Capital goods, in the sense used here, are machines, buildings, knowledge, networks, and institutional arrangements that provide a capability on the condition that complementary things continue to be provided. The value of a capital good to its owner is the value of a flow of services conditioned on a stream of complements, and it depends on repairability, on the skills available, and on access to the complements in the market. Possession is a necessary part of this and not the whole.
+
+Apply the transition of Chapter~\chref{6} to the two units at $k=60$ over a horizon of $36$ months. With the full ceiling the manager spends $d(60)\times 100=200$ per month, which holds the unit at $60$ indefinitely, so the unit is let in all $36$ months at a surplus of $700-200=500$ per month, a total of $18{,}000$. With the ceiling of $100$ the best the manager can do is spend $100$ every month, giving a net change of $-1$ tenth per month in the middle tier. The unit reaches $50$ after ten months and then falls by $3$ per month, to $47$, $44$, $41$, and $38$, and it is let in $14$ months at $600$ per month, a total of $8400$, with no rent afterward. The same asset is let for the whole horizon in one case and for $14$ months in the other.
+
+A third case shows an exposed dependence. Suppose the full ceiling is available for twelve months and then withdrawn, for example because a vendor ends its parts support, so that no maintenance can be bought afterward. The manager spends $200$ per month for twelve months, the unit stays at $60$, and then with $M=0$ it falls $2$ per month to $50$ after five months and by $4$ per month to $46$, $42$, $38$ in three more. The unit is let for $12+8=20$ months and earns $12\times 500+8\times 700=11{,}600$. The three totals $18{,}000$, $8400$, and $11{,}600$ are produced by identical assets under three different supplies of the complement, and they are reproduced in the companion (check BOOK, Chapter~7).
+
+\begin{definition}[Usable capability]\label{def:usable}
+Let $y(k,z)$ be the service flow, here the number of let months over a stated horizon, that the owner can obtain from an asset in condition $k$ when the complement $z$ is available, where $z$ is the profile of maintenance spending the owner can in fact buy (a ceiling, possibly changing over time). Two assets are \emph{physically identical} if their conditions coincide and \emph{capability equivalent} if $y(k,z)$ coincides for every complement profile $z$ in the relevant set. A complement is \emph{exposed} if one supplier controls its availability and \emph{controllable} otherwise.
+\end{definition}
+
+The three runs above show physically identical assets that are not capability equivalent. A boundary case is an asset with no maintenance requirement, such as bare land, for which $y$ does not depend on $z$ and the physical and capability descriptions coincide.
+
+\begin{proposition}[Usable capability is monotone in the complement]\label{prop:usable-mono}
+For a unit with nonincreasing deterioration $d$ and a repair function increasing in spend, if a ceiling profile $z'$ is pointwise at least $z$ then $y(k,z')\ge y(k,z)$ for every starting condition $k$, and the inequality is strict when the unit under $z$ eventually becomes unlettable while under $z'$ it does not.
+\end{proposition}
+
+\begin{proof}
+Any spending plan feasible under $z$ is feasible under $z'$. Under the monotone dynamics a plan that spends at least as much at each date produces a condition path at least as high, hence at least as many lettable months. The strict case is the definition.
+\end{proof}
+
+The hypothesis carrying the conclusion is monotonicity of the dynamics in spend; the simplification is the deterministic ceiling; the assumption most likely to fail is that the ceiling is known in advance, because exposed complements are usually withdrawn without warning. The comparison with standard capital theory is as follows. Neoclassical theory measures the capital stock by cumulating investment less depreciation, so that identical assets are worth the same. This book adds the complement as a variable. It does not deny the value of ownership; it observes that two items with identical ownership, age, and condition differ by more than half in earnings over three years because of what each is paired with, which is a statement about their position in the viability analysis of Chapter~\chref{13}: under the ceiling of $100$ a unit at $60$ is outside the kernel, and under the ceiling of $400$ it is inside.
+
+\paragraph{What has been established.} Physically identical assets can yield very different usable capabilities, the difference is computable from the complement profile, and exposed dependence can reduce a capability sharply. The decision now enabled is to price the complement along with the asset. Assumptions still required are the ceiling profile and a rule for what the owner can do when a complement is withdrawn. The question passed on to Chapter~\chref{8} is how to schedule maintenance when its price is paid now and its benefit later.
+
+\begin{exercise}
+Compute the let months and total surplus over $36$ months for the unit at $60$ if the full ceiling is available for twenty-four months and then withdrawn.
+\end{exercise}
+\begin{exercise}
+Prove Proposition~\ref{prop:usable-mono} formally for the housing transition, and give a nonmonotone deterioration under which it fails.
+\end{exercise}
+\begin{exercise}
+Name an exposed complement in a domain of your choice, such as a cloud service or a medical device, and write down what the dependent operator would have to hold to be indifferent to its withdrawal.
+\end{exercise}
+
+\chapter{Maintenance and the Reproduction of Capacity}\label{ch:8}
+
+The crew serving the building can spend at most $400$ per month across all units. A manager is told to set the ceiling for the next year and wants to know how low it can safely go. The answer depends on how fast units deteriorate in their current condition and on what a given spend restores, and it is not smooth. If the ceiling is $100$, only units above condition $80$ can be held indefinitely. If it is $200$, units above condition $50$ can be held. Only at $400$ can every lettable unit be held. The manager's difficulty is that the cut from $400$ to $300$ looks like a quarter reduction and removes the ability to hold every unit at condition $50$ or below, which is exactly the units in greatest need.
+
+\section{Deterioration, thresholds, and the viability boundary}
+
+Take the model of Chapter~\chref{1}: $k_{t+1}=\min\{k_{\max},\,k_t-d(k_t)+g(M_t)\}$ with $g(M)=M/100$ tenths, lettable if $k\ge 40$, and $d$ equal to $1$, $2$, $4$ on the three tiers. A budget ceiling $\bar M$ restricts $M_t\le\bar M$. The \emph{viability kernel} of the unit under ceiling $\bar M$ is the set of conditions from which some admissible policy keeps $k_t\ge 40$ for all $t$.
+
+\begin{theorem}[P12(b): threshold under a budget ceiling]\label{thm:P12b}
+Suppose $d$ is nonincreasing in $k$, $g$ is nondecreasing, and $d(k)>0$ for all $k$ in the lettable range. Then the kernel under ceiling $\bar M$ is $K(\bar M)=\{k\ge 40: d(k)\le g(\bar M)\}$, so the viability threshold is $k^*(\bar M)=\min\{k\ge 40: d(k)\le g(\bar M)\}$ (or no state is viable if the set is empty).
+\end{theorem}
+
+\begin{proof}
+If $d(k)\le g(\bar M)$ then spending $\bar M$ gives a net change $g(\bar M)-d(k)\ge 0$, and since $d$ is nonincreasing in $k$ the next condition $k'\ge k$ also satisfies $d(k')\le d(k)\le g(\bar M)$, so the argument repeats and the unit never falls. If $d(k)>g(\bar M)$ then under any policy with $M_t\le\bar M$ the condition falls by at least $d(k)-g(\bar M)>0$ in the first month, and in every later month by at least that amount because $d$ can only rise as $k$ falls, so $k_t$ drops below $40$ in finitely many steps.
+\end{proof}
+
+The numbers are as follows. For $\bar M<100$ no unit is viable since $g(\bar M)<1\le d(k)$. For $100\le\bar M<200$ the threshold is $81$. For $200\le\bar M<400$ the threshold is $51$. For $\bar M\ge 400$ the threshold is $40$. The companion confirms these against exhaustive computation of the kernel (check BOOK, Chapter~8). Hypotheses doing work are monotonicity of $d$ and the fact that the ceiling is binding in each month; a model in which $d$ had a hump would have disconnected kernels. The threshold jumps here because $d$ is a step function of $k$. If $d$ were continuous and strictly decreasing, the threshold $k^*(\bar M)$ would be continuous in $\bar M$, and it would have a kink wherever $d$ does. Nonlinear deterioration alone, therefore, does not guarantee discontinuity; the discontinuity is created by jumps in the rate. The economic reading is that a modest reduction in the ceiling can remove the ability to hold an entire class of units, and the units removed are those in the worst condition.
+
+\section{Deferral and the loss of viability}
+
+Chapter~\chref{1} computed the financial cost of deferral. The viability question is different: how long can maintenance be deferred before the unit has left the set from which the ceiling can still hold it. Take a unit at $90$ and defer all maintenance, $M=0$. Its condition follows $90,89,\dots,80$ at month ten, then $78,76,\dots,50$ at month twenty-five, then $46,42,38$. Under a ceiling of $100$ the kernel is the conditions from $81$ upward, so the unit is inside the kernel through month nine, where $k=81$, and outside it from month ten, where $k=80$. Under the ceilings $200$ and $300$ the kernel starts at $51$, and the unit is inside through month twenty-four, where $k=52$, and outside from month twenty-five. Under the ceiling of $400$ the kernel is every lettable condition, and the unit is inside through month twenty-seven, where $k=42$. The unit is therefore deferrable for at most nine, twenty-four, twenty-four, and twenty-seven months under the four ceilings. The numbers have a plain reading: with the ceiling at $100$ an owner who has deferred for ten months has permanently lost the ability to hold the unit and now needs a higher ceiling to prevent decline. The amount of deferral that can be undone by the available crew depends on the crew, and a manager who watches only condition, which stays acceptable until month twenty-seven in all four cases, sees nothing. These values are reproduced in the companion (check BOOK, Chapter~8).
+
+\section{Preventive maintenance, restoration, and backlog}
+
+Preventive maintenance holds $k$ where it is at a cost of $d(k)\times 100$ per month. Restoration after failure raises $k$ at $100$ per tenth. The cost of preventing a fall of $n$ tenths is $100n$ and so is the cost of repairing it, at the tier where each month's decay is one tenth. In lower tiers decay is $2$ or $4$ per month and the cost of holding is a multiple of the cost at the top. The sum of the costs of holding a unit at $k=50$ forever is $400$ per month, which is $4800$ per year, against a restoration cost from $38$ to $90$ of $5200$ once. The two are the same order of magnitude, and the owner who faces a unit at $50$ is comparing a perpetual flow to a lump sum and an uncertain period of lettability in between.
+
+Maintenance schedules also create backlogs. Let $\rho_M(t)$ be the rate at which maintenance need accrues and $\rho_R(t)$ the rate at which crews retire it, and let $D(t)=\int_0^t(\rho_M-\rho_R)\,du$ be the cumulative excess. One might hope that a nonpositive long-run average net accumulation rate guarantees a bounded backlog, but it does not. Take $\rho_M-\rho_R=1/(2\sqrt{1+t})$, so that $D(t)=\sqrt{1+t}-1$. The average rate $D(t)/t$ tends to zero, being $0.0909$ at $t=99$ and about $0.0099$ at $t=9999$, while $D(99)=9$ and $D(9999)=99$ are unbounded in $t$. A bounded-backlog result therefore needs the stronger condition $\sup_{t\ge 0}\int_0^t(\rho_M-\rho_R)\,du<\infty$, or a reflected formulation in which backlog cannot be negative, $B(t)=\sup_{0\le s\le t}\int_s^t(\rho_M-\rho_R)\,du$, bounded under the corresponding condition on all intervals. The correction was carried over from earlier work and is stated here as a hypothesis of the backlog results of Part~IV.
+
+\paragraph{What has been established.} Under monotone deterioration the viable set under a spending ceiling is an upper set of conditions with a threshold that jumps where the deterioration rate does, and a zero average accumulation rate does not bound a backlog. The decision now enabled is to set the ceiling with reference to the conditions of the worst units. Assumptions still required are monotone deterioration and a spending-restoration function, which are empirical. The question passed on to Chapter~\chref{9} is when to commit resources to an irreversible repair and when to wait for information.
+
+\begin{exercise}
+For the three tiers, find the annual cost of holding a unit at conditions $90$, $70$, and $50$ and the ceiling needed in each case.
+\end{exercise}
+\begin{exercise}
+Construct a deterioration function that is not monotone and give a ceiling for which the kernel is not an upper set.
+\end{exercise}
+\begin{exercise}
+Using an official maintenance-backlog figure for a transit system or school district, say whether the reported figure supports a boundedness claim and what additional series would be needed.
+\end{exercise}
+
+\chapter{Irreversible Decisions and the Value of Waiting}\label{ch:9}
+
+The owner has learned that the roof of one building may need replacing. Replacing it costs $I=3500$. If the roof is replaced, the payoff is an increase in the building's long-run value that depends on a revealed fact, namely whether a planned neighbourhood development proceeds. If it proceeds the payoff is $X=6000$ and if not $X=2000$, each equally likely, so $\mu=4000$. The fact is revealed in one month. Acting now also earns a first-month flow return of $r=100$ that waiting forgoes. The roof belongs to a unit now at condition $55$, so that the investment of $I=3500$ is exactly the restoration to $90$ at $100$ per tenth. Waiting one month is not free of physical cost: the unit deteriorates by $d(55)=2$ tenths to $53$, and the same restoration costs $3700$ after the wait. The owner discounts the next month at $\beta=0.9$ and may decline to invest after the revelation. The opportunity might not survive: with probability $0.8$, independent of the payoff, the contractor's offer is still available after a month. The assumptions are therefore stated in full: the development decision is revealed perfectly at the end of month one; the owner may decline after the revelation; the contractor's offer expires at the end of the month with survival probability $q$, taken independent of the revelation in the first calculation and dependent in the second; the discount factor for the month is $\beta=0.9$; and the cost of the investment after waiting is $I'=3700$ because of the deterioration. Waiting is also irreversible in a sense, because the month cannot be recovered, and the problem is to compare the two.
+
+\section{The two-period comparison}
+
+Acting now yields $V_{\mathrm{act}}=(\mu-I)+r=(4000-3500)+100=600$. Waiting yields $V_{\mathrm{wait}}=\beta\,\mathbb E[\mathbf 1_{\mathrm{surv}}(X-I)^+]$. After waiting the cost is $I'=3700$. In the low state $X-I'=-1700<0$ and the owner declines; in the high state $X-I'=2300$. So $\mathbb E[(X-I')^+]=\tfrac12\cdot 0+\tfrac12\cdot 2300=1150$. With independent survival of probability $q=0.8$, $V_{\mathrm{wait}}=0.9\times 0.8\times 1150=828>600$ and the owner should wait. The comparison reverses when survival is not independent of the payoff. Suppose the contractor's offer survives with probability $0.4$ in the high state (because the development also raises demand for contractors) and with probability $1$ in the low state. Then $\mathbb E[\mathbf 1_{\mathrm{surv}}(X-I')^+]=\tfrac12\cdot 0.4\cdot 2300=460$ and $V_{\mathrm{wait}}=0.9\times 460=414<600$, so acting now is better. The calculation is in the companion (check BOOK, Chapter~9).
+
+\begin{proposition}[P26: two-period value of waiting]\label{prop:P26}
+Let the investment cost be $I$ now and $I'$ after one period, and the payoff $X$ with mean $\mu$, revealed after one period, and let $\mathbf 1_{\mathrm{surv}}$ indicate that the opportunity survives. Then $V_{\mathrm{act}}=(\mu-I)+r$ and $V_{\mathrm{wait}}=\beta\,\mathbb E[\mathbf 1_{\mathrm{surv}}(X-I')^+]$. If survival is independent of $X$ with probability $q$ then $V_{\mathrm{wait}}=\beta q\,\mathbb E[(X-I')^+]$, and waiting is better exactly when $q>q^*=V_{\mathrm{act}}/(\beta\,\mathbb E[(X-I')^+])$. In every case $\mathbb E[(X-I')^+]\ge(\mu-I')^+$.
+\end{proposition}
+
+\begin{proof}
+The expressions are the definitions. Independence factorizes the expectation. The inequality is Jensen's for the convex function $z\mapsto z^+$.
+\end{proof}
+
+In the example $q^*=600/(0.9\times 1150)=40/69\approx 0.580$, so waiting is better for any survival probability above that value. The hypotheses doing work are independence of survival and the option to decline: if the owner were obliged to invest after the revelation, the value of waiting would be $\beta q(\mu-I')=0.9\times 0.8\times 300=216$, which is far less than acting now. The deterioration of $200$ in the cost is also material: with no deterioration the option value would be $1250$ and the value of waiting $900$. The assumption that the revelation is costless also matters; if learning the fact required a payment, the comparison would change by that amount. The counterexample with dependent survival shows that independence is not innocuous.
+
+\section{Symmetry of action and inaction}
+
+The classical treatment of irreversible investment, from Arrow and Fisher~\cite{arrow1974} to the real-options literature of Dixit and Pindyck~\cite{dixit1994}, emphasizes that committing resources forecloses the option to wait. The point made here is that waiting is also a choice that can foreclose things: the contractor's offer may lapse, the roof may deteriorate, and a resource that deteriorates while unused costs the owner something. Both action and inaction are potentially irreversible, and a complete treatment compares them symmetrically by listing, for each, which futures it closes. The two-period form above handles this by the survival indicator and the forgone return $r$. The deterioration of the roof is included above through $I'$. A richer form would make the cost $I(t)$ a function of the delay, and it would model the owner's remaining budget as part of the state; Part~IX states the general version as a specification.
+
+\paragraph{What has been established.} Waiting is better than acting in the example exactly when the survival probability exceeds $40/69$ if survival is independent of the payoff, and acting is better when survival is negatively related to the payoff. The decision now enabled is a transparent comparison that lists the survival assumption. Assumptions still required are the probability model for survival and the discount factor. The question passed on to Chapter~\chref{10} is what remains after an activity ends, which is one of the things that make an action irreversible.
+
+\begin{exercise}
+Recompute $q^*$ for a first-period return of $r=300$, and for the variant in which waiting does not raise the cost, $I'=I=3500$.
+\end{exercise}
+\begin{exercise}
+Prove that the option value $\mathbb E[(X-I)^+]-(\mu-I)^+$ is nonnegative, and find a distribution of $X$ with zero option value.
+\end{exercise}
+\begin{exercise}
+Find a public decision, such as whether to repair a bridge now or study it further, and list the ways that waiting forecloses options.
+\end{exercise}
+
+\chapter{Residuals, Waste, and the Afterlives of Production}\label{ch:10}
+
+The unit that Chapter~\chref{1} left to deteriorate for twenty-eight months is at condition $38$ and earns nothing. Restoring it to $90$ costs $5200$. The owner holds the unit in a company whose only asset it is, valued at $500$ in a forced sale. The owner can restore the unit, replace its boiler and continue, or abandon the unit. Abandonment leaves a vacant shell with a hazardous old boiler, and someone will have to pay to secure and remove it. The decision is made by the owner, the cost of abandoning falls elsewhere, and the aim of this chapter is to account for that cost before the decision is made.
+
+\section{What persists}
+
+Production leaves things behind. A demolished building leaves rubble and a site. A factory leaves contaminated soil. A retired software system leaves data in formats no one reads and interfaces others still depend on. An agency leaves forms and rules that continue to bind after their purpose ends. Each is a residual in the sense of Chapter~\chref{6}, and each has a disposition duty that is assigned to someone or unassigned. In the housing case there are two events that generate residuals, and the accounts of each can be set out in the same units as before.
+
+\emph{Replacement.} If the owner replaces the unit's old boiler, the old boiler contains insulation that is hazardous when disturbed. Handling costs $400$ and disposal $150$, a residual obligation of $550$ that arises at the moment of replacement and is discharged only when the work is done. An owner who leaves the old boiler in the basement has not removed the obligation; the obligation has been transferred silently to whoever holds the building next.
+
+\emph{Abandonment.} If the owner abandons the unit at condition $38$, the shell remains. The residual obligations are the demolition, which costs $2000$, the removal of the hazardous boiler, which costs $550$, and the securing of the vacant shell at $50$ per month for the six months that the municipal process takes before demolition, which costs $300$. The total disposition cost is $L=2000+550+300=2850$. The accounts after abandonment show a balance sheet with the unit written off and, if the obligation is recorded, a liability of $2850$. If it is not recorded, the balance sheet shows nothing and the obligation falls on the municipality or the neighbours.
+
+\section{Who bears the residual}
+
+Compare the options for the owner whose company holds assets $a=500$ and has limited liability. Restoring costs $5200$ and returns a unit that earns $700$ per month while it lasts, so on any horizon beyond eight months the restoration is financially worth doing, but it needs $5200$ the owner may not have. Abandonment costs the owner $\min\{L,a\}=\min\{2850,500\}=500$, the whole of the company's assets, and costs the community the remaining $2850-500=2350$. If the owner were liable for the full $L$ the cost of abandoning would be $2850$ and would still compare favourably with restoration at $5200$ for an owner who expects to hold the unit only briefly, but it would not be a free exit. Limited liability makes the private comparison $500$ against $5200$ and the social comparison $2850$ against $5200$, and the two rank the options differently when the unit's continued earnings do not repay the restoration.
+
+\begin{proposition}[Residual liability and internalization]\label{prop:residual}
+Let a decision yield private benefit $\pi$ and generate a residual with disposition cost $L$, with liability limited to assets $a$. The decision-maker takes it if and only if $\pi\ge\min\{L,a\}$, while the socially efficient rule takes it if and only if $\pi\ge L$. The two differ exactly when $\min\{L,a\}\le\pi<L$, and in that case a bond of at least $L-a$ posted at the start restores the efficient rule.
+\end{proposition}
+
+\begin{proof}
+Private payoff is $\pi-\min\{L,a\}$ and social payoff is $\pi-L$. They differ in sign exactly when $\min\{L,a\}\le\pi<L$, which requires $a<L$. A bond $b$ raises assets to $a+b$, so with $b\ge L-a$ the liability is $L$.
+\end{proof}
+
+In the abandonment example, the benefit of abandoning is the restoration cost avoided, $\pi=5200$, so the comparison is between $\pi-\min\{L,a\}=4700$ and $\pi-L=2350$. Both are positive, so abandonment is efficient here too, once the owner reports the liability of $2850$ in full. The proposition is strictly about the sign, and in the illustration with a smaller benefit, for example a project with private profit $1000$ and residual cost $3000$ for a firm with assets $500$, the private payoff is $500>0$ and the social payoff is $-2000<0$, and a bond of $2500$ is needed to align them. This is the judgment-proof problem of Shavell~\cite{shavell1986} in the notation of this book. The new element is the state: the residual is a record of an obligation that outlives the transaction, and the choice of whom it is assigned to determines viability for those who inherit it, which in the abandonment case is the municipality's budget. The numbers are reproduced in the companion (check BOOK, Chapter~10).
+
+The hypothesis carrying the result is limited liability, and the simplification is a known and certain $L$. The assumption most likely to fail is that the owner and the authority agree on $L$. The cost of a residual is typically uncertain and contested, and a bond sized to a low estimate leaves a gap. The interpretation is that making disposition duties explicit, attached to the producer and secured at the outset, is a different kind of regulation from one that inspects output, since it takes the continuation of the site as the thing to be secured.
+
+\paragraph{What has been established.} Replacement and abandonment each generate residual obligations that can be accounted in the same units as the rest of the case, a total of $550$ for replacement and $2850$ for abandonment, and with limited liability the private and social costs of abandoning differ by $2350$. The decision now enabled is to attach a bond to each project in proportion to its residual cost. Assumptions still required are a measure of $L$ and a mechanism of enforcement. The question passed on to Part~III is how to represent such duties, and obligations of every kind, through time.
+
+\begin{exercise}
+For $\pi=1000$, $L=3000$, and $a=500$, compute the smallest bond that makes the firm decline the project, and the range of $\pi$ for which the firm undertakes it with the bond in place.
+\end{exercise}
+\begin{exercise}
+Show that if liability is unlimited the private and social rules coincide, and discuss what practical features make liability effectively limited.
+\end{exercise}
+\begin{exercise}
+Select a residual from the chapter's list and describe who bears it today, who would bear it under an assigned-bearer rule, and what record would be needed to enforce the assignment.
+\end{exercise}

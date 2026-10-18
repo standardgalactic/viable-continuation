@@ -1,0 +1,175 @@
+\part{Value, Prices, Accounting, and Debt}
+\label{part:IV}
+
+Part IV compares valuations, prices, profit, debt, and accounts as representations, and asks what each preserves of the underlying continuation structure.
+
+\begin{housing}Rent, reserves, and the landlord's reported profit are set beside the maintenance backlog, which no conventional account records as a liability.\end{housing}
+
+
+From Part~IV the building has four units at conditions $(90,70,55,50)$, the starting state recorded in the shared specification. At the full ceiling the holding cost of the units is $100$, $200$, $200$, and $400$ per month, a total of $900$ against a ceiling of $400$, and restoring all four to $90$ would cost $9500$. None of these quantities appears in a conventional account, and this part is about how they can be made visible without pretending that they reduce to one number.
+
+\chapter{Valuing Feasible Futures}\label{ch:16}
+
+The owner has twelve months of planning to do for the four-unit building and a crew ceiling of $400$. The allocations differ in what they leave. Over a horizon of $24$ months, sending nothing to any unit leaves one unit lettable, yields a cumulative surplus of $32{,}200$, and leaves a restoration backlog of $30{,}800$. Other allocations give very different results. The decision is which to choose, and the difficulty is that the outcomes are lists of different kinds of thing: money earned, units still lettable, and work owed.
+
+\section{Incomparable outcomes}
+
+Simulate the building under all constant allocations of the ceiling in multiples of $100$ across the four units. There are $70$ of them. For each, record the cumulative surplus over $24$ months, the number of units lettable at the end, and the backlog, the cost of restoring every unit to $90$ ignoring decay during repair. Three of the $70$ are not dominated on all three coordinates by any other: spending $(0,100,200,0)$ gives a surplus of $45{,}300$ with two units lettable and a backlog of $21{,}500$; spending $(0,200,200,0)$ gives $42{,}900$, three units lettable and a backlog of $18{,}300$; and spending $(100,100,200,0)$ gives $42{,}900$, two units lettable and a backlog of $17{,}700$. Each of the three beats the others on some coordinate. In all three the worst unit, at condition $50$, is allowed to fall to zero, which is what the ceiling forces once unit~4 would absorb the whole of it. The calculations are reproduced in the companion (check BOOK, Chapter~16).
+
+Anyone who ranks these plans with a single number has chosen weights for the coordinates. If surplus alone is weighed the first plan wins. If lettable units at the end are weighed the second wins, and if the backlog alone matters the third. None of the three is wrong, but each choice is a normative decision that a single total conceals. The point of the chapter is that the structure of the comparison, an order that leaves some pairs unranked, is not a defect of the data. It is what remains when the distinctions are kept.
+
+\begin{definition}[Continuation profile and dominance]\label{def:profile}
+A \emph{continuation profile} is a vector $(v_1,\dots,v_m)$ of coordinates, each oriented so that larger is better (the backlog enters with a negative sign). Profile $x$ \emph{dominates} $y$, written $y\preceq x$, if $v_i(y)\le v_i(x)$ for every $i$. The order is partial: profiles with some coordinates larger and some smaller are incomparable.
+\end{definition}
+
+The three plans form an antichain in this order, which is the example, and a boundary case is a single-coordinate profile, for which the order is total and a scalar is exact. Theorem~\ref{thm:P13} of Chapter~\chref{5} says that no real-valued function reflects the order on the antichain, and that a multi-utility family does. For the three plans, which form an antichain, two functions suffice: one that ranks them $A,B,C$ from highest to lowest and one that ranks them $C,B,A$, so that every pair is ranked oppositely by the two and no pair is dominated. The existence of such families is not in doubt for a finite order, and what is open for infinite sets is stated as a hypothesis to be fixed in Part~IX.
+
+\section{Money as one representation}
+
+Monetary valuation is not excluded. A conversion rate from lettable units and from backlog into currency yields a scalar, and with a stated conversion every comparison can be made. What the chapter claims is narrower: the conversion is a choice, it is made by someone, and two people with different rates rank the same plans differently. A rate of $\$20{,}000$ per lettable unit at the end of the horizon and a charge of the full backlog values plan A at $45{,}300+2\times 20{,}000-21{,}500=63{,}800$, plan B at $42{,}900+60{,}000-18{,}300=84{,}600$, and plan C at $42{,}900+40{,}000-17{,}700=65{,}200$, so that B is chosen. Setting the rate at zero returns A. Circumstances in which a scalar is justified, such as a single owner with a known discount rate and no concern for tenants, are listed in the exercises.
+
+A related quantity from information theory appears in the literature on constraints as costs. For a probability measure $P$ and an event $B$ with $0<P(B)\le 1$, the conditional distribution $P(\cdot\mid B)$ satisfies $D_{\mathrm{KL}}(P(\cdot\mid B)\,\|\,P)=-\log P(B)$, because $P(x\mid B)/P(x)=1/P(B)$ on $B$. Requiring that the system stay within $B$, for example that all units remain lettable, restricts the distribution by that amount. The identity measures the restriction in nats. It does not give a monetary cost, a physical dissipation, or a conservation law, and the book uses it only as a measure of how much a constraint narrows what can happen.
+
+\paragraph{What has been established.} The outcomes of the building's plans form an antichain on three coordinates, a scalar ranking requires conversion rates that someone must choose, and the order can still be represented by a finite family of monotone functions. The decision now enabled is to report plans as profiles with their conversion assumptions. Assumptions still required are the choice of coordinates and, for the infinite case, the existence of a multi-utility representation. The question passed on to Chapter~\chref{17} is when a price can serve to coordinate decisions without a shared ranking.
+
+\begin{exercise}
+Compute the profile of the plan $(0,0,0,400)$ over $24$ months and say which of the three plans in the chapter dominates it.
+\end{exercise}
+\begin{exercise}
+Prove that if a finite partial order has dimension $2$ then two functions represent it, and exhibit them for the three plans.
+\end{exercise}
+\begin{exercise}
+List three conditions under which a single monetary conversion of the three coordinates would be justified for a public agency, and say which fails first in practice.
+\end{exercise}
+
+\chapter{Prices as Compressed Coordination Signals}\label{ch:17}
+
+The crew ceiling is $400$ per month, and the manager wishes to let the four units compete for it without examining each. A price per unit of crew spending would do this: each unit's caretaker would request spending until the marginal benefit equals the price, and the price would be set so that requests sum to the ceiling. The manager's question is whether such a price exists, whether it is a good summary of what the units need, and what it hides.
+
+\section{Scarcity prices as dual variables}
+
+Take the stylized allocation problem $\max\sum_i a_i\sqrt{r_i}$ subject to $\sum_i r_i\le B$ and $r_i\ge 0$, where $r_i$ is the spend on unit~$i$ and $a_i$ weights the benefit. Let $a=(1,2,2,4)$ and $B=400$. The problem is convex, Slater's condition holds, and the maximum is attained. The first-order conditions give $r_i\propto a_i^2$: since $\sum a_i^2=25$, $r_i=400\,a_i^2/25=(16,64,64,256)$, which sums to $400$. The multiplier is $\lambda^*=a_i/(2\sqrt{r_i})=1/8$ for every $i$. Each unit, facing the price $1/8$ per currency unit and solving $\max_r a_i\sqrt r-\lambda^* r$ independently, chooses $r=(a_i/(2\lambda^*))^2=16a_i^2$, which is the same allocation. The decentralized choices clear the budget at the multiplier.
+
+\begin{theorem}[P24: scarcity prices as dual variables]\label{thm:P24}
+For a convex allocation problem with capacity constraint $\sum_jd_j\le c$, Slater's condition, and attainment, there is a multiplier $\lambda^*\ge 0$ supporting the optimal allocation, with complementary slackness $\lambda^*(c-\sum_jd_j)=0$. If, in addition, the objective and constraints decompose across participants and each participant's choice is the individual Lagrangian problem at $\lambda^*$, then $\lambda^*$ is a decentralized price. A multiplier alone does not establish a market implementation.
+\end{theorem}
+
+\begin{proof}
+Strong duality under Slater's condition gives a multiplier and a saddle point of the Lagrangian; complementary slackness follows from optimality of the saddle. If the Lagrangian separates across participants, minimizing over allocations at $\lambda^*$ separates into individual problems whose solutions together form an optimal allocation when the individual solutions are unique, as here.
+\end{proof}
+
+The hypotheses are strong and each does work. Convexity gives the multiplier. Separability lets the price decentralize, and if two units shared a repair that benefited both, their problems would not separate. Uniqueness of each individual solution matters because with several maximizers the price clears the market only after an assignment among them. The economic reading is that a scarcity price is a sufficient statistic for the units' requests only when their choices factor through it, as \Pref{P11} requires.
+
+\section{What the price hides}
+
+In the housing model the price of $1/8$ is the same for all four units and says nothing about the one fact that matters most: unit~4 at condition $50$ needs $400$ per month to hold and cannot be raised by anything the crew can supply, and the stylized concave benefit assigns it only $256$. The price clears the budget and the unit crosses its threshold. The sufficient statistic fails because the real problem has thresholds and tiers, and a price derived from a smooth surrogate does not carry them. Supplementary records, here the condition and hold cost of each unit, are needed alongside the price. This is an instance of the general point that a price compresses the causal structure underlying a decision, and that the omission is tolerable only for decisions that factor through it.
+
+An exchange-rate graph shows an obstruction of another kind. Suppose three internal units of account exist: money, crew hours, and materials credits. One crew hour exchanges for $40$ in money, one materials credit for $20$ in money, and one crew hour for $2.5$ credits. Going from money to hours to credits and back to money multiplies a stake by $(1/40)\times 2.5\times 20=5/4$, so the quoted rates admit an arbitrage of $25\%$ on each round trip. In the log notation of \Pref{P22}, the sum of the log rates around the cycle is $\ln(5/4)\ne 0$, so no potential function (no single price level) is consistent with all three quotes. If every exchange carries a proportional fee $f$ the round trip multiplies the stake by $(5/4)(1-f)^3$, and arbitrage disappears once $(1-f)^3\le 4/5$, that is $f\ge 1-(4/5)^{1/3}\approx 0.0717$. A fee of $8\%$ gives $(5/4)(0.92)^3\approx 0.973<1$ and a fee of $5\%$ gives $\approx 1.072>1$. With frictions a potential need not exist as an equality but a no-arbitrage condition replaces it (shortest-path duality), and the frictionless case is the limit. This is the first obstruction example of the book; it is a statement about an exchange graph and is not extended to institutional conflict in general.
+
+\paragraph{What has been established.} A scarcity multiplier exists under convexity and Slater, decentralizes under separability, and is a poor statement of a threshold problem, and the quoted exchange rates of three internal units can be inconsistent in a way a cycle product reveals. The decision now enabled is to use prices only for decisions that factor through them. Assumptions still required are convexity, separability, and an account of what the price omits. The question passed on to Chapter~\chref{18} is how profit, the commonest summary of all, compares with what it omits.
+
+\begin{exercise}
+Recompute the allocation and multiplier for $a=(1,1,2,2)$ and $B=400$.
+\end{exercise}
+\begin{exercise}
+Give an example with two participants whose objectives do not separate, so that the multiplier exists but does not decentralize.
+\end{exercise}
+\begin{exercise}
+Choose a market price that a public agency uses to allocate a scarce resource and list two features of the situation that the price does not carry.
+\end{exercise}
+
+\chapter{Profit and the Location of Costs}\label{ch:18}
+
+The owner of the building spends the whole ceiling of $400$ per month on unit~4, which holds it at condition $50$, and nothing on the other three. At the end of twelve months the books show revenue of $42{,}000$ (forty-two unit-months let), running costs of $12{,}600$, and maintenance of $4800$, a profit of $24{,}600$. A lender sees a profitable enterprise. The decision is whether to distribute the profit, and the difficulty is that the profit was earned partly by letting three units that were left to decline.
+
+\section{Decomposing profit}
+
+Write reported profit as revenue less recognized costs, $\pi=R-C-M$, and separate the effect on capacity. Over the twelve months the conditions move from $(90,70,55,50)$ to $(76,42,13,50)$. Unit~3 has been unlettable for six of the twelve months, and unit~2 sits at $42$, two tenths above the threshold. The cost of restoring the first three units to their starting conditions, at $100$ per tenth ignoring decay during repair, is $1400+2800+4200=8400$. Define the \emph{capacity-adjusted profit} as reported profit less this restoration cost: $24{,}600-8400=16{,}200$. More than a third of the reported profit was a transfer from the future to the present.
+
+\begin{definition}[Capacity-adjusted profit]\label{def:cap-profit}
+For a period with reported profit $\pi$, opening capacity $k_0$ and closing capacity $k_1$, and a restoration price $\rho(k_0,k_1)$ for returning capacity from $k_1$ to $k_0$, the \emph{capacity-adjusted profit} is $\pi-\rho(k_0,k_1)$ when $\rho$ is nonnegative, and $\pi$ when capacity has grown. The \emph{location of costs} identifies who bears $\rho$: the owner at a later date, the tenants through reduced habitability, or third parties through residuals.
+\end{definition}
+
+The example has an owner bearing most of the cost at a later date, the tenants bearing the habitability loss in the months unit~3 was unlettable, and no third party. Two other allocations of the same crew time make the point. Spending $(100,200,100,0)$ for twelve months gives a reported profit of $20{,}400$ and closing conditions $(90,70,29,2)$, so the adjusted profit is $20{,}400-7400=13{,}000$. The first allocation therefore leads on reported profit by $4200$ and by $3200$ on adjusted profit, and neither number says that one unit has been lost to lettability in the first case and two in the second.
+
+\begin{remark}[Profit and capacity move independently]\label{rem:profit-cap}
+In the housing model the maintenance spend changes reported profit by one amount and the restoration charge by another, and by Chapter~\chref{8} the two change at different rates in different tiers. The comparison of allocations above exhibits activities with higher reported profit and higher restoration charge, and the opposite. The remark is not a law about firms; it concerns a model in which maintenance is the only capacity variable.
+\end{remark}
+
+\section{Profit supported by reproduction, and profit supported by deferral}
+
+A worked enterprise model separates the two. In the first year of the example $16{,}200$ of the profit is supported by reproducible productivity, in the sense that it remains after charging the restoration; the remaining $8400$ is supported by deferral. In a second year at the same allocation the units that have become unlettable earn nothing, the deferral has little further to give, and reported profit falls from $24{,}600$ to $12{,}700$. The pattern is general: profit supported by deferral is not recurring, and the lender who capitalizes the first year's profit at a multiple has capitalized the deferral. The numbers are in the companion (check BOOK, Chapter~18). The same decomposition applies where damage is unpriced rather than deferred, for instance to a commons, and Chapter~\chref{36} returns to this.
+
+\paragraph{What has been established.} Reported profit and capacity change can move independently, and the capacity-adjusted profit exposes what part of the reported figure rests on deferral. The decision now enabled is to report the restoration charge beside profit. Assumptions still required are a restoration price and a closing state of capacity. The question passed on to Chapter~\chref{19} is when a monetary obligation and a restoration obligation can be exchanged.
+
+\begin{exercise}
+Compute reported and capacity-adjusted profit for the allocation $(100,100,100,100)$ over twelve months.
+\end{exercise}
+\begin{exercise}
+Prove that capacity-adjusted profit equals reported profit exactly when $k_1\ge k_0$ componentwise.
+\end{exercise}
+\begin{exercise}
+Select a listed company with large deferred maintenance or environmental liabilities and describe how its reported profit would change under a capacity-adjusted definition.
+\end{exercise}
+
+\chapter{Monetary Debt and Restoration Obligations}\label{ch:19}
+
+The unit that Chapter~\chref{10} left at condition $38$ is owed a restoration. Chapter~\chref{1} priced the restoration at $5200$ and the owner now has a court order and a sum of $5200$ to pay for it. The decision is whether the sum discharges the obligation. A mortgage is discharged by paying its balance, from any source, to any holder. A repair is discharged only by a unit that is in fact restored, and money is a means that works only if the restoration can be performed.
+
+\section{Why money does not suffice}
+
+The crew ceiling for the building is $400$ per month. For a unit at $38$ the deterioration is $d=4$ per month, so spending the full ceiling gives a net change of $0$: the unit stays at $38$ whatever sum is paid, because the crew cannot spend more than $400$ in a month. No amount of money restores the unit under the present ceiling. Raising the ceiling to $500$ gives a net rise of $1$ tenth per month in the lowest tier, so the unit climbs from $38$ to $39,40,\dots,50$ and then, once above $50$, faster; it reaches $90$ after $26$ months, and total spending at the ceiling is $26\times 500=13{,}000$. At $600$ the time is $17$ months and the spend $10{,}200$; at $800$, $10$ months and $8000$; at $1200$, six months and $7200$. The sum of $5200$ in Chapter~\chref{1} was the cost of restoration if the repair could be done at once, ignoring the decay during repair. The sum needed depends on how quickly the work can be done, and the speed is set by capacity that money alone does not provide.
+
+\begin{theorem}[P29 extended: compensation restores capability only with availability, timing, and sufficiency]\label{thm:P29b}
+Let a restoration obligation require reaching a target set $R$ by a deadline $T$. A monetary transfer $m$ restores the capability if and only if (i) the actions needed are in the effective set under the available ceiling (availability); (ii) the minimal time to reach $R$ under that ceiling is at most $T$, and the transfer is available by the dates at which spending is needed (timing); and (iii) the minimal total spend $C^*$ to reach $R$ within $T$ satisfies $m\ge C^*$ (sufficiency).
+\end{theorem}
+
+\begin{proof}
+If the effective set contains no action raising the state toward $R$ then no spending reaches $R$ whatever $m$ is. Otherwise the fastest path under the ceiling has a minimal time $t^*$ and a minimal spend $C^*(T)$ among paths reaching $R$ within $T$. Restoration within $T$ is possible exactly when $t^*\le T$, spending only at dates when funds are available, and $m\ge C^*(T)$.
+\end{proof}
+
+The theorem is the generalization of Theorem~H2 of the housing case, where the three conditions were derived for exit. Availability, here, is the ceiling being at least $500$ and not the sum of money; the transfer of $5200$ satisfies neither the availability condition nor the sufficiency condition at $\ge 500$, since the minimal spend at that ceiling is $13{,}000$. A transfer of $13{,}000$ paid at the start, with a ceiling of $500$, restores the unit in $26$ months; the same sum with the ceiling left at $400$ restores nothing. The calculations are reproduced in the companion (check BOOK, Chapter~19).
+
+\section{Monetization and substitution}
+
+Financial liabilities can usually be transferred and monetized because they are claims to fungible resources. The obligation to restore a unit to a tenant, a stream to repair ecological damage, or a duty to a particular community cannot always be transferred in this way, because the beneficiary, the place, or the capability that was lost is part of the obligation. Substitution fails when the relevant beneficiary or place matters, as when a payment to a regulator does not restore a wetland, or when the capability lost cannot be bought at any price in the time available. A boundary case where monetization works is a damage that has a fungible repair available in the same place at a known price. For such cases a bond or insurance contract is a good instrument, and Chapter~\chref{20} proposes how to record the distinction.
+
+\paragraph{What has been established.} A restoration obligation is discharged by the restored state and not by a sum, money restores only given availability, timing, and sufficiency, and the minimal spend rises as the ceiling falls. The decision now enabled is to ask, of every compensation offer, what capacity it activates. Assumptions still required are the ceiling, the deadline, and the dynamics of decay. The question passed on to Chapter~\chref{20} is how the books should show what is owed in each of these senses.
+
+\begin{exercise}
+Compute the months and total spend to restore a unit from $38$ to $90$ at a ceiling of $700$, and compare with the figures for $600$ and $800$ in the chapter.
+\end{exercise}
+\begin{exercise}
+Prove that for a ceiling at or below $400$ no spending raises a unit at $50$ or below, and identify the smallest ceiling that raises a unit at $38$.
+\end{exercise}
+\begin{exercise}
+Name an obligation that cannot be discharged by payment to a third party and say which of availability, timing, or sufficiency fails if a payment is offered.
+\end{exercise}
+
+\chapter{Accounting for Continuation}\label{ch:20}
+
+Two owners each hold a four-unit building, spend $400$ per month on maintenance, and let all four units. Each reports a monthly profit of $2400$, a balance sheet with no liabilities, and an identical rent roll. Building~X has units at $(90,70,55,50)$. Building~Y has all four at $90$. The lender has to decide on which to lend for ten years. The accounts give no reason to distinguish them, and the physical state gives every reason to.
+
+\section{The factorization problem}
+
+Let $F:S\to Y$ be the accounting representation that sends a state to the reported figures, and $P:S\to\{0,1\}$ the property ``the building can keep all units lettable for the foreseeable future''. By \Pref{P11} the accounts determine the property if and only if $F(s)=F(s')$ implies $P(s)=P(s')$. Here $F(X)=F(Y)$ and the property differs. For Y spending $100$ on each unit holds all four at $90$ forever, so the building is in the viability kernel. For X it is not: unit~4 at condition $50$ cannot be raised by anything the crew supplies and holding it needs the whole $400$ every month, except for a total shortfall of at most $1000$ over all time before it falls below $40$; units 1 to 3 would then receive at most $1000$ in total, which cannot keep them lettable indefinitely since each loses at least one tenth per month. The accounts do not factor through the property, and no refinement of the profit figure alone can repair this.
+
+\section{Supplementary accounts}
+
+The proposal is a set of accounts that accompany the conventional ones. A \emph{maintenance backlog account} records the restoration cost to a stated standard: $9500$ for X and $0$ for Y. A \emph{recovery reserve account} records resources and permissions committed to corrective action. A \emph{critical dependency register} lists complements controlled by a single supplier (Chapter~\chref{7}). An \emph{outstanding disposition duties account} lists residual obligations of the kind in Chapter~\chref{10}. None of these is aggregated with the others, and none is converted into a liability on the conventional balance sheet unless a rule of the accounting regime says so. They add auditable visibility without presuming a single number. A fifth item, the hold-cost to ceiling ratio, is $900/400$ for X and $400/400$ for Y, and it gives the lender the simplest available warning.
+
+Coherent bookkeeping and sufficient description are different properties. A ledger that records postings as additions is a functor from histories to the additive monoid of balances, in the sense of \Pref{P19}: $F(g\circ f)=F(g)+F(f)$ and $F(\mathrm{id})=0$, and these equations follow from the posting rules. That X and Y have equal ledger entries month by month is consistent with $F$ being a functor, and it shows that functoriality does not give sufficiency.
+
+A further design distinction concerns obligations and their discharge. An obligation, a reported action, evidence of performance, and the discharge of the obligation are four different institutional events. A two-ledger arrangement keeps official spending commitments separate from community observations and reports their divergence without averaging them; this is documented in a design review and has not been tested here, so it is used only to illustrate the separation. The separation matters because an entry in the first ledger records an intention, an entry in the second records what was seen, and the gap between them is the information.
+
+\paragraph{What has been established.} Two buildings with identical reported figures can differ on viability, so accounts alone do not determine continuation, and a set of supplementary accounts records what the conventional ones omit. The decision now enabled is to require the supplementary accounts as conditions of long-term lending. Assumptions still required are agreed standards for the backlog and the register. The question passed on to Part~V is how the knowledge needed to maintain the building is itself maintained.
+
+\begin{exercise}
+Compute the backlog and hold-cost ratio for a building with units $(90,90,60,60)$ and say whether the ratio alone settles membership in the joint kernel for a ceiling of $400$.
+\end{exercise}
+\begin{exercise}
+Prove that a ledger whose postings are additive defines a functor from the path category to $(\mathbb Z,+)$ and give a property of the building that no such functor determines.
+\end{exercise}
+\begin{exercise}
+Draft the four events (obligation, report, evidence, discharge) for a city's sidewalk-repair programme and say which records would be needed from each party.
+\end{exercise}

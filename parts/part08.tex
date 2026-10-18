@@ -1,0 +1,147 @@
+\part{Ecology, Care, Technology, and Development}
+\label{part:VIII}
+
+Part VIII applies the framework to ecological reproduction, care, productive infrastructure, development, and coordinated transitions, and closes the economic text.
+
+\begin{housing}An energy retrofit is a transition with a viable path, and damp and mould are ecological conditions of the dwelling.\end{housing}
+
+
+The last part of the economic text takes the same discipline to settings where the maintained thing is a living system, a person, a technology stack, a community's capacities, or a coordinated transition. The housing case contributes two additions: damp and mould as ecological conditions of the dwelling, and an energy retrofit that has to be financed while the building continues to be let.
+
+\chapter{Ecological Reproduction and Economic Time}\label{ch:36}
+
+A community harvests a stock of fish worth $10$ per unit at the dock. The stock is at $80$ and the question is how much to take now. Selling down to $20$ pays $600$ at once. The decision is hard because the stock regenerates on its own timescale, which is not the timescale of the community's finances, and because below a threshold it does not regenerate at all.
+
+\section{Regeneration, thresholds, and horizons}
+
+Let the stock $s$ regenerate by $g(s)=\lfloor s(100-s)/400\rfloor$ for $s>20$ and $g(s)=0$ for $s\le 20$, a logistic growth with a depensation threshold at $20$. The values are $g(30)=5$, $g(40)=g(50)=g(60)=6$, $g(70)=5$, $g(80)=4$. The largest constant harvest that keeps the stock fixed is $6$ per period, at stocks of $40$ to $60$. A constant harvest of $10$ from a stock of $50$ drives it to $46,42,38,33,28,23,17$ in seven periods and to a negative value in the ninth: the community has fallen below the threshold and cannot recover on its own, so the restoration time is not long but unbounded. The calculation is reproduced in the companion (check BOOK, Chapter~36).
+
+Two plans for the stock of $80$ differ in their financial and ecological consequences. The liquidation plan harvests down to $20$ for $600$ and has no further harvest. The managed plan harvests down to $50$ for $300$ and then takes $6$ per period, worth $60$. With a discount rate $\rho$ per period the managed plan is worth $300+60/\rho$ and is better than liquidation exactly when $60/\rho>300$, that is $\rho<1/5$. A community whose financial horizon implies a discount rate above twenty percent per period will choose to liquidate, and it will be rational given its horizon. The economic problem is that the horizon is imposed by the financing, not by the ecology.
+
+\section{Damp and the dwelling}
+
+The dwelling has an ecology of its own. Damp and mould are conditions that arise when moisture is not removed and that accelerate deterioration. In the housing model, add one tenth of extra deterioration per month in every tier. A unit at $90$ that is left alone is lettable for $28$ months without damp and $18$ with it, and a unit at $60$ for $8$ months without damp and $6$ with it. The effect is the same as raising the hold cost of every unit by $100$ per month, so that the holding costs become $200$, $300$, $300$, and $500$ for the four units, a total of $1300$ against a ceiling of $400$ and unit~4 beyond the ceiling alone. A condition that reproduces itself, as damp does, shifts the thresholds of Chapter~\chref{8} and is a regeneration problem in miniature.
+
+\paragraph{What has been established.} A depensation threshold turns an unsustainable harvest into an irreversible one, the managed plan beats liquidation only for discount rates below one fifth per period, and a self-reproducing condition such as damp shifts the viability thresholds of a dwelling. The decision now enabled is to check whether a financing horizon is compatible with the regeneration time before accepting it. Assumptions still required are a regeneration function and a threshold, which are empirical. The question passed on to Chapter~\chref{37} is how the maintenance of persons is similarly constrained.
+
+\begin{exercise}
+Compute the stock path under a constant harvest of $7$ from a stock of $50$ and the period at which it falls below $20$.
+\end{exercise}
+\begin{exercise}
+Prove that the largest sustainable constant harvest is $\max_{s>20}g(s)$ and find the set of stocks that attain it.
+\end{exercise}
+\begin{exercise}
+Select a managed resource, such as a fishery or aquifer, and say whether its financing horizon is compatible with its regeneration time.
+\end{exercise}
+
+\chapter{Care and the Maintenance of Persons}\label{ch:37}
+
+A family member cares for a relative who needs $150$ hours of care a month. The caregiver can work $120$ hours a month without accumulating exhaustion, and each hour above that adds to an exhaustion level that, at $60$, leaves the caregiver unable to continue. The decision is how to arrange the care. The difficulty is that two different things are at stake: the recipient's wellbeing, and the services the caregiver's activity supplies, and a framework that tracks only the second misses the caregiver's constraints.
+
+\section{The caregiver's viability}
+
+Let exhaustion $x$ evolve by $x'=\max\{0,\,x+H-120\}$ where $H$ is the hours worked in the month, and let the acceptable set be $x<60$. At $H=150$ the exhaustion rises by $30$ per month, from $0$ to $30$ and then to $60$, so the caregiver is outside the acceptable set after two months. The viability kernel for the caregiver alone allows $H\le 120$ forever and no more, and the recipient's need of $150$ cannot be met from the caregiver's own hours in a viable way. The gap of $30$ hours per month must be filled by someone: at a paid rate of $25$ per hour this is $750$ per month. The unpaid hours of the caregiver, valued at the same rate, are $120\times 25=3000$ per month of services that appear in no conventional account. The calculation is reproduced in the companion (check BOOK, Chapter~37).
+
+\begin{proposition}[Sustainable care hours]\label{prop:care}
+Let exhaustion evolve by $x'=\max\{0,x+H-h^*\}$ with sustainable hours $h^*$ and acceptable set $x<\bar x$. The caregiver can supply $H$ hours every month forever if and only if $H\le h^*$, and for $H>h^*$ and starting exhaustion $x_0$ the number of months before breakdown is $\lceil(\bar x-x_0)/(H-h^*)\rceil$.
+\end{proposition}
+
+The proof is that exhaustion rises by $H-h^*$ each month while positive, so it crosses $\bar x$ after the stated number of months, and it does not rise when $H\le h^*$. In the example $\lceil 60/30\rceil=2$. The hypotheses are the linear accumulation and the absence of recovery from rest except through the floor at zero; if rest hours reduced exhaustion below the floor of recent work, the sustainable hours would depend on schedule and not only on the monthly total.
+
+\section{Dependency and the danger of valuing persons by contribution}
+
+Care is skilled, materially supported work that sustains capacities and relationships. Recognizing it in accounts, by valuing the unpaid hours at a replacement wage, makes it visible and understates what it is. The recipient's wellbeing is not the value of the services supplied, and a recipient who cannot contribute is not thereby of lesser worth. A framework that values persons solely through productive contribution has no place for dependency and cannot say that the arrangement above, which burns out the caregiver in two months, is a failure. The viability formalism in this chapter records the caregiver's constraint and the gap to be covered; it does not say how the gap should be covered or by whom, which is a question of distribution and of the institutions of the previous part.
+
+\paragraph{What has been established.} A caregiver has a viability kernel that limits sustainable hours, the example reaches breakdown in two months at $150$ hours, and the gap of $30$ hours per month is a cost of $750$ that no account currently records. The decision now enabled is to plan care against the caregiver's constraint as well as the recipient's need. Assumptions still required are the exhaustion dynamics, which are empirical and individual. The question passed on to Chapter~\chref{38} is how ownership of the infrastructure used in production, including care, shapes who controls it.
+
+\begin{exercise}
+Compute the breakdown time with starting exhaustion $20$ and $H=140$.
+\end{exercise}
+\begin{exercise}
+Modify the dynamics so that a day of rest reduces exhaustion by $5$ and find the sustainable work schedule at $150$ hours of need.
+\end{exercise}
+\begin{exercise}
+Describe a care arrangement and list the services it supplies that no account records and the constraints on the caregiver.
+\end{exercise}
+
+\chapter{Local AI and the Ownership of Productive Infrastructure}\label{ch:38}
+
+A small property office uses a language model for correspondence and record keeping. It can rent the service from a cloud supplier or run a model locally on its own equipment. The decision is which, and the difficulty is that the comparison involves a purchase price, a running cost, a maintenance burden, a dependence on a supplier whose terms can change, and a distribution of control over the data and the tool. The case is used here as a sustained example of the framework, with stylized numbers that are assumptions of the example and not market data.
+
+\section{Total costs and dependence}
+
+Suppose a local installation costs $2400$ to buy, amortized over $36$ months, with electricity of $20$ per month and maintenance work of four hours per month valued at $25$ per hour, which is $100$. The monthly cost is $2400/36+20+100=186.67$. A cloud service costs $150$ per month in the first year, and the supplier raises the price by $30$ per month each year, an assumption reflecting the switching-cost mechanism of Chapter~\chref{28}. Over the first three years the cloud totals $12\times(150+180+210)=6480$ and the local installation totals $2400+36\times 120=6720$, so the cloud is cheaper by $240$. Cumulative costs cross in month $38$ at $6960$ each, and beyond that the local installation is cheaper. The comparison is sensitive to the assumed growth of the supplier's price and to the hardware lifetime, both of which are stated as assumptions. The calculation is reproduced in the companion (check BOOK, Chapter~38).
+
+The cost comparison omits the quantities that Chapter~\chref{7} showed matter. The cloud service is an exposed complement: if the supplier withdraws or changes terms, the office's capability falls to zero until a replacement is found, at a switching cost that grows with incumbency. The local installation is a controllable complement but it carries a maintenance burden that falls on whoever has the skill, and that skill erodes if it is not practised (Chapter~\chref{23}). Persistent agents that act on the office's behalf add a further dependence on the interface between the agent and the records, and open software reduces the exposure to a single supplier at the cost of requiring a maintainer.
+
+\section{Distribution of control}
+
+Ownership of productive infrastructure is a bundle of permissions in the sense of Chapter~\chref{27}: the right to use, modify, move, and exclude. A rented service gives use without modification or portability; a local installation gives modification and portability at the cost of maintenance. Neither is better in general. The framework asks, for each option, which permissions are held, which capacities support them, and who bears the cost of the failure of a complement. The distribution of these across offices, households, and communities is an issue of the distribution of control over productive infrastructure and is not settled by the cost comparison.
+
+\paragraph{What has been established.} Under the stated assumptions the cloud is cheaper for $37$ months and the local installation afterwards, supplier dependence and maintenance burden are costs that the total omits, and the distribution of control is a separate question. The decision now enabled is to compare options on cost, dependence, maintenance burden, portability, and control together. Assumptions still required are the price path, the hardware life, and the maintenance time. The question passed on to Chapter~\chref{39} is how capabilities of this kind are established in communities that do not hold them.
+
+\begin{exercise}
+Recompute the break-even month if the supplier raises its price by $15$ per month each year.
+\end{exercise}
+\begin{exercise}
+Add an exit cost of $600$ to the cloud option and a hardware failure cost of $400$ at month $24$ to the local option and recompute the three-year totals.
+\end{exercise}
+\begin{exercise}
+Select a technology stack and describe which parts are exposed complements and which are controllable.
+\end{exercise}
+
+\chapter{Development as the Establishment of Capabilities}\label{ch:39}
+
+A village with a budget of $800$ is deciding between a road to the market town and a school. Households benefit from different things, and the road reaches only those within a short distance of its route. The decision is how to spend, and the difficulty is that the outputs the two options produce are different kinds of capability, and that the village's authority over the conditions of its life may be reduced by the way the project is financed.
+
+\section{Establishing domains and who can reach them}
+
+\Pref{P02} says that expenditure on access, infrastructure, learning, or recognition can change the choice problem itself. Take five households, with distances to the new road of $1$, $1$, $2$, $4$, and $6$ kilometres. The road costs $600$ and establishes market access for households within $2$ kilometres, which are the first three. A feeder track costing $200$ extends access to a household at $4$ kilometres; a second feeder costing $300$ extends to $6$. With a budget of $800$ the village can build the road and one feeder, $800$ for the road and the first feeder, and the fourth household is reached; the fifth is not. The domain of choice has been enlarged for four households of five, and the village then chooses within the domains established. The distribution of access to the newly established opportunity is a variable of the model, and in this example it is unequal in a way that follows geography. The calculation is reproduced in the companion (check BOOK, Chapter~39).
+
+The budgeted inclusion of \Pref{P02} applies: outcomes under establish-then-select contain those under selection only, strictly whenever an affordable establishment makes an otherwise inaccessible outcome reachable. Here the road makes market selling reachable for three households with $600$, for four with $800$, and for all five only with $1100$.
+
+\section{Output and authority}
+
+Development raises output and can lower communities' authority over their own conditions, for instance when financing carries conditions or when the project is owned elsewhere. Consider two plans: an externally owned road that raises monthly output by $300$ and gives the community an authority index of $0.5$, and a community-managed track that raises output by $200$ and keeps the index at $1.0$. In the profile of Chapter~\chref{16} the two are incomparable: the first is larger in output and smaller in authority. A choice between them is a choice of weights, and the choice belongs to the community. The framework requires that the authority coordinate be recorded and that the weights be stated by those who bear the effects. It also requires the corrective freedom of Chapter~\chref{15}: a project that cannot be reversed or revised reduces the community's future authority even if the present index is high.
+
+\paragraph{What has been established.} Establishment of access changes who can choose, the budget of $800$ reaches four of five households, and the output-authority tradeoff is an incomparability that the community must resolve. The decision now enabled is to report the distribution of access and the authority coordinate for each project. Assumptions still required are the cost and reach of establishment actions and an agreed measure of authority. The question passed on to Chapter~\chref{40} is how a destination of this kind is reached by a path that can be financed and revised.
+
+\begin{exercise}
+Find the budget at which all five households are reached and the budget at which the first four are reached with a school of cost $250$.
+\end{exercise}
+\begin{exercise}
+Prove the budgeted inclusion of \Pref{P02} for this village, assuming a zero-cost null action.
+\end{exercise}
+\begin{exercise}
+Select a development project and describe who decided the weights between output and community authority.
+\end{exercise}
+
+\chapter{Crisis, Transition, and Institutional Repair}\label{ch:40}
+
+The owner wants to retrofit the building to cut running costs by $100$ per unit per month. A retrofit costs $2000$ per unit and takes the unit out of letting for a month. The owner has $2500$ in cash, a net monthly income of $1700$ from the building after maintenance and the mortgage, and no other resources. The destination, a fully retrofitted building, is clearly better. The decision is how to get there, and the difficulty is that a viable destination does not make every path to it viable.
+
+\section{A viable destination and a viable path}
+
+Doing all four units in the first month costs $8000$ and takes all four out of letting for the month. With no rent and no running costs the owner's net for the month is $-400-700=-1100$, since maintenance and the mortgage continue, so cash after the month is $2500-1100-8000=-6600$. The path leaves the acceptable set, nonnegative cash, though the destination is good. Doing one unit at a time, at months $0$, $3$, $6$, and $9$, gives in month $0$ revenue of $3000$ from the three units let, running costs of $900$, maintenance of $400$, and the mortgage of $700$, a net of $1000$, and after the outlay of $2000$ the cash is $2500+1000-2000=1500$. From month $1$ the retrofitted unit saves $100$ and all four are let, the monthly net is $1800$, and cash rises to $3300$ and then $5100$ before the next outlay. The minimum cash along the sequential path is $1500$, at the end of month $0$. The sequential path is viable and the simultaneous one is not. The companion recomputes the whole path (check BOOK, Chapter~40).
+
+The tolerance of the path to cost overruns is the largest outlay at month $0$ for which cash stays nonnegative: $2500+1000-x\ge 0$ gives $x\le 3500$, an overrun of $1500$, or $75\%$, on the first unit. The tolerance is the quantity that matters for revising a plan that is going wrong: a plan with a tolerance of $75\%$ can absorb a bad estimate on the first step, and one with a tolerance of $5\%$ cannot.
+
+\section{Waiting for a subsidy}
+
+Suppose a subsidy of $800$ per unit may be announced next month with probability one half. A unit's retrofit has present value $\mu=2400$ in savings and costs $I=2000$, so acting now gives $V_{\mathrm{act}}=(2400-2000)+100=500$ with first-month savings of $100$. Waiting gives $V_{\mathrm{wait}}=\beta\,\mathbb E[(2400-I')^+]$ with $I'=1200$ if the subsidy is announced and $2000$ otherwise, so $\mathbb E[(2400-I')^+]=\tfrac12\cdot 1200+\tfrac12\cdot 400=800$, and with $\beta=0.9$ and no expiry $V_{\mathrm{wait}}=720>500$. If the programme might close, survival with probability $q$ independent of the announcement gives waiting better exactly when $q>500/720=25/36$. This is the two-period structure of \Pref{P26}, applied to a transition with an explicit information date; its value is that it makes the owner's reasons for sequencing explicit and the decision to wait revisable at the date of the announcement.
+
+\section{Mechanisms for revising a plan}
+
+A transition plan should state its milestones, the tolerance of the path to each, the temporary protections it requires, and the rule by which a missed milestone triggers revision: a restoration duty with a rank, a reserve of funds, and a reopening procedure of the kind in Chapter~\chref{30}. The housing example gives all of these in miniature. At scale, transitions involving energy, public finance, and industrial change have the same logic and larger consequences, and the failure the framework identifies most often is a plan with a viable destination and a path that leaves the acceptable set.
+
+\paragraph{What has been established.} A viable destination does not make a path viable, the simultaneous retrofit leaves the acceptable set and the sequential one does not, the tolerance of the path to overruns can be calculated, and waiting for information is worth it when the survival probability exceeds $25/36$. The decision now enabled is to require a viable path and a revision rule in every transition plan. Assumptions still required are the cash model, the cost estimates, and the information date. This closes the economic text; the next part states the results precisely.
+
+\begin{exercise}
+Compute the minimum cash along the sequential path when the retrofit slips so that each unit is offline for two months.
+\end{exercise}
+\begin{exercise}
+Show that the tolerance to overrun is nonincreasing in the opening outlay and give the maximal first outlay.
+\end{exercise}
+\begin{exercise}
+Select a public transition programme and state its destination, its path, its tolerance, and its revision rule.
+\end{exercise}

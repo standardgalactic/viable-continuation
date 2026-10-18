@@ -1,0 +1,211 @@
+\part{Obligations, Degradation, and Recovery}
+\label{part:III}
+
+Part III represents obligations through time and introduces viability kernels, safe degradation, compensating continuation, and corrective capacity.
+
+\begin{housing}Tenancy and repair duties become obligations, an unheated unit may not be let, and viability is studied under a maintenance budget.\end{housing}
+
+
+In Part~III the crew's ceiling of $400$ per month and the lettable threshold of $40$ become constraints on promises. The owner owes the tenants a heated, habitable unit, and the question is which states of the building and of the owner's accounts are ones from which that promise can still be kept.
+
+\chapter{Obligations Through Time}\label{ch:11}
+
+The owner of the building holds $2500$ in cash and expects $1000$ of rent in thirty days. Three repair duties are outstanding. A heating failure must be fixed within $3$ days at a cost of $600$; a leak within $14$ days at a cost of $900$; and a roof section within $30$ days at a cost of $2000$. A second owner holds the same $2500$ and has no outstanding duties. A lender looking at the two balance sheets sees the same cash, the same building, and the same rent roll. The decision for the first owner is whether the three promises can all be kept, and for the lender whether to extend credit. The difficulty is that the information needed to answer is held in the list of duties and not in the accounts.
+
+\section{Obligations as objects with structure}
+
+An obligation is represented by a \emph{bearer} who owes, a \emph{beneficiary} to whom it is owed, a \emph{trigger} that brings it into force, a \emph{deadline} by which it must be discharged, and a \emph{discharge condition} that says what counts as discharge. A lease repair duty has the landlord as bearer, the tenant as beneficiary, a report of failure as trigger, a stated number of days as deadline, and restoration of function as the discharge condition. Contracts, promises, legal duties, maintenance commitments, and informal responsibilities all fit the same pattern, with the difference that informal ones often lack a stated deadline and a discharge condition, and a good deal of the difficulty in them lies there. Because an obligation constrains future action, it belongs in the state description, and Chapter~\chref{2} showed that two situations with the same holdings and different obligations are different states.
+
+\begin{definition}[Obligation]\label{def:obligation}
+An \emph{obligation} is a tuple $(b,\beta,\tau,T,\Delta)$ of bearer $b$, beneficiary $\beta$, trigger $\tau$, deadline $T$, and discharge condition $\Delta$. It is \emph{outstanding} at a history after its trigger has occurred and before $\Delta$ holds, and \emph{breached} if $T$ passes while it is outstanding.
+\end{definition}
+
+The three repairs are obligations of the same bearer to the same beneficiary class, with deadlines $3$, $14$, and $30$ and costs $600$, $900$, and $2000$. A boundary case is a hope, such as an owner's intention to repaint the hallway: it has no beneficiary able to enforce it, no deadline, and no discharge condition, and it does not constrain the state.
+
+\begin{proposition}[Joint feasibility of dated obligations]\label{prop:deadline}
+Suppose obligations $j=1,\dots,n$ with deadlines $T_1\le\dots\le T_n$ and costs $c_j$ can be paid at any date up to their deadlines from a single fungible resource, and resources arrive in amounts $a_s$ at dates $s$ with $a_0$ the initial cash. The obligations are jointly feasible without breach if and only if, for each $j$, $\sum_{i\le j}c_i\le\sum_{s\le T_j}a_s$.
+\end{proposition}
+
+\begin{proof}
+Necessity: everything due by $T_j$ must be paid by $T_j$ from what has arrived by $T_j$. Sufficiency: pay each obligation at its deadline in order. At $T_j$ the cash on hand is $\sum_{s\le T_j}a_s-\sum_{i<j}c_i\ge c_j$ by hypothesis.
+\end{proof}
+
+In the example the cumulative amounts due are $600$ by day $3$, $1500$ by day $14$, and $3500$ by day $30$. The cumulative supply is $2500$ by day $3$, $2500$ by day $14$, and $3500$ by day $30$, since the $1000$ of rent arrives on day $30$. All three conditions hold, with equality at day $30$. An owner with $2400$ in cash fails the last condition by $100$, and the failure is caused by the dated roof duty, which does not appear in the balance sheet. The second owner, with no duties, is not even at risk. The calculation is reproduced in the companion (check BOOK, Chapter~11).
+
+The hypotheses doing work are fungibility of the resource and the ability to pay at any time before the deadline. If the contractor must be paid in advance or the roof section requires materials ordered weeks earlier, the effective deadline is earlier than the stated one, and the proposition applies to the effective deadlines. If rent may fail to arrive, the proposition holds with $a_s$ replaced by guaranteed amounts, and Part~III develops the robust version. Economically, the result says that a balance sheet is not a sufficient statistic for the ability to meet obligations, in the precise sense of \Pref{P11}: the accounts do not determine feasibility, because the same accounts are compatible with feasible and infeasible duty lists.
+
+\paragraph{What has been established.} Obligations have a structure that a balance sheet omits, and joint feasibility of dated obligations has a cumulative characterization. The decision now enabled is to test a set of commitments against dated supply before taking on another. Assumptions still required are fungibility of the resource and the date at which each cost is actually incurred. The question passed on to Chapter~\chref{12} is which obligations are really obligations, as against capabilities that may be allowed to lapse.
+
+\begin{exercise}
+For duties of $600$ by day $3$, $900$ by day $14$, and $2000$ by day $30$ and cash of $2500$, find the latest day on which a new $400$ duty can be added with deadline $20$ while preserving feasibility, if rent of $1000$ arrives on day $30$.
+\end{exercise}
+\begin{exercise}
+Show by an example that Proposition~\ref{prop:deadline} fails if payment must be made a week before the deadline for some duties, and state the correct condition.
+\end{exercise}
+\begin{exercise}
+Find an informal responsibility in a household or a workplace and write it as an obligation tuple, saying which components are left unspecified in practice and what disputes result.
+\end{exercise}
+
+\chapter{Required Functions and Optional Capabilities}\label{ch:12}
+
+The owner faces a heating failure in one unit in winter. Heating is a function the lease requires. The elevator in the same building is a convenience for tenants on the upper floors and is out of order for the same month. A cost-conscious owner would postpone both, and a city inspector will accept only one of these decisions. The question is what makes a function required and what makes a capability optional, and the answer is that the classification is a decision made by someone, with consequences, and not a fact visible in the object.
+
+\section{Classification as an institutional decision}
+
+A function is \emph{required} if the regime in force demands that it continue, so that its failure is a breach and the state in which it fails is outside the acceptable set $G$. A capability is \emph{optional} if it may be reduced or suspended without breach. The classification is established by statute, contract, regulation, or practice, and it can be contested and revised. Heating in cold months is typically required by housing codes. An elevator may be required for buildings above a given height or for tenants with certain disabilities, and optional otherwise. A public library's branch hours are optional under most budgets, and the same hours become required once a court rules that access to legal materials is a right. Calling a function optional is therefore a consequential act: it moves its failure from the set of breaches to the set of acceptable degradations, and what that costs depends on who relies on it.
+
+Once a function is required the question is how it may be degraded safely. Let $K$ be the viability kernel of the acceptable regime. The set of \emph{safe degradation actions} at $s\in K$ is $A_K(s)=\{a\in A(s):T(s,a,w)\in K\text{ for every allowed }w\}$.
+
+\begin{theorem}[P06: safe degradation requires successor viability]\label{thm:P06}
+For $s\in K$, an action preserves the possibility of satisfying the ongoing regime exactly when it lies in $A_K(s)$, and $K=\{s\in G:A_K(s)\ne\varnothing\}$. If degradation creates a restoration duty, the duty must be included in the successor state before $A_K$ is evaluated.
+\end{theorem}
+
+\begin{proof}
+By \Pref{P03}, $K=\Phi(K)$, and $\Phi(K)$ is the set of $s\in G$ with an action all of whose successors lie in $K$, which is the second statement. An action not in $A_K(s)$ has some allowed successor outside $K$, from which by definition the regime cannot be satisfied forever against all disturbances. If a restoration duty is created, the extended state records it and the extended kernel $K^{\mathrm{ext}}$ replaces $K$ in the definition of $A_K$.
+\end{proof}
+
+The result is elementary and the housing numbers show why it matters. A unit has condition $52$, the crew ceiling is $400$, and the owner is considering skipping a month of maintenance on it. Without a restoration duty the plain kernel under the ceiling is every condition from $40$ upward, and a skipped month lands the unit at $50$, which is in the kernel: the unit can be held at $50$ at the full ceiling forever. Suppose, however, that the lease imposes a restoration duty after any degradation, that the unit must return to condition $60$. At the ceiling of $400$ the net change per month is $4-d(k)$, which is $+2$ in the middle tier and $0$ at conditions $50$ and below. A unit at $51$ rises to $53,55,57,59,61$ in five months, and a unit at $50$ never rises. The extended kernel is therefore conditions from $51$ upward, and the skipped month, which lands at $50$, is not a safe degradation. The safe actions at $52$ are the spending levels of $100$ or more, which land at $51$ or higher. The calculation is reproduced in the companion (check BOOK, Chapter~12).
+
+The economic point is the one in the theorem's last sentence. A temporary suspension cannot be judged apart from the obligation it leaves behind, and an owner who evaluates the skipped month by its immediate effect on a plain viability test will make a degradation that the extended regime does not allow. The typed treatment of the classification of required functions, and of what an execution may and may not do, is taken up in Part~XI under \Pref{P20}. A boundary case in the opposite direction is a function with no restoration cost, such as a service whose suspension leaves no trace once resumed; for it the extended and plain kernels coincide and safe degradation is just viable degradation.
+
+\section{Declaring a function optional}
+
+A public-service example shows the institutional side. A transit agency under budget pressure may classify night service as optional. If the agency's regime treats night service as optional, suspending it breaches nothing and is accounted as a saving. The workers whose shifts end after midnight face an expensive commute or the loss of their jobs, and their continuation set shrinks. The classification therefore allocates burdens, and a good deal of the politics of budgeting is a fight about the list of required functions. The book does not claim to know the right classification in any particular case. It claims that the classification should be explicit, contestable, and accompanied by a record of who relies on each function, so that reclassifying a function is a visible act with identified consequences.
+
+\paragraph{What has been established.} A degradation is safe only if its successor is in the kernel of the regime including any restoration duty it creates, and the classification of functions as required or optional is itself a consequential institutional decision. The decision now enabled is to evaluate suspension against the extended state. Assumptions still required are an explicit list of required functions and a model of the restoration duty. The question passed on to Chapter~\chref{13} is how to compute the kernel when resources are scarce and disturbances are possible.
+
+\begin{exercise}
+For the restoration duty to return to $70$, compute the extended kernel under the ceiling of $400$ and the safe actions at condition $60$.
+\end{exercise}
+\begin{exercise}
+Prove that if a degradation creates no restoration duty then $A_K(s)$ computed with the extended state equals the plain $A_K(s)$.
+\end{exercise}
+\begin{exercise}
+Select a public function that is currently optional. Identify who relies on it, and write the sentence that a reclassification would have to include to be explicit about consequences.
+\end{exercise}
+
+\chapter{Viability Under Scarcity}\label{ch:13}
+
+The owner can now ask the question the earlier chapters were built to answer: from which conditions of the building can the owner keep it lettable, given that the crew can spend at most a stated amount each month. A target such as ``every unit at condition $90$'' is desirable, but it is not the same as the set of conditions from which lettability can be preserved. The first is a goal. The second is a fact about what is reachable under constraint, and the difference decides whether a manager who is behind on a unit should push for the goal or accept a smaller aim.
+
+\section{The viability kernel}
+
+Take a state space $S$, an acceptable set $G\subseteq S$, actions $A(s)$, allowed disturbances $W(s,a)$, and transition $T$. The \emph{viability kernel} is the set of states from which some policy keeps the system in $G$ forever against every allowed disturbance,
+\[
+K=\bigl\{x:\exists\pi\ \text{such that all trajectories permitted by the model under }\pi\ \text{satisfy the continuation constraints}\bigr\}.
+\]
+With $\Phi(X)=\{s\in G:\exists a\ \forall w,\ T(s,a,w)\in X\}$, \Pref{P03} identifies $K$ as the greatest fixed point of $\Phi$, which exists by monotonicity and the theorem of Knaster and Tarski~\cite{tarski1955}. The iteration $K_0=G$, $K_{n+1}=\Phi(K_n)$ decreases and stabilizes in at most $|S|$ steps for a finite system, but the companion exhibits an infinite chain in which each $K_n$ is nonempty and $K=\varnothing$, so termination claims need finiteness. For the continuous-time analogue see Aubin~\cite{aubin1991}.
+
+In the housing unit under a ceiling $\bar M$ the kernel was computed in Chapter~\chref{8}: it is every condition from $81$ upward at $\bar M\in[100,200)$, from $51$ at $[200,400)$, and from $40$ at $\bar M\ge 400$.
+
+\section{Comparative statics}
+
+\begin{theorem}[P23 and P04: comparative statics of viability]\label{thm:P23}
+On a common state space, $K$ is monotone increasing in the acceptable set $G$, increasing in each action set $A(s)$, and decreasing in each disturbance set $W(s,a)$. In particular, if $G_2\subseteq G_1$ with identical dynamics, actions, and disturbances then $K(G_2)\subseteq K(G_1)$.
+\end{theorem}
+
+\begin{proof}
+$\Phi$ is monotone in $X$ and, for fixed $X$, increasing in $G$ and in each $A(s)$ and decreasing in each $W(s,a)$, since a larger $G$ or $A$ makes the defining condition easier to satisfy and a larger $W$ makes it harder. The greatest fixed point inherits the same monotonicity, because $K=\bigcup\{X:X\subseteq\Phi(X)\}$ and enlarging $\Phi$ pointwise enlarges the union.
+\end{proof}
+
+The corollary on added duties needs care. Tightening the acceptable set cannot enlarge the kernel, but it need not shrink it. With a ceiling of $100$ the kernel under the lettable threshold $40$ is the conditions from $81$ up. Raising the threshold to $60$ leaves the kernel unchanged at $81$ and above, since no state below $81$ was viable and the new duty removes only states that were already outside. Raising it to $85$ shrinks the kernel to conditions from $85$ up. An added duty therefore requires extra resources or a changed technology only when it removes previously viable states, that is, when $K(G_2)\subsetneq K(G_1)$, and the owner who is told that a higher standard is coming can check by computing the kernel. The three ceilings give nested kernels $\{81,\dots\}\subset\{51,\dots\}\subset\{40,\dots\}$ in agreement with the action-set statement of the theorem. If an adversary may add one tenth of extra deterioration each month, a disturbance, the ceiling of $400$ cannot hold units at or below $50$, because the deterioration there is $4+1=5$ against a repair of $4$, and the robust kernel is the conditions from $51$ upward. The results are in the companion (check BOOK, Chapter~13).
+
+\section{Local acceptability and almost-sure viability}
+
+\begin{proposition}[P05: local acceptability does not imply viable continuation]\label{prop:P05}
+There are systems with $s_0\in K$, $s_1\in G$, $s_1\notin K$, and an action from $s_0$ to $s_1$.
+\end{proposition}
+
+\begin{proof}
+Three states suffice. From $s_0$ one action stays at $s_0$ and another goes to $s_1$. From $s_1$ every action goes to a state $b\notin G$. Then $s_0\in K$ by always staying, and $s_1\in G\setminus K$.
+\end{proof}
+
+In the housing numbers, take the ceiling $100$ and the unit at $90$. The condition $70$ is acceptable, since it is above $40$, and it is reachable from $90$ by declining to maintain for twenty months: the unit passes through $78$ at month $11$ and $60$ at month $20$. It is not viable, because it is below $81$. A test at each date that checks only acceptability passes throughout, and the unit is nonetheless doomed once it has crossed $81$. The failure of the test is not visible until the unit actually falls below $40$ some years later.
+
+For stochastic disturbances, \Pref{P25} separates three formulations. Robust viability requires every allowed disturbance to be survived. In a finite or countable model, almost-sure viability requires only that every positive-probability successor remain in the set, and its predecessor operator is $\Phi_{\mathrm{as}}(X)=G\cap\{s:\exists a,\ \Prob(X\mid s,a)=1\}$. Suppose the one-tenth shock occurs each month with probability $0.1$. A unit at $50$ under a ceiling of $400$ falls by one tenth in each shock month and does not recover, so it needs eleven shocks in a year to fall below $40$ within the year, and the probability of that is $109/10^{12}$, about $1.1\times 10^{-10}$. Yet over an unbounded horizon eleven shocks occur with probability one, so the unit at $50$ is not almost-surely viable, and the almost-sure kernel agrees with the robust kernel, the conditions from $51$. A risk-constrained notion, with a stated horizon and a tolerated failure probability, would admit the unit for one year and nothing more. For general state spaces the statement of the greatest fixed point of $\Phi_{\mathrm{as}}$ as an implementable policy requires fixing a measurable domain and a selection theorem~\cite{bertsekas1978}; this book treats that case as a research specification.
+
+\paragraph{What has been established.} The viability kernel is the set of conditions from which obligations can still be met, it responds monotonically to duties, capacities, and exposures, and acceptable-now does not imply viable. The decision now enabled is to compute the kernel before adopting a standard. Assumptions still required are finiteness for termination of the iteration and a specified disturbance set. The question passed on to Chapter~\chref{14} is how a suspended obligation can be credibly restored.
+
+\begin{exercise}
+For a ceiling of $200$ compute the kernel with adversarial shocks of one and two tenths per month.
+\end{exercise}
+\begin{exercise}
+Prove that if $G$ is forward invariant under some policy for all of $S$ then $K=G$, and show that the converse holds in a finite system.
+\end{exercise}
+\begin{exercise}
+Using a municipal reserve fund or a hospital bed capacity, describe the acceptable set, the actions, and the disturbances, and say whether tightening a stated standard would change the kernel.
+\end{exercise}
+
+\chapter{Compensating Continuation}\label{ch:14}
+
+A unit in the building has been run down to condition $51$ because an earlier owner deferred work, and the current owner has promised the tenants that it will be restored to $60$. The promise is a restoration obligation. The question is whether it is credible, and the answer depends on whether the resources needed are reserved, whether they are in fact available when needed, and whether other duties draw on the same resources. A promise that rests on a crew already committed elsewhere is a hope.
+
+\section{A rank certificate}
+
+Let $R\subseteq G$ be the set of states in which the restoration is discharged, let $D\subseteq G$ carry a rank $r:D\to\mathbb N$ with $r(s)=0$ exactly on $R$, and let a policy be such that every allowed successor remains in $D$ and strictly lowers the rank whenever $r>0$.
+
+\begin{proposition}[P07: constructive certificate]\label{prop:P07}
+From $s_0\in D$ the restoration occurs within $r(s_0)$ steps while remaining acceptable.
+\end{proposition}
+
+\begin{proof}
+By induction on $r(s_0)$: if $r=0$ the state is in $R$. Otherwise the policy leads to a successor in $D$ of rank at most $r(s_0)-1$, which by hypothesis reaches $R$ within that many further steps, and all intermediate states are in $D\subseteq G$.
+\end{proof}
+
+For the unit, with the ceiling at $400$ the net rise per month in the middle tier is $4-2=2$ tenths, so the rank to reach $60$ is $5$ months from $51$, $4$ from $52$, $3$ from $55$, $1$ from $58$, and the state $50$ has no finite rank because it cannot rise. The certificate is the table of ranks together with the spend that realizes it: full ceiling every month for five months, a reserve of $5\times 400=2000$ in crew time. This number is what makes the promise concrete, and a promise without it is a statement of intention. The certificate does not prove the unit will be restored; it proves restoration follows if the reserved resources and permissions are actually supplied and the disturbances do not exceed those modelled.
+
+\section{Credible and non-credible compensation}
+
+Now give the owner two units, both at condition $51$, and the same single crew with a ceiling of $400$ for both. Each unit's restoration needs the whole ceiling, and holding the other unit at $51$ needs $200$. A joint schedule that restores both to $60$ does not exist: the exhaustive search of the companion finds no sequence of allocations under which both units are at or above $60$ while remaining lettable (check BOOK, Chapter~14). The two promises, made separately, each look credible and jointly are not. This is the shape of \Pref{P09} applied to restoration, and it matches the case in which a promise of compensation depends on a capability that other promises have already consumed. Three worked cases show the same structure. Deferred building repairs are credible only with a reserve of crew time and funds that is not also pledged to another project. Reduced hospital services are credible only if the staff who would restore them are retained and not redeployed. Temporary infrastructure closures are credible only with a funded schedule and a contractor under contract.
+
+\paragraph{What has been established.} A restoration obligation is credible when a rank function and reserved resources support a policy whose progress survives the modelled disturbances, and two individually credible promises can be jointly incredible under shared scarcity. The decision now enabled is to require a reserve and a rank for every restoration promise. Assumptions still required are the disturbance set and an accurate record of other claims on the same resources. The question passed on to Chapter~\chref{15} is how an operation that appears to function can lose the capacity to recover.
+
+\begin{exercise}
+For the ceiling of $400$ compute the rank to reach $70$ from $60$ and the crew reserve it requires.
+\end{exercise}
+\begin{exercise}
+Show that for the two-unit case at $(51,51)$ no policy reaches $(60,60)$, and find the best achievable $(a,b)$ after ten months.
+\end{exercise}
+\begin{exercise}
+Take a public promise to restore a service after a closure. Identify the rank function, the reserve, and any competing claim on the reserve.
+\end{exercise}
+
+\chapter{Corrective Capacity and Recoverability}\label{ch:15}
+
+A manager reviews the building every year. At each review the manager checks that every unit is lettable and that the next year's budget covers what is needed to keep it so. In every review for ten years the building passes. In the eleventh year a tenant reports that a unit has failed, and the manager discovers that it has been past the point of no return for several years. The review was a good test of whether the building was acceptable and a poor test of whether it could still be saved. Corrective capacity is the resources, permissions, knowledge, and time needed to correct a course of action, and a system can remain operational while it loses the ability to recover from foreseeable disturbances.
+
+\section{Lookahead depth and the point of no return}
+
+Define the survival chain for a finite system by $K_0=G$ and $K_{n+1}=\Phi(K_n)$, so that $K_n$ is the set of states from which the acceptable set can be preserved for $n$ further steps. A review that checks viability over a horizon of $n$ steps certifies exactly $K_n$.
+
+\begin{theorem}[Depth of certification]\label{thm:depth}
+Let the iteration stabilize at $K=K_m$ with $K_{m-1}\ne K_m$. Then any review of depth $n<m$ certifies a set $K_n\supsetneq K$, and a state in $K_n\setminus K$ passes the review while being unrecoverable: it will leave $G$ in finite time under every policy.
+\end{theorem}
+
+\begin{proof}
+The chain is decreasing, and it is strictly decreasing up to its stabilization, since if $K_{j+1}=K_j$ for some $j$ then every later set equals $K_j$ and $m\le j$. So $K_n\supsetneq K_m=K$ for $n<m$. A state outside $K$ has no policy that keeps the system in $G$ forever, and in a finite system any state outside $K_N$ fails within $N$ steps for $N=|S|$.
+\end{proof}
+
+The hypotheses doing work are finiteness, which gives stabilization, and the fact that the review certifies only a finite depth. In the housing unit under the ceiling $100$ the chain stabilizes at the thirty-fourth step, so $m=34$ months. A one-step review certifies conditions from $43$ upward. A twelve-month review certifies conditions from $59$ upward. The kernel is the conditions from $81$ upward. A unit at $60$ passes every review of depth up to $13$ months and will fail eventually, and the manager who reviews annually on a twelve-month depth sees only the first signs of trouble in the year the unit actually fails. The calculation is in the companion (check BOOK, Chapter~15).
+
+The lesson is that corrective capacity has a time scale. A review is useful if its depth is at least the lead time needed to correct, and it is useless if the correction takes longer than the depth it can see. In the example, a unit below $81$ at the ceiling of $100$ needs the ceiling raised before it can be saved, and raising the ceiling takes the time of procurement and hiring, so a review with depth of twelve months, applied to a process whose correction takes eighteen months of lead time, certifies states that are already unrecoverable. This is the general statement of the opening of the chapter.
+
+\section{The option value of corrective capacity}
+
+\begin{proposition}[P14: weak option value]\label{prop:P14}
+If $\Pi_0\subseteq\Pi_1$ are policy sets for identical environments and criteria then $\sup_{\Pi_1}J\ge\sup_{\Pi_0}J$. Strict improvement requires a circumstance in which the added action helps. For viability the same statement is the action-set case of \Pref{P23}.
+\end{proposition}
+
+The proof is that a supremum over a larger set is at least as large. Raising the ceiling from $300$ to $400$ enlarges the action set, and it changes the kernel from conditions $51$ and above to $40$ and above, which is strict because units at $50$ and below can then be held. The statement says only that corrective capacity has potential value. Whether it has net value depends on the cost of acquiring it: the standing cost of the extra $100$ per month, the training of the crew, the monitoring that tells the manager when to use it, and the reserves it requires. Part~V treats these as substantive investment problems with their own models.
+
+\paragraph{What has been established.} A review that certifies acceptability over a finite depth passes states that cannot be saved whenever the stabilization step exceeds the depth, and corrective capacity has weak option value whose net value depends on acquisition cost. The decision now enabled is to set the review depth to at least the lead time needed to correct. Assumptions still required are finiteness and a model of lead time. The question passed on to Part~IV is how to compare the profiles that arise, as the many obligations and capacities that the building carries cannot be put on a single scale.
+
+\begin{exercise}
+For the ceiling of $200$ compute the survival chain length $m$, and the smallest condition certified by a twelve-month review.
+\end{exercise}
+\begin{exercise}
+Prove that in a finite system the chain stabilizes in at most $|S|$ steps, and give a system for which $m=|S|-1$.
+\end{exercise}
+\begin{exercise}
+For a financial-regulatory stress test of horizon one year, say what the horizon certifies, what lead time the correction of a failing institution requires, and whether the horizon suffices.
+\end{exercise}

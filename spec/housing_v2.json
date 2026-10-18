@@ -1,0 +1,94 @@
+{
+  "name": "housing_v2",
+  "version": "2.0",
+  "units": {
+    "money": "currency units",
+    "time": "months",
+    "condition": "tenths of a condition point"
+  },
+  "core": {
+    "rent": 1000,
+    "running_cost": 300,
+    "money_per_tenth": 100,
+    "k_initial": 90,
+    "k_max": 100,
+    "k_min": 0,
+    "k_lettable_min": 40,
+    "deterioration_tiers": [
+      {
+        "k_above": 80,
+        "d": 1
+      },
+      {
+        "k_above": 50,
+        "d": 2
+      },
+      {
+        "k_above": null,
+        "d": 4
+      }
+    ],
+    "crew_ceiling": 400,
+    "maintenance_step": 100
+  },
+  "month_order": [
+    "observe k_t",
+    "choose maintenance M_t, a multiple of maintenance_step with 0 <= M_t <= crew_ceiling (jointly over units)",
+    "if k_t >= k_lettable_min: collect rent and pay running cost; otherwise neither",
+    "pay M_t",
+    "k_{t+1} = max(k_min, min(k_max, k_t - d(k_t) + M_t / money_per_tenth))"
+  ],
+  "surplus": "pi_t = (rent - running_cost) * [k_t >= k_lettable_min] - M_t",
+  "obligation_rules": {
+    "notice_after_consecutive_missed_rents": 2,
+    "notice_period_months": 1,
+    "restoration_target": 60,
+    "repair_duties_example": [
+      {
+        "deadline_days": 3,
+        "cost": 600
+      },
+      {
+        "deadline_days": 14,
+        "cost": 900
+      },
+      {
+        "deadline_days": 30,
+        "cost": 2000
+      }
+    ]
+  },
+  "scenario_parameters": {
+    "owner_cash_example": 1500,
+    "owner_mortgage_per_month": 700,
+    "tenant_income_before_rent": 1200,
+    "tenant_exit_cost": 4000,
+    "tenant_surplus_monthly_contract": 200,
+    "building_conditions": [
+      90,
+      70,
+      55,
+      50
+    ],
+    "automation": {
+      "saving_per_month": 300,
+      "practice_cost_per_unit": 200,
+      "erosion_per_month": "3/50",
+      "practice_gain": "3/20",
+      "tau_base": 1,
+      "tau_slope": 7,
+      "operating_floor": 60,
+      "emergency_restore_price_per_tenth": 100,
+      "lost_month_penalty": 700
+    }
+  },
+  "front_chapter_lease": {
+    "r": 1000,
+    "T": 12,
+    "delta": "1/20",
+    "e": 200,
+    "c": 4000,
+    "H": 3,
+    "kappa": 800
+  }
+}

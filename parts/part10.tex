@@ -1,0 +1,113 @@
+\part{Categorical Interpretations}
+\label{part:X}
+
+Part X interprets economic processes as morphisms and states what the interpretation preserves. Its stated payoff is that parallel composition fails to be independent under shared sinks, and the structure needed to repair that is identified.
+
+\begin{housing}Repair processes become morphisms between building interfaces, and accounting becomes a functor that forgets the backlog.\end{housing}
+
+
+Part~X gives the structures a categorical form where the form does something. The test applied to each construction is whether it states a theorem that the unstructured version does not, and where it does not, the chapter says so. Every example is the housing unit or the four-unit building, and the corresponding companion entries are named.
+
+\chapter{Economic Processes as Morphisms}\label{ch:46}
+
+\section{The syntactic category}
+
+Let $\Sigma$ be a finite alphabet of events, for the housing unit the spends $\{0,200\}$ of a month, and let $\Lambda\subseteq\Sigma^*$ be the language of admissible histories from a given initial state, for the unit started at $60$ the words that keep the unit lettable throughout. The \emph{syntactic congruence} $\equiv_\Lambda$ identifies $u,v$ when $xuy\in\Lambda\Leftrightarrow xvy\in\Lambda$ for all contexts $x,y$. The quotient $\Sigma^*/{\equiv_\Lambda}$ is the syntactic monoid, and when it is regarded as a one-object category its morphisms are the economically distinguishable processes.
+
+\begin{proposition}[Syntactic category, \Pref{P18}]\label{prop:syn}
+The quotient $M(\Lambda)=\Sigma^*/{\equiv_\Lambda}$ is a monoid under concatenation, the projection $\Sigma^*\to M(\Lambda)$ is a monoid homomorphism, and $\Lambda$ is a union of congruence classes. It is the smallest quotient with these properties, and it is finite if and only if $\Lambda$ is regular.
+\end{proposition}
+
+\begin{proof}
+If $u\equiv u'$ and $v\equiv v'$ then $xuvy\in\Lambda\Leftrightarrow xu'vy\in\Lambda$ by the first equivalence in context $(x,vy)$, and $xu'vy\in\Lambda\Leftrightarrow xu'v'y\in\Lambda$ by the second in context $(xu',y)$, so the operation is well defined and associative because concatenation is. $\Lambda$ is saturated, since taking $x=y=\varepsilon$ gives $u\in\Lambda\Leftrightarrow u'\in\Lambda$. Any congruence saturating $\Lambda$ refines $\equiv_\Lambda$, so the latter is the coarsest. Finiteness of the quotient characterizes regular languages by the Myhill--Nerode theorem in its two-sided form~\cite{nerode1958}.
+\end{proof}
+
+For the unit started at $60$ with spends $\{0,200\}$ the monoid has $108$ elements, and membership in $\Lambda$ depends only on the class, which the companion confirms by comparing every word up to length seven (check BOOK, Chapter~46). The set $\Lambda$ of admissible histories is \emph{not} closed under composition: the word of seven zero spends is admissible and its square of fourteen is not, so admissibility is a property of the whole word and not a property inherited from the factors. An economic process is accordingly a morphism of the syntactic category together with the admissibility of the contexts in which it is used, not a free-standing map.
+
+\section{What the construction adds}
+
+The construction replaces the informal phrase ``this process can be followed by that one'' by a decidable relation on classes, which in the finite case is the transition monoid of the minimal automaton. It does not add economic content beyond what the automaton already records, and a claim that a categorical structure \emph{explains} the viability of the unit would exceed what has been shown. What is gained is a place to state composition theorems: Chapters~\chref{47} and \chref{50} state them over the same objects.
+
+\begin{exercise}Compute the syntactic monoid of the language ``the unit never falls below $50$'' for the unit started at $60$ with the single spend $200$.\end{exercise}
+\begin{exercise}Show that $\Lambda$ above is not closed under composition by exhibiting the factors and verifying the failure by hand.\end{exercise}
+\begin{exercise}Prove that the syntactic monoid of a regular language is isomorphic to the transition monoid of its minimal automaton.\end{exercise}
+
+\chapter{Parallel Production and Monoidal Structure}\label{ch:47}
+
+\section{Independence fails under a shared sink}
+
+Two processes performed side by side are represented by a pair of words $(u,v)$ run in lockstep. Independence would say that the pair is admissible whenever each word is, so that the monoidal product of two admissible processes is admissible. This is the interchange condition: performing $u$ and $v$ together should be equivalent to performing them in either order with the same effect.
+
+\begin{proposition}[Interchange fails under a shared resource]\label{prop:interchange}
+Let two units at condition $50$ share a crew ceiling of $400$. There are words $w_1,w_2$ such that each is admissible for its unit when the unit has the whole ceiling, and the pair run in parallel violates the ceiling in every month; the product of the two admissible processes is therefore not defined, and the parallel product is a partial operation defined only on draw-compatible pairs.
+\end{proposition}
+
+\begin{proof}
+A unit at $50$ deteriorates by four tenths a month, so holding it costs $400$ per month, the whole ceiling; the word of six monthly spends of $400$ is admissible for the unit when it alone draws on the crew. Run in parallel, the two words draw $800$ in each month against a ceiling of $400$. The companion exhibits the words and checks both claims (check BOOK, Chapter~47).
+\end{proof}
+
+The repair is to index the products by the \emph{draw profile}: a process carries the resource it draws month by month, and the parallel product $(u,v)$ is defined exactly when the pointwise sum of the profiles stays within the capacity. This is a monoidal structure on a category in which composition and product are partial, and it recovers the unrestricted product when the resource is not scarce. In the example, the pair of words with spend $200$ every month for six months is defined, since it draws exactly $400$ (check BOOK, Chapter~47); it is the draw profile, not admissibility of the factors, that decides. The connection with Chapter~\chref{31} is that independence, the hypothesis of the product theorem, is the statement that the profiles never conflict.
+
+\begin{exercise}Describe the monoidal structure on draw profiles for three units sharing a ceiling of $400$, and say when the unit object exists.\end{exercise}
+\begin{exercise}Show that the interchange law holds for partially defined products whenever both sides are defined.\end{exercise}
+\begin{exercise}Give an economic example in which the shared sink is an ecological stock and state the profile.\end{exercise}
+
+\chapter{Resources, Obligations, and Enriched Categories}\label{ch:48}
+
+\section{Costs that compose}
+
+Restoring a unit from condition $38$ to $90$ can be done by different plans, each with a time and a money cost. Let a morphism from condition $a$ to condition $b$ carry the pair $(\text{months},\text{cost})$ and compose by addition of both. The order on the pair is dominance in both coordinates: smaller time and smaller cost are better. This is an enrichment over the quantale of costs ordered by product dominance, and the enriched hom is a set of Pareto-optimal pairs rather than a single number.
+
+For the restoration of Chapter~\chref{14} the options from $38$ to $90$ form a set of four Pareto-optimal pairs, one for each ceiling $500,600,800,1200$ of the plan. Composition is checked: the Pareto set of options from $38$ to $60$ composed with that from $60$ to $90$ gives exactly the options from $38$ to $90$ (check BOOK, Chapter~48), so intermediate stops cost nothing in expressive power. A single scalar distance suppresses the distinction: with a weight $b$ per month of delay added to money, the weights $0,10,20,30$ select four different plans, those with ceilings $1200,800,600,500$ respectively. A fixed scalar therefore fixes a preference between delay and money, which the Pareto structure leaves open.
+
+\begin{proposition}[Tropical scalarization]\label{prop:trop}
+For every weight $b\ge0$ the map sending an option to $\text{cost}+b\cdot\text{months}$ is a monotone functor from the Pareto enrichment to the nonnegative reals with addition, and its minimizer lies in the Pareto set. The converse, that every Pareto option is a minimizer for some weight, holds for the convex lower envelope only; in general some Pareto options are never selected by a linear weight.
+\end{proposition}
+
+The proof is immediate from the definitions together with the supporting-line characterization of the convex envelope. The relation to Chapter~\chref{17}'s scarcity price is that the weight is the shadow price of time.
+
+\begin{exercise}Identify which of the four options in the example lie on the convex envelope.\end{exercise}
+\begin{exercise}Prove that the composite of two Pareto sets, reduced to its Pareto subset, is associative.\end{exercise}
+\begin{exercise}Add a risk coordinate to the enrichment and show where the order dimension of Chapter~\chref{42} enters.\end{exercise}
+
+\chapter{Accounting as a Structure-Preserving Map}\label{ch:49}
+
+\section{The ledger functor}
+
+A ledger assigns to each monthly allocation of spend across the four units of the building $(90,70,55,50)$ the profit it books, and to a history of allocations the sum of the monthly profits. The assignment is a functor from the free monoid of allocations, regarded as a one-object category, to the integers under addition, because the booked profit of a concatenation is the sum of the booked profits, provided the second history is run from the state at which the first one ended. The companion checks this on $200$ random concatenations (check BOOK, Chapter~49).
+
+\begin{proposition}[Accounting insufficiency]\label{prop:insuff}
+A functor $F$ from histories to a monoid is a sufficient statistic for a property $P$ of end states only if $F(h)=F(h')$ implies $P(h)=P(h')$. The ledger above fails this for the property ``restoration cost to the initial condition''.
+\end{proposition}
+
+\begin{proof}
+The first claim is Theorem~\ref{thm:factor}. For the second, the allocation $(0,0,0,400)$ held for twelve months and the allocation $(0,0,200,200)$ held for twelve months both book $24600$ over the year. The first ends in the conditions $(76,42,13,50)$ and the second in $(76,42,55,26)$, with restoration costs $8400$ and $6600$ to bring the units back to $(90,70,55,50)$. The companion recomputes the two histories and both costs (check BOOK, Chapter~49).
+\end{proof}
+
+The proposition is the precise form of the claim in Chapter~\chref{20} that profit does not record the backlog: the information lost is a function of the end state that the functor does not see. The functor is faithful on no nontrivial quotient of histories that includes the backlog, so what is needed is a second functor, to the condition vector, and the pair of functors is the accounting representation sufficient for the task.
+
+\begin{exercise}Find another pair of allocations with equal twelve-month profit and different restoration costs.\end{exercise}
+\begin{exercise}Show that adding the end-state condition to the ledger gives a sufficient representation for restoration cost.\end{exercise}
+\begin{exercise}Prove that a functor to a group cannot distinguish a history from its inverse composed with it.\end{exercise}
+
+\chapter{Open Systems, Institutions, and Compositional Guarantees}\label{ch:50}
+
+\section{Interfaces and the assume-guarantee form}
+
+An open system is a transition system with an interface of inputs it assumes and outputs it guarantees. For the building, each unit assumes a draw $c_i$ from the crew and guarantees a condition floor; the crew assumes that the sum of draws is within the ceiling and guarantees the draws it supplies. The circular composition rule of Chapter~\chref{32} says that if each component's guarantee holds provided the others' guarantees held up to the previous step, then all guarantees hold at every step. This is proved by induction on time and remains an induction, not a categorical identity.
+
+\begin{proposition}[Assume-guarantee induction, \Pref{P27}]\label{prop:ag}
+Let components $C_1,\dots,C_n$ with guarantees $G_i$ and assumptions $A_i$ over a shared trace satisfy: $G_i$ holds at step $0$ without assumptions, and $G_i$ holds at step $t+1$ whenever $A_i$ holds up to step $t$; and the conjunction of the $G_j$ up to step $t$ entails $A_i$ up to step $t$. Then every $G_i$ holds at every step.
+\end{proposition}
+
+\begin{proof}
+By induction on $t$: the claim at step $0$ is the first hypothesis, and if every $G_j$ holds up to step $t$ then every $A_i$ holds up to step $t$ by the third hypothesis, so every $G_i$ holds at step $t+1$ by the second.
+\end{proof}
+
+Applied to four units at $90$ supplied by the crew, the simulation runs for $24$ months with every guarantee holding and the units still at $90$, as the companion records. Applied to the building $(90,70,55,50)$ the third hypothesis fails at the first month: the units' hold costs of $100,200,200,400$ sum to $900$, above the ceiling, and the induction does not start (check BOOK, Chapter~50). The categorical language organizes the proof obligations as the commutation of the interface diagram; the empirical premises, which are the costs and the ceiling, remain independent inputs and nothing in the diagram supplies them.
+
+\paragraph{What has been established in Part~X.} The syntactic category, the partial monoidal structure on draw profiles, the Pareto enrichment, the ledger functor, and the assume-guarantee induction are stated, with the first, third, and fifth proved and the finite cases computed. No claim is made that the categorical form proves viability; it organizes where the hypotheses sit.
+
+\begin{exercise}Compute the first month at which the guarantee fails for the building under a ceiling of $400$ when the units start at $(90,90,90,50)$.\end{exercise}
+\begin{exercise}State an assume-guarantee decomposition of the household budget of Chapter~\chref{3} and identify the circular dependency.\end{exercise}
+\begin{exercise}Show that dropping the lag in the third hypothesis makes Proposition~\ref{prop:ag} false by constructing a two-component counterexample.\end{exercise}

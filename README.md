@@ -4,7 +4,7 @@
 
 A long graduate-level textbook in progress, by Flyxion (independent researcher). The book treats an economy as an organization of provisioning, transformation, and maintenance through time, and asks which futures each institutional arrangement keeps open, for whom, and at what cost to the conditions later activity depends on. It develops the economic theory in its own terms first, then gives categorical, type-theoretic, and sheaf-theoretic interpretations that recover structure the economic text has already established and state what each interpretation preserves and leaves out.
 
-**Status: draft skeleton, October 2026.** The frame, the proof programme, the housing case, and a finite-state companion exist. The 60 chapters are outlines with scaffolds, not finished text. Nothing here is a claim about an actual economy until a chapter says so and gives evidence.
+**Status: complete first draft, October 2026.** All 60 chapters are drafted. Citations, many proofs, and the exercises are unaudited, and no solutions are written. Nothing here is a claim about an actual economy until a chapter says so and gives evidence. See `docs/POLISHING_GUIDE.md` for what to verify first.
 
 ## Plan of the book
 
@@ -31,11 +31,13 @@ A small housing economy runs through every part. It is first specified determini
 ```
 main.tex, preamble.tex, refs.bib, Makefile   build entry point
 frontmatter/    preface, reading paths, notation, housing case, proof programme
-parts/          twelve parts containing the 60 chapter stubs
+parts/          twelve parts containing the 60 chapters
 appendices/     prerequisites, companion description, framework concordance
 companion/      finite-state Python checks, tests, recorded output
 docs/           editorial rules, housing spec, proof status, chapter briefs, prompts, roadmap, provenance
-solutions/      worked solutions (empty)
+solutions/      worked solutions (not yet written)
+simulator/      single-file Housing v2 simulator, its template, build script, and test
+spec/           housing_v2.json, the shared specification
 tools/          original skeleton generator (do not run; it overwrites chapter files)
 AGENTS.md, CLAUDE.md, GEMINI.md, .github/copilot-instructions.md   instructions for AI assistants
 NOTES.md        open decisions
@@ -48,11 +50,13 @@ Requires a TeX Live installation with `pdflatex`, `latexmk`, and `bibtex`.
 
 ```
 make book     # compile main.pdf (run twice if references are undefined)
-make check    # run the companion checks and unit tests
+make check    # companion checks, unit tests, and the simulator test (needs node)
 make clean    # remove build artifacts
 ```
 
 If `lmodern.sty` is not installed the preamble falls back to the default fonts and microtype font expansion is turned off.
+
+Full build and verification instructions are in `docs/BUILD_AND_VERIFY.md`. Open `simulator/housing_v2_simulator.html` in a browser for the simulator.
 
 ## The computational companion
 
@@ -70,4 +74,4 @@ Start with `AGENTS.md`, then `docs/EDITORIAL_RULES.md`. Each chapter has a brief
 
 ## License
 
-Released into the public domain. Add a `LICENSE` file with the CC0 1.0 dedication if you want that stated formally.
+Released into the public domain under the [CC0 1.0 Universal](LICENSE) dedication. This covers the text, the LaTeX sources, and the companion code.

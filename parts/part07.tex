@@ -1,0 +1,153 @@
+\part{Markets, Firms, Commons, and Coordination}
+\label{part:VII}
+
+Part VII asks when individually acceptable commitments compose into a feasible collective arrangement, in markets, firms, platforms, and commons.
+
+\begin{housing}A shared crew serves several buildings, listings run through a platform, and a cooperative maintenance fund pools contributions.\end{housing}
+
+
+In Part~VII the crew, the listings, and the maintenance fund are shared among several buildings and owners. The question that runs through the five chapters is the one \Pref{P09} posed in its simplest form: commitments that are individually acceptable need not be jointly feasible, and the institutions of exchange, the firm, the platform, and the commons are different ways of repairing that failure or failing to.
+
+\chapter{Exchange and Compatible Commitments}\label{ch:31}
+
+Two building owners each contract with the repair crew for $300$ of work per month. Each contract is within the crew's ceiling of $400$, and the crew's manager signs both. The decision for the crew is whether the contracts can be honoured, and for a regulator whether bilateral exchange, each exchange being acceptable to both parties, produces a feasible arrangement. The difficulty is that feasibility is a property of the whole set of commitments and each exchange is judged one at a time.
+
+\section{Exchange as transformation of resources, permissions, and obligations}
+
+An exchange transforms the holdings of two parties: resources move, permissions are granted, and obligations are created. It is acceptable to each party if the successor state is in that party's acceptable set. Chapter~\chref{13} showed that acceptability does not suffice for viability, and the present chapter adds the shared-resource obstruction. For divisible simultaneous demands $d_j$ on a capacity $c$, \Pref{P09} states that $d_j\le c$ for every $j$ does not imply $\sum_jd_j\le c$, and that $\sum_jd_j\le c$ is necessary and sufficient for joint feasibility in the static divisible case. With demands $(300,300)$ and $c=400$, each is feasible alone and the sum is $600$. The physical version in the housing model is the pair of units at $(50,50)$: each is viable alone under the ceiling, since holding costs $400$, and the pair is not, since together they need $800$. At $(51,51)$ the pair is viable, because each needs $200$ and the sum is $400$. The best split at $(50,50)$ keeps both lettable for six months (check H4 and BOOK, Chapter~31).
+
+\begin{theorem}[P10: composition under independence, and its failure]\label{thm:P10}
+Two systems with product state space, independent actions, product disturbance sets, factorized dynamics, nonempty action and disturbance sets, and acceptable set $G_1\times G_2$ have robust kernel $K_{12}=K_1\times K_2$. With a shared resource the inclusion $K_{12}\subseteq K_1\times K_2$ can be strict.
+\end{theorem}
+
+\begin{proof}
+For $\supseteq$, combine the witnessing policies. For $\subseteq$, fix an allowed disturbance selection for system~2 and simulate system~2 inside a joint policy; the induced policy depends only on system~1's history and keeps it in $G_1$ against all of its disturbances. The strict case is the pair $(50,50)$ under a shared ceiling of $400$, where each coordinate is in its own kernel and the pair is not in the joint kernel.
+\end{proof}
+
+The hypotheses carrying the result are independence of actions and the absence of a shared budget. A shared ceiling, coupled timing, or cross-system effects violate the premises, and the theorem states what must be established before local guarantees assemble without further analysis. The statement is reported, with and without the coupling, in the companion (Appendix~\ref{app:companion}).
+
+\section{Reservations and concurrent requests}
+
+Reservations introduce time into exchange. A resource is withheld for a period, may expire, and returns. Authorization and commitment must stay consistent under concurrent requests. Suppose two requests for $300$ arrive when $400$ remains. If each is authorized by reading the remaining capacity and then committing, both read $400$, both pass the check $300\le 400$, and the total committed is $600$. If the check and the commitment are made together, the first commits and leaves $100$, and the second fails. The failure of the first procedure is the failure of \Pref{P09} at the level of the protocol, and a design that keeps authorization and commitment together restores consistency at the price of serializing requests. A documented case of this kind, two customers each offered the last item, has the same structure, and the present book treats it as an illustration of the obstruction and makes no claim about any particular system.
+
+\paragraph{What has been established.} Individually acceptable exchanges compose only under independence, the pair $(50,50)$ shows strict failure under a shared ceiling, and concurrent authorization must be tied to commitment. The decision now enabled is to require a joint feasibility check for every set of commitments on a shared resource. Assumptions still required are an explicit list of shared resources and the timing of draws. The question passed on to Chapter~\chref{32} is how a firm resolves such conflicts by authority and what it costs.
+
+\begin{exercise}
+For three owners each requesting $200$ against a ceiling of $400$, find the largest number of requests that can be honoured and the allocation rule that selects them.
+\end{exercise}
+\begin{exercise}
+Prove that the sum condition is necessary and sufficient for joint feasibility of divisible simultaneous demands and give a counterexample for indivisible demands.
+\end{exercise}
+\begin{exercise}
+Describe a reservation system you have used and the point at which authorization and commitment could diverge.
+\end{exercise}
+
+\chapter{Firms as Organizations of Complementary Continuation}\label{ch:32}
+
+The owners of the four units could contract with the crew separately, or they could form a firm that employs the crew and allocates its time. The decision is which to do, and the difficulty is that the choice changes the way conflicts over the shared ceiling are settled: by negotiation among owners in the first case, and by authority in the second.
+
+\section{Coordination, authority, and the boundary}
+
+A firm coordinates tasks, assets, knowledge, and promises that cannot be maintained through isolated transactions alone. The explanation of its boundary in the literature, from Coase~\cite{coase1937}, is in terms of the costs of using the market; the present account adds the feasibility of the joint arrangement. The four owners together request $900$ of crew spending against a ceiling of $400$. Under separate contracts the conflict is settled by whoever contracts first, or by price, and the allocation can be one of the dominated plans of Chapter~\chref{16}. Under a firm an authority chooses among the nondominated plans, such as $(0,200,200,0)$ with three lettable units after two years, and bears responsibility for the choice. Authority also concentrates dependence: the firm's decisions are not contested by the units the way a contract can be, and the distribution of the residual responsibilities, the obligations and burdens that no contract assigns, is shifted to the firm.
+
+\section{Assume-guarantee composition}
+
+When components are developed separately, the composition of their guarantees requires care. Suppose the crew guarantees that it will supply the spend requested by each building each month, on the assumption that the total request does not exceed $400$, and each building guarantees that its unit stays at condition $90$ on the assumption that the crew supplies the request. Taken at face value the two statements are circular: the crew's guarantee needs the buildings' behaviour, and the buildings' needs the crew's. A circular argument can prove too much. A model in which both guarantees fail satisfies the two implications ``if the other holds, mine holds'', so the pair of implications does not entail that both hold.
+
+\begin{theorem}[P27: well-founded circular assume-guarantee composition]\label{thm:P27}
+Let components carry assumption-guarantee pairs $(A_i,G_i)$ on safety properties, with shared capacity appearing in the interface as a time-indexed assumption on the combined draw. If each guarantee at step $n+1$ depends only on assumptions through step $n$, then the conjunction of the guarantees holds for the composition at every step, by induction on $n$.
+\end{theorem}
+
+\begin{proof}
+At step $0$ the guarantees hold by initialization. If the guarantees hold through step $n$, then the assumptions through step $n$ hold, because each assumption is a guarantee of another component, and so the guarantees at step $n+1$ hold by hypothesis. The argument is that of Abadi and Lamport~\cite{abadi1995}.
+\end{proof}
+
+In the example the temporal discipline is satisfied: the request at month $n+1$ is a function of the condition at month $n+1$, which depends only on supply through month $n$. With four units at $90$ and a ceiling of $400$, the requests are $100$ each, the supply equals the request, and the units stay at $90$ for every month, which the companion confirms over 24 months (check BOOK, Chapter~32). The theorem is restricted to safety properties and to the stated lag; if the crew's guarantee at month $n$ depended on the request at month $n$ and the request depended on the supply at month $n$, the induction would not start.
+
+\paragraph{What has been established.} A firm settles conflicts over a shared ceiling by authority and concentrates residual responsibility, and separately developed components compose only under a time-indexed assume-guarantee discipline that excludes same-step circularity. The decision now enabled is to specify interfaces with explicit lags. Assumptions still required are safety properties and the lag structure. The question passed on to Chapter~\chref{33} is what happens when the shared institution controls access to the opportunity domain.
+
+\begin{exercise}
+Show by an explicit two-state model that the circular implications are satisfied by the all-fail behaviour.
+\end{exercise}
+\begin{exercise}
+State and prove the induction for three components in a ring, each guaranteeing at step $n+1$ on the assumption of its predecessor through step $n$.
+\end{exercise}
+\begin{exercise}
+Describe a firm boundary decision, such as insourcing a service, and say which dependencies and residual responsibilities change.
+\end{exercise}
+
+\chapter{Platforms and Infrastructural Dependence}\label{ch:33}
+
+A listing platform lets owners advertise units to tenants. The platform charges a monthly fee and also decides how much verification of each listing's condition to require. An owner considers joining, which needs a one-time investment of $3000$ in photographs and inspection documents that are of no use elsewhere. The decision for the owner is whether to join, and for the platform it is the fee and the verification standard. The difficulty is that the platform controls access to the domain of choice that it establishes, and can change its rules after the owner has invested.
+
+\section{Quality, participation, and revenue}
+
+A platform's revenue depends on how much it charges and how many participate, and participation depends on the quality it requires. Let $q\in[0,1]$ be the verification standard, $M(q)$ the number of participating listings, and revenue $R(q)=(\alpha q+\beta)M(q)$ where the fee rises with the standard. Then $R'(q)=\alpha M(q)+(\alpha q+\beta)M'(q)$, and revenue can fall as quality rises if participation falls strongly enough. Take $\alpha=100$, $\beta=200$, and $M(q)=1000-400q$. Then $R(q)=(100q+200)(1000-400q)$, $R'(q)=20{,}000-80{,}000q$, positive for $q<1/4$ and negative above. Revenue is $200{,}000$ at $q=0$, $202{,}500$ at $q=1/4$, $200{,}000$ at $q=1/2$, and $180{,}000$ at $q=1$. A platform maximizing revenue sets a verification standard of $1/4$ although tenants would gain from a higher one. This is a conditional incentive result, stated for the given participation function; the book does not claim that platforms in general under-provide quality.
+
+\section{Appropriation of complementary investment}
+
+The investment of $3000$ is specific to the platform. Suppose the owner's outside option is to let by another channel with a surplus of $600$ per month, and on the platform the surplus is $700$ less a fee. If the platform's fee rate is $\varphi$ of the rent of $1000$, the owner stays once joined if $700-1000\varphi\ge 600$, that is $\varphi\le 10\%$. The sunk investment does not enter the stay decision. A platform that can change its rules unilaterally can therefore raise the fee to $10\%$ after the owner has invested, and a forward-looking owner anticipates this. With $\varphi=10\%$ the owner earns $600$ on the platform and also paid $3000$, so joining is dominated at every horizon $N$ since $600N-3000<600N$. With a committed fee of $5\%$ the owner earns $650$ per month, the gain over the outside option is $50$ per month, and joining pays only if $50N\ge 3000$, that is $N\ge 60$ months. The platform's inability to commit prevents the investment altogether, and commitment, whether through contract, regulation, or portability, enables it. Interoperability and portability matter for the same reason: they improve the outside option and so lower the fee the platform can extract after the investment is sunk. The numbers are reproduced in the companion (check BOOK, Chapter~33).
+
+\paragraph{What has been established.} A revenue-maximizing verification standard can fall short of the standard that tenants prefer, and unilateral rule changes after sunk investment defeat the investment unless the platform can commit. The decision now enabled is to assess a platform by its commitment structure as well as its fees. Assumptions still required are the participation function and the outside option. The question passed on to Chapter~\chref{34} is how a community maintains a shared resource without a central owner.
+
+\begin{exercise}
+Maximize $R(q)$ for $M(q)=1000-300q$ with the same $\alpha$ and $\beta$.
+\end{exercise}
+\begin{exercise}
+Show that the maximum fee the platform can extract after the investment is independent of the size of the sunk investment, and state the exception.
+\end{exercise}
+\begin{exercise}
+Select a platform that you know and identify the complementary investments made by participants and the rules the platform can change unilaterally.
+\end{exercise}
+
+\chapter{Commons and Shared Maintenance}\label{ch:34}
+
+The four owners decide to fund the crew jointly, each contributing to a common pool, and the ceiling is the pool. The decision is how much each contributes and how the pool is allocated. The difficulty is that contributions are voluntary, benefits are shared, and monitoring is costly. Common ownership of the pool does not by itself tell which units get repaired.
+
+\section{Contribution, allocation, and replenishment}
+
+Commons arrangements are defined by who may use the resource, who must contribute, how use and contribution are monitored, what sanctions apply, and how conflicts are resolved~\cite{ostrom1990}. Consider three allocation rules for a pool of $400$ over $24$ months for the units $(90,70,55,50)$. Equal shares of $100$ each give a cumulative surplus of $33{,}100$, one lettable unit at the end, and a backlog of $23{,}200$. A need-based rule that sends $200$ each to the second and third unit and nothing to the first and fourth gives $42{,}900$, three lettable units, and a backlog of $18{,}300$. If the first owner stops contributing, the pool falls to $300$ and the allocation $(0,100,100,100)$ gives $35{,}500$, one lettable unit, and a backlog of $27{,}000$. The same pool and the same ownership yield very different outcomes depending on the allocation rule. The pooled arrangement is common ownership; the plan chosen is the organization of maintenance.
+
+Free riding appears when an owner withholds the contribution of $100$ and the pool shrinks. The first owner gains $100$ per month and, in this example, loses nothing immediately because unit~1 is the slowest to deteriorate; the others bear the loss. A sanction must exceed the gain from free riding at the probability of detection, and monitoring has a cost that must be paid out of the same pool. These are the standard design questions, and the housing model contributes a specification of what the pool is for, namely maintaining a set of conditions against thresholds, so that the design can be judged by the profile it produces rather than by contribution levels. The numbers are reproduced in the companion (check BOOK, Chapter~34).
+
+\paragraph{What has been established.} Common ownership and the organization of maintenance are distinct, three allocations of the same pool yield different profiles, and free riding shifts losses to others. The decision now enabled is to evaluate commons rules by the profile of conditions they maintain. Assumptions still required are monitoring and sanction technology. The question passed on to Chapter~\chref{35} is how contributions are measured and rewarded.
+
+\begin{exercise}
+Compute the 24-month profile of the allocation $(0,200,100,100)$ and compare with the three in the chapter.
+\end{exercise}
+\begin{exercise}
+Show that the equal-share rule is not on the nondominated frontier of Chapter~\chref{16}.
+\end{exercise}
+\begin{exercise}
+Select a commons you know and list its contribution rule, monitoring, sanction, replenishment, and conflict-resolution mechanism.
+\end{exercise}
+
+\chapter{Contribution, Reward, and Measurement}\label{ch:35}
+
+A cooperative rewards members for maintenance work using a currency backed by recorded work. Each completed item of $100$ spending earns one token. The decision is whether the token accurately rewards contribution to the cooperative's aim, which is that the units stay lettable, and the difficulty is that tokens count items while the aim concerns conditions.
+
+\section{Proxy rewards and what they miss}
+
+By \Pref{P15}, a reward that depends only on the measured activity $m$ cannot distinguish two actions with the same $m$ and different substantive contribution $V$, and if $m(a)>m(b)$ while $V(a)<V(b)$ a strictly increasing reward ranks them opposite to $V$. The housing model shows this directly. Take four units at $90$ and a horizon of $28$ months. Preventive maintenance, $100$ per unit per month, generates $4\times 28=112$ items, and keeps all four units at $90$. Deferring all maintenance for $28$ months and then restoring each unit from $38$ to $90$ requires $52$ items per unit, $208$ items in all. The deferral path earns almost twice as many tokens as the preventive path, and it is the path that has left all four units at the edge of being unlettable. The measure is increasing in the damage. Maintenance and preventive work are particularly hard to recognize through simple activity counts because success consists of an absence, units that did not fail. The numbers are reproduced in the companion (check BOOK, Chapter~35).
+
+\begin{proposition}[Activity counts can invert the ranking]\label{prop:inversion}
+There are two maintenance policies $a,b$ with item counts $m(a)>m(b)$ and with the number of units lettable at the end of the horizon $V(a)<V(b)$.
+\end{proposition}
+
+The example above is the proof: the deferral path is $a$ and the preventive path is $b$. The point is a limit on information and not a theory of behaviour. Behaviour requires the participants' costs, available actions, and preferences to be specified, and a reward system can nonetheless be designed to depend on a measure of $V$, such as the condition record of Chapter~\chref{22}, or on a combination of measures audited by an independent party. Such a design inherits the problems of verification (Chapter~\chref{25}): the condition record must be reliable and the interpretation relation must be stated.
+
+\section{Rewards change what they measure}
+
+When a reward depends on a measure, the measure becomes a target. A cooperative that pays per item may find that items are divided into smaller items, that work is done where it is countable and not where it is needed, and that restoration is preferred to prevention. A worked case in the literature is the work-backed currency, and the lesson drawn here is the structural one: any activity count is subject to inversion, and a reward should be tied to the state the activity is meant to produce.
+
+\paragraph{What has been established.} A per-item reward ranks deferral and restoration above prevention in the housing model, $208$ items against $112$, and activity counts can invert the ranking of substantive contribution. The decision now enabled is to base reward on measured conditions, with their verification stated. Assumptions still required are a reliable condition record and a verification chain. The question passed on to Part~VIII is how these structures work when the resource is a living system, a person, or a development path.
+
+\begin{exercise}
+Compute the item counts for preventive maintenance at $90$ and for deferral to condition $60$ followed by restoration, over $20$ months.
+\end{exercise}
+\begin{exercise}
+Prove that for any strictly increasing reward of the item count, the deferral path in the chapter ranks above the preventive one.
+\end{exercise}
+\begin{exercise}
+Select a reward system, such as a bonus on tickets closed or on repair visits completed, and describe a way it can invert the intended ranking.
+\end{exercise}

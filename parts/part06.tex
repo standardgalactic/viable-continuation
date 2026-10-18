@@ -1,0 +1,153 @@
+\part{Institutions, Power, and Distribution}
+\label{part:VI}
+
+Part VI analyzes classifications, property, contracts, exit, and public authority as distinctions that alter which continuations are accessible and to whom.
+
+\begin{housing}Tenure, deposits, notice periods, and a tenant's executable capacity to leave are placed in one model.\end{housing}
+
+
+In Part~VI the participants of the housing case are placed in a system of categories, rights, contracts, and public rules. The state of a tenant now includes a label assigned by someone else, the exit cost $c$ includes the deposit that the label implies, and the owner's authority over the building is a bundle of permissions with different practical reach.
+
+\chapter{Distinctions That Allocate Futures}\label{ch:26}
+
+A landlord asks two applicants for the same unit to pay a deposit. Applicant A is classified as low risk and pays one month's rent. Applicant B has a record of one late payment, is classified as higher risk, and pays two months'. Each has $3000$ in savings and a monthly surplus of $200$, and each will at some point want to move. The decision for the landlord is the size of the deposit; for the tenant it is whether the unit is worth taking. The difficulty is that the classification looks like a description of the applicant and works as a rule that allocates access. What the label says about the person is less important to the outcome than what the label does.
+
+\section{Labels as state variables}
+
+A classification $\kappa:H\to\Lambda$ assigns a label to each history, for instance the credit status derived from payment events. An \emph{access rule} $\alpha:\Lambda\to\mathcal P(A)$ assigns to each label a set of permitted or priced actions. Combined, they determine the effective set of Chapter~\chref{3} as a function of the label. In the example the exit cost is $c_\lambda=4000+1000\cdot\mathbf 1[\lambda=B]$, since the second deposit at the next unit is a further $1000$. With savings of $3000$ and a surplus of $200$ per month, applicant A can exit at month $5$ and applicant B at month $10$, since $3000+200t\ge 5000$ first holds at $t=10$. Two persons with identical resources and different labels therefore have different continuation languages, and by Chapter~\chref{2} the label must be part of the state. The calculation is reproduced in the companion (check BOOK, Chapter~26).
+
+\begin{definition}[Allocating distinction]\label{def:allocating}
+A classification $\kappa$ with access rule $\alpha$ is \emph{allocating} if there exist histories $h,h'$ with identical physical state and resources and $\kappa(h)\ne\kappa(h')$ such that the continuation languages differ, $L(h)\ne L(h')$. It is \emph{persistent} if the label changes only after a stated waiting condition.
+\end{definition}
+
+The tenant classification is allocating. Suppose the label reverts to A only after twelve consecutive on-time payments. Then the tenant who paid late once at month $0$ is labelled B throughout the year, and any move in that year carries the extra deposit of $1000$. A single late payment costs a tenant who moves in the year at least $1000$, which is five months of the monthly surplus. A boundary case is a label with no access rule, such as a nickname, for which the continuation languages coincide.
+
+\section{Relation to institutional economics}
+
+The classification literature in institutional economics treats categories as devices that reduce transaction costs, and this is right as far as it goes: a deposit rule keyed to a label is cheaper than individual assessment. The additional point here is that the label is a state variable, so that its errors are not noise but allocations. A misclassified applicant, in the sense that the label does not reflect the facts the rule is meant to track, bears a cost of $1000$ on exit in this model, and the cost is incurred precisely when the person is least able to bear it, at the moment of a forced move. The construction connects to the theory of distinction and continuation: drawing a line is an act that fixes which futures are open on each side. Which lines are drawn, who draws them, and how they may be revised are the subjects of the rest of the part.
+
+\paragraph{What has been established.} Labels derived from history allocate futures, the exit date of a tenant with fixed resources moves from month $5$ to month $10$ with a deposit label, and a persistent label imposes a cost on a single past event. The decision now enabled is to list, for every classification an institution uses, the access rule attached to it. Assumptions still required are the access rule and the revision rule. The question passed on to Chapter~\chref{27} is what authority a property holder has over the things the labels apply to.
+
+\begin{exercise}
+Compute the exit date for a tenant with $4000$ in savings and surplus $300$ per month under each label.
+\end{exercise}
+\begin{exercise}
+Prove that a classification is allocating exactly when its label is not redundant in the minimal exact summary of the continuation language.
+\end{exercise}
+\begin{exercise}
+Select a credential, such as a licence or a visa category, and write its access rule and its revision rule.
+\end{exercise}
+
+\chapter{Property as Structured Authority}\label{ch:27}
+
+The owner of a unit can use it, exclude others, modify it, sell it, borrow against it, and abandon it. Each of these is a permission, and they come in different combinations under different regimes. The owner of a mortgaged unit may not sell without the lender's consent; the owner of a listed building may not modify it; the owner of a leased unit may not exclude the tenant. The decision for a buyer is what is being bought, and the difficulty is that the word ownership names the same thing in all of these cases and the practical powers differ.
+
+\section{Permissions and capacity}
+
+Represent property in a thing as a set $P\subseteq\{\text{use},\text{exclude},\text{modify},\text{transfer},\text{encumber},\text{abandon}\}$ of permissions held by a party. The structure is a lattice under inclusion, and holdings can be compared when one set contains the other. Permission is not capacity. The party can exercise a permission only if the action is also in the accessible set of Chapter~\chref{3}. Two owners with the same permission set and different crew ceilings are not equally able to use their unit: the unit at condition $60$ is let for $36$ months at the full ceiling and for $14$ at a ceiling of $100$ (Chapter~\chref{7}), though both own the unit in full. The effective authority of a party is the intersection of the permission set with what is accessible, and distribution of property in the sense that matters for continuation is the distribution of effective authority.
+
+Encumbrance shows the interaction. Suppose a unit can be sold for $30{,}000$ and carries a lien of $28{,}000$. The owner's transfer permission is conditional on discharging the lien, and the net proceeds of transfer are $2000$. If the owner holds only $500$ in other assets, the option to abandon is differently priced: the lender's claim of $28{,}000$ ranks ahead, so the private cost of abandoning is bounded by the owner's equity in the company, as in Chapter~\chref{10}, and the burden of the residual of $2850$ passes to others. The permission to abandon exists, and its exercise places burdens on persons who have no say in it, which is why the sixth permission is the one that regimes most often qualify.
+
+\begin{proposition}[Effective authority is monotone in capacity]\label{prop:eff-authority}
+If party $i$ holds permission set $P_i$ and capacity profile $z_i$, and $P_i\subseteq P_j$ and $z_i\le z_j$ pointwise, then the set of continuations available to $i$ is contained in that available to $j$, under monotone dynamics.
+\end{proposition}
+
+The proof is that every plan available to $i$ is available to $j$. The proposition has a converse failure: the party with more permissions and less capacity is not comparable with one holding fewer permissions and more capacity, and no ranking by permissions alone, or by wealth alone, can capture the order.
+
+\paragraph{What has been established.} Property is a bundle of permissions whose practical force depends on capacity, encumbrance conditions the permission to transfer, and the permission to abandon imposes burdens on others. The decision now enabled is to describe a holding by permissions and capacity together. Assumptions still required are the list of permissions in the regime and a model of capacity. The question passed on to Chapter~\chref{28} is how contracts, which reallocate permissions through time, change the position of the parties.
+
+\begin{exercise}
+For a unit worth $30{,}000$ with a lien of $28{,}000$ and selling costs of $1500$, compute the net proceeds of transfer.
+\end{exercise}
+\begin{exercise}
+Give two permission-capacity pairs that are incomparable under the order of the proposition.
+\end{exercise}
+\begin{exercise}
+Select a property regime, such as a condominium or a tenancy in common, and list the permissions it withholds from each party.
+\end{exercise}
+
+\chapter{Contracts and the Evolution of Dependence}\label{ch:28}
+
+The owner of the unit at condition $50$ needs $400$ of maintenance every month to hold it, and a single vendor supplies it. The competitive price of maintenance is $100$ per unit of $100$ spending, so the vendor's price per unit is $q=100$ at cost. The vendor proposes a multi-year agreement. The decision for the owner is the price at which to accept, and what makes it hard is that the agreement changes the owner's alternatives for later periods.
+
+\section{Switching costs and the bargaining position}
+
+The owner holds the unit for a horizon of $N=12$ months and needs $u=4$ units of maintenance each month. The unit earns $700$ per month while held, so the owner will pay a price per unit of at most $q\le 700/u=175$, above which holding earns less than abandoning. The owner has an alternative supplier at the competitive price $100$, available at a one-time switching cost $S$. The incumbent can charge at most the price that leaves the owner indifferent between paying and switching: $N\,u\,(q-100)\le S$, so $q^*=100+S/(Nu)=100+S/48$. If $S=1200$ then $q^*=125$, a markup of $25$ per unit, or $100$ per month. The incumbent's price is capped from above by the owner's fallback of abandoning, $q\le 175$, so the extractable amount is at most $4\times 75=300$ per month, which is the entire surplus of $700$ less the competitive holding cost of $400$.
+
+Dependence accumulates when switching costs grow with incumbency. Suppose the vendor accumulates knowledge of the unit, so that each year the switching cost rises by $600$: $S_n=1200+600n$ after $n$ years. Then $q^*_n=125,\ 137.5,\ 150,\ 162.5,\ 175$ for $n=0,\dots,4$, and from $n=4$ the cap of $175$ binds. After four years the incumbent can extract the entire surplus above competitive holding cost, $300$ per month, whereas in the first year the extractable amount was $100$. The sequence of contracts, each of which was acceptable at its signing since it was no worse than switching at that date, moves the owner from a position of bargaining strength to one of near-total dependence. The numbers are reproduced in the companion (check BOOK, Chapter~28).
+
+\begin{definition}[Cumulative dependence]\label{def:cum-dep}
+A sequence of agreements exhibits \emph{cumulative dependence} if the maximal price extractable at date $n$ under the participation constraint is increasing in $n$ because the switching cost $S_n$ is increasing in the history of agreements.
+\end{definition}
+
+The example is the vendor above. A boundary case is a commodity input with a spot market, for which $S_n=0$ at every date and $q^*=100$ throughout. The result is conditional on the assumed growth of $S_n$; if the owner can retain the know-how, or the vendor's knowledge is transferable by documentation, the growth stops. This is an assumption about the technology of the relationship, and it is stated rather than derived.
+
+\section{Interventions that accumulate}
+
+The same structure applies to continuing intervention in a physical system. A unit at $50$ that is held by monthly maintenance is dependent on that maintenance; the longer it is held without being raised, the longer the dependence lasts, and the position of the supplier is the position of whoever controls the maintenance. A development agency that supports a region with continuing transfers, a platform that subsidizes complementors, and a lender that rolls over a loan are in the same logical position. The analysis here has a limited scope: it identifies the quantity, the switching cost over the horizon, that bounds extraction, and it points to the places where regulation can act, namely on the growth of the switching cost through portability, documentation requirements, and limits on the length of exclusive agreements.
+
+\paragraph{What has been established.} The price an incumbent can extract is bounded by the switching cost over the horizon, a sequence of individually acceptable agreements can move that bound from $125$ to $175$, and the numbers depend on an assumed growth in switching cost. The decision now enabled is to examine switching-cost growth before signing a long agreement. Assumptions still required are the growth of $S_n$ and the fallback of the dependent party. The question passed on to Chapter~\chref{29} is how unequal capacities to exit shape what contracts can be extracted.
+
+\begin{exercise}
+Compute $q^*_n$ for $n=0,\dots,5$ with $N=24$ and the same switching-cost sequence.
+\end{exercise}
+\begin{exercise}
+Show that $q^*$ is nonincreasing in the horizon $N$ for fixed $S$ and interpret the result for short and long contracts.
+\end{exercise}
+\begin{exercise}
+Select a long-term relationship, such as a software licence or a franchise, and describe how the switching cost grows with incumbency.
+\end{exercise}
+
+\chapter{Distribution of Exit and Refusal}\label{ch:29}
+
+A housing authority is considering whether to allow landlords to offer prepaid leases to its ten applicants. The tenants' liquid resources are $3400$, $5000$, $9000$, $11{,}400$, $11{,}500$, $11{,}700$, $11{,}800$, $12{,}000$, $15{,}000$, and $20{,}000$, and the parameters are those of the front chapter. Supporters point out that the lease raises aggregate surplus and that the landlord's discount helps tenants. The decision is whether to permit it, and the difficulty is that the effects fall on different tenants differently, and some of them are invisible in the aggregate.
+
+\section{Unequal capacities to leave}
+
+Exit rights and exit capacities differ. A tenant has a right to leave a monthly lease on notice, and a capacity to leave that depends on resources. The distribution of the capacity, over employment, housing, platforms, financial relationships, and harmful environments, is a dimension of inequality that income alone does not capture. The ten applicants all have executable exit before the proposal: the smallest, with $3400$, satisfies $x+3e\ge 4000$ with $e=200$. After the proposal, the seven with at least $P=11{,}400$ are eligible. Of these, the ones with $x$ in $[11{,}400,11{,}800)$, that is $11{,}400$, $11{,}500$, and $11{,}700$, lose the executable exit. Three of the seven eligible tenants, and three of the ten, are worse off in exit capacity, while aggregate surplus rises by $7\times 800=5600$ if all eligible tenants sign. The three who lose are those just above the eligibility line, and the tenants at the bottom, who cannot sign, are unaffected.
+
+\begin{proposition}[P28: surplus gain with a shrunken safe exit set, lump sum for flow]\label{prop:P28gen}
+Let an intervention exchange a lump sum $P$ paid at the start for the removal of a flow payment $\rho$ per month for $T>H$ months, with the lump sum not refundable, and let the exit cost be $c$ and the baseline monthly surplus $e\ge 0$. Among eligible tenants ($x\ge P$), those who had an executable exit within $H$ months and lose it are exactly those with $\max\{P,c-He\}\le x<c-He+P-\rho H$. The set is nonempty if and only if $P>\rho H$ and $c>H(e+\rho)$. Aggregate surplus is unchanged by the transfer itself and rises by whatever cost saving the intervention produces.
+\end{proposition}
+
+The proof is that of Theorem~H1 with $P$ and $\rho$ in place of $(1-\delta)rT$ and $r$: resources on the lease at month $t$ are $x-P+t(e+\rho)$ and on the monthly contract $x+te$, and the intersection of the three conditions gives the interval. The hypotheses carrying the result are non-refundability and the liquidity requirement of the exit cost. The condition $P>\rho H$ says that the lump sum exceeds what the flow would have supplied within the exit window, which is why a prepayment that is small relative to the window does not shrink the exit set. The simplification is the deterministic monthly surplus; the assumption most likely to fail is that exit is a cash threshold, since people sometimes exit by borrowing from relatives or by sharing, and the model would need those channels as explicit actions.
+
+The consequence for policy is that a nominal exit right and an executable exit path are different objects with different distributions. A proposal that is Pareto improving in expected surplus can shrink the safe exit set of identified tenants, and a regulator who looks only at the surplus will not see it. The remedies available are those of Chapter~\chref{14}: making the exit cost smaller, making the lump sum refundable in part, or compensating the tenants in the interval with a transfer that is available when it is needed. The latter is the subject of Theorem~H2 of the housing case, and the numbers for the ten applicants are reproduced in the companion (check BOOK, Chapter~29).
+
+\paragraph{What has been established.} Exit capacity is distributed unequally and can be shrunk by a proposal that raises aggregate surplus, three of ten applicants lose executable exit in the example, and the condition for the shrinkage is general for lump-sum-for-flow trades. The decision now enabled is to evaluate any contract innovation by its effect on the distribution of executable exit. Assumptions still required are the cash threshold model of exit and non-refundability. The question passed on to Chapter~\chref{30} is who has authority to impose a remedy.
+
+\begin{exercise}
+Recompute the lost-exit set for $\delta=0.10$ and the other parameters of the front chapter.
+\end{exercise}
+\begin{exercise}
+Prove that if the lump sum is refundable on exit the lost-exit set is empty.
+\end{exercise}
+\begin{exercise}
+Name an exit that is nominally free and executably costly in employment, banking, or platform membership, and describe the resource threshold.
+\end{exercise}
+
+\chapter{Public Authority and the Admissibility of Constraints}\label{ch:30}
+
+The city council wants to require owners to repair reported defects, and must decide when a repair obligation may be treated as discharged. One proposal is that the obligation lapses after a waiting period of three months from the report. Another is that it is discharged only when an inspector certifies the unit is restored. The council also holds citizen reports, which it intends to publish grouped by neighbourhood. The decision is the rule, and the difficulty is that a procedural condition and a substantive fact can diverge. The council must also decide on what authority it imposes the constraint and how the people constrained can contest it.
+
+\section{Procedure and evidence}
+
+Take a unit at condition $51$ that the owner has been ordered to restore to $60$. The crew ceiling is $400$, and the rank to reach $60$ is five months (Chapter~\chref{14}). Under the waiting rule the obligation lapses after three months. An owner who spends the full ceiling for three months leaves the unit at $57$, which is below $60$. An owner who spends nothing leaves it at $41$, and both owners are discharged. The rule does not distinguish them, and the first owner, who made a full effort, is also discharged short of restoration. Lengthening the wait to five months gets the honest owner to $61$ and still discharges the owner who does nothing, whose unit is at $33$, below the lettable minimum. An elapsed period is an enforceable procedural condition. It cannot establish successful repair, because what it measures, time, is independent of the quantity of interest. The evidence rule discharges only at a restored condition, but it must give the owner at least the rank in time, which is five months, or the honest owner cannot satisfy it. A rule that closes only on procedural authorization and specified evidence, with a route for reopening a repair that later fails, is the design this chapter proposes. It is a proposed institutional design and not evidence of deployment. The condition values are reproduced in the companion (check BOOK, Chapter~30).
+
+A second feature of the design is the treatment of reports. Grouping reports by location suppresses duplicate influence from a single source but does not establish that the reports come from independent witnesses, and a minimum cluster size does not protect against all differencing attacks. Suppose two published groups $A=\{1,2,3\}$ and $B=\{2,3,4\}$ each satisfy a minimum size of three, with counts $n(A)=2$ and $n(B)=1$ of residents reporting a leak, each resident reporting $0$ or $1$. Then $x_1+x_2+x_3=2$ and $x_2+x_3+x_4=1$, so $x_1-x_4=1$, which forces $x_1=1$ and $x_4=0$. Resident~1 has reported and resident~4 has not, though no group of size less than three was published.
+
+\section{Authority, contestability, and legitimacy}
+
+The previous chapters established that constraints can protect and can dominate. The viability formalism can say whether a constraint is satisfiable; it cannot say whether it is legitimate. Legitimacy depends on who establishes the continuation constraints, by what procedure, whether those subject to them can contest them, and how they are revised. A constraint is \emph{contestable} if there is a procedure by which an affected party can have it reviewed and, if the review succeeds, changed. Preservation language, that a regime exists to protect the future, can legitimate domination if it is exempt from contest; the test is whether the constraint can be questioned by those who bear its costs. An institution that removes the route for reopening a failed repair, or that excludes tenants from the review of the standard, has made the constraint non-contestable in the sense used here, whatever its stated aim.
+
+\paragraph{What has been established.} A waiting period cannot establish a repair, an evidence rule needs at least the rank in time to be satisfiable by an honest owner, grouping and a minimum cluster size do not prevent differencing, and the legitimacy of a constraint depends on contestability that the formalism does not supply. The decision now enabled is to require evidence and reopening in discharge rules. Assumptions still required are an agreed evidentiary standard and a body with authority. The question passed on to Part~VII is how commitments held by different parties compose into a feasible collective arrangement.
+
+\begin{exercise}
+For a unit at $53$ and a target of $60$ compute the rank at a ceiling of $400$ and the shortest evidence-rule period that an honest owner can satisfy.
+\end{exercise}
+\begin{exercise}
+Construct a differencing attack against groups of size four and show how adding noise changes it.
+\end{exercise}
+\begin{exercise}
+Choose a public constraint and describe who can contest it, by what procedure, and with what effect.
+\end{exercise}

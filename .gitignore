@@ -49,5 +49,6 @@ tmp/
 *.bak
 
 # Large media that does not belong in this repository
+*.mp3
 *.wav
 *.mp4

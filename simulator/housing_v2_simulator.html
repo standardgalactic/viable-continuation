@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housing v2 Simulator</title>
+<style>
+:root{--bg:#f7f6f2;--fg:#1d2330;--mut:#5b6475;--card:#fff;--line:#d7d4c8;--acc:#1f5f8b;--bad:#a3262a;--good:#1e7a46;--mono:ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-crt="off"]){--bg:#14171d;--fg:#e4e6ea;--mut:#9aa3b2;--card:#1c2028;--line:#323846;--acc:#6fb1de;--bad:#ff7b7f;--good:#6fd09a}}
+body[data-crt="on"]{--bg:#06110a;--fg:#7dffa8;--mut:#47b36a;--card:#0a1a10;--line:#1f6b3a;--acc:#b6ffcf;--bad:#ff8f6b;--good:#7dffa8;font-family:var(--mono)}
+body[data-crt="on"] main::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(#0000 0 2px,#0003 2px 3px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.1rem;margin:0 0 .5em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin:12px 0}
+label{display:inline-block;margin:2px 10px 2px 0;font-size:.9rem;color:var(--mut)}
+input,select,button{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:3px 6px}
+input[type=number]{width:5.5em}input.wide{width:14em}
+button{cursor:pointer;background:var(--acc);color:var(--bg);border-color:var(--acc)}
+table{border-collapse:collapse;width:100%;font:.85rem var(--mono);overflow-x:auto;display:block}
+th,td{border-bottom:1px solid var(--line);padding:2px 8px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+.bad{color:var(--bad)}.good{color:var(--good)}.mut{color:var(--mut)}
+pre{white-space:pre-wrap;font:.82rem var(--mono);margin:0}
+ul{margin:.3em 0;padding-left:1.2em}
+.row{display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
+</style>
+</head>
+<body data-crt="off">
+<main>
+<h1>Housing v2 Simulator</h1>
+<p class="mut">Reproduces the transitions of the book and its Python companion. Every parameter below is read from the embedded specification, which is a copy of <code>spec/housing_v2.json</code>. Styling is a presentation choice: <label><input type="checkbox" id="crt"> terminal style</label></p>
+
+<section class="card" id="assumptions">
+<h2>Assumptions in force</h2>
+<div id="assump"></div>
+</section>
+
+<section class="card">
+<h2>1. Run a policy</h2>
+<div class="row">
+<label>Initial conditions (tenths, comma separated) <input class="wide" id="init" value="90"></label>
+<label>Months <input type="number" id="months" value="24" min="1" max="240"></label>
+<label>Crew ceiling <input type="number" id="cap" step="100"></label>
+</div>
+<div class="row">
+<label>Policy <select id="policy">
+<option value="const">constant spend per unit</option>
+<option value="hold">hold: spend the holding cost</option>
+<option value="greedy">greedy scheduler (cheapest hold cost first)</option>
+<option value="kernel">kernel feedback (stay in the kernel)</option>
+</select></label>
+<label>Constant spends <input class="wide" id="spends" value="0"></label>
+<label>Shock months (one tenth lost after the step) <input class="wide" id="shocks" placeholder="e.g. 3,7"></label>
+<button id="run">Run</button>
+</div>
+<div id="runout"></div>
+</section>
+
+<section class="card">
+<h2>2. Viability kernel</h2>
+<div class="row">
+<label>Ceiling <input type="number" id="kcap" step="100"></label>
+<label>Shock size (tenths, worst case each month) <input type="number" id="kshock" value="0" min="0" max="5"></label>
+<label>Unit A <input type="number" id="ka" value="51"></label>
+<label>Unit B <input type="number" id="kb" value="51"></label>
+<button id="kbtn">Compute</button>
+</div>
+<div id="kout"></div>
+</section>
+
+<section class="card">
+<h2>3. Companion checks reproduced here</h2>
+<p class="mut">Each line recomputes a number printed in the book. A failing line means this simulator and the companion disagree.</p>
+<button id="chk">Run checks</button>
+<div id="chkout"></div>
+</section>
+</main>
+
+<script id="spec" type="application/json">{
+  "name": "housing_v2",
+  "version": "2.0",
+  "units": {
+    "money": "currency units",
+    "time": "months",
+    "condition": "tenths of a condition point"
+  },
+  "core": {
+    "rent": 1000,
+    "running_cost": 300,
+    "money_per_tenth": 100,
+    "k_initial": 90,
+    "k_max": 100,
+    "k_min": 0,
+    "k_lettable_min": 40,
+    "deterioration_tiers": [
+      {
+        "k_above": 80,
+        "d": 1
+      },
+      {
+        "k_above": 50,
+        "d": 2
+      },
+      {
+        "k_above": null,
+        "d": 4
+      }
+    ],
+    "crew_ceiling": 400,
+    "maintenance_step": 100
+  },
+  "month_order": [
+    "observe k_t",
+    "choose maintenance M_t, a multiple of maintenance_step with 0 <= M_t <= crew_ceiling (jointly over units)",
+    "if k_t >= k_lettable_min: collect rent and pay running cost; otherwise neither",
+    "pay M_t",
+    "k_{t+1} = max(k_min, min(k_max, k_t - d(k_t) + M_t / money_per_tenth))"
+  ],
+  "surplus": "pi_t = (rent - running_cost) * [k_t >= k_lettable_min] - M_t",
+  "obligation_rules": {
+    "notice_after_consecutive_missed_rents": 2,
+    "notice_period_months": 1,
+    "restoration_target": 60,
+    "repair_duties_example": [
+      {
+        "deadline_days": 3,
+        "cost": 600
+      },
+      {
+        "deadline_days": 14,
+        "cost": 900
+      },
+      {
+        "deadline_days": 30,
+        "cost": 2000
+      }
+    ]
+  },
+  "scenario_parameters": {
+    "owner_cash_example": 1500,
+    "owner_mortgage_per_month": 700,
+    "tenant_income_before_rent": 1200,
+    "tenant_exit_cost": 4000,
+    "tenant_surplus_monthly_contract": 200,
+    "building_conditions": [
+      90,
+      70,
+      55,
+      50
+    ],
+    "automation": {
+      "saving_per_month": 300,
+      "practice_cost_per_unit": 200,
+      "erosion_per_month": "3/50",
+      "practice_gain": "3/20",
+      "tau_base": 1,
+      "tau_slope": 7,
+      "operating_floor": 60,
+      "emergency_restore_price_per_tenth": 100,
+      "lost_month_penalty": 700
+    }
+  },
+  "front_chapter_lease": {
+    "r": 1000,
+    "T": 12,
+    "delta": "1/20",
+    "e": 200,
+    "c": 4000,
+    "H": 3,
+    "kappa": 800
+  }
+}</script>
+<script id="core">
+/*CORE_START*/
+(function (root) {
+  function makeModel(spec) {
+    var C = spec.core;
+    var R = C.rent, RC = C.running_cost, CAP = C.crew_ceiling, HAB = C.k_lettable_min,
+        KMAX = C.k_max, KMIN = C.k_min, MPT = C.money_per_tenth, STEP = C.maintenance_step;
+    function d(k) {
+      var t = C.deterioration_tiers;
+      for (var i = 0; i < t.length; i++) if (t[i].k_above === null || k > t[i].k_above) return t[i].d;
+    }
+    function step(k, M) {
+      return Math.max(KMIN, Math.min(KMAX, k - d(k) + Math.floor(M / MPT)));
+    }
+    function holdCost(k) { return d(k) * MPT; }
+    function spends(cap) { var a = []; for (var m = 0; m <= cap; m += STEP) a.push(m); return a; }
+    function range(a, b) { var r = []; for (var i = a; i <= b; i++) r.push(i); return r; }
+    function kernel1(cap, shock) {
+      shock = shock || 0;
+      var S = new Set(range(HAB, KMAX));
+      for (;;) {
+        var N = new Set();
+        S.forEach(function (k) {
+          var ok = spends(cap).some(function (M) {
+            for (var w = 0; w <= shock; w++) if (!S.has(Math.max(step(k, M) - w, 0))) return false;
+            return true;
+          });
+          if (ok) N.add(k);
+        });
+        if (N.size === S.size) return S;
+        S = N;
+      }
+    }
+    function kernel2(cap) {
+      var key = function (a, b) { return a * 1000 + b; };
+      var S = new Set();
+      for (var a = HAB; a <= KMAX; a++) for (var b = HAB; b <= KMAX; b++) S.add(key(a, b));
+      var al = [];
+      spends(cap).forEach(function (m1) { spends(cap).forEach(function (m2) { if (m1 + m2 <= cap) al.push([m1, m2]); }); });
+      for (;;) {
+        var N = new Set();
+        S.forEach(function (kk) {
+          var a = Math.floor(kk / 1000), b = kk % 1000;
+          if (al.some(function (m) { return S.has(key(step(a, m[0]), step(b, m[1]))); })) N.add(kk);
+        });
+        if (N.size === S.size) return S;
+        S = N;
+      }
+    }
+    function survivalChain(cap) {
+      var Kn = [new Set(range(HAB, KMAX))];
+      for (;;) {
+        var prev = Kn[Kn.length - 1], nxt = new Set();
+        prev.forEach(function (k) {
+          if (spends(cap).some(function (M) { return prev.has(step(k, M)); })) nxt.add(k);
+        });
+        Kn.push(nxt);
+        if (nxt.size === prev.size) return Kn.slice(0, -1);
+      }
+    }
+    function habitableMonths(k0, M) {
+      var k = k0, n = 0;
+      while (k >= HAB) { n++; k = step(k, M); if (n > 10000) return null; }
+      return n;
+    }
+    function greedy(ks, cap) {
+      cap = cap === undefined ? CAP : cap;
+      var order = ks.map(function (_, i) { return i; })
+        .sort(function (i, j) { return holdCost(ks[i]) - holdCost(ks[j]) || i - j; });
+      var left = cap, alloc = ks.map(function () { return 0; });
+      order.forEach(function (i) { var n = holdCost(ks[i]); if (n <= left) { alloc[i] = n; left -= n; } });
+      return alloc;
+    }
+    // Month order of the specification. policy(ks, t) returns a spend per unit.
+    // shocks: set of months t in which one tenth is lost after the step.
+    function simulate(ks0, months, policy, cap, shocks) {
+      var ks = ks0.slice(), rows = [], total = 0, cumulative = [];
+      for (var t = 0; t < months; t++) {
+        var M = policy(ks, t);
+        var sum = M.reduce(function (a, b) { return a + b; }, 0);
+        var row = { t: t, k: ks.slice(), M: M.slice(), pi: 0, ok: true, note: "" };
+        if (sum > cap || M.some(function (m) { return m < 0 || m % STEP !== 0; })) {
+          row.ok = false; row.note = "spend " + sum + " exceeds ceiling " + cap + " or is not a multiple of " + STEP;
+          rows.push(row); break;
+        }
+        var pi = 0;
+        ks.forEach(function (k, i) { if (k >= HAB) pi += R - RC; pi -= M[i]; });
+        row.pi = pi; total += pi; row.cum = total;
+        ks = ks.map(function (k, i) {
+          var nk = step(k, M[i]);
+          if (shocks && shocks.has(t)) nk = Math.max(KMIN, nk - 1);
+          return nk;
+        });
+        row.next = ks.slice();
+        rows.push(row);
+      }
+      return { rows: rows, total: total, final: ks };
+    }
+    function kernelPolicy(cap, shock) {
+      return function (ks) {
+        if (ks.length === 1) {
+          var K = kernel1(cap, shock);
+          var best = null;
+          spends(cap).forEach(function (M) { if (best === null && K.has(Math.max(step(ks[0], M) - shock, 0))) best = M; });
+          return [best === null ? 0 : best];
+        }
+        if (ks.length === 2) {
+          var K2 = kernel2(cap), best2 = null;
+          spends(cap).forEach(function (m1) { spends(cap).forEach(function (m2) {
+            if (best2 === null && m1 + m2 <= cap && K2.has(step(ks[0], m1) * 1000 + step(ks[1], m2))) best2 = [m1, m2];
+          }); });
+          return best2 || [0, 0];
+        }
+        return greedy(ks, cap);
+      };
+    }
+    return { spec: spec, d: d, step: step, holdCost: holdCost, kernel1: kernel1, kernel2: kernel2,
+      survivalChain: survivalChain, habitableMonths: habitableMonths, greedy: greedy,
+      simulate: simulate, kernelPolicy: kernelPolicy,
+      R: R, RC: RC, CAP: CAP, HAB: HAB, KMAX: KMAX, STEP: STEP, MPT: MPT };
+  }
+
+  // Companion checks: each recomputes a number printed in the book (companion BOOK / H3 / H4).
+  function companionChecks(m) {
+    var out = [];
+    function add(name, ok, detail) { out.push({ name: name, ok: !!ok, detail: detail }); }
+    var n = m.habitableMonths(90, 0);
+    var surplus = n * (m.R - m.RC);
+    var k28 = (function () { var k = 90; for (var i = 0; i < n; i++) k = m.step(k, 0); return k; })();
+    add("Ch.1/H3: no maintenance, lettable months, surplus, condition at exit, restoration cost",
+        n === 28 && surplus === 19600 && k28 === 38 && (90 - k28) * m.MPT === 5200,
+        "months " + n + ", surplus " + surplus + ", condition " + k28 + ", restoration " + (90 - k28) * m.MPT);
+    var K1 = m.kernel1(400), mn = Math.min.apply(null, Array.from(K1));
+    add("H4: one unit, ceiling 400, every lettable condition is viable", mn === 40 && K1.size === 61, "kernel size " + K1.size + ", minimum " + mn);
+    var Ks = m.kernel1(400, 1), ms = Math.min.apply(null, Array.from(Ks));
+    add("Ch.43: one-tenth worst-case shock raises the kernel floor to 51", ms === 51 && Ks.size === 50, "floor " + ms + ", size " + Ks.size);
+    var K2 = m.kernel2(400);
+    add("H4: two units, one crew: (50,50) and (50,100) not viable, (51,51) viable, 2500 states",
+        !K2.has(50 * 1000 + 50) && !K2.has(50 * 1000 + 100) && K2.has(51 * 1000 + 51) && K2.size === 2500, "joint kernel size " + K2.size);
+    var ch = m.survivalChain(100);
+    add("Ch.15/43: survival chain stabilises at step 34 at ceiling 100 (sets K_0..K_34)", ch.length - 1 === 34, "sets " + ch.length + ", stabilisation step " + (ch.length - 1));
+    var b = m.spec.scenario_parameters.building_conditions;
+    var hc = b.map(m.holdCost);
+    add("Ch.6/45: building (90,70,55,50) holding costs 100,200,200,400", hc.join() === "100,200,200,400", hc.join());
+    add("Ch.55: greedy scheduler allocates (100,200,0,0) on the building", m.greedy(b).join() === "100,200,0,0", m.greedy(b).join());
+    function hist(alloc) {
+      var r = m.simulate(b, 12, function () { return alloc; }, 1e9);
+      return r;
+    }
+    var h1 = hist([0, 0, 0, 400]), h2 = hist([0, 0, 200, 200]);
+    add("Ch.49: two histories book 24600 and end in different states",
+        h1.total === 24600 && h2.total === 24600 && h1.final.join() === "76,42,13,50" && h2.final.join() === "76,42,55,26",
+        h1.final.join() + " vs " + h2.final.join());
+    var ok50 = !m.kernel1(400, 1).has(50) && m.kernel1(400, 0).has(50);
+    add("Ch.43: the unit at 50 is viable without shocks and outside the shock kernel", ok50, "");
+    return out;
+  }
+
+  var api = { makeModel: makeModel, companionChecks: companionChecks };
+  if (typeof module !== "undefined" && module.exports) module.exports = api; else root.HV2 = api;
+})(typeof window !== "undefined" ? window : this);
+/*CORE_END*/
+</script>
+
+<script>
+(function () {
+  var spec = JSON.parse(document.getElementById("spec").textContent);
+  var m = HV2.makeModel(spec);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;"}[c]; }); }
+  var C = spec.core;
+  $("assump").innerHTML =
+    "<ul>" +
+    "<li>Units: money in currency units, time in months, condition in tenths of a point (" + C.k_min + " to " + C.k_max + ").</li>" +
+    "<li>Rent " + C.rent + ", running cost " + C.running_cost + ", rent collected and cost paid only if condition is at least " + C.k_lettable_min + ".</li>" +
+    "<li>Deterioration per month: " + C.deterioration_tiers.map(function (t) { return t.d + (t.k_above === null ? " otherwise" : " above " + t.k_above); }).join("; ") + ".</li>" +
+    "<li>Maintenance in multiples of " + C.maintenance_step + ", restoring spend/" + C.money_per_tenth + " tenths; crew ceiling " + C.crew_ceiling + " shared jointly across units.</li>" +
+    "<li>Month order: " + spec.month_order.map(esc).join(" &rarr; ") + ".</li>" +
+    "<li>Surplus: " + esc(spec.surplus) + ".</li>" +
+    "<li class='mut'>Not in the model: interest, taxes, tenant behaviour, price changes, information about future shocks. The shock option is an extension used in Chapter 43: a fixed loss of one tenth after the step in chosen months, or a worst-case loss of up to the chosen size when computing a kernel.</li>" +
+    "</ul>";
+  $("cap").value = C.crew_ceiling; $("kcap").value = C.crew_ceiling;
+  $("crt").addEventListener("change", function (e) { document.body.setAttribute("data-crt", e.target.checked ? "on" : "off"); });
+  function ints(s) { return s.split(",").map(function (x) { return x.trim(); }).filter(Boolean).map(Number); }
+
+  $("run").addEventListener("click", function () {
+    var ks = ints($("init").value), cap = Number($("cap").value), months = Number($("months").value);
+    var sp = ints($("spends").value), pol = $("policy").value;
+    var shocks = new Set(ints($("shocks").value));
+    var policy;
+    if (pol === "const") policy = function () { return ks.map(function (_, i) { return sp[i % sp.length] || 0; }); };
+    else if (pol === "hold") policy = function (cur) { return cur.map(function (k) { return k >= m.HAB ? m.holdCost(k) : 0; }); };
+    else if (pol === "greedy") policy = function (cur) { return m.greedy(cur, cap); };
+    else policy = m.kernelPolicy(cap, shocks.size ? 1 : 0);
+    var r = m.simulate(ks, months, policy, cap, shocks);
+    var h = "<table><tr><th>month</th><th>conditions</th><th>spends</th><th>surplus</th><th>cumulative</th><th>note</th></tr>";
+    r.rows.forEach(function (x) {
+      h += "<tr><td>" + x.t + "</td><td>" + x.k.join(", ") + "</td><td>" + x.M.join(", ") + "</td><td>" + (x.ok ? x.pi : "") +
+           "</td><td>" + (x.ok ? x.cum : "") + "</td><td class='" + (x.ok ? "" : "bad") + "'>" + esc(x.note) + "</td></tr>";
+    });
+    h += "</table><p>Total surplus " + r.total + ". Final conditions " + r.final.join(", ") + ". Lettable units at the end: " +
+         r.final.filter(function (k) { return k >= m.HAB; }).length + " of " + r.final.length + ".</p>";
+    $("runout").innerHTML = h;
+  });
+
+  $("kbtn").addEventListener("click", function () {
+    var cap = Number($("kcap").value), sh = Number($("kshock").value);
+    var K1 = m.kernel1(cap, sh), a = Number($("ka").value), b = Number($("kb").value);
+    var K2 = m.kernel2(cap), ch = m.survivalChain(cap);
+    var lo = K1.size ? Math.min.apply(null, Array.from(K1)) : null;
+    $("kout").innerHTML = "<ul>" +
+      "<li>One unit, ceiling " + cap + ", worst-case shock " + sh + ": kernel has " + K1.size + " conditions" + (lo === null ? "" : ", lowest " + lo) +
+      "; condition " + a + " is " + (K1.has(a) ? "<span class='good'>inside</span>" : "<span class='bad'>outside</span>") + ".</li>" +
+      "<li>Two units sharing the ceiling (no shock): joint kernel has " + K2.size + " pairs; (" + a + ", " + b + ") is " +
+      (K2.has(a * 1000 + b) ? "<span class='good'>viable</span>" : "<span class='bad'>not viable</span>") + ".</li>" +
+      "<li>Survival chain at this ceiling stabilises at step " + (ch.length - 1) + " (a review of depth n certifies the n-th set).</li></ul>";
+  });
+
+  $("chk").addEventListener("click", function () {
+    var res = HV2.companionChecks(m);
+    $("chkout").innerHTML = "<pre>" + res.map(function (r) {
+      return (r.ok ? "PASS  " : "FAIL  ") + esc(r.name) + (r.detail ? "\n        " + esc(r.detail) : "");
+    }).join("\n") + "</pre>";
+  });
+})();
+</script>
+</body>
+</html>
