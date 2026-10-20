@@ -1,5 +1,17 @@
 # The Economics of Viable Continuation
 
+[The Unit of Scrutiny](https://standardgalactic.github.io/viable-continuation/unit_of_scrutiny.pdf)
+
+[Concealment Encryption](https://standardgalactic.github.io/viable-continuation/concealment_encryption.pdf)
+
+[Distributed Material Archives](https://standardgalactic.github.io/viable-continuation/distributed-material-archives.pdf)
+
+[The Relief of Explanation](https://standardgalactic.github.io/viable-continuation/relief_of_explanation.pdf)
+
+[Terrestrial Oxygen History](https://standardgalactic.github.io/viable-continuation/terrestrial_oxygen_history.pdf)
+
+[Viable Continuation](https://standardgalactic.github.io/viable-continuation/viable-continuation.pdf)
+
 *Production, Obligation, Institutions, and the Organization of Feasible Futures*
 
 A long graduate-level textbook in progress, by Flyxion (independent researcher). The book treats an economy as an organization of provisioning, transformation, and maintenance through time, and asks which futures each institutional arrangement keeps open, for whom, and at what cost to the conditions later activity depends on. It develops the economic theory in its own terms first, then gives categorical, type-theoretic, and sheaf-theoretic interpretations that recover structure the economic text has already established and state what each interpretation preserves and leaves out.

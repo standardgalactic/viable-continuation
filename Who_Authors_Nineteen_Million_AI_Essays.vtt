@@ -1,0 +1,2276 @@
+WEBVTT
+
+00:00.000 --> 00:05.740
+Welcome to the Deep Dive. Today we are setting out on, well, a very specific mission, honestly.
+
+00:06.420 --> 00:08.860
+Yeah, a pretty massive one when you get down to it.
+
+00:08.940 --> 00:15.400
+Exactly. We are going to unpack how we, meaning you, me, readers, editors, or just, you know,
+
+00:15.480 --> 00:20.940
+everyday consumers of information, how we actually judge the intellectual merit of an idea
+
+00:20.940 --> 00:25.200
+when the very definition of authorship is being completely stretched.
+
+00:25.680 --> 00:28.300
+Right. Stretched almost beyond recognition at this point.
+
+00:28.300 --> 00:36.980
+Because we are entering this era where machine-assisted workflows are just completely shattering our traditional understanding of what it means to, you know, write something.
+
+00:37.500 --> 00:37.580
+Yeah.
+
+00:37.800 --> 00:45.940
+And if the physical act of typing is no longer the bottleneck of thought, then, well, how do we evaluate the thinking itself?
+
+00:46.640 --> 00:48.880
+That's the huge question right now.
+
+00:48.960 --> 00:49.220
+Mm-hmm.
+
+00:49.720 --> 00:57.100
+And to navigate this, we are looking at two highly influential pieces of writing that are really shaping this exact debate as we speak.
+
+00:57.100 --> 00:59.820
+Yeah, the sources for today are just fascinating.
+
+01:00.040 --> 01:00.400
+They are.
+
+01:01.400 --> 01:07.600
+So our grounding text is an October 2026 paper by an independent researcher who publishes under the name Flyxion.
+
+01:07.860 --> 01:13.040
+It's titled, The Unit of Scrutiny, Delegated Inscription and Workflow Authorship.
+
+01:13.360 --> 01:15.160
+A bit of a mouthful, but we'll break it down.
+
+01:15.480 --> 01:16.080
+Oh, absolutely.
+
+01:16.080 --> 01:25.820
+But what makes Flyxion's work so vital is that it's actually a direct, like, a really profound response to a recent article by Jean Desperment.
+
+01:26.340 --> 01:26.740
+Right.
+
+01:26.900 --> 01:29.040
+The one published on the Volker X blog.
+
+01:29.400 --> 01:29.780
+Exactly.
+
+01:30.340 --> 01:33.860
+So our goal today is to kind of bridge both of their arguments.
+
+01:34.440 --> 01:41.280
+Because, you know, Desperment establishes this fundamental rule for how we should view artificial intelligence when writing a single essay.
+
+01:41.580 --> 01:42.580
+The traditional format.
+
+01:42.580 --> 01:43.060
+Right.
+
+01:43.840 --> 01:55.460
+But then Flyxion steps in and basically asks, well, how do we navigate a world where scholars aren't writing essays anymore, but rather writing code that generates thousands of essays simultaneously?
+
+01:55.740 --> 01:57.220
+Which is just a wild concept.
+
+01:57.760 --> 02:03.460
+And to give you, the listener, a sense of the scale we are actually talking about here, I want you to imagine a scenario.
+
+02:03.940 --> 02:04.700
+Okay, lay it out.
+
+02:04.700 --> 02:07.940
+So, just picture a totally ordinary Tuesday afternoon.
+
+02:08.420 --> 02:11.960
+You are sitting at your desk, maybe drinking a cup of coffee.
+
+02:13.000 --> 02:14.200
+You open your laptop.
+
+02:14.660 --> 02:18.100
+You pull up a piece of code you've been, you know, tinkering with for a few weeks.
+
+02:18.500 --> 02:20.260
+Right, just normal coding stuff.
+
+02:20.520 --> 02:20.660
+Yeah.
+
+02:21.240 --> 02:21.980
+And you hit run.
+
+02:22.600 --> 02:25.820
+And then you walk into the kitchen to grab a snack or whatever.
+
+02:25.820 --> 02:33.740
+By the time you come back to your desk, you have just, quote unquote, produced 19 million essays.
+
+02:34.400 --> 02:35.320
+19 million.
+
+02:35.920 --> 02:37.280
+Just let that sink in.
+
+02:37.520 --> 02:37.720
+Right.
+
+02:38.140 --> 02:41.700
+And not 19 million bullet points or, like, vague concepts.
+
+02:42.300 --> 02:49.340
+19 million full, structured, meticulously cited outlines and prompts for academic papers.
+
+02:49.600 --> 02:52.920
+All generated from a lifetime of scholarly work.
+
+02:53.100 --> 02:53.740
+It's unbelievable.
+
+02:53.740 --> 03:01.520
+So, the question is, as the person sitting in that chair, staring at that terminal window, are you the author of those 19 million essays?
+
+03:02.120 --> 03:03.780
+Like, where did the actual thinking happen?
+
+03:04.140 --> 03:06.640
+It is such a staggering thought experiment.
+
+03:07.120 --> 03:09.900
+But the crazy thing is, it isn't science fiction anymore.
+
+03:10.020 --> 03:12.540
+It's the exact reality that Flyxion is addressing.
+
+03:13.000 --> 03:13.220
+Yeah.
+
+03:13.740 --> 03:22.420
+But to truly understand the sheer, you know, paradigm shift of generating 19 million outlines, we actually have to start with the baseline argument first.
+
+03:22.420 --> 03:24.220
+Right. We have to walk before we can run.
+
+03:24.560 --> 03:35.140
+Exactly. We have to look at the conflict Flyxion is responding to in the first place, which requires us to really understand Dassault's foundational view on humans, machines, and the single text.
+
+03:35.660 --> 03:37.480
+Okay. So, let's lay that foundation.
+
+03:37.480 --> 03:45.380
+Because Dasspermann is looking at the current climate in academia and publishing, which he characterizes, honestly, fairly bluntly, as a witch hunt.
+
+03:45.880 --> 03:46.880
+A total witch hunt. Yeah.
+
+03:47.400 --> 03:53.520
+There is this pervasive, like, almost paranoid obsession right now with trying to catch people using language models.
+
+03:53.900 --> 03:55.480
+Right. The whole detection panic.
+
+03:55.480 --> 04:06.700
+Exactly. Every editor, every peer reviewer, every teacher is running texts through these so-called AI detectors, just desperate to figure out if a machine contributed to the prose.
+
+04:07.460 --> 04:14.940
+And Dasspermann's core thesis is that this desperation is fundamentally misguided. Like, we are aggressively asking the wrong question here.
+
+04:15.080 --> 04:15.440
+How so?
+
+04:15.440 --> 04:24.860
+Well, when you look at a manuscript and you ask, did a machine write this, you are essentially treating the mechanical generation of words as the defining feature of scholarship.
+
+04:25.140 --> 04:25.940
+Which it isn't.
+
+04:26.040 --> 04:33.600
+Exactly. Dasspermann argues the only question that has ever mattered, and the only question that matters right now, is, does this text think?
+
+04:34.020 --> 04:36.880
+I just love that phrasing so much. Does the text think?
+
+04:36.880 --> 04:45.160
+Because it forces a distinction between two very different actions, right? Delegating inscription versus delegating thought.
+
+04:45.520 --> 04:52.020
+Yes. And this distinction is what Flyxion refers to as Dasspermann's compass. It's how we navigate this.
+
+04:52.500 --> 05:01.300
+So inscription is just the rendering. It is the mechanical, physical, or, you know, digital act of putting words onto a page to represent an idea.
+
+05:01.800 --> 05:02.660
+The typing part.
+
+05:02.660 --> 05:16.360
+Exactly. Thought, on the other hand, is the formation of the idea itself. It's the synthesis of information, the novel connection between two completely disparate concepts, the actual architecture of the argument.
+
+05:16.600 --> 05:18.200
+The heavy lifting. Mentally.
+
+05:18.540 --> 05:26.420
+Right. And Dasspermann asserts that delegating the inscription, the mere typing or phrasing of a concept, is perfectly unobjectionable.
+
+05:26.680 --> 05:27.740
+Right. Who cares who typed it?
+
+05:27.740 --> 05:32.620
+Exactly. The danger only arises when you delegate the thought-forming process.
+
+05:33.080 --> 05:37.720
+You know, hearing you describe that separation, it immediately makes me think of, like, a commercial kitchen.
+
+05:38.120 --> 05:39.140
+Oh, that's a good comparison.
+
+05:39.360 --> 05:47.700
+Right. Think about a high-end Michelin-starred restaurant. You have an executive chef, and that chef spends months conceptualizing a tasting menu.
+
+05:47.960 --> 05:50.000
+Developing the menu, testing flavors, yeah.
+
+05:50.280 --> 05:53.180
+Exactly. They figure out the exact flavor profile they want.
+
+05:53.180 --> 06:00.280
+Like, maybe they realize the acidity of a fermented plum will perfectly balance the richness of a specific cut of duck.
+
+06:00.980 --> 06:05.040
+And they envision this plating design that looks like a forest floor, or whatever.
+
+06:05.480 --> 06:06.040
+Very fancy.
+
+06:06.600 --> 06:07.160
+Super fancy.
+
+06:07.580 --> 06:11.200
+But that entire conceptualization, that is the thought, right?
+
+06:11.380 --> 06:12.660
+Yes, the intellectual labor.
+
+06:12.660 --> 06:20.500
+But then, when the Friday night dinner rush actually hits, that executive chef is not standing in the back mechanically peeling 300 potatoes.
+
+06:20.800 --> 06:21.800
+No, definitely not.
+
+06:22.080 --> 06:24.280
+They aren't chopping massive piles of onions.
+
+06:24.520 --> 06:29.600
+They delegate that to a sous chef, or a prep cook, or even, you know, a mechanical food processor.
+
+06:30.260 --> 06:31.760
+They hand off the mechanical rendering.
+
+06:32.280 --> 06:32.600
+Right.
+
+06:32.600 --> 06:40.340
+And when that plate hits the table, nobody sends it back demanding to know if the executive chef personally held the paring knife to slice the plum.
+
+06:40.860 --> 06:44.960
+The meal is valid because the executive chef retained the thought-forming process.
+
+06:45.360 --> 06:51.920
+That is a highly illustrative way to look at it, because the absurdity of judging the dish by the knife used for the prep work,
+
+06:52.140 --> 06:57.580
+it completely mirrors the absurdity of judging a scholar by the tool used to smooth out their prose.
+
+06:57.740 --> 06:58.140
+Exactly.
+
+06:58.140 --> 07:05.660
+And de Ackermann contextualizes this beautifully by placing our current AI panic into a very long historical continuum,
+
+07:05.660 --> 07:11.200
+because we always feel that our specific technological crisis is entirely unprecedented, right?
+
+07:11.320 --> 07:11.820
+Oh, always.
+
+07:12.080 --> 07:13.620
+It's the end of the world every time.
+
+07:14.260 --> 07:17.540
+But the anxiety over delegating inscription is actually ancient.
+
+07:18.440 --> 07:21.480
+Yeah, the paper specifically brings up Plato, which I found so fascinating.
+
+07:21.860 --> 07:24.220
+We are talking about the Phaedrus dialogue, right?
+
+07:24.460 --> 07:24.840
+Yes.
+
+07:24.840 --> 07:29.440
+Where Socrates tells the story of the Egyptian god Thoth inventing written letters.
+
+07:29.860 --> 07:30.260
+Exactly.
+
+07:30.820 --> 07:35.200
+So the invention of writing itself was viewed as a catastrophic delegation back then.
+
+07:35.280 --> 07:35.500
+Writing.
+
+07:36.240 --> 07:37.440
+Just basic writing.
+
+07:37.820 --> 07:38.180
+I know.
+
+07:39.120 --> 07:43.840
+Thoth presents writing to the king, Thomas, claiming it will improve memory and wisdom.
+
+07:44.340 --> 07:47.000
+But Thomas vehemently disagrees.
+
+07:47.280 --> 07:48.280
+He hates the idea.
+
+07:48.440 --> 07:49.220
+He does.
+
+07:49.220 --> 07:54.020
+He argues that if humans externalize their knowledge onto a scroll, like if they delegate
+
+07:54.020 --> 07:58.980
+the holding of information to a piece of papyrus, they will basically cease to exercise their memory.
+
+07:59.620 --> 07:59.640
+Right.
+
+07:59.700 --> 08:01.320
+They won't need to remember anything anymore.
+
+08:01.520 --> 08:01.840
+Exactly.
+
+08:02.600 --> 08:08.020
+He says they will become forgetful, relying on external marks rather than internal understanding.
+
+08:08.440 --> 08:11.780
+They will have the appearance of wisdom without the reality of it.
+
+08:12.000 --> 08:14.160
+It's literally the exact same argument we're here today.
+
+08:14.940 --> 08:18.580
+Like, if the machine writes the essay, the student won't know how to think.
+
+08:18.580 --> 08:20.420
+The parallels are just striking.
+
+08:20.900 --> 08:20.980
+Yeah.
+
+08:21.220 --> 08:25.620
+And this cycle, it repeats with every single major leap in inscription technology.
+
+08:26.200 --> 08:27.120
+Give me another example.
+
+08:27.940 --> 08:32.420
+Consider the transition from manuscript culture to the printing press in the 15th century.
+
+08:32.960 --> 08:33.440
+Oh, right.
+
+08:33.560 --> 08:33.980
+The monks.
+
+08:34.380 --> 08:34.660
+Right.
+
+08:35.360 --> 08:40.840
+In scriptoriums across Europe, monks viewed the physical, laborious act of hand-copying text
+
+08:40.840 --> 08:44.820
+not just as reproduction, but as this deeply spiritual exercise.
+
+08:45.200 --> 08:46.260
+Like it was part of the devotion.
+
+08:46.760 --> 08:47.260
+Exactly.
+
+08:47.260 --> 08:52.560
+The painful slowness of copying a Bible by hand was seen as a way of internalizing the
+
+08:52.560 --> 08:53.160
+divine word.
+
+08:53.840 --> 08:57.640
+So when the printing press arrived, there was intense clerical alarm.
+
+08:58.500 --> 08:59.200
+Because it was too easy.
+
+08:59.840 --> 09:00.180
+Yes.
+
+09:00.460 --> 09:05.900
+The mechanical stamping of ink onto paper was viewed by many as soulless, like this corruption
+
+09:05.900 --> 09:09.760
+that severed the physical, spiritual link between the creator and the text.
+
+09:10.720 --> 09:11.280
+Wow.
+
+09:11.280 --> 09:16.260
+But over time, the printing press just became, you know, a printing press, a tool.
+
+09:16.580 --> 09:16.920
+Exactly.
+
+09:17.180 --> 09:22.400
+Which kind of brings us to the late 20th century, where we absorbed an entirely new set of invisible
+
+09:22.400 --> 09:24.220
+technologies without even blinking.
+
+09:24.900 --> 09:25.200
+Right.
+
+09:25.440 --> 09:28.360
+Word processors, spell checkers, grammar software.
+
+09:28.360 --> 09:28.860
+Yeah.
+
+09:28.860 --> 09:35.980
+If we go back just like 30 or 40 years, the idea of using a machine to instantly organize a bibliography
+
+09:35.980 --> 09:40.340
+like we do with Zotero or EndNote today, that was considered lazy.
+
+09:40.740 --> 09:42.000
+You were supposed to do it by hand.
+
+09:42.140 --> 09:42.420
+Right.
+
+09:42.640 --> 09:47.540
+You were supposed to memorize the Chicago Manual of Style and type out your index cards manually.
+
+09:48.200 --> 09:52.820
+Today, if you don't use a citation manager, you aren't viewed as intellectually superior.
+
+09:52.820 --> 09:55.220
+You're just viewed as incredibly inefficient.
+
+09:56.300 --> 09:56.580
+Exactly.
+
+09:57.260 --> 10:04.080
+And this historical amnesia, it points to a deeply ingrained myth that Desperon deconstructs
+
+10:04.080 --> 10:09.720
+and which Flyxion thoroughly endorses, which is the myth of the sovereign author.
+
+10:10.180 --> 10:11.120
+The sovereign author.
+
+10:11.500 --> 10:11.760
+Yes.
+
+10:12.220 --> 10:17.540
+We harbor this romanticized, almost cinematic image of the lone genius.
+
+10:17.540 --> 10:22.520
+You know, the brilliant philosopher isolated in a cabin in the woods, pulling fully formed,
+
+10:22.680 --> 10:27.300
+unadulterated ideas from the ether and just pouring them directly onto the page without
+
+10:27.300 --> 10:28.680
+any mediation at all.
+
+10:28.860 --> 10:30.400
+It's total Hemingway trope stuff.
+
+10:30.760 --> 10:35.900
+Just a brilliant mind, a typewriter, a bottle of whiskey, and sheer willpower giving birth
+
+10:35.900 --> 10:37.940
+to a masterpiece in total isolation.
+
+10:38.440 --> 10:41.700
+But that figure is entirely retroactive fiction.
+
+10:42.220 --> 10:45.580
+True authorship, especially in academia, is never solitary.
+
+10:45.580 --> 10:48.820
+It is this dense, overlapping network.
+
+10:49.040 --> 10:49.640
+It takes a village.
+
+10:49.940 --> 10:55.640
+It involves scribes, editors, peer reviewers, random, casual conversations in the hallway,
+
+10:55.900 --> 10:58.100
+and most importantly, prior texts.
+
+10:58.200 --> 10:58.340
+Right.
+
+10:58.400 --> 10:59.280
+Nobody writes in a vacuum.
+
+10:59.420 --> 10:59.900
+Exactly.
+
+11:00.440 --> 11:04.120
+Every piece of writing is a reaction to something written before it.
+
+11:04.480 --> 11:09.900
+The idea of a text having a single, uncontaminated point of origin is just a fantasy.
+
+11:10.360 --> 11:13.840
+We are always reliant on the intellectual infrastructure built by others,
+
+11:13.840 --> 11:17.220
+and we continually adopt new tools to navigate that infrastructure.
+
+11:17.300 --> 11:17.820
+Okay.
+
+11:18.220 --> 11:23.280
+So if we accept that the lone genius is a total myth, and that delegating the, you know,
+
+11:23.440 --> 11:28.820
+chopping of the onions is a historically normal progression, why is the current reaction to
+
+11:28.820 --> 11:30.260
+AI so uniquely harmful?
+
+11:30.780 --> 11:34.740
+What makes this a witch hunt rather than just like a normal adjustment period for a new tool?
+
+11:34.740 --> 11:38.980
+The harm really lies in how we are attempting to enforce this separation.
+
+11:39.740 --> 11:45.220
+Because editors and readers cannot physically peer over a scholar's shoulder to see their thought process,
+
+11:45.680 --> 11:49.680
+they have developed a deeply flawed detection culture.
+
+11:50.220 --> 11:51.200
+The AI detectors.
+
+11:51.540 --> 11:51.760
+Right.
+
+11:52.760 --> 11:58.020
+They are relying on stylistic proxies as prima facie evidence of intellectual contamination.
+
+11:58.020 --> 12:01.840
+And this is where things get genuinely ridiculous, in my opinion.
+
+12:02.100 --> 12:06.260
+We are talking about using punctuation as a lie detector test.
+
+12:06.300 --> 12:07.080
+It's absurd.
+
+12:07.640 --> 12:10.100
+The paper specifically highlights the M-dash.
+
+12:10.300 --> 12:12.020
+For anyone who isn't a massive grammar nerd,
+
+12:12.400 --> 12:16.580
+the M-dash is that long, horizontal line used to set off a thought or add emphasis,
+
+12:17.080 --> 12:19.420
+like a dramatic pause in text.
+
+12:19.560 --> 12:19.780
+Right.
+
+12:19.780 --> 12:24.560
+And suddenly, over the last few years, if an essay uses too many M-dashes,
+
+12:24.960 --> 12:28.000
+people are treating it as undeniable proof of AI generation.
+
+12:28.480 --> 12:30.040
+It isn't just the M-dash either.
+
+12:30.240 --> 12:33.600
+It's also the tricolon, the rhetorical rule of three.
+
+12:34.160 --> 12:35.320
+Like blood, sweat, and tears.
+
+12:35.460 --> 12:35.800
+Exactly.
+
+12:35.960 --> 12:37.200
+Or stop, drop, and roll.
+
+12:37.680 --> 12:40.560
+It also extends to certain transitional phrases like,
+
+12:40.640 --> 12:44.040
+it is crucial to note, or in summary.
+
+12:44.780 --> 12:46.520
+Phrases people have used forever.
+
+12:46.720 --> 12:46.960
+Right.
+
+12:46.960 --> 12:50.880
+But the logic behind this suspicion is that large language models
+
+12:50.880 --> 12:53.340
+were trained on vast swaths of human text.
+
+12:54.020 --> 12:55.720
+During their reinforcement learning phases,
+
+12:55.980 --> 12:58.700
+they learned what human evaluators consider helpful
+
+12:58.700 --> 13:00.420
+and well-structured academic writing.
+
+13:01.000 --> 13:02.500
+So they learned to write like us.
+
+13:02.660 --> 13:03.020
+Exactly.
+
+13:03.820 --> 13:07.280
+They absorbed our rhetorical habits, and they reproduced them very reliably.
+
+13:07.820 --> 13:10.300
+But the profound irony here, the thing that makes me crazy,
+
+13:10.480 --> 13:13.540
+is that those rhetorical devices are inherently human.
+
+13:13.540 --> 13:18.680
+Humans invented the rule of three centuries before computers even existed.
+
+13:19.200 --> 13:20.360
+Cicero used the tricolon.
+
+13:20.700 --> 13:21.080
+Exactly.
+
+13:21.840 --> 13:25.620
+If you happen to be a human scholar who genuinely enjoys using an M-dash
+
+13:25.620 --> 13:27.380
+to structure a complex sentence,
+
+13:27.840 --> 13:32.420
+your actual human effort is now suddenly under suspicion of being artificial.
+
+13:33.160 --> 13:37.680
+You are being flagged by a proxy that cannot possibly measure the origin of the thought.
+
+13:37.680 --> 13:41.520
+And the collateral damage of this proxy hunting is severe.
+
+13:41.980 --> 13:44.560
+It allows for the complete disqualification of a text
+
+13:44.560 --> 13:48.060
+without requiring any engagement with its actual argument.
+
+13:48.440 --> 13:49.940
+You just throw it out based on the punctuation?
+
+13:50.100 --> 13:50.440
+Yes.
+
+13:51.380 --> 13:54.220
+If an editor spots three M-dashes in the first paragraph
+
+13:54.220 --> 13:56.560
+and tosses the manuscript in the rejection pile,
+
+13:56.680 --> 13:59.420
+they never have to ask Daspermont's vital question.
+
+13:59.840 --> 14:01.360
+Does this text think?
+
+14:01.360 --> 14:04.600
+The stylistic proxy just becomes a really convenient excuse
+
+14:04.600 --> 14:08.420
+to avoid the hard, slow work of evaluating intellectual merit.
+
+14:08.920 --> 14:13.120
+So Daspermont's solution to this really messy, proxy-obsessed culture
+
+14:13.120 --> 14:15.700
+relies entirely on the individual scholar, right?
+
+14:15.700 --> 14:16.720
+Yes. Self-discipline.
+
+14:16.840 --> 14:17.020
+Right.
+
+14:17.120 --> 14:20.660
+If AI detectors don't work and stylistic proxies are unjust,
+
+14:20.880 --> 14:23.660
+the only safeguard left is self-discipline.
+
+14:24.260 --> 14:26.760
+The scholar must sit at their desk, draft their work,
+
+14:26.760 --> 14:31.400
+and maintain a rigorous sentence-by-sentence vigilance.
+
+14:31.520 --> 14:32.560
+Constantly checking themselves.
+
+14:32.820 --> 14:34.280
+Yeah. They have to constantly ask themselves,
+
+14:34.680 --> 14:36.960
+okay, did the machine just smooth out my sentence?
+
+14:37.240 --> 14:40.440
+Or did it just introduce a factual claim I didn't actually verify?
+
+14:40.920 --> 14:42.600
+Did it hallucinate a citation?
+
+14:43.240 --> 14:45.160
+Did it gloss over a gap in my logic?
+
+14:45.700 --> 14:48.560
+As long as the scholar polices that specific boundary,
+
+14:49.020 --> 14:49.880
+the text is valid.
+
+14:50.100 --> 14:53.760
+And look, for the traditional scholar writing a single journal article,
+
+14:53.940 --> 14:55.200
+that framework holds up perfectly.
+
+14:55.620 --> 14:55.920
+But?
+
+14:55.920 --> 14:59.640
+This is where we have to completely shatter the foundation.
+
+14:59.660 --> 15:00.080
+Here we go.
+
+15:00.700 --> 15:06.280
+Because Daspermont's entire defense rests on one colossal, unstated assumption.
+
+15:07.200 --> 15:09.820
+It assumes the unit of production is a single text.
+
+15:10.120 --> 15:10.400
+Right.
+
+15:10.640 --> 15:14.160
+It assumes I sit down, I write one essay, I submit it,
+
+15:14.520 --> 15:16.160
+and I stand behind it as its author.
+
+15:16.960 --> 15:19.300
+But what happens if the text isn't a text at all?
+
+15:19.800 --> 15:22.040
+What happens if the output is a program?
+
+15:22.460 --> 15:25.060
+And this is the exact pivot point of Flyxion's paper.
+
+15:25.060 --> 15:28.560
+Flyxion agrees with Daspermont completely regarding the single text.
+
+15:28.560 --> 15:35.300
+But we are rapidly moving into an era where the single text is no longer the default unit of scholarly production.
+
+15:35.540 --> 15:38.720
+We are entering the era of the generative workflow.
+
+15:38.720 --> 15:44.040
+Okay, if you're listening to this and wondering what a generative workflow actually looks like on the computer screen,
+
+15:44.600 --> 15:45.560
+let's break it down.
+
+15:45.720 --> 15:49.300
+Because this isn't just opening up ChatGPT and typing, write me an essay.
+
+15:49.720 --> 15:50.580
+No, not at all.
+
+15:51.220 --> 15:52.600
+That's a common misconception.
+
+15:53.380 --> 15:57.060
+In a generative workflow, the scholar is essentially acting as a programmer.
+
+15:57.500 --> 16:00.560
+They write a specification, which is a script, perhaps in Python.
+
+16:00.560 --> 16:08.320
+And the script acts as a conductor, orchestrating handoffs between several different AI models and databases automatically.
+
+16:08.840 --> 16:10.280
+So it's stringing tools together.
+
+16:10.520 --> 16:10.860
+Exactly.
+
+16:11.540 --> 16:16.320
+For example, the script might first ping an academic database to pull a hundred abstracts.
+
+16:16.440 --> 16:22.560
+It then feeds those abstracts into a language model with specific instructions to identify conflicting methodologies.
+
+16:22.940 --> 16:23.460
+Oh, okay.
+
+16:23.460 --> 16:32.680
+Then it extracts those conflicts, formats them into new prompts, hands those prompts back to the model to generate full-length essay outlines exploring the conflicts,
+
+16:33.040 --> 16:37.840
+and finally passes those outlines to another script that formats them into PDFs.
+
+16:38.100 --> 16:41.080
+All without the human clicking anything after hitting start.
+
+16:41.480 --> 16:41.760
+Right.
+
+16:41.760 --> 16:53.540
+So instead of one human action producing one sentence, a single action, which is executing the script, initiates a loop that can produce thousands of entirely distinct outputs.
+
+16:54.060 --> 16:57.120
+And Flyxion raises the critical epistemological problem here, right?
+
+16:57.440 --> 17:06.140
+When a single specification generates an enormous multitude of outputs, how on earth does Das Perrin's sentence-by-sentence self-discipline apply?
+
+17:06.580 --> 17:07.180
+It doesn't.
+
+17:07.500 --> 17:07.700
+Right.
+
+17:07.700 --> 17:11.700
+The primary question, does this generated text think?
+
+17:12.280 --> 17:15.380
+Suddenly becomes totally inadequate as our unit of scrutiny.
+
+17:16.300 --> 17:20.660
+But I have to stop you there because let me play devil's advocate for a second.
+
+17:21.000 --> 17:25.580
+I am really struggling to see how this isn't just a massive abdication of responsibility.
+
+17:26.080 --> 17:27.280
+That's a fair reaction.
+
+17:27.880 --> 17:35.160
+Because if I write a brilliant, complex, thousand-line Python script that dictates exactly how sources should be synthesized,
+
+17:35.160 --> 17:41.240
+and I hit run, and the AI goes off and generates the final prose for a thousand different essays,
+
+17:41.640 --> 17:44.220
+I haven't read 999 of them.
+
+17:44.360 --> 17:45.460
+No, you haven't.
+
+17:45.620 --> 17:48.180
+I physically haven't laid eyes on the arguments they are making.
+
+17:48.680 --> 17:53.500
+So how can I possibly claim authorship of something I haven't even read?
+
+17:54.160 --> 17:56.900
+Isn't that the literal definition of delegating thought?
+
+17:56.900 --> 18:03.180
+Your discomfort is entirely justified, and honestly, it points to exactly why Flyxion wrote the paper in the first place.
+
+18:03.260 --> 18:03.500
+Okay.
+
+18:03.820 --> 18:12.400
+Because if you generate a thousand texts and you do not read them, you absolutely cannot stand behind any single one of them as a finished, endorsed piece of scholarship.
+
+18:12.940 --> 18:15.540
+The text itself is unread by its creator.
+
+18:16.020 --> 18:18.980
+Therefore, the thinking did not happen in the text.
+
+18:19.060 --> 18:19.720
+And where did it happen?
+
+18:19.720 --> 18:22.500
+The locus of thought has shifted entirely.
+
+18:23.080 --> 18:26.720
+The intellectual contribution is no longer located in the prose of the output.
+
+18:27.300 --> 18:34.000
+It is located entirely in the design of the pipeline itself and in the subsequent selection among its outputs.
+
+18:34.280 --> 18:34.680
+Oh, I see.
+
+18:35.160 --> 18:36.700
+You didn't author a thousand essays.
+
+18:37.120 --> 18:38.160
+You authored a procedure.
+
+18:38.840 --> 18:40.020
+You authored a generator.
+
+18:41.060 --> 18:47.180
+Because the unit of production has expanded from the essay to the workflow, the unit of scrutiny must expand with it.
+
+18:47.180 --> 18:52.240
+We must evaluate the code, the parameters, and the constraints of the system you built.
+
+18:52.600 --> 18:52.620
+Okay.
+
+18:52.740 --> 18:55.460
+This is a heavy abstraction, so let's ground it.
+
+18:56.020 --> 19:03.680
+Because Flyxion provides three very distinct, highly detailed examples of these workflows to show us what this paradigm shift actually looks like in practice.
+
+19:03.780 --> 19:04.980
+They are great examples, too.
+
+19:05.200 --> 19:05.380
+Yeah.
+
+19:05.580 --> 19:08.480
+Let's look at the first one, which Flyxion calls the Screenplay Gallery.
+
+19:08.700 --> 19:08.920
+Right.
+
+19:09.500 --> 19:14.420
+So in the Screenplay Gallery workflow, the designer utilizes a moderately sized language model.
+
+19:14.420 --> 19:18.120
+The human's input is a catalog of highly specific premises.
+
+19:18.520 --> 19:19.280
+Premises for scripts?
+
+19:19.560 --> 19:19.740
+Yes.
+
+19:19.900 --> 19:24.120
+But importantly, these aren't generic prompts like write a romantic comedy.
+
+19:24.860 --> 19:30.100
+They are premises designed to illustrate complex mathematical or conceptual frameworks through narrative.
+
+19:30.520 --> 19:38.620
+For example, asking the model to write a scene that demonstrates the principles of non-Euclidean geometry through an argument between two architects.
+
+19:38.800 --> 19:39.660
+A perfect example.
+
+19:39.660 --> 19:48.860
+And for those who might need a quick refresher, non-Euclidean geometry involves spaces that are curved, unlike the flat planes of traditional geometry we learned in high school.
+
+19:49.600 --> 19:58.160
+In a non-Euclidean space, parallel lines might actually eventually intersect, or the angles of a triangle might not add up to 180 degrees.
+
+19:58.460 --> 19:59.300
+Which is hard to picture.
+
+19:59.300 --> 20:00.300
+Exactly.
+
+20:00.640 --> 20:05.460
+So trying to dramatize that mathematical reality requires a very specific type of logic.
+
+20:06.240 --> 20:10.340
+The language model is tasked with generating screenplays based on those conceptual premises.
+
+20:11.060 --> 20:11.100
+Okay.
+
+20:11.660 --> 20:22.060
+Then the workflow autonomously hands those generated screenplays over to an image generation model, which creates visual stills, like storyboards, for the scenes described in the text.
+
+20:22.060 --> 20:25.540
+So what is the human actually doing here then?
+
+20:25.820 --> 20:31.200
+Because they aren't writing the dialogue about intersecting parallel lines, and they certainly aren't drawing the storyboard pixels.
+
+20:31.740 --> 20:31.860
+Right.
+
+20:32.220 --> 20:36.000
+Flyxion points out that the designer's code is managing this sequence.
+
+20:36.660 --> 20:49.840
+It's managing the timing of the API calls, the variants requested at each stage to ensure diversity, the naming conventions of the files, and the final assembly of the text and images into a browsable gallery.
+
+20:50.000 --> 20:50.600
+It's structural.
+
+20:50.600 --> 20:51.360
+Exactly.
+
+20:51.680 --> 20:57.800
+The designer's intellectual contribution is the architecture of the stages and the overarching purpose of the assembly.
+
+20:58.620 --> 21:01.060
+The language model supplies the linguistic material.
+
+21:01.440 --> 21:02.980
+The image model interprets it visually.
+
+21:03.240 --> 21:13.140
+But the relations among these stages, the structural logic that makes it a cohesive gallery rather than random noise, that is dictated entirely by the human's code.
+
+21:13.800 --> 21:16.540
+You know, it reminds me of a television showrunner.
+
+21:16.800 --> 21:17.540
+Oh, that's interesting.
+
+21:17.720 --> 21:17.900
+Right?
+
+21:17.900 --> 21:24.900
+If you look at massive prestige TV series, the showrunner doesn't write every single line of dialogue in all 10 episodes.
+
+21:25.360 --> 21:29.720
+They certainly don't design every costume or frame every camera shot or adjust the lighting.
+
+21:29.720 --> 21:31.780
+No, they have huge teams for that.
+
+21:31.920 --> 21:32.200
+Exactly.
+
+21:32.700 --> 21:42.620
+But we still view the showrunner as the creative author of the series because their intellectual contribution is the vision, the structure, the delegation of tasks, and the final approval.
+
+21:42.620 --> 21:49.700
+In this workflow, the designer built the machine that created the show for a highly specific conceptual purpose.
+
+21:49.700 --> 21:52.280
+That analogy holds up incredibly well.
+
+21:52.540 --> 21:57.160
+A single person can now produce a catalog of several hundred multimedia projects.
+
+21:57.760 --> 22:06.040
+Not because they are working a million hours a week painting and typing, but because the workflow, once constructed, can execute the vision repeatedly.
+
+22:06.600 --> 22:11.080
+The direction is entirely traceable to the choices embodied in the script.
+
+22:11.080 --> 22:12.820
+Okay, that's the showrunner model.
+
+22:13.320 --> 22:16.840
+It stretches authorship, but I feel like we can wrap our heads around it.
+
+22:17.260 --> 22:20.180
+The second example, however, breaks the scale entirely.
+
+22:20.340 --> 22:21.000
+It really does.
+
+22:21.500 --> 22:25.360
+This is the 19 million essay machine I mentioned at the start of the deep dive.
+
+22:25.840 --> 22:28.760
+Walk me through the mechanics of how this workflow operates.
+
+22:28.760 --> 22:35.420
+Okay, so in this workflow, the designer begins with a corpus of previously developed human works.
+
+22:36.080 --> 22:46.560
+Let's say a population of 488 distinct academic papers, essays, or detailed data sets, all developed by a single author over their entire career.
+
+22:47.120 --> 22:48.120
+So it's their life's work.
+
+22:48.400 --> 22:49.200
+Basically, yes.
+
+22:49.800 --> 22:54.480
+The Python script is designed to treat this entire corpus as a population to be sampled.
+
+22:54.480 --> 23:04.100
+The code selects two or three items from those 488 works at random, and then it instructs the language model to propose a conceptual relation between them.
+
+23:04.760 --> 23:06.140
+So it isn't summarizing them.
+
+23:06.720 --> 23:08.960
+It's actively looking for synthesis.
+
+23:09.360 --> 23:09.620
+Yes.
+
+23:10.420 --> 23:19.760
+It might pull paper A from 2010 and paper B from 2024, and the prompt asks the AI, like, what is the unresolved tension between these two works?
+
+23:19.760 --> 23:26.520
+Or take the methodology used in paper A and apply it to the unresolved problem mentioned in the conclusion of paper B.
+
+23:27.200 --> 23:28.420
+Identify a boundary case.
+
+23:28.620 --> 23:28.920
+Exactly.
+
+23:29.400 --> 23:37.880
+It forces the model to perform the kind of associative, lateral thinking that a human scholar might experience during a sudden flash of insight in the shower.
+
+23:38.100 --> 23:38.300
+Right.
+
+23:38.620 --> 23:42.980
+The model exports detailed outlines and writing prompts based on these proposed relationships.
+
+23:43.480 --> 23:48.480
+Crucially, the script ensures that every single output carries strict provenance.
+
+23:48.480 --> 23:54.980
+It meticulously records exactly which of the 488 source texts were used to generate that specific outline.
+
+23:55.420 --> 23:57.620
+And this is where the math just explodes.
+
+23:57.960 --> 24:03.500
+Let's do the combinatorics here so we understand the sheer volume of this search space.
+
+24:03.780 --> 24:04.280
+Let's do it.
+
+24:04.340 --> 24:15.200
+If you have a pool of 488 eligible works and your script is looking for unordered pairs, just matching any two papers together, the formula is 488 choose 2.
+
+24:15.620 --> 24:15.880
+Right.
+
+24:15.880 --> 24:20.280
+That yields 118,828 possible pairs.
+
+24:20.880 --> 24:28.940
+And if the script is programmed to look for unordered triples, synthesizing three distinct papers, the math becomes 488 choose 3.
+
+24:28.940 --> 24:34.720
+Which results in 19,250,136 possible combinations.
+
+24:35.160 --> 24:40.140
+Almost 19 million potential source combinations, each generating a unique essay outline.
+
+24:40.140 --> 24:41.340
+It's mind-boggling.
+
+24:41.740 --> 24:46.680
+Now, the critical distinction FlyScan makes here is about intention and claims, right?
+
+24:47.000 --> 24:52.520
+Because a designer who builds and runs this workflow is not claiming to have authored 19 million essays.
+
+24:52.640 --> 24:54.880
+That would be an absurd, fraudulent claim.
+
+24:55.140 --> 24:55.360
+Right.
+
+24:55.620 --> 25:00.380
+No human lifespan could accommodate reading 19 million essays, let alone writing them.
+
+25:00.640 --> 25:03.980
+What the designer has authored is not a library of finished works.
+
+25:04.180 --> 25:08.520
+They have authored a procedure for entering a vast space of possible investigations.
+
+25:08.520 --> 25:10.520
+They authored this search space.
+
+25:10.640 --> 25:10.920
+Yes.
+
+25:11.300 --> 25:14.340
+They have defined the boundaries of an intellectual search space.
+
+25:14.520 --> 25:19.740
+That is such a vital concept to hold onto because it completely changes how we value the output.
+
+25:19.740 --> 25:27.220
+But, before we explore the economics of that search space, we have to look at the third workflow Flyxion details.
+
+25:27.960 --> 25:29.120
+Ah, Workflow 3.
+
+25:29.660 --> 25:31.960
+Because Workflow 3 is a satire.
+
+25:32.320 --> 25:34.480
+And it is a brilliant piece of performance art.
+
+25:34.820 --> 25:38.680
+But it reveals a deep vulnerability in our current academic infrastructure.
+
+25:39.080 --> 25:42.080
+It's hilarious, but also pretty terrifying.
+
+25:42.800 --> 25:45.480
+Workflow 3 is the cubic rhombus operation.
+
+25:45.480 --> 25:57.140
+This is a massive scale workflow dedicated entirely to generating preprint mathematical manuscripts about a completely invented fictional object called the cubic rhombus.
+
+25:57.740 --> 26:00.100
+A shape that literally does not exist in mathematics.
+
+26:00.380 --> 26:00.560
+Nope.
+
+26:01.000 --> 26:06.220
+And yet, this script churned out 14,000 preprints analyzing it.
+
+26:06.320 --> 26:07.900
+14,000.
+
+26:08.240 --> 26:10.540
+And they all share variations of the exact same title.
+
+26:11.180 --> 26:14.260
+A counterexample for the Euclidean cubic rhombus.
+
+26:14.260 --> 26:22.340
+And Flyxion points out that the immediate consequence of this workflow is the physical breaking of the infrastructure we rely on to host scholarship.
+
+26:22.780 --> 26:23.660
+It breaks the website.
+
+26:23.940 --> 26:24.200
+Yes.
+
+26:24.820 --> 26:30.300
+The public repository where these generated files are stored, the platform itself cannot handle the display.
+
+26:30.960 --> 26:34.960
+If you go to the directory listing, it truncates at exactly 1,000 files.
+
+26:35.320 --> 26:36.780
+The website literally gives up.
+
+26:37.000 --> 26:41.940
+You scroll to the bottom of the first 1,000 papers, then it just says 13,000 entries omitted.
+
+26:41.940 --> 26:47.740
+The digital architecture of academic sharing was fundamentally not built to withstand algorithmic volume.
+
+26:48.160 --> 26:48.500
+Not at all.
+
+26:49.400 --> 26:54.140
+But the true profundity of this satire lies in examining the code and the final output itself.
+
+26:54.780 --> 27:05.300
+Flyxion takes us deep into the repository, specifically analyzing an October 9, 2026 commit in the Flyxion math repository, looking at the final manuscript generated.
+
+27:05.300 --> 27:11.680
+And if you read the title of this manuscript, it sounds like the most advanced, intimidating mathematical breakthrough imaginable.
+
+27:11.900 --> 27:12.920
+Oh, it's packed with jargon.
+
+27:13.120 --> 27:23.220
+It references, quote, weighted geometry, toroidal topology, smooth regularity, periodic boundary conditions, and a computer-assisted technique.
+
+27:23.220 --> 27:30.860
+It is a masterpiece of dense academic jargon, but let's demystify what those terms mean in contrast to what the paper actually does.
+
+27:30.980 --> 27:31.380
+Please do.
+
+27:31.780 --> 27:36.380
+So, toroidal topology refers to the mathematical properties of a donut shape, a torus.
+
+27:36.980 --> 27:40.640
+Smooth regularity deals with surfaces that have no sharp points or cusps.
+
+27:41.000 --> 27:42.640
+It sounds incredibly complex.
+
+27:42.640 --> 27:55.580
+Yet, when you look at the table of parameters within the manuscript itself, the text explicitly admits that five of those seven incredibly complex-sounding concepts play absolutely no role in the argument.
+
+27:56.000 --> 27:58.800
+But the whole intimidating title is essentially a costume.
+
+27:59.020 --> 27:59.600
+Precisely.
+
+27:59.960 --> 28:07.660
+The entire manuscript boils down to a single elementary proposition about the determinant of a matrix with constant off-diagonal entries.
+
+28:07.820 --> 28:08.520
+Okay, wait, pause.
+
+28:08.520 --> 28:18.320
+For those of us who haven't taken linear algebra since college, what does the determinant of a matrix with constant off-diagonal entries actually mean in plain English?
+
+28:18.840 --> 28:21.820
+Why is it funny that they wrapped this up in toroidal topology?
+
+28:22.320 --> 28:22.480
+Right.
+
+28:22.700 --> 28:22.920
+Okay.
+
+28:23.340 --> 28:26.400
+A matrix is just a grid of numbers arranged in rows and columns.
+
+28:26.900 --> 28:31.520
+The diagonal is the line of numbers going from the top left to the bottom right.
+
+28:31.640 --> 28:31.820
+Okay.
+
+28:32.380 --> 28:32.820
+Got it.
+
+28:33.300 --> 28:36.260
+Off-diagonal entries are just all the other numbers in the grid.
+
+28:36.260 --> 28:40.880
+Constant means those other numbers are all the exact same value.
+
+28:41.260 --> 28:41.580
+Simple enough.
+
+28:42.120 --> 28:52.100
+And the determinant is simply a special single number you can calculate from that grid that tells you certain properties about it, like whether the equations it represents have a unique solution.
+
+28:52.980 --> 28:59.540
+Calculating the determinant of a matrix where almost all the numbers are the same is a known, relatively straightforward algebraic exercise.
+
+28:59.900 --> 29:02.260
+It is a tiny, simple math problem.
+
+29:02.260 --> 29:10.200
+So they took a basic algebra homework problem and they dressed it up in the language of advanced multidimensional topology.
+
+29:10.580 --> 29:10.820
+Yes.
+
+29:11.040 --> 29:16.340
+It's like putting a carbon fiber spoiler, racing stripes, and a jet engine decal on a push lawnmower.
+
+29:16.480 --> 29:19.200
+That is an excellent visualization of the absurdity.
+
+29:20.080 --> 29:22.760
+And the manuscript makes no attempt to hide this inflation either.
+
+29:23.120 --> 29:29.580
+It identifies itself internally as merely one of 256 manuscripts in its specific release class.
+
+29:29.580 --> 29:36.100
+But the absolute mic drop moment of this satire is the verification table appended to the very end of the paper.
+
+29:36.560 --> 29:37.640
+Oh, this is the best part.
+
+29:38.000 --> 29:42.620
+This is where the artifact violently discloses its own nature to the reader.
+
+29:42.960 --> 29:43.840
+It really does.
+
+29:44.240 --> 29:46.980
+The table lists human review as none.
+
+29:47.520 --> 29:50.440
+It lists independent scrutiny as none.
+
+29:50.980 --> 29:53.720
+It lists novelty as not assessed.
+
+29:53.720 --> 29:58.720
+And then, the manuscript closes with a blunt, undeniable statement.
+
+29:59.360 --> 30:06.500
+It explicitly states that the text does not support the hypothesis that it is an independent mathematical contribution.
+
+30:07.020 --> 30:07.800
+It just tells you.
+
+30:07.800 --> 30:14.420
+And it repeats this exact sentence in the abstract, the introduction, the discussion, and the final section.
+
+30:14.800 --> 30:18.220
+It is practically screaming at the reader, do not take me seriously.
+
+30:18.480 --> 30:20.300
+I am a product of sheer volume.
+
+30:20.840 --> 30:24.200
+And this is Fly Action's ultimate point with the cubic rhombus.
+
+30:24.200 --> 30:29.740
+This disclosure isn't a confession extracted from a guilty author who got caught cheating with AI.
+
+30:30.520 --> 30:35.160
+The disclosure is a built-in structural property of the artifact itself.
+
+30:35.420 --> 30:42.700
+The uniform structure, the repeated titles, the volume that breaks the hosting platform, together, they form a unified statement.
+
+30:43.280 --> 30:47.440
+The unit of interest here is not the individual 14,000th manuscript.
+
+30:47.700 --> 30:48.980
+The text is irrelevant.
+
+30:49.620 --> 30:52.480
+The unit of interest is the generator that produced it.
+
+30:52.480 --> 31:00.600
+It's performance art, proving that we now have the capability to generate infinitely more text than we can display, let alone read.
+
+31:01.100 --> 31:04.320
+Which kind of brings us to a massive economic question, doesn't it?
+
+31:04.680 --> 31:05.140
+It does.
+
+31:05.680 --> 31:13.320
+If the cubic rhombus proves we can break platforms with noise, what is the actual, tangible value of Workflow 2?
+
+31:13.920 --> 31:18.380
+What is the value of a machine churning out 19 million essay outlines?
+
+31:19.300 --> 31:21.580
+Is it just academic spam?
+
+31:21.580 --> 31:24.220
+That is the pivotal question of this era.
+
+31:24.640 --> 31:28.660
+And Bilaxian answers it by driving home a critical distinction that we must all adopt.
+
+31:29.160 --> 31:32.400
+A count of possible combinations is never a count of works.
+
+31:32.620 --> 31:34.780
+It is solely a count of opportunities.
+
+31:35.260 --> 31:39.960
+Because realistically, out of those 19 million outlines, how many are actually going to be good?
+
+31:40.340 --> 31:44.180
+The vast, overwhelming majority of them will be completely useless.
+
+31:44.460 --> 31:44.580
+Right.
+
+31:44.580 --> 31:49.160
+Many will be logically incoherent, hallucinating connections that just don't exist.
+
+31:49.980 --> 31:56.380
+Many will be entirely redundant, simply summarizing what the source text's already established without adding anything new.
+
+31:57.260 --> 32:01.240
+Many will be technically coherent, but just intellectually trivial.
+
+32:01.240 --> 32:09.420
+Like, the sky is blue in paper A, water is wet in paper B, conclusion generated, physical things have physical properties.
+
+32:09.820 --> 32:10.160
+Exactly.
+
+32:10.740 --> 32:12.980
+A perfect example of a trivial output.
+
+32:13.520 --> 32:13.980
+Useless.
+
+32:14.820 --> 32:20.480
+However, a very small, marginal fraction of those 19 million combinations might yield something brilliant.
+
+32:20.700 --> 32:21.760
+A diamond in the rough.
+
+32:21.760 --> 32:22.320
+Right.
+
+32:22.940 --> 32:30.440
+The AI might propose a juxtaposition, a tension between two obscure methodologies that neither source author anticipated.
+
+32:30.960 --> 32:37.000
+And that a human scholar might never have thought to combine on their own, due to the limits of human memory and association.
+
+32:37.420 --> 32:37.520
+Right.
+
+32:37.600 --> 32:41.860
+Because we just can't hold 488 papers in our active memory at once.
+
+32:41.960 --> 32:42.260
+Exactly.
+
+32:42.760 --> 32:48.200
+But identifying those few brilliant needles in that colossal haystack requires reading.
+
+32:48.620 --> 32:49.500
+And reading is slow.
+
+32:49.500 --> 32:53.160
+You know, hearing you say that, it makes me think of an analogy.
+
+32:54.740 --> 33:05.000
+Describing those 19 million generated outlines as 19 million essays, it's like walking into a massive, cavernous, newly built library.
+
+33:05.160 --> 33:05.740
+Okay, yeah.
+
+33:06.040 --> 33:09.880
+You look around at miles and miles of empty wooden shelves.
+
+33:10.400 --> 33:14.660
+And you turn to me and say, look, I have a library of 19 million books.
+
+33:14.900 --> 33:15.800
+But you don't.
+
+33:16.260 --> 33:16.520
+Right.
+
+33:16.600 --> 33:17.620
+You don't have books.
+
+33:17.620 --> 33:19.500
+You have shelf positions.
+
+33:20.180 --> 33:22.680
+You have the structural capacity to hold books.
+
+33:23.180 --> 33:30.040
+But until you actually fill those specific coordinates with written, vetted, readable text, you just have empty space.
+
+33:30.040 --> 33:35.500
+You are counting the geometry of the space, not the intellectual content within it.
+
+33:35.500 --> 33:37.700
+That is precisely the illusion of volume.
+
+33:38.200 --> 33:48.560
+And Flyxion actually elevates this concept by bringing in a very precise scientific parallel, which is combinatorial chemistry and the process of virtual screening in modern pharmacology.
+
+33:48.560 --> 33:51.680
+Oh, I don't know much about drug discovery.
+
+33:51.680 --> 33:53.240
+How does that parallel work?
+
+33:53.240 --> 33:58.840
+So in modern drug discovery, scientists don't just mix chemicals and beakers randomly anymore.
+
+33:59.260 --> 34:04.340
+They use software to generate an enormous, innumerable space of possible molecular compounds.
+
+34:04.840 --> 34:09.340
+They might map out millions and millions of potential chemical structures in silico.
+
+34:09.700 --> 34:10.140
+On the computer.
+
+34:10.140 --> 34:16.900
+Yes, but no chemist looks at that massive database and claims they have made a million scientific discoveries.
+
+34:17.380 --> 34:22.120
+They understand from the outset that this database is merely the boundary of a search space.
+
+34:22.120 --> 34:28.040
+It's a map of where they might look for a cure, not a catalog of cures they have already found.
+
+34:28.040 --> 34:28.600
+Exactly.
+
+34:29.100 --> 34:40.480
+They then use virtual screening, which are computational models that test how these millions of hypothetical molecules might bind to a specific disease target, like a lock and key enzyme model.
+
+34:41.000 --> 34:41.080
+Right.
+
+34:41.660 --> 34:45.200
+The software filters the millions down to a few hundred promising candidates.
+
+34:45.200 --> 34:52.940
+But even then, the actual discovery doesn't happen until a human synthesizes the compound in a physical lab and tests its efficacy.
+
+34:53.820 --> 34:58.280
+The massive generative search space merely optimized where human attention should be directed.
+
+34:58.840 --> 34:59.040
+Wow.
+
+34:59.440 --> 35:09.400
+So if generative models can instantly map the entire intellectual search space of 488 academic papers, the bottleneck of scholarship completely shifts.
+
+35:09.780 --> 35:10.420
+Fundamentally.
+
+35:10.740 --> 35:14.460
+Generative models change the fundamental economics of scholarly attention.
+
+35:14.460 --> 35:15.440
+How so?
+
+35:16.020 --> 35:19.140
+Well, for centuries, the primary bottleneck in academia was production.
+
+35:19.640 --> 35:25.460
+The physical time it took to research, type, rewrite, format, and publish an article constrained the volume of knowledge.
+
+35:25.780 --> 35:27.840
+But production's no longer the bottleneck.
+
+35:28.280 --> 35:31.380
+The rendering of prose is practically free and instantaneous now.
+
+35:31.840 --> 35:32.100
+Right.
+
+35:32.320 --> 35:33.340
+Hit a button and it's there.
+
+35:33.740 --> 35:39.560
+The binding constraint, the ultimate scarce resource in this new era, is the time of a competent human reader.
+
+35:39.560 --> 35:46.700
+Because only a human reader can look at an outline and definitively say, this is profound or this is trivial nonsense.
+
+35:47.200 --> 35:50.840
+The machine has provided a massive gain in the supply of candidate questions.
+
+35:51.480 --> 35:53.280
+It has not provided a supply of answers.
+
+35:53.880 --> 36:01.540
+Converting a candidate question into a genuine scholarly contribution depends entirely on human inspection, judgment, and endorsement.
+
+36:01.940 --> 36:05.320
+And human judgment remains strictly bounded by the number of hours in a day.
+
+36:05.320 --> 36:10.080
+This real estate brings us to a really uncomfortable dilemma regarding integrity, though.
+
+36:10.520 --> 36:11.020
+Oh, definitely.
+
+36:11.520 --> 36:18.100
+Because if we go back to Diaspermont, his whole solution for maintaining scholarly honesty was sentence-level vigilance.
+
+36:18.460 --> 36:21.140
+The author monitoring the AI word by word.
+
+36:21.800 --> 36:30.060
+But if the bottleneck is human attention and your output is 19 million outlines, you mathematically cannot maintain sentence-level vigilance.
+
+36:30.300 --> 36:32.620
+You die before you finish reading a fraction of it.
+
+36:32.620 --> 36:32.980
+Right.
+
+36:33.920 --> 36:37.480
+The old form of self-discipline is physically impossible at this scale.
+
+36:37.620 --> 36:41.360
+So how does a workflow designer actually maintain their integrity?
+
+36:42.200 --> 36:45.520
+Flyxion argues that the self-discipline of the scholar must evolve.
+
+36:45.680 --> 36:46.600
+It must move upstream.
+
+36:47.400 --> 36:50.800
+It can no longer be applied solely to the surface of the final prose.
+
+36:51.160 --> 36:53.840
+It must be applied to the pipeline itself.
+
+36:54.140 --> 36:54.720
+The pipeline.
+
+36:55.220 --> 36:58.180
+The discipline of the scholar becomes the discipline of the pipeline.
+
+36:58.180 --> 37:06.740
+And Flyxion lays out four rigorous new criteria for how a workflow designer must evaluate and report their own work to maintain intellectual honesty.
+
+37:07.280 --> 37:07.300
+Okay.
+
+37:07.440 --> 37:15.520
+Let's spend some time on these four criteria because this feels like the blueprint for how academic publishing is going to have to operate for the next century.
+
+37:16.200 --> 37:18.100
+Number one is specification.
+
+37:18.640 --> 37:18.820
+Right.
+
+37:19.760 --> 37:25.320
+Specification demands that the designer be acutely aware of what their curve dictates versus what it delegates.
+
+37:25.660 --> 37:26.320
+What do you mean by that?
+
+37:26.320 --> 37:30.220
+As a designer, what exact parameters did you fix in place?
+
+37:30.460 --> 37:32.940
+What temperature setting did you use for the language model?
+
+37:33.460 --> 37:42.660
+Did you force it to use specific vocabulary or did you deliberately leave the prompt open for the model to hallucinate or discover novel associations?
+
+37:43.160 --> 37:43.240
+Right.
+
+37:43.660 --> 37:50.500
+You must transparently document where your rigid instructions end and the model's probabilistic associations begin.
+
+37:50.720 --> 37:51.520
+That makes total sense.
+
+37:51.820 --> 37:53.920
+Number two is provenance.
+
+37:53.920 --> 37:58.620
+We touched on this with the 19 million machine, but why is it a core pillar of discipline?
+
+37:59.060 --> 38:04.260
+Because without strict provenance, the entire generative endeavor just collapses into unverifiable noise.
+
+38:04.700 --> 38:10.060
+Provenance means the sources must remain inextricably visible throughout every stage of the pipeline.
+
+38:10.060 --> 38:12.700
+So you always know where ideas came from.
+
+38:13.100 --> 38:13.480
+Exactly.
+
+38:13.880 --> 38:20.900
+When a reader or the designer themselves looks at a final output, they must be able to cleanly trace the lineage of the ideas.
+
+38:21.340 --> 38:24.700
+What concept came directly from the original human authored text?
+
+38:25.020 --> 38:28.900
+What transitional logic was supplied by the AI model's training data priors?
+
+38:29.120 --> 38:29.380
+Right.
+
+38:29.380 --> 38:37.200
+Without that map, you cannot verify the origin of the thought, and you risk plagiarizing the machine's hidden training data without even knowing it.
+
+38:37.520 --> 38:37.660
+Okay.
+
+38:37.900 --> 38:40.080
+Number three is the sampling regime.
+
+38:40.340 --> 38:45.780
+Since human attention is the bottleneck and you literally can't read 19 million outputs, you have to sample them.
+
+38:46.120 --> 38:46.460
+Correct.
+
+38:47.020 --> 38:51.880
+And the discipline here lies in the statistical honesty of how you inspect that sample.
+
+38:52.140 --> 38:52.840
+Give me an example.
+
+38:52.840 --> 39:05.020
+If you generate 19 million outlines, and you read exactly five of them, and three happen to be brilliant, you cannot turn around and claim that the entire generated body of 19 million works is brilliant.
+
+39:05.280 --> 39:06.260
+Because you don't know that.
+
+39:06.620 --> 39:07.160
+Exactly.
+
+39:07.760 --> 39:14.540
+Your claim of quality, utility, or novelty must be strictly bounded by the statistical reality of your inspection.
+
+39:15.200 --> 39:17.900
+You can only vouch for the percentage you have actually read.
+
+39:18.360 --> 39:21.760
+Which perfectly sets up the fourth and arguably most important criterion.
+
+39:21.760 --> 39:23.900
+Proportionate description.
+
+39:24.620 --> 39:27.540
+This feels like the ultimate honesty test for the modern scholar.
+
+39:28.100 --> 39:28.740
+It really is.
+
+39:29.440 --> 39:34.440
+Proportionate description requires the scholar to use language that accurately reflects the reality of their labor.
+
+39:35.060 --> 39:38.940
+It means presenting your workflow in four highly distinct categories.
+
+39:39.460 --> 39:40.080
+Walk us through them.
+
+39:40.760 --> 39:43.360
+First, here is the enumerated space.
+
+39:43.640 --> 39:46.360
+That's the mathematical bound of the 19 million possibilities.
+
+39:46.900 --> 39:47.660
+The empty shelves.
+
+39:48.140 --> 39:48.420
+Yes.
+
+39:48.920 --> 39:51.500
+Second, here are the generated outputs.
+
+39:51.760 --> 39:55.740
+That's the subset I actually spent compute credits to prompt the machine to write out.
+
+39:56.540 --> 39:59.120
+Third, here are the inspected outputs.
+
+39:59.680 --> 40:03.540
+This is the specific subset I actually sat down and read with my human eyes.
+
+40:03.980 --> 40:07.400
+And finally, fourth, here are the retained outputs.
+
+40:07.400 --> 40:09.200
+The ones that were actually good.
+
+40:09.680 --> 40:10.040
+Right.
+
+40:10.220 --> 40:12.640
+The handful that were actually profound enough to endorse.
+
+40:13.440 --> 40:23.200
+Blurring these categories, like implying you completed intellectual labor that was merely enumerated by code, that converts a brilliant piece of pipeline design into a fraudulent report.
+
+40:23.200 --> 40:25.760
+I want to push back on this framework a little bit, though.
+
+40:26.180 --> 40:29.620
+Let's say I'm an incredibly talented coder.
+
+40:29.620 --> 40:34.080
+I write a pipeline with a mathematically rigid specification.
+
+40:34.540 --> 40:36.240
+I lock down every single variable.
+
+40:36.240 --> 40:44.000
+I write a script so tight that it essentially forces the language model down a single, very narrow corridor of logic.
+
+40:44.000 --> 40:48.080
+Doesn't the tightness of my code solve the delegation problem?
+
+40:48.520 --> 40:49.680
+It seems like it would, right?
+
+40:49.780 --> 40:49.980
+Yeah.
+
+40:50.200 --> 41:00.900
+If I write a strict enough script, haven't I basically eliminated the AI's influence and therefore I can claim the output is purely 100% mine without needing all these sampling caveats?
+
+41:00.900 --> 41:05.880
+It is a logical assumption, but Flyxion's stance is a resounding no.
+
+41:06.580 --> 41:10.720
+Tightness of specification does not solve the fundamental issue of delegation.
+
+41:11.340 --> 41:11.680
+Why not?
+
+41:11.920 --> 41:13.820
+If I control the code, I control the thought.
+
+41:14.080 --> 41:18.120
+Because the separation of thought and rendering does not happen in the lines of code.
+
+41:18.700 --> 41:26.880
+Even a highly detailed, rigid specification can still hand monumental, intellectually consequential decisions over to a model.
+
+41:27.360 --> 41:27.640
+How?
+
+41:27.640 --> 41:44.180
+For example, if your strict code tells an AI to format a text perfectly into a 500-word summary, but allows the AI to decide which concepts to summarize to fit that word count, the AI is still making massive intellectual choices about what to omit.
+
+41:44.780 --> 41:45.240
+Oh, wow.
+
+41:45.820 --> 41:47.720
+I didn't think about omission as a choice.
+
+41:48.760 --> 41:49.160
+Exactly.
+
+41:49.880 --> 41:56.660
+Conversely, a very open, loose specification might be designed deliberately by the human to solicit unexpected discoveries.
+
+41:56.660 --> 42:02.900
+So the volume or strictness of the code doesn't correlate to the amount of humanness in the output.
+
+42:03.500 --> 42:03.940
+Precisely.
+
+42:04.400 --> 42:08.260
+You only own the thought if you review the rendering and endorse it as your own.
+
+42:08.640 --> 42:11.480
+The integrity doesn't come from writing an airtight script.
+
+42:11.900 --> 42:19.880
+It comes from the record of delegation, the transparency of what you asked the machine to do, and your subsequent endorsement of what you actually sat down and read.
+
+42:19.880 --> 42:33.180
+You know, if proportionate description, provenance, and honest sampling are the right ways to evaluate this new era of work, Flyxion argues we also have to turn a critical eye toward the wrong ways we currently evaluate work.
+
+42:33.340 --> 42:36.900
+And this part of the paper really shifted how I view academic arguments.
+
+42:36.900 --> 42:45.820
+It's a concept Flyxion calls the symmetry of the proxy, and it exposes this massive false purity test in our culture.
+
+42:46.500 --> 42:51.020
+It is perhaps the most incisive cultural critique in the entire essay, honestly.
+
+42:51.300 --> 42:55.500
+Let's revisit the stylistic proxy we discussed earlier, the M-dash.
+
+42:55.500 --> 43:04.700
+Right. We established that falsely accusing a text of being AI-generated just because it uses an M-dash or a tricolon is a bad proxy.
+
+43:05.220 --> 43:10.200
+It's a lazy, unscientific way to avoid actually engaging with the text's argument.
+
+43:10.680 --> 43:20.100
+Yes. But Flyxion argues that this bad proxy has a mirror image, a perfect reflection that functions in exactly the same way and is just as damaging to scholarly debate.
+
+43:20.280 --> 43:20.800
+What is it?
+
+43:21.040 --> 43:23.900
+And that is the declaration of human authenticity.
+
+43:23.900 --> 43:25.700
+You mean the badge of honor?
+
+43:26.220 --> 43:30.180
+The scholar proudly declaring, I wrote this with 100% no assistance.
+
+43:30.480 --> 43:35.620
+Free-range, organic, artisanally crafted human prose typed entirely by my own two hands.
+
+43:35.820 --> 43:36.260
+Exactly.
+
+43:36.720 --> 43:42.280
+When a scholar makes that declaration, Flyxion argues it functions identically to an accusation of AI use.
+
+43:42.540 --> 43:49.600
+I might need you to walk me through that because how is boasting about hard work the same as accusing someone of cheating?
+
+43:50.120 --> 43:52.940
+Because they are both just process claims.
+
+43:52.940 --> 43:54.700
+They are stories about origin.
+
+43:54.880 --> 43:57.400
+They are narratives about how the text came to exist.
+
+43:58.160 --> 44:02.300
+And as a reader, you cannot actually verify either of them just by looking at the artifact.
+
+44:03.240 --> 44:09.660
+More importantly, both narratives are deployed strategically to bypass the actual evaluation of the intellectual merit.
+
+44:10.120 --> 44:10.660
+Oh, I see.
+
+44:10.900 --> 44:12.400
+They are rhetorical shields.
+
+44:12.680 --> 44:13.060
+Exactly.
+
+44:13.060 --> 44:15.440
+Think about how these claims are weaponized out there.
+
+44:15.440 --> 44:27.320
+As Das Pramant pointed out, an accusation of AI use can be wielded by the establishment to easily dismiss disruptive, novel, or unpopular voices without ever having to debate their actual points.
+
+44:27.320 --> 44:30.360
+We don't need to engage with this radical new theory.
+
+44:30.700 --> 44:32.460
+It uses too many transition phrases.
+
+44:32.960 --> 44:34.580
+It was probably written by ChatGPT.
+
+44:34.900 --> 44:35.140
+Right.
+
+44:35.240 --> 44:36.820
+It is a silencing tactic.
+
+44:37.100 --> 44:40.560
+It protects the status quo by delegitimizing the challenger's tools.
+
+44:41.220 --> 44:53.500
+But on the flip side, the unexamined reputation for human authenticity is used as a shield to protect conventional, perhaps intellectually lazy, or deeply flawed scholarship from real critique.
+
+44:53.500 --> 44:56.560
+It creates an aura of unearned authority.
+
+44:57.160 --> 44:59.960
+Like, you can't criticize this paper's lack of original thought.
+
+45:00.220 --> 45:03.700
+It was painstakingly written by a tenured professor with a fountain pen.
+
+45:04.180 --> 45:04.560
+Exactly.
+
+45:05.100 --> 45:07.220
+It's the ultimate false purity test.
+
+45:07.340 --> 45:10.000
+We are judging the origins rather than the ideas.
+
+45:10.580 --> 45:18.340
+But the reality is, a complex, beautifully coded AI pipeline doesn't automatically confer brilliance onto a piece of logical garbage.
+
+45:18.540 --> 45:18.760
+No.
+
+45:18.760 --> 45:24.520
+But at the same time, writing with a quill by candlelight doesn't automatically make your ideas profound.
+
+45:25.040 --> 45:28.240
+The origin story does not dictate the value of the thought.
+
+45:28.480 --> 45:31.260
+You have hit the exact core of the argument.
+
+45:31.940 --> 45:33.420
+Process claims are secondary.
+
+45:34.000 --> 45:43.620
+Whether you are judging a single, hand-typed essay or a 19 million output generative workflow, the consistent, rigorous position must be the same.
+
+45:43.620 --> 45:53.060
+Examine the text, examine the design of the pipeline, examine the providence of the sources, and evaluate the actual, tangible thought presented.
+
+45:53.660 --> 45:56.000
+Origin is not destiny in scholarship.
+
+45:56.440 --> 45:56.900
+Well said.
+
+45:57.400 --> 46:01.220
+This has been an incredibly dense, genuinely paradigm-shifting journey today.
+
+46:01.580 --> 46:04.420
+Let's consolidate the core shift as we wrap up this deep dive.
+
+46:04.620 --> 46:05.080
+Good idea.
+
+46:05.080 --> 46:07.780
+So we started with the old rule, the baseline.
+
+46:08.540 --> 46:16.200
+For a single essay, the scholar must police the boundary between their thought and the machine's rendering, sentence by sentence, word by word.
+
+46:16.920 --> 46:26.880
+But as our unit of production inevitably shifts from the handcrafted essay to the massive generative workflow, our unit of scrutiny must shift alongside it.
+
+46:26.880 --> 46:34.840
+We can no longer rely on the rhythm of a sentence, the presence of an em-dash, or a boast of human purity to tell us if a text has value.
+
+46:35.140 --> 46:37.180
+We must expand our scrutiny upstream.
+
+46:37.600 --> 46:44.080
+We must look at the design of the pipeline, the strictness of the provenance, and the mathematical honesty of the sampling regime.
+
+46:44.760 --> 46:48.000
+But, and this is the crucial caveat Flyxion leaves us with,
+
+46:48.720 --> 46:55.880
+expanding our scrutiny to the workflow never, ever relieves anyone of the fundamental obligation to examine the individual work.
+
+46:55.880 --> 46:56.720
+Never.
+
+46:57.040 --> 46:59.580
+If you make a claim about an essay, you have to read the essay.
+
+47:00.100 --> 47:03.200
+If you make a claim about a generator, you have to examine its code.
+
+47:03.960 --> 47:05.220
+The obligations accumulate.
+
+47:05.660 --> 47:06.820
+They don't cancel each other out.
+
+47:07.780 --> 47:09.360
+Reading remains the bottleneck.
+
+47:09.860 --> 47:14.000
+Which brings us to a final, rather provocative thought to leave you with.
+
+47:14.460 --> 47:21.820
+A thought that builds on everything Flyxion has argued about human attention being the ultimate, unyielding, binding constraint of scholarship.
+
+47:22.200 --> 47:23.380
+I am bracing myself.
+
+47:24.480 --> 47:25.660
+What is the final thought?
+
+47:25.880 --> 47:32.400
+Well, Flyxion asserts that reading cannot be automated without importing the very question that needs answering.
+
+47:33.100 --> 47:38.260
+You cannot ask an AI to evaluate if an AI's essay is a brilliant human-level breakthrough,
+
+47:38.580 --> 47:43.560
+because you are relying on the machine's internal priors to judge the machine's own output.
+
+47:43.780 --> 47:44.520
+It's a closed loop.
+
+47:45.060 --> 47:45.400
+Exactly.
+
+47:45.400 --> 47:53.360
+But, if human attention is the absolute bottleneck in validating these millions of AI-generated hypotheses,
+
+47:53.780 --> 47:58.220
+how long until the sheer pressure of that volume forces our hand?
+
+47:58.600 --> 48:00.360
+Oh, I see where this is going.
+
+48:00.360 --> 48:08.320
+How long until we, as a society, overwhelmed by generated search spaces, are forced to build secondary AI workflows,
+
+48:08.760 --> 48:13.560
+designed not to generate the texts, but specifically to evaluate and endorse them on our behalf.
+
+48:13.660 --> 48:14.220
+Wow.
+
+48:14.480 --> 48:16.740
+To act as our proxies in the reading process.
+
+48:16.740 --> 48:24.860
+And if we'd reach that point, when the machine becomes both the author of the 19 million options and the sole reader capable of grading them,
+
+48:25.440 --> 48:29.300
+where exactly does the human discipline of thought reside?
+
+48:29.300 --> 48:35.800
+When the executive chef outsources both the cooking and the tasting, what is the chef actually doing?
+
+48:37.020 --> 48:38.840
+That is a haunting question to leave on.
+
+48:39.400 --> 48:43.320
+You know, we started this deep dive imagining you sitting at your desk, hitting run,
+
+48:43.860 --> 48:47.580
+and generating 19 million essays in an afternoon while you grabbed a coffee.
+
+48:48.060 --> 48:48.340
+Yeah.
+
+48:48.820 --> 48:55.420
+The terrifying and thrilling reality is that the tools to do exactly that are already here.
+
+48:55.960 --> 48:57.360
+The search space is open.
+
+48:57.360 --> 49:04.120
+The only question left is whether our human ability to judge the geometry of that space can catch up.
+
+49:05.220 --> 49:06.880
+Thank you for joining us on this deep dive.
+

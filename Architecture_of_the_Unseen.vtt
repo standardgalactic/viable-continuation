@@ -1,0 +1,1859 @@
+WEBVTT
+
+00:00.000 --> 00:06.640
+imagine you're holding like just an ordinary red clay brick right it's rough it's heavy
+
+00:06.640 --> 00:12.040
+it uh it looks like it belongs on literally any construction site in the world yeah completely
+
+00:12.040 --> 00:17.820
+mundane but what if i told you that inside the microscopic physical pores of that single
+
+00:17.820 --> 00:25.680
+ordinary brick is the entire english wikipedia which is wild to even think about and like more
+
+00:25.680 --> 00:31.800
+importantly what if i told you it was put there intentionally like baked into the clay to survive
+
+00:31.800 --> 00:37.760
+the total collapse of modern digital civilization it really forces you to completely re-evaluate
+
+00:37.760 --> 00:44.800
+what you are actually looking at right because we are well we're cognitively wired to just accept the
+
+00:44.800 --> 00:51.460
+surface interface of our world as the complete reality exactly and that is the exact trap we are
+
+00:51.460 --> 00:57.440
+dismantling today you sent us a stack of intensely technical cutting-edge source materials and our
+
+00:57.440 --> 01:02.480
+mission for this deep dive is to explore what we are calling the architecture of the unseen i love
+
+01:02.480 --> 01:08.460
+that title thanks at first glance you know your reading list seemed like four completely unrelated
+
+01:08.460 --> 01:14.700
+disciplines i mean we've got a dense mathematical paper on cryptography and steganography right we
+
+01:14.700 --> 01:20.300
+have a material science proposal for embedding distributed archives into everyday objects like
+
+01:20.300 --> 01:25.700
+that brick i mentioned yeah then we have a geological inquiry into the oxygen history of the deep earth
+
+01:25.700 --> 01:31.940
+and the violent formation of the moon and finally a theoretical economics manuscript about something
+
+01:31.940 --> 01:38.220
+called viable continuation which i know sounds like an absolute administrative nightmare of a reading
+
+01:38.220 --> 01:43.360
+list it really does but when you lay them all out on the table this profound thematic through line
+
+01:43.360 --> 01:48.320
+emerges every single one of these papers is trying to solve the exact same problem and what's that
+
+01:48.320 --> 01:55.880
+it's the severe tension between the clean observable surface of a system and the critical often
+
+01:55.880 --> 02:01.840
+dangerous realities hidden structurally beneath it okay let's unpack this because to understand how
+
+02:01.840 --> 02:06.780
+things are hidden in the physical world or the geological record or even you know in your bank
+
+02:06.780 --> 02:13.940
+account we have to start with the most literal mathematical form of hidden architecture right secrecy systems
+
+02:13.940 --> 02:19.400
+exactly secrecy systems we need to dissect the fundamental difference between hiding what a
+
+02:19.400 --> 02:26.980
+message says and hiding that a message even exists and for that we bring you into the warden's problem yes the
+
+02:26.980 --> 02:32.580
+warden's problem this is a classic thought experiment it was posed by the cryptographer gustavus simmons back
+
+02:32.580 --> 02:39.500
+in uh 1983 i think and it is the foundational bedrock of the first paper you sent us so paint the picture
+
+02:39.500 --> 02:44.460
+for us i want you to put yourself in this scenario imagine you have two prisoners let's call them
+
+02:44.460 --> 02:50.700
+alice and bob classic groupography names always so they are in separate cells and they're trying to
+
+02:50.700 --> 02:57.340
+coordinate a highly complex escape plan but all of their communication has to pass through a warden
+
+02:57.340 --> 03:03.980
+let's call the warden eve and eve is not just like a passive mail carrier right she is actively analyzing
+
+03:03.980 --> 03:09.840
+every single thing they pass back and forth actively and aggressively if eve sees a message that looks even
+
+03:09.840 --> 03:16.520
+remotely suspicious like a secret code a strange diagram a cipher she doesn't need to mathematically break the code
+
+03:16.520 --> 03:22.140
+right she just throws alice and bob into solitary confinement and cuts off the communication channel entirely
+
+03:22.140 --> 03:29.940
+suspicion alone is sufficient to doom the prisoners so alice clearly cannot send a letter that says you know
+
+03:29.940 --> 03:36.460
+hey bob we dig the tunnel at midnight no that's plain text eve reads it game over but this is where my
+
+03:36.460 --> 03:41.440
+intuition and i think the intuition of most people listening completely fails because normally you think
+
+03:41.440 --> 03:47.540
+okay just use military grade encryption right just lock it down yeah encrypt the file so heavily that
+
+03:47.540 --> 03:52.980
+the nsa couldn't crack it in a million years which is the exact cognitive error the source paper addresses
+
+03:52.980 --> 03:59.320
+let's look at the mechanics of what encryption actually does okay the purpose of encryption is to conceal
+
+03:59.320 --> 04:04.680
+content when mathematicians evaluate how good an encryption circuit is they judge it against
+
+04:04.680 --> 04:10.360
+something called a uniform distribution meaning what exactly break down uniform distribution for
+
+04:10.360 --> 04:17.800
+me think of it as perfect featureless randomness like static exactly like static imagine flipping a
+
+04:17.800 --> 04:23.560
+perfectly fair coin millions of times and writing down one for heads zero for tails there is no pattern
+
+04:23.560 --> 04:28.840
+no grammatical structure no bias it is a uniformly random string of data okay i follow
+
+04:28.840 --> 04:34.760
+a mathematically perfect encryption algorithm takes your secret message and scrambles it so thoroughly
+
+04:34.760 --> 04:41.000
+that the resulting output the ciphertext looks utterly indistinguishable from that random coin flip
+
+04:41.000 --> 04:47.560
+noise right anyone in the universe can generate a uniform distribution it's just static right so alice
+
+04:47.560 --> 04:53.000
+encrypts her escape plan perfectly she generates this impenetrable block of random characters just a
+
+04:53.000 --> 05:00.680
+massive block of like x9 q2z and she hands it to eve the warden to deliver to bob and what does eve do
+
+05:00.680 --> 05:06.200
+well eve looks at this block of total static realizes immediately that it isn't a normal conversation about
+
+05:06.200 --> 05:12.920
+the prison cafeteria and throws them in solitary exactly this brings us to proposition one in your source text
+
+05:12.920 --> 05:18.840
+the first big math proof right which mathematically proves that a perfectly encrypted message
+
+05:18.840 --> 05:24.760
+is perfectly conspicuous because it stands out so much yes the environment the prisoners are
+
+05:24.760 --> 05:30.840
+communicating in the normal everyday letters they send back and forth has structure let's call the
+
+05:30.840 --> 05:37.960
+set of all normal innocuous messages s okay set s real documents like a letter complaining about the
+
+05:37.960 --> 05:44.040
+prison food or a standard digital photograph of a cat or an email with proper headers they live inside
+
+05:44.040 --> 05:50.760
+set s with a very high probability they obey the rules of grammar or the file format standards of a jpeg
+
+05:50.760 --> 05:57.640
+they have predictable shapes but a uniform string a perfectly random ciphertext lies inside that structured
+
+05:57.640 --> 06:04.360
+set s with a probability that is exponentially small it's an anomaly it's like throwing a million darts
+
+06:04.360 --> 06:09.560
+blindfolded and expecting them to land in the exact shape of the mona lisa it won't happen yeah no way
+
+06:10.120 --> 06:15.560
+so the warden simply has to build a detector a mental one or a digital one that asks a very simple
+
+06:15.560 --> 06:21.800
+question does this document have normal structure output a one if yes output is zero if it looks like
+
+06:21.800 --> 06:28.440
+random noise so the very thing that makes encryption strong it's perfect randomness is exactly what gets
+
+06:28.440 --> 06:35.240
+you caught yes the encryption guarantees you're hiding the content but it absolutely screams the
+
+06:35.240 --> 06:41.080
+existence of a secret which is why steganography is an entirely different mathematical discipline
+
+06:41.640 --> 06:48.120
+steganography is the science of existence secrecy and unlike encryption which is judged against universal random
+
+06:48.120 --> 06:55.000
+noise steganography is judged against a channel distribution a channel distribution okay let's map that out this
+
+06:55.000 --> 07:01.560
+is like the background noise of whatever specific environment you are operating in right yes exactly
+
+07:01.560 --> 07:07.400
+the channel distribution represents the massive population of totally innocuous boring objects
+
+07:07.400 --> 07:12.600
+that would have been transmitted anyway right if alice and bob are communicating over a corporate network
+
+07:12.600 --> 07:19.320
+the channel distribution is the billions of normal mundane emails flying around yeah the boring daily traffic
+
+07:19.320 --> 07:24.760
+if they are communicating on a photo sharing app the channel is the statistical variance of normal pixel
+
+07:24.760 --> 07:30.600
+data in millions of vacation photos steganography is the art of forcing your secret payload to
+
+07:30.600 --> 07:36.200
+perfectly mimic the specific statistical quirks of that exact channel i'm trying to picture how a
+
+07:36.200 --> 07:42.840
+warden actually polices this let's say i'm hiding data in the pixels of a digital photo of a blue sky okay
+
+07:42.840 --> 07:51.240
+a blue sky photo i know that an 8-bit blue pixel has a value between 0 and 255 in a real photo the sky
+
+07:51.240 --> 08:01.320
+isn't all exactly 200 it fluctuates right it's 201 199 202 there's natural sensor noise so if i'm the embedder
+
+08:01.320 --> 08:07.080
+i want to use those tiny fluctuations to hide my binary code you're touching on the exact vulnerability
+
+08:07.080 --> 08:13.640
+here because the warden eve knows about sensor noise too oh right and this is where the paper highlights
+
+08:13.640 --> 08:20.520
+a terrifying reality about kirkhoff's principle ah yes the golden rule of cryptography august kirkhoff's
+
+08:20.520 --> 08:26.760
+was a 19th century cryptographer and he laid down a principle that still governs all digital security today
+
+08:26.760 --> 08:33.000
+remind us what it is a cryptographic system should be totally secure even if the adversary knows
+
+08:33.000 --> 08:39.800
+everything about how the system works except for the specific private key right the algorithms for
+
+08:39.800 --> 08:46.680
+aes encryption the math behind your banking security it's all public anyone can read it it relies purely
+
+08:46.680 --> 08:52.440
+on the mathematical difficulty of guessing the key but the paper explicitly argues that this principle
+
+08:52.440 --> 08:57.720
+completely falls apart when you apply it to steganography why is that why can't i just have a
+
+08:57.720 --> 09:02.840
+public steganography algorithm what's fascinating here is that kirkhoff's principle applies to the
+
+09:02.840 --> 09:08.920
+algorithm but it absolutely cannot apply to the channel because of the nature of the channel itself yes
+
+09:09.640 --> 09:15.320
+in encryption the uniform distribution that random static is a mathematical construct you can define
+
+09:15.320 --> 09:21.880
+it perfectly on a whiteboard sure but in steganography the channel is not a mathematical choice the channel is
+
+09:21.880 --> 09:28.040
+a physical fact about the real world like the actual photo exactly it is the actual messy complex
+
+09:28.040 --> 09:34.040
+distribution of real cat photos or real microchip power fluctuations so it's an empirical reality not
+
+09:34.040 --> 09:39.720
+an abstract equation and here is where the warden wins if the warden understands the natural channel
+
+09:39.720 --> 09:44.360
+better than the embedder does the steganography fails give me an example with the photo let's go back
+
+09:44.360 --> 09:49.240
+to your blue sky photo you hide your data in the least significant bits of the blue pixels you think it
+
+09:49.240 --> 09:55.240
+looks like natural sensor noise because i'm just tweaking it by one value up or down right but eve the
+
+09:55.240 --> 10:01.320
+warden has a better statistical model of that specific camera sensor she knows that this particular
+
+10:01.320 --> 10:07.640
+camera's noise has a slight gaussian curve whereas your fake noise is perfectly flat oh wow she doesn't
+
+10:07.640 --> 10:12.600
+need the key at all she just looks at the distribution of the noise and says that's not what a real camera
+
+10:12.600 --> 10:19.000
+does that's synthetic exactly the security of the system isn't just about the key anymore it's an arms
+
+10:19.000 --> 10:25.080
+race of who has the more accurate scientific model of reality if the warden's model of the channel is
+
+10:25.080 --> 10:31.320
+superior to the embedders model the concealment shatters okay that is fascinating it's an epistemic
+
+10:31.320 --> 10:37.800
+arms race but let's say alice is incredibly smart and she is a perfect model of the channel okay she's
+
+10:37.800 --> 10:43.800
+got it locked down she's going to use steganography to hide her escape plan but she's paranoid so she
+
+10:43.800 --> 10:49.320
+wants to use encryption too she wants a belt and suspenders approach makes sense the source text gives
+
+10:49.320 --> 10:54.760
+a very strict mathematical warning here about the order of operations it's called the composition
+
+10:54.760 --> 11:02.200
+theorem or theorem one it dictates that you must encrypt your message first and then embed that resulting
+
+11:02.200 --> 11:07.640
+cyber text into the channel using steganography you cannot do it the other way around wait
+
+11:08.200 --> 11:15.480
+i want to test my intuition here what if i take my plain text escape plan use steganography to
+
+11:15.480 --> 11:21.880
+carefully weave it into the pixels of a cat photo and then i take the entire digital file of the cat
+
+11:21.880 --> 11:28.520
+photo and run it through a massive aes encryption algorithm doesn't that make it double secure well
+
+11:28.520 --> 11:34.360
+let's trace the output of your process you took a cat photo which had structure and you encrypted the
+
+11:34.360 --> 11:41.720
+whole thing what does the final output look like to eve the warden it looks like a giant block of
+
+11:41.720 --> 11:50.360
+random noise oh oh i see you just recreated the exact problem from proposition one by encrypting last
+
+11:50.360 --> 11:57.880
+your final output is a uniform random ciphertext you destroyed the cat photo structure completely i see eve sees
+
+11:57.880 --> 12:03.640
+a block of static flags it as anomalous and throws you in solitary the steganography you did in step
+
+12:03.640 --> 12:09.880
+one was entirely erased by the encryption in step two so i built a secret hidden door and then i painted
+
+12:09.880 --> 12:15.400
+the entire house neon pink so everyone would look at it a perfect analogy encryption is actually a
+
+12:15.400 --> 12:21.000
+mandatory pre-processing step for steganography pre-processing yeah you encrypt the escape plan
+
+12:21.000 --> 12:27.800
+first this turns your text into a uniform pseudo random string of bits now your steganography
+
+12:27.800 --> 12:33.160
+algorithm takes that random string and delicately molds it into the shape of the channel nudging the
+
+12:33.160 --> 12:38.520
+pixels of the cat photo just slightly using the random bits as the payload that makes a lot of sense
+
+12:38.520 --> 12:44.200
+the embedding step actually requires a uniform patternless payload as its raw material so it doesn't
+
+12:44.200 --> 12:49.160
+accidentally introduce new recognizable patterns into the cover photo you have to grind the safe
+
+12:49.160 --> 12:55.400
+into dust before you can mix it into the concrete that makes total sense now i want to take this out of
+
+12:55.400 --> 13:01.880
+the realm of digital photos and hypothetical prisoners okay because the source paper applies this exact
+
+13:01.880 --> 13:08.200
+mathematical framework to actual physical hardware the silicon microchips running our phones
+
+13:08.200 --> 13:15.640
+our cars our military hardware yes hardware security is the ultimate battleground for this theory let's
+
+13:15.640 --> 13:21.560
+talk about the physical blueprints of a microchip which engineers call a net list define a net list for
+
+13:21.560 --> 13:28.200
+me just so we are grounded think of a net list as the digital map of a city but instead of roads and
+
+13:28.200 --> 13:35.480
+buildings it's a massive list of logic gates and gates or gates xor gates and the microscopic wires
+
+13:35.480 --> 13:40.760
+connecting them it tells the silicon foundry exactly how to print the chip okay got it it's the
+
+13:40.760 --> 13:46.680
+blueprint in hardware security designers often use a technique called logic logging it behaves exactly
+
+13:46.680 --> 13:52.280
+like encryption how so the designer takes a crucial part of the circuit and adds extra gates locking it
+
+13:52.280 --> 13:56.680
+so that the chip will only function correctly if a specific digital key is supplied upon startup
+
+13:57.640 --> 14:02.840
+so if a competitor steals the physical chip and tries to reverse engineer it they just see a tangled mess of
+
+14:02.840 --> 14:09.160
+locked logic yes and crucially the locking is overt if you look at the netlist there are literal input
+
+14:09.160 --> 14:15.800
+pins labeled key input one key input two the defense is visibly locked so it's not hiding no the goal
+
+14:15.800 --> 14:22.600
+is to hide how the function works not to hide that the lock exists it is pure content concealment but the
+
+14:22.600 --> 14:29.800
+paper contrasts logic locking with something much more insidious hardware trojans and it classifies
+
+14:29.800 --> 14:36.920
+trojans as a form of steganography let's construct a hardware trojan to see why a trojan is a malicious
+
+14:36.920 --> 14:42.680
+modification to a circuit inserted by a rogue engineer or a compromised factory right the goal of the
+
+14:42.680 --> 14:50.360
+trojan is to lay dormant acting exactly like the normal specified circuit 99.999 of the time it just
+
+14:50.360 --> 14:56.440
+acts like a normal chip but under a very specific rare trigger condition it wakes up and does something
+
+14:56.440 --> 15:03.000
+malicious like leaking an encryption key or disabling a braking system so it is hiding its very existence
+
+15:03.000 --> 15:08.920
+within the channel of normal circuit behavior precisely the text details the rare event model
+
+15:08.920 --> 15:16.600
+for these triggers imagine the attacker builds a trigger using a k-bit comparator let's say k is 64.
+
+15:16.600 --> 15:22.760
+okay a 64-bit trigger the trojan looks at 64 specific wires inside the chip
+
+15:22.760 --> 15:30.040
+it will only trigger if all 64 wires hit a specific sequence of ones and zeros at the exact same
+
+15:30.040 --> 15:36.840
+clock cycle what are the odds of that happening randomly if the inputs are roughly uniform the probability
+
+15:36.840 --> 15:43.320
+is two to the power of negative k for a 64-bit trigger that's two to the negative 64th power
+
+15:43.320 --> 15:50.520
+which is that is an astronomically small number so if i'm the quality assurance inspector at the factory
+
+15:50.520 --> 15:55.640
+and i'm doing standard black box testing where i just plug the chip in feed it millions of random
+
+15:55.640 --> 16:00.600
+inputs and check if the outputs look normal i will literally never stumble across that trigger
+
+16:01.400 --> 16:06.440
+never the lifespan of the universe isn't long enough to brute force a well-designed 64-bit
+
+16:06.440 --> 16:12.120
+trigger through random testing against functional testing the trojan is statistically invisible
+
+16:12.120 --> 16:18.200
+the testing environment is the channel and the trojan blends in perfectly maintaining existence secrecy
+
+16:18.200 --> 16:23.720
+but just like the warden who understands the camera sensor better than alice what if the inspector
+
+16:23.720 --> 16:29.720
+stops looking at the digital outputs and starts looking at the physical reality of the chip this
+
+16:29.720 --> 16:34.840
+is where the black box abstraction completely fails and where the physical reality shatters the
+
+16:34.840 --> 16:40.360
+mathematical illusion tell me more about that a physical inspector using a white box approach isn't
+
+16:40.360 --> 16:45.880
+just looking at ones and zeros they take a microscope to the silicon they measure the power draw
+
+16:45.880 --> 16:53.240
+they measure the heat dissipation because a 64-bit comparator isn't just a math equation it's a
+
+16:53.240 --> 16:59.400
+physical object exactly got it it requires dozens of physical logic gates those gates take up microscopic
+
+16:59.400 --> 17:06.760
+real estate on the silicon die when electrons flow through them they draw electrical power they emit tiny
+
+17:06.760 --> 17:12.440
+amounts of thermal radiation i see where this is going if the original blueprint called for a certain
+
+17:12.440 --> 17:18.120
+density of gates in a specific quadrant and the inspector's electron microscope reveals a densely
+
+17:18.120 --> 17:25.000
+packed cluster of extra gates drawing anomalous power the game is over the inspector's model of the channel
+
+17:25.000 --> 17:31.000
+meaning the physical thermodynamic reality of the silicon is vastly superior to the attacker's ability
+
+17:31.000 --> 17:38.520
+to hide the extra gates yes the steganography fails because the physical world betrays the math and that
+
+17:38.520 --> 17:44.280
+physical betrayal provides a perfect conceptual bridge to the second source on your list okay let's make
+
+17:44.280 --> 17:49.720
+that pivot we've been talking about steganography hiding data from a malicious warden or a forensic
+
+17:49.720 --> 17:56.760
+inspector but what if the warden is not a person what do you mean what if the adversary is time itself what
+
+17:56.760 --> 18:02.600
+if the enemy is environmental decay a solar flare or the slow inevitable collapse of our institutional
+
+18:02.600 --> 18:08.280
+infrastructure we are shifting from hiding a few kilobytes of malicious code in a microchip
+
+18:08.280 --> 18:14.360
+to hiding the entirety of human knowledge in the physical structures of our civilization exactly we are
+
+18:14.360 --> 18:20.520
+diving into the proposal for distributed material archives this paper demands a profound shift in how
+
+18:20.520 --> 18:26.840
+we conceptualize data storage right now if you want to preserve the sum of human knowledge say wikipedia
+
+18:26.840 --> 18:33.480
+agricultural databases metallurgical formulas you put it in a massive data center right rows of servers
+
+18:33.480 --> 18:38.920
+in the climate controlled warehouse aws google cloud that sort of thing but look at the fragility of that
+
+18:38.920 --> 18:44.840
+chain of dependencies for that data to survive and be readable you need continuous electricity yeah you
+
+18:44.840 --> 18:50.840
+need active cooling systems you need global network routing you need the proprietary software to decode the
+
+18:50.840 --> 18:56.760
+file formats and fundamentally you need a stable political and economic institution willing to pay the
+
+18:56.760 --> 19:03.400
+massive monthly server bills so if a carrington event like a massive solar flare fries the global grid
+
+19:03.400 --> 19:08.600
+or if the economy suffers a multi-decade depression and the servers get unplugged that knowledge
+
+19:08.600 --> 19:13.960
+simply ceases to exist it evaporates which is why the authors of this paper propose something radically
+
+19:13.960 --> 19:20.520
+different instead of isolating data in fragile centralized servers they propose writing digital archives
+
+19:20.520 --> 19:26.520
+directly into the microscopic structure of everyday manufactured objects during their actual
+
+19:26.520 --> 19:32.040
+fabrication this is the brick we talked about in the intro yes we are talking about baking data
+
+19:32.040 --> 19:39.480
+into red clay bricks ceramic bathroom tiles sheets of engineered window glass 3d printed polymers and
+
+19:39.480 --> 19:46.120
+woven textiles the idea is that the data survives as a free rider if you print an encyclopedia into a
+
+19:46.120 --> 19:51.560
+brick the archive survives not because someone is actively preserving the data but simply because the brick
+
+19:51.560 --> 19:57.320
+is useful as a brick right a wall keeps the wind out so humans maintain the wall the data gets a free
+
+19:57.320 --> 20:03.000
+ride through history the goal isn't just incredible density although we'll get to that the primary goal is
+
+20:03.000 --> 20:09.080
+radical ubiquitous distribution if millions of objects contain the archive a localized disaster means
+
+20:09.080 --> 20:14.040
+nothing okay i have to talk about the math here because the paper goes deep into something called the
+
+20:14.040 --> 20:20.520
+combinatorial capacity theorem and i'll admit when i first read the numbers my brain sort of short-circuited
+
+20:20.520 --> 20:26.520
+it's intense math the authors outline a scenario where a manufacturing process say etching a tiny
+
+20:26.520 --> 20:33.880
+microscopic patch on a pane of glass has 13 000 independently adjustable parameters maybe it's the
+
+20:33.880 --> 20:40.520
+depth of 13 000 different tiny pits and let's say the laser etching tool can reliably carve each pit at
+
+20:40.520 --> 20:48.120
+16 distinguishable depth levels that is the setup 13 000 properties 16 levels per property
+
+20:49.080 --> 20:53.880
+the paper calculates the number of possible unique patterns you could make with that setup the number
+
+20:53.880 --> 21:02.040
+of states is 10 to the power of 15 653 a very large number let me say that again for the listener that is
+
+21:02.040 --> 21:12.360
+a 10 followed by 15 653 zeros for context physicists estimate there are only about 10 to the 80th power atoms
+
+21:12.360 --> 21:18.920
+in the entire observable universe this number of states is so large it breaks physical comprehension
+
+21:18.920 --> 21:24.360
+it is an astronomically vast repertoire of patterns but if we connect this to the bigger picture this
+
+21:24.360 --> 21:29.560
+is exactly where we need to apply the rigorous reality check that the paper provides okay because
+
+21:29.560 --> 21:36.520
+when you see a number like 10 to the 15 653 it is incredibly easy to fall into a massive cognitive and
+
+21:36.520 --> 21:41.400
+mathematical trap the trap being that this object can hold an unimaginable amount of information
+
+21:41.400 --> 21:47.080
+yes there is a frequent confusion in popular accounts of multi-dimensional storage where people
+
+21:47.080 --> 21:53.080
+confuse the number of possible inscriptions the states with the actual information payload that
+
+21:53.080 --> 21:58.680
+those states can carry they seem like the same thing intuitively they are fundamentally different
+
+21:58.680 --> 22:03.560
+things scaling at completely different rates okay walk me through this because if i have a trillion
+
+22:03.560 --> 22:08.680
+trillion trillion different patterns shouldn't i be able to assign one pattern to the complete works
+
+22:08.680 --> 22:15.000
+of shakespeare and another pattern to the blueprint for a steam engine in a purely theoretical address
+
+22:15.000 --> 22:21.640
+space yes but let's look at how information is actually quantified in information theory information
+
+22:21.640 --> 22:27.480
+is measured in bits and the number of bits is the logarithm base two of the number of states
+
+22:27.480 --> 22:33.320
+okay let's eli 5 the logarithm explain it like i'm five let's start incredibly simple
+
+22:33.320 --> 22:41.720
+okay imagine you have one adjustable property a single coin it can be heads or tails that is two
+
+22:41.720 --> 22:49.720
+states how much information is that that's one bit because two to the power of one is two right one coin
+
+22:49.720 --> 22:58.760
+one bit now take two coins the possible states are heads heads heads tails tails tails heads tails that's
+
+22:58.760 --> 23:04.440
+four states how much information two bits because two to the power of two is four
+
+23:05.000 --> 23:13.480
+okay i follow take three coins eight states that's three bits uh i see the pattern the number of states is
+
+23:13.480 --> 23:22.520
+multiplying two four eight sixteen it's growing exponentially but the number of bits the actual payload is just adding
+
+23:23.240 --> 23:30.520
+one bit one bit two bits three bits it's growing linearly exactly so let's apply that to the 16
+
+23:30.520 --> 23:37.400
+levels in the paper's example one property with 16 levels gives you exactly four bits of information
+
+23:37.400 --> 23:44.440
+because two to the fourth power is 16 right if you add a second property with 16 levels the number of
+
+23:44.440 --> 23:52.680
+joint states multiplies 16 times 16 equals 256 states but the information payload just adds four bits
+
+23:52.680 --> 23:59.400
+plus four bits equals eight bits so if i have an object with 13 000 independent parameters the number of
+
+23:59.400 --> 24:09.400
+states explodes by multiplying by 16 13 000 times resulting in that universe breaking number 10 to the 15 653 yes
+
+24:09.400 --> 24:20.280
+but the payload the payload is just 13 000 times four bits yes do the math on that 13 000 times four is 52 000
+
+24:20.280 --> 24:31.400
+bits divide by eight to get bytes that is 6 500 bytes it's 6.5 kilobytes 6.5 kilobytes that is hilarious
+
+24:31.400 --> 24:38.760
+i have a number of states larger than the atoms in the universe and it buys me 6.5 kilobytes of data
+
+24:39.400 --> 24:45.560
+i can barely fit a low resolution thumbnail image into that this is why the distinction is so vital that
+
+24:45.560 --> 24:55.240
+massive repertoire of 10 to the 15 653 patterns is an address space an address space yes it is incredibly
+
+24:55.240 --> 25:00.760
+useful for security because if someone is trying to brute force guess the exact pattern to forge an object
+
+25:00.760 --> 25:06.760
+an exhaustive search is physically impossible but an address space is not a payload so it's like
+
+25:06.760 --> 25:11.720
+building a hotel with a trillion different rooms but you only have enough furniture to fill one
+
+25:11.720 --> 25:18.840
+small closet the building is massive but the actual stuff you can put inside is tiny a perfect analogy
+
+25:18.840 --> 25:25.160
+now to be fair to the authors 6.5 kilobytes per microscopic physical site is still an enormous
+
+25:25.160 --> 25:30.440
+density when you tile it when you tile it meaning you put millions of these sites next to each other
+
+25:30.440 --> 25:37.480
+yes the paper calculates that if you pack these microscopic sites tightly at a 100 micrometer
+
+25:37.480 --> 25:45.800
+pitch a single square meter of material like a glass window pane could hold 650 gigabytes that is
+
+25:45.800 --> 25:53.000
+easily enough to hold a highly curated survival library okay so we have the capacity but how does this
+
+25:53.000 --> 25:59.240
+data actually survive the real world because writing data to a hard drive in a clean room is one thing
+
+25:59.240 --> 26:06.120
+but baking a ceramic tile in a 2000 degree kiln right or a brick getting tossed into the back of a dump
+
+26:06.120 --> 26:11.880
+truck scratched by a bulldozer and then exposed to acid rain for a century the environment is incredibly
+
+26:11.880 --> 26:19.640
+noisy the paper addresses this environmental hostility through a very rigorous right store read model and
+
+26:19.640 --> 26:25.240
+the first major hurdle they identify isn't even the damage it's the discoverability because no one knows
+
+26:25.240 --> 26:31.240
+it's there if you hide a microscopic archives so well that future generations don't even know it's
+
+26:31.240 --> 26:37.000
+there it's useless right it suffers from perfect existence secrecy the ultimate steganographic trap
+
+26:37.000 --> 26:43.720
+we just talked about so the architecture demands a dual layer design the outer layer is an overt highly
+
+26:43.720 --> 26:51.000
+visible introductory layer it doesn't require a scanning electron microscope it uses large features readable by a
+
+26:51.000 --> 26:57.640
+a cheap optical microscope or even a strong magnifying glass what does this layer say it contains sentinels
+
+26:57.640 --> 27:03.800
+for physical alignment it contains a layer table and most importantly it contains the calibration grids
+
+27:04.360 --> 27:10.440
+it acts as a rosetta stone explaining in plain language what the object is and giving the future
+
+27:10.440 --> 27:17.240
+finder the exact specifications on how to build the high resolution reader needed to access the dense concealed
+
+27:17.240 --> 27:24.520
+layers beneath it bootstraps its own discovery i love that but you mentioned calibration grids how do
+
+27:24.520 --> 27:31.320
+those help with the noise because let's say the kiln warped the brick and all the microscopic pits are
+
+27:31.320 --> 27:38.200
+slightly shallower than they were supposed to be yes thermal warping is a big issue how does the reader
+
+27:38.200 --> 27:44.920
+know a pit is a level three and not a level two this brings in the elegant math of differential reading
+
+27:44.920 --> 27:51.720
+covered in proposition 8.3 let's explore your warping example imagine the manufacturing process
+
+27:51.720 --> 27:58.120
+or a century of physical pressure adds a systematic offset to all the physical readings let's call that
+
+27:58.120 --> 28:04.840
+unknown offset c so if a pit was supposed to be five nanometers deep it is now five plus c nanometers
+
+28:04.840 --> 28:11.000
+deep precisely if a future reader just tries to measure the depth directly they will misinterpret
+
+28:11.000 --> 28:17.000
+the symbol because of that unknown c their baseline has shifted so the authors propose a differential
+
+28:17.000 --> 28:22.360
+system right next to the data symbol you place a known reference symbol from your calibration grid
+
+28:22.360 --> 28:27.800
+okay because they are microscopically close to each other the reference symbol experiences the exact
+
+28:27.800 --> 28:35.080
+same environmental offset c oh i see where this is going let's say your data symbol is y1 the machine
+
+28:35.080 --> 28:43.800
+reads y1 plus c your reference symbol is y0 the machine reads y0 plus c the reader simply subtracts
+
+28:43.800 --> 28:51.480
+the reference reading from the data reading y1 plus c minus y0 plus c the c cancels out entirely you are
+
+28:51.480 --> 29:00.040
+just left with y1 minus y0 the environmental warp is mathematically erased it is brilliant it's like trying
+
+29:00.040 --> 29:04.760
+to measure the height of a flagpole on a hill you don't need to know the elevation of the hill relative
+
+29:04.760 --> 29:10.280
+to sea level you just measure the type of the pole relative to the base of the pole the hill is the
+
+29:10.280 --> 29:16.440
+offset c and it cancels out that's a great way to picture it now there is a trade-off by doing the
+
+29:16.440 --> 29:21.960
+subtraction the mathematical bound of the random noise effectively doubles which costs you about one
+
+29:21.960 --> 29:28.120
+bit of capacity per property but the gain is immense complete immunity to systematic correlated drift
+
+29:28.120 --> 29:34.200
+across the entire object that handles the slow warping but what about catastrophic localized
+
+29:34.200 --> 29:39.480
+physical damage like my bulldozer example what if a massive gouge rift straight across the face of
+
+29:39.480 --> 29:44.280
+the brick destroying millions of physical pits instantly to survive that the architecture relies
+
+29:44.280 --> 29:50.760
+on two concepts reed solomon maximum distance separable codes and spatial interleaving start with reed
+
+29:50.760 --> 29:57.480
+solomon reed solomon is a type of erasure code let's simplify it imagine you take your data file and break it
+
+29:57.480 --> 30:03.160
+into four blocks reed solomon math allows you to generate say three additional parity blocks making
+
+30:03.160 --> 30:09.240
+seven blocks total the magic of this math is that you can reconstruct the original four block file from
+
+30:09.240 --> 30:16.200
+any four of the seven blocks so if blocks one two and five are completely obliterated it doesn't matter
+
+30:16.200 --> 30:22.440
+as long as i have any four left i get 100 of my data back correct but if you put all seven blocks
+
+30:22.440 --> 30:27.480
+right next to each other on the brick a single bulldozer scratch might destroy all seven at once
+
+30:27.480 --> 30:34.280
+that's a burst error so you use spatial interleaving spreading it out you take those seven blocks and
+
+30:34.280 --> 30:38.840
+you physically spread them out across the entire surface of the brick you put block one in the top
+
+30:38.840 --> 30:43.160
+left corner block two in the bottom right block three in the middle and so on you shuffle the deck
+
+30:43.160 --> 30:48.280
+exactly so when the bulldozer blade gouges a huge scratch across the middle of the brick
+
+30:48.280 --> 30:54.760
+it causes massive physical devastation in one spot but logically because the data is interleaved
+
+30:54.760 --> 31:01.160
+it only destroys a tiny fraction of a single block from thousands of different files oh that is smart
+
+31:01.160 --> 31:07.960
+the localized physical devastation is translated into a highly dispersed low-level logical loss and the
+
+31:07.960 --> 31:13.080
+reed solomon code easily sweeps up that scattered loss and reconstructs everything the physical
+
+31:13.080 --> 31:19.880
+architecture actively translates the damage into a format the math can heal that is incredible
+
+31:19.880 --> 31:25.560
+now i want to bring this back to our overarching theme of concealment okay the paper has a fascinating
+
+31:25.560 --> 31:31.160
+section on how much data you can actually hide if you want it to be a secret so say you want to embed
+
+31:31.160 --> 31:37.640
+a hidden ledger into a batch of plastic parts proposition 16.3 talks about the limits of concealment
+
+31:37.640 --> 31:42.840
+if the inspector uses the exact same optical instrument as the reader yes and this links
+
+31:42.840 --> 31:48.280
+perfectly back to our warden discussion from the first paper if the inspector can physically measure
+
+31:48.280 --> 31:53.720
+every dimension that your reading laser can measure your ability to conceal data is strictly
+
+31:53.720 --> 31:59.240
+mathematically bounded by the natural entropy of the material substrate itself so the physical
+
+31:59.240 --> 32:04.840
+imperfections of the material act as your channel distribution that is the exact parallel let's say
+
+32:04.840 --> 32:10.280
+you try to hide your data in a perfectly smooth identical mass-produced industrial plastic the
+
+32:10.280 --> 32:16.280
+natural entropy the physical variance is near zero it's supposed to be perfectly uniform right if you
+
+32:16.280 --> 32:21.320
+etch microscopic data pits into that plastic it will stick out immediately under an inspector's microscope
+
+32:21.320 --> 32:25.960
+because the channel is supposed to be flat noise you're encrypting over a predictable channel it flags
+
+32:25.960 --> 32:33.960
+instantly but if you use handmade clay or quarried rough stone or rough spun textiles those materials have a
+
+32:33.960 --> 32:40.440
+massive amount of natural physical variation they have high natural entropy lots of bumps and grooves you
+
+32:40.440 --> 32:46.680
+can hide a massive payload of data inside that natural variance nudging the imperfections slightly without
+
+32:46.680 --> 32:52.520
+fundamentally changing the statistical profile of the stone the imperfections of nature are the perfect
+
+32:52.520 --> 33:00.920
+hiding spot a perfectly machined cylinder is an awful place to hide a secret a lumpy rock is brilliant which
+
+33:00.920 --> 33:07.800
+brings me to the absolute most provocative concept from this source text weaponized mana yes the
+
+33:07.800 --> 33:15.240
+author introduces a phrase that stopped me in my tracks weaponized mana we're talking about edible or highly
+
+33:15.240 --> 33:23.640
+biodegradable data carriers an archive written into the microscopic structure of an apple or a loaf of bread or a
+
+33:23.640 --> 33:30.360
+compostable shipping package it sounds absurd on its face it violates our basic intuition of archiving
+
+33:30.360 --> 33:37.560
+ordinarily using a storage carrier degrades it but it survives for a long time if you use a loaf of bread
+
+33:37.560 --> 33:44.840
+eating it destroys the carrier instantly exactly so how could an archive persist if its carriers are actively
+
+33:44.840 --> 33:50.520
+constantly being consumed right it seems utterly counterintuitive to use something perishable
+
+33:50.520 --> 33:55.720
+for multi-generational storage to understand this we have to look at the mathematical model the paper
+
+33:55.720 --> 34:02.600
+uses a birth death process it shifts the focus from the survival of the individual object to the
+
+34:02.600 --> 34:09.240
+survival of the systemic process the process of making the object yes it all comes down to an equation
+
+34:09.240 --> 34:16.040
+comparing two specific rates let's say each individual copy of the archive each apple each loaf of bread is
+
+34:16.040 --> 34:23.560
+consumed eaten or rots at a rate designated as mu that's the death rate yes but because the object is
+
+34:23.560 --> 34:29.640
+inherently useful people need to eat apples they need to bake bread society is constantly growing and
+
+34:29.640 --> 34:35.640
+manufacturing new ones at a rate designated as beta and the critical assumption here is that as they
+
+34:35.640 --> 34:41.480
+reproduce the object the manufacturing process automatically copies the physical archive structure
+
+34:41.480 --> 34:48.280
+into the new generation so it's a constant race between human consumption and agricultural manufacturing
+
+34:48.280 --> 34:55.560
+precisely proposition 20.1 formalizes the math the archive survives indefinitely with a strictly positive
+
+34:55.560 --> 35:04.360
+probability if and only if the copying rate beta strictly outpaces the loss rate mu beta is greater than
+
+35:04.360 --> 35:10.440
+mu exactly this equation completely divorces the physical fragility of a single object from the
+
+35:10.440 --> 35:16.520
+informational persistence of the collective archive i see each individual loaf of bread is utterly
+
+35:16.520 --> 35:22.920
+expendable it is meant to be destroyed but because the archive rides parasitically on top of an essential
+
+35:22.920 --> 35:30.600
+continuous social process food production the data persists for exactly as long as the society keeps functioning
+
+35:30.600 --> 35:37.160
+it's biological it's like dna the individual cell dies in a few days but the dna pattern persists for
+
+35:37.160 --> 35:43.720
+millions of years because the replication rate beats the death rate the data becomes a beneficial virus
+
+35:43.720 --> 35:50.200
+replicating through our economic and agricultural infrastructure it is a breathtaking way to think
+
+35:50.200 --> 35:57.560
+about resilience you don't build a bunker to fight time you weave the data into the very processes of life
+
+35:57.560 --> 36:03.800
+wow but of course this entire theory relies heavily on our future ability to accurately read and
+
+36:03.800 --> 36:09.240
+interpret the physical history of those objects which brings us quite naturally to our third source
+
+36:09.240 --> 36:14.440
+let's make that pivot because we just talked about how humans might project data forward into the future
+
+36:14.440 --> 36:20.040
+through physical structures now let's look at how scientists today try to read the physical
+
+36:20.040 --> 36:25.880
+structures of the present to reconstruct data from the deep past geological history right and more
+
+36:25.880 --> 36:31.080
+importantly we are going to look at the massive psychological and mathematical traps they fall into
+
+36:31.080 --> 36:38.280
+while doing it we are diving into earth's planetary history specifically the geological inquiry into
+
+36:38.280 --> 36:44.200
+two massive planetary mysteries the early oxygenation of the earth and the violent formation of the moon
+
+36:45.160 --> 36:51.480
+so let's set the stage with the oxygen mystery the source paper begins by critiquing a recent highly
+
+36:51.480 --> 36:58.840
+publicized high pressure experimental study researchers took basaltic glass which is essentially deep earth magma
+
+36:59.560 --> 37:05.640
+and subjected it to immense pressure and highly oxidizing conditions in a lab right and they
+
+37:05.640 --> 37:13.000
+found that this completely molten magma could hold 5.2 percent excess oxygen by mass which is a massive
+
+37:13.000 --> 37:20.200
+number in geological terms huge and the researchers proposed a thrilling narrative could this deeply buried
+
+37:20.200 --> 37:27.000
+highly oxidized magma rising to the surface over billions of years explain the earth's great oxygenation
+
+37:27.000 --> 37:33.640
+event could this hidden reservoir be the ultimate source of our breathable atmosphere it is an incredibly
+
+37:33.640 --> 37:41.160
+tempting cinematic narrative the interface of the theory is clean and satisfying but the source paper we have
+
+37:41.160 --> 37:49.640
+acts as a severe almost brutal reality check on that enthusiasm it dissects exactly how that 5.2 percent
+
+37:49.640 --> 37:55.240
+figure was mathematically derived in the lab you called it diagnostic muddy waters at the beginning of
+
+37:55.240 --> 38:01.800
+the show walk me through the mud here why should we doubt the 5.2 percent because that 5.2 percent is not a
+
+38:01.800 --> 38:09.240
+direct isolated measurement of free oxygen molecules just floating around in a void it is a calculated residual
+
+38:09.240 --> 38:16.360
+a residual meaning it's what's left over it is what's left over after a series of assumptions first the
+
+38:16.360 --> 38:20.920
+researchers directly measured the total amount of oxygen in the glass sample using an electron
+
+38:20.920 --> 38:26.440
+microprobe then they subtracted the oxygen that is theoretically implied by the presence of all the
+
+38:26.440 --> 38:32.200
+other measured elements in the rock things like silicon magnesium and iron wait what do you mean implied
+
+38:32.200 --> 38:38.680
+oxygen in a crystal lattice or a magma melt elements bond together based on their electrical charges
+
+38:39.240 --> 38:45.960
+these positively charged atoms are called cations because they are missing electrons they pull negatively charged
+
+38:45.960 --> 38:51.640
+oxygen atoms toward them to balance out okay that makes sense this balance follows standard chemical
+
+38:51.640 --> 38:59.080
+recipes called stoichiometric ratios okay so if i have one atom of silicon the recipe says i must have
+
+38:59.080 --> 39:06.760
+two atoms of oxygen attached to it making si o2 exactly so the researchers take an inventory of all the
+
+39:06.760 --> 39:14.440
+cations the silicon the magnesium they apply the standard stoichiometric recipe books calculate how much oxygen
+
+39:14.440 --> 39:20.520
+should be tied up in those bonds and subtract that from the total oxygen they measured the 5.2 percent is
+
+39:20.520 --> 39:26.760
+whatever oxygen is left over which sounds reasonable assuming the recipe book is perfectly accurate for
+
+39:26.760 --> 39:33.560
+magma under a million atmospheres of pressure and that is the fatal flaw the paper points out a massive
+
+39:33.560 --> 39:40.200
+assumption regarding iron iron can exist in different states depending on how many electrons it has lost
+
+39:40.200 --> 39:47.400
+it can be iron two plus or it can be trivalent iron which is iron three plus trivalent meaning missing three
+
+39:47.400 --> 39:53.720
+electrons yes and because it's missing three electrons it pulls more oxygen toward it to balance the charge
+
+39:53.720 --> 39:59.800
+than iron two plus does the researchers in order to be conservative simply assumed that all the iron in
+
+39:59.800 --> 40:07.000
+the sample was trivalent iron three plus they assumed the maximum possible oxygen bonding state for the iron
+
+40:07.000 --> 40:14.440
+yes so let's look at the ledger they measured total oxygen they subtracted a massive chunk of expected
+
+40:14.440 --> 40:21.240
+oxygen based on the rigid assumption that all iron is trivalent and they got a 5.2 percent left over
+
+40:21.240 --> 40:26.120
+but what if they were wrong about the iron exactly if their assumption about the iron valence state is
+
+40:26.120 --> 40:31.960
+wrong or if there is unmodeled hydrogen in the sample or if the tiny calibration offsets in the electron
+
+40:31.960 --> 40:38.040
+microprobe or magnified all of those experimental errors mathematically aggregate and show up on the
+
+40:38.040 --> 40:43.320
+ledger as excess oxygen so it's like finding a sudden surplus of five thousand dollars in your corporate
+
+40:43.320 --> 40:49.000
+accounting ledger and celebrating a massive profit but you only have that surplus because you aggressively
+
+40:49.000 --> 40:55.000
+assumed you didn't have to pay taxes this year based on a dubious loophole yes the books balance but
+
+40:55.000 --> 41:01.000
+only because of a highly specific assumption that is a perfect analogy the excess might just be an artifact of
+
+41:01.000 --> 41:06.120
+the accounting method but the critique goes even deeper because it gets substantially more
+
+41:06.120 --> 41:11.160
+problematic when the original authors try to scale this microscopic laboratory measurement up to the
+
+41:11.160 --> 41:18.760
+entire planet right the scaling exercise they suggested that if just 0.27 percent excess oxygen was
+
+41:18.760 --> 41:25.000
+released from the magma volume of ancient large igneous provinces it would completely match the mass
+
+41:25.000 --> 41:30.840
+of the oxygen in our present atmosphere which sounds like a total smoking gun it does until
+
+41:30.840 --> 41:36.200
+you bring a calculator and check their volume conventions which our source paper does ruthlessly
+
+41:36.920 --> 41:43.320
+let's look at the numbers the original study cited a total magma volume of 7.2 million cubic
+
+41:43.320 --> 41:50.120
+kilometers that's a lot of lava it is but that 7.2 million number represents the extrusive volume
+
+41:50.120 --> 41:55.480
+extrusive means the lava that actually erupted out of the crust and flowed onto the surface where we can
+
+41:55.480 --> 42:02.440
+measure it today okay surface lava but a geological magma system is like an iceberg the lava on the
+
+42:02.440 --> 42:08.040
+surface is just a tiny fraction of the system the vast majority of the magma is intrusive it stays
+
+42:08.040 --> 42:13.960
+trapped deep underground and slowly cools into solid rock okay so the total magma system is much larger than
+
+42:13.960 --> 42:20.600
+just the extrusive 7.2 million cubic kilometers exactly geologists generally agree that the ratio of
+
+42:20.600 --> 42:26.600
+extrusive extrusive lava to total magma is about five percent surface lava is just five percent of
+
+42:26.600 --> 42:33.160
+the total event got it but how you apply that five percent changes the mathematical reality of the
+
+42:33.160 --> 42:40.120
+planet if you interpret the 7.2 million cubic kilometers as being just the five percent extrusive tip of the
+
+42:40.120 --> 42:47.400
+iceberg then you have to multiply it by 20 to find the total volume of the system right if you do that you
+
+42:47.400 --> 42:55.800
+calculate a total mass of about 4.3 times 10 to the 20th kilograms of magma if you take 0.27 of that
+
+42:55.800 --> 43:02.600
+massive number you indeed get about 1.2 times 10 to the 18th kilograms of oxygen released which perfectly
+
+43:02.600 --> 43:10.040
+matches the modern atmosphere the math works perfectly ah but what if the researchers didn't apply the
+
+43:10.040 --> 43:16.280
+multiplier what if they took that 7.2 million cubic kilometers and accidentally used it as the total
+
+43:16.280 --> 43:21.720
+volume of the system not just the five percent tip wait if they use the surface volume as the total
+
+43:21.720 --> 43:29.800
+volume they are missing 95 of the magma exactly if you don't multiply the mass is only 5.9 times
+
+43:29.800 --> 43:37.640
+10 to the 16th kilograms it's a difference of a factor of 20. wow if you use the unconverted volume
+
+43:38.600 --> 43:47.160
+the oxygen release would only be 1 20th of the atmosphere the grand sweeping planetary comparison
+
+43:47.160 --> 43:52.440
+completely fails it doesn't explain the atmosphere at all let me guess the original paper didn't
+
+43:52.440 --> 43:59.160
+explicitly state which convention they used our source points out that they did not the entire planetary
+
+43:59.160 --> 44:06.200
+scale theory the headline grabbing conclusion about the origin of our breathable air hangs entirely on a
+
+44:06.200 --> 44:13.080
+highly specific unstated assumption about magma ratios that changes the outcome by a factor of 20.
+
+44:13.080 --> 44:18.520
+that's crazy the surface data looked clean but the hidden architecture of the calculation was
+
+44:18.520 --> 44:25.800
+incredibly fragile wow but okay let's play devil's advocate let's assume the laboratory math is right
+
+44:26.360 --> 44:32.440
+and let's assume the planetary scaling multiplier is right okay let's assume there really is this massive
+
+44:32.440 --> 44:39.240
+highly oxidized magma reservoir deep in the earth's mantle the next logical glaring question is
+
+44:39.880 --> 44:47.080
+where did it come from how did the deep early earth get so heavily oxidized in the first place
+
+44:47.080 --> 44:54.760
+which leads geologists directly into the pre-moon ocean hypothesis i love this theory the idea is that
+
+44:54.760 --> 45:01.560
+the proto-earth had a massive global ocean of water before the giant violent impact that formed the moon
+
+45:02.280 --> 45:08.680
+and when that impact happened it vaporized the entire ocean drove all that oxygen deep into the
+
+45:08.680 --> 45:15.640
+molten silicate mantle and created this oxidized reservoir it is visually spectacular but the paper
+
+45:15.640 --> 45:21.320
+points out a fundamental flaw and how many people even some scientists intuitively think about this
+
+45:21.320 --> 45:27.880
+what's the flaw when we think of oxidizing a planet we usually think it just means adding oxygen atoms
+
+45:27.880 --> 45:34.120
+water is h2o you smash water into the mantle you're adding billions of tons of oxygen therefore the
+
+45:34.120 --> 45:41.960
+mantle is oxidized right more oxygen atoms equals more oxidation but chemically that is entirely false
+
+45:41.960 --> 45:47.640
+it is not enough to track the atoms you have to track the oxidizing power which is measured in electron
+
+45:47.640 --> 45:53.000
+equivalence let's look at the chemistry like a financial ledger oxidation is fundamentally the
+
+45:53.000 --> 45:58.520
+process of stealing electrons oxygen is an electron thief it wants to pull electrons away from other
+
+45:58.520 --> 46:06.840
+elements like iron okay oxygen is the thief but in a water molecule h2o the oxygen atom is accompanied
+
+46:06.840 --> 46:13.480
+by two hydrogen atoms and hydrogen is an electron donor it is perfectly happy to give its electron to the
+
+46:13.480 --> 46:21.080
+oxygen oh so as a complete package water is redox neutral it carries zero net oxidizing power for
+
+46:21.080 --> 46:26.440
+every oxygen atom ready to steal an electron from the mantle you have hydrogen atoms ready to give those
+
+46:26.440 --> 46:33.560
+electrons right back it's a zero-sum game you added the thief but you also added the victim so the overall
+
+46:33.560 --> 46:39.800
+crime rate of the planet doesn't change exactly the only way a pre-moon ocean provides a net increase in
+
+46:39.800 --> 46:45.640
+oxidizing power to the earth's mantle is if the two elements are permanently separated how does that
+
+46:45.640 --> 46:52.360
+happen the immense heat of the impact vaporizes the water into gas oxygen is heavy but hydrogen is the
+
+46:52.360 --> 46:58.360
+lightest element in the universe for the planet to become oxidized that hydrogen gas must reach escape
+
+46:58.360 --> 47:04.200
+velocity and be permanently lost to the vacuum of space leaving the electron hungry oxygen behind in the
+
+47:04.200 --> 47:10.200
+magma or the hydrogen has to be dragged down and locked away in the metallic core where it can't interact
+
+47:10.200 --> 47:16.840
+yes if the hydrogen doesn't physically escape the system or get sequestered in the core the planet does not gain a
+
+47:16.840 --> 47:23.880
+single drop of net oxidizing power no matter how many oceans worth of h2o you smashed into it we have to stop
+
+47:23.880 --> 47:31.160
+tracking the visible atoms and start tracking the invisible flow of electrons it requires an incredibly precise sequence of
+
+47:31.160 --> 47:37.160
+events you need the early ocean you need an impact massive enough to vaporize it but not so massive
+
+47:37.160 --> 47:43.000
+it destroys the planet you need conditions that allow the light hydrogen to boil off into space
+
+47:43.000 --> 47:47.560
+while the heavier oxygen gets violently churned down into the deep mantle before i can escape too
+
+47:48.360 --> 47:54.760
+it is a precarious knife-edge chain of coincidences and this brings us to the most philosophical and perhaps
+
+47:54.760 --> 48:00.840
+most important part of the entire deep dive because scientists being human generally hate
+
+48:00.840 --> 48:07.320
+precarious knife-edge coincidences they vastly prefer what the author of our source calls the wide hypothesis
+
+48:07.880 --> 48:14.600
+here's where it gets really interesting let's define the wide hypothesis using the moon forming impact itself
+
+48:14.600 --> 48:21.080
+right for decades the canonical textbook model for the formation of the moon was the giant impactor theory
+
+48:21.800 --> 48:28.840
+it proposed that a specific mars-sized body often named theia struck the proto-earth at a very specific
+
+48:29.000 --> 48:36.280
+oblique 45 degree angle at a very specific relatively modest speed it was described like a cosmic game
+
+48:36.280 --> 48:43.400
+of billiards exactly everything had to be lined up perfectly if the angle was too steep earth is destroyed
+
+48:43.400 --> 48:49.560
+if the angle is too shallow theia just bounces off the precise billiard shot was required to explain why
+
+48:49.560 --> 48:55.480
+the earth and moon have their specific angular momentum and why their isotopic signatures the chemical
+
+48:55.480 --> 49:01.480
+fingerprints of their rocks are virtually identical but recently a new model has absolutely taken the
+
+49:01.480 --> 49:08.440
+geological community by storm the senestia model yes instead of a clean precise billiard shot the
+
+49:08.440 --> 49:16.760
+senestia model proposes an unimaginably high energy head-on collision a crash so violent that it doesn't
+
+49:16.760 --> 49:23.720
+just shatter the planets it completely vaporizes both of them vaporizes them entirely it creates a rapidly
+
+49:23.720 --> 49:30.360
+rotating flaming flaming toroidal cloud of rock vapor a donut-shaped structure called a senestia
+
+49:30.360 --> 49:36.040
+the earth and the moon then slowly condense and rain out of this massively mixed vapor cloud as it cools
+
+49:36.040 --> 49:46.680
+and geologists love the senestia model why because it is a wide hypothesis precisely it is wide because it is incredibly forgiving
+
+49:46.680 --> 49:55.160
+it doesn't require a perfect billiard shot a vast range of different impact angles of a wide variety of impactor speeds and
+
+49:55.160 --> 50:00.200
+different sizes of planets can all result in the formation of a vaporized senestia
+
+50:00.200 --> 50:05.800
+it's a much bigger target to hit and once you have a senestia the physics inevitably dictate that
+
+50:05.800 --> 50:11.480
+it will cool down and form a planet and a moon with perfectly matching isotopes because everything was
+
+50:11.480 --> 50:17.160
+thrown into a blender and completely homogenized in the vapor phase it accommodates a huge breadth of
+
+50:17.160 --> 50:22.760
+initial conditions if you run a computer simulation it's much easier to accidentally create
+
+50:22.760 --> 50:28.600
+a senestia than it is to accidentally execute the perfect thea billiard shot and here is where the
+
+50:28.600 --> 50:34.200
+author of our source provides incredibly deep philosophical pushback actually drawing on the
+
+50:34.200 --> 50:40.680
+philosopher friedrich nietzsche really yes nietzsche observed a fundamental truth about human psychology
+
+50:41.400 --> 50:48.600
+human beings experience immense psychological relief when the unfamiliar the highly specific and the chaotic
+
+50:48.600 --> 50:55.160
+are reduced to the familiar and the robust wait if the universe only happened once why do geologists
+
+50:55.160 --> 51:00.760
+even care about human psychological relief what does nietzsche have to do with planetary physics because
+
+51:00.760 --> 51:06.120
+scientists are the ones judging the models when an event no longer requires a knife edge coincidence
+
+51:06.120 --> 51:11.160
+when a model says hey almost any massive crash would produce the earth and moon we see today
+
+51:11.160 --> 51:16.680
+scientists breathe a collective sigh of relief the wide hypothesis feels more natural it feels less
+
+51:16.680 --> 51:22.920
+contrived it gives the illusion of deeper understanding but the author argues that this feeling of comfort
+
+51:22.920 --> 51:30.040
+is an epistemic trap the ultimate trap because breadth of accommodation the ability to work under many
+
+51:30.040 --> 51:35.800
+different hypothetical conditions is a property of the mathematical model it is not a property of the
+
+51:35.800 --> 51:42.920
+actual physical world oh man oh man that is a sharp distinction the universe only experienced one
+
+51:42.920 --> 51:48.920
+single realized history four and a half billion years ago the moon formed from one specific unique
+
+51:48.920 --> 51:55.560
+collision it had exactly one specific geometry a specific mass and a specific velocity right it only
+
+51:55.560 --> 52:00.840
+happened one way the fact that the synestia computer model works under a hundred different hypothetical
+
+52:00.840 --> 52:07.960
+histories does not logically mean that a synestia is the history that actually occurred we confuse the
+
+52:07.960 --> 52:13.720
+statistical robustness of our computer simulation with historical certainty we look at the wide
+
+52:13.720 --> 52:20.040
+hypothesis and think this must be true because it's so easy for it to be true exactly but reality isn't
+
+52:20.040 --> 52:26.600
+obligated to be easy reality might have actually been that specific highly unlikely one in a billion
+
+52:26.600 --> 52:34.920
+billiard shot exactly a wide hypothesis is an incredibly useful tool for pruning out bad ideas but it cannot by
+
+52:34.920 --> 52:42.200
+itself identify the unique specific truth of the deep past by preferring the wide hypothesis we mask the
+
+52:42.200 --> 52:48.360
+specific hidden realized history of the universe behind a comforting generic model we accept the clean
+
+52:48.360 --> 52:53.720
+interface and ignore the specific architecture which is the absolute perfect conceptual bridge to our
+
+52:53.720 --> 52:59.720
+final paper the economics paper yes because just as a wide geological hypothesis creates an illusion of
+
+52:59.720 --> 53:06.200
+certainty by masking a specific physical history our modern economic and financial ledgers create an illusion of
+
+53:06.200 --> 53:13.160
+prosperity by masking the specific hidden capabilities and profound vulnerabilities of everyday individuals we are
+
+53:13.160 --> 53:21.160
+moving from the deep planetary past to the immediate societal future with the economics of viable continuation this is a heavy
+
+53:21.160 --> 53:28.440
+shift in domain but the structural parallels to everything we've discussed are undeniable the economics manuscript argues that
+
+53:28.440 --> 53:34.440
+standard financial accounting the way we measure success in modern society fundamentally measures the wrong
+
+53:34.440 --> 53:41.320
+things standard accounting measures financial value utility and point in time surplus it looks at a
+
+53:41.320 --> 53:48.920
+ledger or a corporate balance sheet or a national gdp chart and ask one simple question did the scalar numbers go up
+
+53:48.920 --> 53:56.920
+right profit net worth aggregate surplus but the economics of viable continuation proposes a radical
+
+53:56.920 --> 54:06.120
+redefinition it argues that a human economy is not a machine for maximizing utility or generating scalar wealth an economy is
+
+54:06.120 --> 54:14.920
+fundamentally an infrastructure for maintaining futures maintaining futures yes we must measure an economy by what futures it keeps
+
+54:14.920 --> 54:22.920
+open for its participants and what vital capacities it consumes or degrades in order to achieve its short-term financial outputs
+
+54:22.920 --> 54:30.920
+this raises an important question wait no let me see if an economic transaction produces income right now on paper but it subtly
+
+54:30.920 --> 54:38.920
+structurally degrades a person's future capacity to survive a shock how do we account for that that's exactly it standard money which is
+
+54:38.920 --> 54:44.920
+just a single scalar value completely fails to capture that multi-dimensional reality this raises an important
+
+54:44.920 --> 54:52.920
+question if it fails completely how do we prove it and the paper proves this mathematically using a highly relatable
+
+54:52.920 --> 55:00.920
+deterministic case study it's formalized in the text is theorem h1 but for our purposes we can just call it the housing case
+
+55:01.640 --> 55:08.920
+i want you the listener to put yourself in this exact scenario let's walk through the specific variables the author provides
+
+55:08.920 --> 55:15.560
+okay let's do it okay imagine you were a tenant you are currently renting an apartment paying one thousand dollars a
+
+55:15.560 --> 55:21.960
+month on a standard month-to-month lease okay one day your landlord comes to you and offers a deal
+
+55:22.760 --> 55:28.920
+a prepaid 12-month lease at a five percent discount let's map the math instead of paying twelve thousand dollars
+
+55:28.920 --> 55:35.000
+spread out over the year the landlord asks you to pay a lump sum we'll call it p of eleven thousand
+
+55:35.000 --> 55:41.480
+four hundred dollars right now up front and crucially this prepayment is non-refundable why does the
+
+55:41.480 --> 55:47.720
+landlord do this because collecting rent month-to-month carries an expected cost dealing with late payments
+
+55:47.720 --> 55:53.800
+the risk of arrears the nightmare of an eviction process very true the text defines this friction as
+
+55:53.800 --> 56:01.160
+kappa the collection costs let's say the landlord values avoiding kappa at 800 and we also have to
+
+56:01.160 --> 56:06.760
+count for the time value of money which the text models as the financial discount variable delta rt
+
+56:06.760 --> 56:13.080
+where delta is the discount rate r is the rent and t is the time horizon but let's simplify and just look
+
+56:13.080 --> 56:19.480
+at the raw ledger let's look at the ledger the landlord loses 600 in raw rent due to the discount
+
+56:19.480 --> 56:26.280
+but saves 800 in collection costs which is kappa so the net profit for the landlord increases by 200
+
+56:27.400 --> 56:33.400
+what about you the tenant you save 600 over the course of the year both parties are financially
+
+56:33.400 --> 56:39.640
+better off aggregate financial surplus for this microeconomy rises by 800 dollars if a classical
+
+56:39.640 --> 56:45.480
+economist looks at this transaction it is the holy grail a pareto improvement a perfect win-win
+
+56:45.480 --> 56:52.600
+the numbers went up on the surface ledger yes the interface is perfectly clean but now we have to
+
+56:52.600 --> 56:57.880
+look at the hidden architecture beneath that ledger your structural capabilities as a human being facing
+
+56:57.880 --> 57:05.160
+an unpredictable future the paper introduces a vital concept called the executable exit what exactly
+
+57:05.160 --> 57:12.520
+constitutes an executable exit an executable exit is a mathematical capability threshold real life is
+
+57:12.520 --> 57:19.560
+highly volatile you might lose your job the apartment building might develop toxic black mold a domestic
+
+57:19.560 --> 57:25.800
+safety issue might arise you fundamentally need the capacity to leave right let's say the time horizon
+
+57:25.800 --> 57:31.560
+for this risk is h maybe a three-month window if an emergency happens within the next three months you
+
+57:31.560 --> 57:38.760
+need a liquid resource threshold designated as c to afford the physical act of moving out moving isn't free
+
+57:38.760 --> 57:44.040
+you need cash to hire a moving truck you need a new security deposit for a new place you need
+
+57:44.040 --> 57:50.520
+the first month's rent let's quantify c let's say c is four thousand dollars okay let's look at your
+
+57:50.520 --> 57:56.360
+state before the prepaid lease you are paying month to month let's assume you have liquid cash savings
+
+57:56.360 --> 58:02.040
+designated as x of eleven thousand five hundred dollars in your bank account you are incredibly secure
+
+58:02.040 --> 58:08.040
+very secure if the toxic mold appears in month two you take four thousand dollars of your eleven thousand
+
+58:08.040 --> 58:14.440
+five hundred you break the month-to-month lease and you escape you possess an executable exit but what
+
+58:14.440 --> 58:21.000
+happens to x when you take the win-win prepaid lease deal you sink your liquid cash your x into that
+
+58:21.000 --> 58:27.320
+non-refundable prepayment block p you hand over the eleven thousand four hundred to the landlord look at your
+
+58:27.320 --> 58:33.320
+bank account on tuesday morning you only have a hundred dollars left in liquid cash oh wow i mean
+
+58:33.320 --> 58:38.200
+sure i'm not paying the thousand dollar rent each month anymore so my bank account will slowly refill
+
+58:38.200 --> 58:45.080
+for my paycheck over the year but not fast enough exactly the math in theorem h1 proves conclusively
+
+58:45.080 --> 58:50.680
+that there is a specific subset of tenants who by accepting this financial improvement mathematically
+
+58:50.680 --> 58:57.080
+lose their capacity to safely exit during that crucial horizon window h you're stuck you are
+
+58:57.080 --> 59:03.000
+trapped if the toxic mold emergency happens in month two you only have a few hundred dollars saved up
+
+59:03.000 --> 59:08.920
+you cannot mathematically meet the threshold c of four thousand dollars you cannot move so the
+
+59:08.920 --> 59:14.600
+financial improvement the six hundred dollar discount that made me richer on the ledger actively caused
+
+59:14.600 --> 59:21.160
+a severe potentially life-threatening capability depletion yes the ledger says i am wealthier but in
+
+59:21.160 --> 59:26.840
+reality my future viability has been deeply compromised i traded structural resilience for a
+
+59:26.840 --> 59:31.960
+marginal scalar game and this is where the paper's critique of standard accounting strikes the
+
+59:31.960 --> 59:39.160
+hardest the financial ledger literally cannot see the loss of the executable exit because an exit is an
+
+59:39.160 --> 59:46.440
+unexercised option ledgers only record things that happen they only record realized transactions they do
+
+59:46.440 --> 59:52.520
+not and cannot record the futures you can no longer reach exactly it's a massive blind spot okay but let me
+
+59:52.520 --> 59:58.440
+push back here i can hear a neoclassical economist yelling at the podcast right now they would say
+
+59:58.440 --> 01:00:05.560
+look the aggregate surplus went up by 800 the system generated wealth the calder hicks efficiency
+
+01:00:05.560 --> 01:00:11.720
+argument right if the tenant gets stuck we can just use calder hicks efficiency the winner the landlord
+
+01:00:11.720 --> 01:00:17.640
+made an extra 200 he could just compensate the loser wait actually if the landlord only made
+
+01:00:17.640 --> 01:00:23.720
+200 he can't cover the 4 000 moving cost no he can't but let's assume the state steps in let's
+
+01:00:23.720 --> 01:00:29.320
+assume the government or an insurance policy writes a check can't we just solve this capability loss by
+
+01:00:29.320 --> 01:00:35.000
+throwing a lump sum of money at the tenant when the emergency happens the author anticipates this exact
+
+01:00:35.000 --> 01:00:42.680
+argument this is theorem h2 the severe limits of financial compensation the theorem mathematically details
+
+01:00:42.680 --> 01:00:48.520
+the strict conditions under which a monetary transfer actually restores a lost structural capability
+
+01:00:48.520 --> 01:00:54.840
+it is not automatic the transfer must meet three incredibly rigid rules now let's test the
+
+01:00:54.840 --> 01:01:01.240
+government bailout check against these rules what are they first is availability the outside unit the safe
+
+01:01:01.240 --> 01:01:07.160
+mold-free apartment you need to move to must actually physically exist in the market during the specific
+
+01:01:07.160 --> 01:01:13.080
+window you need it if the city has a housing shortage and vacancy is zero handing you four thousand
+
+01:01:13.080 --> 01:01:18.920
+dollars does nothing you still can't exit money can't buy an apartment that doesn't exist okay what's
+
+01:01:18.920 --> 01:01:25.640
+rule two timing the compensation money must arrive before the exit deadline if the toxic mold is destroying
+
+01:01:25.640 --> 01:01:31.480
+your lungs in month two and the bureaucratic government compensation check finally clears in month four
+
+01:01:31.480 --> 01:01:36.440
+the money is useless right the capability was lost the damage was done right you cannot buy your
+
+01:01:36.440 --> 01:01:42.600
+way out of a burning building with a post-dated check exactly and the third rule is sufficiency
+
+01:01:42.600 --> 01:01:48.440
+the amount transferred must precisely cover the specific shortfall at the exact moment of crisis
+
+01:01:48.440 --> 01:01:54.040
+if your threshold c is four thousand dollars and you have one hundred dollars your shortfall is thirty
+
+01:01:54.040 --> 01:01:59.080
+nine hundred dollars okay if the state insurance only pays out a standard two thousand dollar
+
+01:01:59.080 --> 01:02:05.880
+emergency grant the transfer fails you are still trapped so we have availability timing and sufficiency
+
+01:02:05.880 --> 01:02:11.720
+if even one of those fails the money is just numbers on a page that is the ultimate takeaway of the
+
+01:02:11.720 --> 01:02:18.200
+theorem proxy rewards and scalar pricing boiling human survival down to a dollar amount on a spreadsheet
+
+01:02:18.200 --> 01:02:24.040
+fundamentally hides substantive contributions and vulnerabilities a past check in a ledger only
+
+01:02:24.040 --> 01:02:29.720
+establishes what its specific mathematical interpretation supports it just means the numbers balance it just
+
+01:02:29.720 --> 01:02:36.280
+means the column of numbers added up it almost entirely misses the physical spatial and temporal
+
+01:02:36.280 --> 01:02:42.920
+realities of survival if timing or availability fails no amount of scalar money on a spreadsheet restores the
+
+01:02:42.920 --> 01:02:50.280
+structural capability to survive so what does this all mean this is a breathtaking synthesis of everything
+
+01:02:50.280 --> 01:02:55.160
+we've talked about today let's time this entire deep dive together let's do it we started by looking at
+
+01:02:55.160 --> 01:03:02.680
+steganography trying to spot a secret escape plan hidden in the digital noise of a channel where perfect
+
+01:03:02.680 --> 01:03:08.440
+encryption actually makes you perfectly visible we looked at the difference between the uniform distribution
+
+01:03:08.440 --> 01:03:15.800
+and the reality of the channel then we looked at the distributed material archive writing a 13 000 parameter
+
+01:03:15.800 --> 01:03:22.600
+10 to the 15 653 state payload into the microscopic physical structure of a clay brick
+
+01:03:22.600 --> 01:03:29.640
+hiding the fragile data behind the robust everyday utility of the object itself where we learned the
+
+01:03:29.640 --> 01:03:36.440
+vital difference between a vast address space and the actual linear information payload we moved to
+
+01:03:36.440 --> 01:03:43.160
+geology reconstructing the violent birth of our moon and the origin of our oxygen from the microscopic
+
+01:03:43.160 --> 01:03:50.920
+residual calculations hidden in magma samples and we saw how a comforting wide geological hypothesis
+
+01:03:50.920 --> 01:03:57.880
+actively masks the specific highly unlikely truth of our realized history tracking the invisible flow of
+
+01:03:57.880 --> 01:04:04.280
+electrons rather than just counting the visible atoms and finally we looked at the economics of the
+
+01:04:04.280 --> 01:04:11.480
+executable exit protecting a tenant's right to survive an economic shock a capability totally invisible to
+
+01:04:11.480 --> 01:04:18.280
+the win-win financial ledger the lesson across all four of these intensely different domains is remarkably
+
+01:04:18.920 --> 01:04:26.760
+almost hauntingly consistent the surface data the string of encrypted text the plain red brick the wide geological
+
+01:04:26.760 --> 01:04:33.960
+computer model the profitable balance sheet is just an interface it's just what we can easily see it's a
+
+01:04:33.960 --> 01:04:42.600
+simplification the real truth the real value and the real danger always lie in the unseen architecture beneath
+
+01:04:42.600 --> 01:04:49.480
+you cannot trust the surface you have to understand this specific channel distribution you have to
+
+01:04:49.480 --> 01:04:55.480
+know the difference between the mathematical state space and the actual payload you have to track the
+
+01:04:55.480 --> 01:05:03.080
+electrons not just the atoms and you have to measure the viable futures kept open not just the scalar dollars saved
+
+01:05:03.080 --> 01:05:09.080
+on a tuesday exactly and i want to leave you the listener with one final provocative thought that
+
+01:05:09.080 --> 01:05:14.920
+bridges the first and the last papers we discussed today okay let's hear it remember simmons's warden
+
+01:05:14.920 --> 01:05:20.680
+problem in steganography a hidden message is only compromised if the warden's model of the channel
+
+01:05:20.680 --> 01:05:27.160
+is better more tied to reality than the embedders model if the adversary understands physical reality
+
+01:05:27.160 --> 01:05:33.480
+better than you do your entire system fails the physical microchip betrays the mathematical trojan precisely
+
+01:05:33.480 --> 01:05:39.960
+now think about our modern economic systems through that exact same lens if our global financial ledgers
+
+01:05:39.960 --> 01:05:46.200
+our gdp measurements are just comforting wide hypotheses that fundamentally hide the true fragility of our
+
+01:05:46.200 --> 01:05:53.160
+capabilities what happens when a massive global shock strikes the system a common mode failure like a
+
+01:05:53.160 --> 01:06:00.920
+global pandemic a massive supply chain collapse a carrington event yes if our institutions and our ledgers
+
+01:06:00.920 --> 01:06:06.520
+aren't accurately modeling the true channel of human survival if they aren't mapping the actual
+
+01:06:06.520 --> 01:06:11.960
+executable exits and liquid thresholds of the population the vulnerability won't just be invisible to the
+
+01:06:11.960 --> 01:06:19.240
+ledger it will be a total surprise it will be catastrophic when tested because reality is the ultimate warden
+
+01:06:19.240 --> 01:06:24.840
+and reality always eventually checks the underlying math
+
