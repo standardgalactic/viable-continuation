@@ -1,5 +1,7 @@
 # The Economics of Viable Continuation
 
+[Architectures of Mind](https://github.com/standardgalactic/viable-continuation/blob/main/architectures/README.md) — *Project*
+
 [The Unit of Scrutiny](https://standardgalactic.github.io/viable-continuation/unit_of_scrutiny.pdf)
 
 [Concealment Encryption](https://standardgalactic.github.io/viable-continuation/concealment_encryption.pdf)
